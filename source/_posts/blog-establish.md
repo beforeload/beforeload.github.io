@@ -4,7 +4,7 @@ title: "blog establish"
 description: "搭建博客"
 date: 2013-04-03 23:11:12
 categories: memory
-tags: [纪事]
+tags: [记事]
 ---
 
 新建第一篇博文，以纪念今天博客建立
