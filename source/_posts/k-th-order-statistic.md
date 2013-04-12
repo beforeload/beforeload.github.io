@@ -3,7 +3,7 @@ layout: post
 title: "k-th Order Statistic"
 description: "k-th Order Statistic"
 date: 2013-04-05 20:12:32
-category: C
+categories: C
 tags: [C, 算法]
 ---
 
@@ -37,19 +37,21 @@ tags: [C, 算法]
 2. 在数组中求解第二小值也不是一件难事，只要想清楚求解的思路和步骤，问题便可迎刃而解。
 当然算法可能性多种多样，我所采用的方法简单粗暴：
 
-    /** 第二小的数 */
-    int second_min(int arr[])
-    {
-        int min, smin, i;
-            min = smin = arr[0];
-        for (i = 0; i < N; i++) {
-            if (arr[i] <= min) {
-                smin = min;
-                min = arr[i];
-            }
+```
+/** 第二小的数 */
+int second_min(int arr[])
+{
+    int min, smin, i;
+        min = smin = arr[0];
+    for (i = 0; i < N; i++) {
+        if (arr[i] <= min) {
+            smin = min;
+            min = arr[i];
         }
-        return smin;
     }
+    return smin;
+}
+```
 在每次找到更小的数字时，把当前的数字赋值给第二小的数字，算法复杂度同样是Θ(n),且只需遍历一次即可得出结果。
 
 3. 对于求`k-th Order Statistic`元素，常规的解法是先排序，后根据排出的顺序，得到第k小的值。时间复杂度等同与排序的时间复杂度。当然，我们不需要完全排出顺序也能得到结果，学过`quick sort`之后，根据`pivot`元素的位置与k值比较，稍作修改快排算法即可得出解法。

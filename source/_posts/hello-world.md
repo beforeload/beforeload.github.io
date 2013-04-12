@@ -1,6 +1,8 @@
-title: Hello World
+title: From Jekyll to Hexo
 date: 2013-04-12 13:11:40
-tags: 
+categories: memory
+tags: [迁移, 记事]
 ---
 
-Welcome to [Hexo](http://zespia.tw/hexo)! This is your very first post. Check [documentation](http://zespia.tw/hexo/docs) to learn how to use.
+#####从Jekyll迁移到Hexo
+Welcome to [Hexo](http://zespia.tw/hexo)! Check [documentation](http://zespia.tw/hexo/docs) to learn how to use.

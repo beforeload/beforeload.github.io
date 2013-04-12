@@ -55,17 +55,54 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-12T05:11:40.000Z"><a href="/2013/04/12/hello-world/">Apr 12 2013</a></time>
+        <time datetime="2013-04-12T18:56:30.000Z"><a href="/2013/04/13/analyze-mapreduce/">Apr 13 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/04/12/hello-world/">Hello World</a></h1>
+    <h1 class="title"><a href="/2013/04/13/analyze-mapreduce/">MapReduce</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>Welcome to <a href="http://zespia.tw/hexo">Hexo</a>! This is your very first post. Check <a href="http://zespia.tw/hexo/docs">documentation</a> to learn how to use.</p>
+        <p>准备写一边博文，介绍一下对MapReduce的一点理解</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/13/analyze-mapreduce/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-12T05:11:40.000Z"><a href="/2013/04/12/hello-world/">Apr 12 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/12/hello-world/">From Jekyll to Hexo</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h5>从Jekyll迁移到Hexo</h5>
+<p>Welcome to <a href="http://zespia.tw/hexo">Hexo</a>! Check <a href="http://zespia.tw/hexo/docs">documentation</a> to learn how to use.</p>
 
       
     </div>
@@ -102,38 +139,46 @@
     <div class="entry">
       
         <h4>问题：</h4>
-<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。
-    int maze[5][5] = {
-        0, 1, 0, 0, 0,
-        0, 1, 0, 1, 0,
-        0, 0, 0, 0, 0,
-        0, 0, 0, 1, 0,
-    };</p>
-<h4>思路：</h4>
-<p><strong>解法一：</strong>
-深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。</p>
-<pre><code>将起点标记为已走过并压栈；
-<span class="function"><span class="title">while</span> <span class="params">(栈非空)</span> {
-    从栈顶弹出一个点P；
-    <span class="title">if</span> <span class="params">(p这个点是终点)</span> {
-        <span class="title">break</span>;
+<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>int maze<span class="matrix">[<span class="number">5</span>]</span><span class="matrix">[<span class="number">5</span>]</span> = <span class="cell">{
+    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
+}</span>;
+</pre></td></tr></table></figure>
+#### 思路：
+<strong>解法一：</strong>
+深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。
+
+    将起点标记为已走过并压栈；
+    while (栈非空) {
+        从栈顶弹出一个点P；
+        if (p这个点是终点) {
+            break;
+        }
+        沿右、下、左、上四个方向探索相邻的点;
+        if (和p相邻的点有路可走，并且还没走过) {
+            将相邻的点标记为已走过并压栈，它的前趋就是p点;
+        }
     }
-    沿右、下、左、上四个方向探索相邻的点;
-    <span class="title">if</span> <span class="params">(和p相邻的点有路可走，并且还没走过)</span> {
-        将相邻的点标记为已走过并压栈，它的前趋就是<span class="title">p</span>点;
+    if (p点是终点) {
+        打印p点的坐标；
+        while (p点有前趋) {
+            p点 = p点的前趋;
+            打印p点的坐标;
+        }
+    } else {
+        没有路线可以到达终点;
     }
-}
-<span class="title">if</span> <span class="params">(p点是终点)</span> {
-    打印<span class="title">p</span>点的坐标；
-    <span class="title">while</span> <span class="params">(p点有前趋)</span> {
-        <span class="title">p</span>点 = <span class="title">p</span>点的前趋;
-        打印<span class="title">p</span>点的坐标;
-    }
-} <span class="title">else</span> {
-    没有路线可以到达终点;
-}
-</code></pre>
-<p><strong><em>附源码如下：</em></strong></p>
+
+<strong><em>附源码如下：</em></strong>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -570,11 +615,11 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/analyze-map-reduce/">Apr 6 2013</a></time>
+        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">Apr 6 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/04/06/analyze-map-reduce/">理解 Hadoop 的 Java API(未完成)</a></h1>
+    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API(未完成)</a></h1>
   
 
     </header>
@@ -604,7 +649,7 @@
       
         
           <div class="alignleft">
-            <a href="/2013/04/06/analyze-map-reduce/#more" class="more-link">Read More</a>
+            <a href="/2013/04/06/hdfs-java-api/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -658,27 +703,40 @@
 </code></pre>
 <p>算法复杂度为Θ(n),且只需要遍历一次即可得出结果；</p>
 <ol>
-<li><p>在数组中求解第二小值也不是一件难事，只要想清楚求解的思路和步骤，问题便可迎刃而解。
-当然算法可能性多种多样，我所采用的方法简单粗暴：</p>
-<p> /<em>* 第二小的数 </em>/
- int second_min(int arr[])
- {</p>
-<pre><code> <span class="keyword">int</span> <span class="built_in">min</span>, smin, i;
-     <span class="built_in">min</span> = smin = arr[<span class="number">0</span>];
- <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) {
-     <span class="keyword">if</span> (arr[i] &lt;= <span class="built_in">min</span>) {
-         smin = <span class="built_in">min</span>;
-         <span class="built_in">min</span> = arr[i];
-     }
- }
- <span class="keyword">return</span> smin;
-</code></pre>
-<p> }
+<li>在数组中求解第二小值也不是一件难事，只要想清楚求解的思路和步骤，问题便可迎刃而解。
+当然算法可能性多种多样，我所采用的方法简单粗暴：</li>
+</ol>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="javadoc">/** 第二小的数 */</span>
+<span class="keyword">int</span> second_min(<span class="keyword">int</span> arr[])
+{
+    <span class="keyword">int</span> min, smin, i;
+        min = smin = arr[<span class="number">0</span>];
+    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) {
+        <span class="keyword">if</span> (arr[i] &lt;= min) {
+            smin = min;
+            min = arr[i];
+        }
+    }
+    <span class="keyword">return</span> smin;
+}
+</pre></td></tr></table></figure>
 在每次找到更小的数字时，把当前的数字赋值给第二小的数字，算法复杂度同样是Θ(n),且只需遍历一次即可得出结果。</p>
-</li>
-<li><p>对于求<code>k-th Order Statistic</code>元素，常规的解法是先排序，后根据排出的顺序，得到第k小的值。时间复杂度等同与排序的时间复杂度。当然，我们不需要完全排出顺序也能得到结果，学过<code>quick sort</code>之后，根据<code>pivot</code>元素的位置与k值比较，稍作修改快排算法即可得出解法。
-求解算法如下：</p>
-</li>
+<ol>
+<li>对于求<code>k-th Order Statistic</code>元素，常规的解法是先排序，后根据排出的顺序，得到第k小的值。时间复杂度等同与排序的时间复杂度。当然，我们不需要完全排出顺序也能得到结果，学过<code>quick sort</code>之后，根据<code>pivot</code>元素的位置与k值比较，稍作修改快排算法即可得出解法。
+求解算法如下：</li>
 </ol>
 <pre><code>
 int partition(int start, int end)
@@ -843,21 +901,44 @@ int main(int argc, const char *argv[])
 </div>
 
   
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/C/">C</a><small>2</small></li>
+  
+    <li><a href="/categories/hadoop/">hadoop</a><small>2</small></li>
+  
+    <li><a href="/categories/memory/">memory</a><small>2</small></li>
+  
+  </ul>
+</div>
+
 
   
 <div class="widget tag">
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/API，HDFS/">API，HDFS</a><small>1</small></li>
+    <li><a href="/tags/API/">API</a><small>1</small></li>
+  
+    <li><a href="/tags/API，HDFS/">API，HDFS</a><small>0</small></li>
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
+    <li><a href="/tags/HDFS/">HDFS</a><small>1</small></li>
+  
     <li><a href="/tags/Hadoop/">Hadoop</a><small>1</small></li>
+  
+    <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   
     <li><a href="/tags/算法/">算法</a><small>2</small></li>
   
     <li><a href="/tags/纪事/">纪事</a><small>1</small></li>
+  
+    <li><a href="/tags/记事/">记事</a><small>1</small></li>
+  
+    <li><a href="/tags/迁移/">迁移</a><small>1</small></li>
   
   </ul>
 </div>

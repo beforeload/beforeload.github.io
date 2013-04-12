@@ -61,38 +61,46 @@
     <div class="entry">
       
         <h4>问题：</h4>
-<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。
-    int maze[5][5] = {
-        0, 1, 0, 0, 0,
-        0, 1, 0, 1, 0,
-        0, 0, 0, 0, 0,
-        0, 0, 0, 1, 0,
-    };</p>
-<h4>思路：</h4>
-<p><strong>解法一：</strong>
-深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。</p>
-<pre><code>将起点标记为已走过并压栈；
-<span class="function"><span class="title">while</span> <span class="params">(栈非空)</span> {
-    从栈顶弹出一个点P；
-    <span class="title">if</span> <span class="params">(p这个点是终点)</span> {
-        <span class="title">break</span>;
+<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>int maze<span class="matrix">[<span class="number">5</span>]</span><span class="matrix">[<span class="number">5</span>]</span> = <span class="cell">{
+    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
+}</span>;
+</pre></td></tr></table></figure>
+#### 思路：
+<strong>解法一：</strong>
+深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。
+
+    将起点标记为已走过并压栈；
+    while (栈非空) {
+        从栈顶弹出一个点P；
+        if (p这个点是终点) {
+            break;
+        }
+        沿右、下、左、上四个方向探索相邻的点;
+        if (和p相邻的点有路可走，并且还没走过) {
+            将相邻的点标记为已走过并压栈，它的前趋就是p点;
+        }
     }
-    沿右、下、左、上四个方向探索相邻的点;
-    <span class="title">if</span> <span class="params">(和p相邻的点有路可走，并且还没走过)</span> {
-        将相邻的点标记为已走过并压栈，它的前趋就是<span class="title">p</span>点;
+    if (p点是终点) {
+        打印p点的坐标；
+        while (p点有前趋) {
+            p点 = p点的前趋;
+            打印p点的坐标;
+        }
+    } else {
+        没有路线可以到达终点;
     }
-}
-<span class="title">if</span> <span class="params">(p点是终点)</span> {
-    打印<span class="title">p</span>点的坐标；
-    <span class="title">while</span> <span class="params">(p点有前趋)</span> {
-        <span class="title">p</span>点 = <span class="title">p</span>点的前趋;
-        打印<span class="title">p</span>点的坐标;
-    }
-} <span class="title">else</span> {
-    没有路线可以到达终点;
-}
-</code></pre>
-<p><strong><em>附源码如下：</em></strong></p>
+
+<strong><em>附源码如下：</em></strong>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -510,6 +518,11 @@
     <footer>
       
         
+  
+  <div class="categories">
+    <a href="/categories/C/">C</a>
+  </div>
+
         
   
   <div class="tags">
@@ -550,21 +563,44 @@
 </div>
 
   
+<div class="widget tag">
+  <h3 class="title">Categories</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/C/">C</a><small>2</small></li>
+  
+    <li><a href="/categories/hadoop/">hadoop</a><small>2</small></li>
+  
+    <li><a href="/categories/memory/">memory</a><small>2</small></li>
+  
+  </ul>
+</div>
+
 
   
 <div class="widget tag">
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/API，HDFS/">API，HDFS</a><small>1</small></li>
+    <li><a href="/tags/API/">API</a><small>1</small></li>
+  
+    <li><a href="/tags/API，HDFS/">API，HDFS</a><small>0</small></li>
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
+    <li><a href="/tags/HDFS/">HDFS</a><small>1</small></li>
+  
     <li><a href="/tags/Hadoop/">Hadoop</a><small>1</small></li>
+  
+    <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   
     <li><a href="/tags/算法/">算法</a><small>2</small></li>
   
     <li><a href="/tags/纪事/">纪事</a><small>1</small></li>
+  
+    <li><a href="/tags/记事/">记事</a><small>1</small></li>
+  
+    <li><a href="/tags/迁移/">迁移</a><small>1</small></li>
   
   </ul>
 </div>

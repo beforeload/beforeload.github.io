@@ -3,7 +3,7 @@ layout: post
 title: "blog establish"
 description: "搭建博客"
 date: 2013-04-03 23:11:12
-category: 记事
+categories: memory
 tags: [纪事]
 ---
 
