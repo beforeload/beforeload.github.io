@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>k-th Order Statistic | C | beforeload</title>
+  <meta name="author" content="beforeload">
+  
+  <meta name="description" content="k-th Order Statistic">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="k-th Order Statistic"/>
+  <meta property="og:site_name" content="beforeload"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">beforeload</a></h1>
+  <h2><a href="/">对编程世界充满激情的少年</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-12T05:19:56.000Z"><a href="/2013/04/12/2013-04-05-k-th-order-statistic/">Apr 12 2013</a></time>
+      
+      
+  
+    <h1 class="title">k-th Order Statistic</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3>问题描述:</h3>
+<ol>
+<li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
+<li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
+<li>进一步泛化，在一组随机排列的数中找出第k小的，这个元素称为<code>k-th Order Statistic</code>。能想到的最直观的算法肯定是先把这些数排序然后取第k个，时间复杂度和排序算法相同，可以是Θ(nlgn)。这个问题虽然比前两个问题复杂，但它也有平均情况下时间复杂度是Θ(n)的算法</li>
+</ol>
+<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html">线性查找</a></h6>
+<hr>
+<h3>求解及算法：</h3>
+<p>求一组数中最小值，对于数组而言是一个很easy且常见的问题。
+解决算法也很容易:</p>
+<pre><code><span class="keyword">int</span> minimum(<span class="keyword">int</span> arr[])
+{
+    <span class="keyword">int</span> j,temp;
+    temp = arr[<span class="number">0</span>];
+
+    <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; N; j++) {
+        <span class="keyword">if</span>(temp &gt; arr[j]){
+            swap(&amp;temp,&amp;arr[j]);
+        }
+    }
+    <span class="keyword">return</span> temp;
+}
+</code></pre>
+<p>算法复杂度为Θ(n),且只需要遍历一次即可得出结果；</p>
+<ol>
+<li><p>在数组中求解第二小值也不是一件难事，只要想清楚求解的思路和步骤，问题便可迎刃而解。
+当然算法可能性多种多样，我所采用的方法简单粗暴：</p>
+<p> /<em>* 第二小的数 </em>/
+ int second_min(int arr[])
+ {</p>
+<pre><code> <span class="keyword">int</span> <span class="built_in">min</span>, smin, i;
+     <span class="built_in">min</span> = smin = arr[<span class="number">0</span>];
+ <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) {
+     <span class="keyword">if</span> (arr[i] &lt;= <span class="built_in">min</span>) {
+         smin = <span class="built_in">min</span>;
+         <span class="built_in">min</span> = arr[i];
+     }
+ }
+ <span class="keyword">return</span> smin;
+</code></pre>
+<p> }
+在每次找到更小的数字时，把当前的数字赋值给第二小的数字，算法复杂度同样是Θ(n),且只需遍历一次即可得出结果。</p>
+</li>
+<li><p>对于求<code>k-th Order Statistic</code>元素，常规的解法是先排序，后根据排出的顺序，得到第k小的值。时间复杂度等同与排序的时间复杂度。当然，我们不需要完全排出顺序也能得到结果，学过<code>quick sort</code>之后，根据<code>pivot</code>元素的位置与k值比较，稍作修改快排算法即可得出解法。
+求解算法如下：</p>
+</li>
+</ol>
+<pre><code>
+int partition(int start, int end)
+{
+    int pivot, mid, i;
+    pivot = arr[start];
+    mid = start;
+    for (i = start + 1; i &lt;= end; i++) {
+        if (arr[i] &lt; pivot) {
+            mid++;
+            swap(&amp;arr[i], &amp;arr[mid]);
+        }
+    }
+    swap(&amp;arr[mid], &amp;arr[start]);
+    return mid;
+}
+
+int order_statistic(int start, int end, int k)
+{
+    int i;
+    if (start &lt; end) {
+        i = partition(start, end);
+        if (k == i) {
+            return i;
+        } else if (k &gt; i) {
+            order_statistic(i + 1, end, k);
+        } else {
+            order_statistic(start, i - 1, k);
+        }
+    }
+}
+</code></pre>
+
+<p>算法复杂度等同与快排是Θ(nlgn)，平均复杂度为Θ(n)。</p>
+<p>附上完整C语言代码：</p>
+<pre><code>#include &lt;stdio.h&gt;
+#define N 10
+int arr[N] = { 3, 4, 1, 3, 5, 6, 7, 9, 1, 2 };
+
+int partition(int start, int end)
+{
+    int pivot, mid, i;
+    pivot = arr[start];
+    mid = start;
+    for (i = start + 1; i &lt;= end; i++) {
+        if (arr[i] &lt; pivot) {
+            mid++;
+            swap(&amp;arr[i], &amp;arr[mid]);
+        }
+    }
+    swap(&amp;arr[mid], &amp;arr[start]);
+    return mid;
+}
+
+int order_statistic(int start, int end, int k)
+{
+    int i;
+    if (start &lt; end) {
+        i = partition(start, end);
+        if (k == i) {
+            return i;
+        } else if (k &gt; i) {
+            order_statistic(i + 1, end, k);
+        } else {
+            order_statistic(start, i - 1, k);
+        }
+    }
+}
+
+int swap(int *a, int *b)
+{
+    int temp;
+    temp = *b;
+    *b = *a;
+    *a = temp;
+}
+
+int main(int argc, const char *argv[])
+{
+    int i, k = 3, result;
+    result = order_statistic(0, N - 1, k);
+    for (i = 0; i &lt; N; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    printf("The %d-th Order Statistic is %d.\n", k + 1, arr[result]);
+    return 0;
+}
+</code></pre>
+
+<h3>讨论</h3>
+<hr>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C</a>, <a href="/tags/算法/">算法</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:beforeload.github.io">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/API，HDFS/">API，HDFS</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C</a><small>2</small></li>
+  
+    <li><a href="/tags/Hadoop/">Hadoop</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>2</small></li>
+  
+    <li><a href="/tags/纪事/">纪事</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 beforeload
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
