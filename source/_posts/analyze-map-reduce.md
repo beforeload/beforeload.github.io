@@ -2,6 +2,7 @@
 layout: post
 title: "理解 Hadoop 的 Java API(未完成)"
 description: "HDFS 文件上传、创建、重命名、删除等操作"
+date: 2013-04-06 15:14:42
 category: Hadoop
 tags: [Hadoop, API，HDFS]
 ---

@@ -2,6 +2,7 @@
 layout: post
 title: "k-th Order Statistic"
 description: "k-th Order Statistic"
+date: 2013-04-05 20:12:32
 category: C
 tags: [C, 算法]
 ---
