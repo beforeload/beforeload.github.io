@@ -3,5 +3,5 @@ node_modules
 db.json
 *.swp
 
-.deploy/*
-public/*
+.deploy
+public
