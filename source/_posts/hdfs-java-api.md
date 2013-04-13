@@ -9,7 +9,9 @@ tags: [Hadoop, API, HDFS]
 
 ### 案例(待补充)
 #### 上传本地文件到 HDFS
+```Java
 
+```
 #### 创建 HDFS 文件
 
 #### 重命名 HDFS 文件

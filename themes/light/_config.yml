@@ -1,6 +1,7 @@
 menu:
   Home: /
   Archives: /archives
+  RSS: /atom.xml
 
 widgets: 
 - search
@@ -22,6 +23,14 @@ addthis:
   twitter: true
   google: true
   pinterest: true
+
+jiathis:
+  enable: true
+  qzone: true
+  tsina: true
+  tqq: true
+  renren: true
+  weixin: true
 
 fancybox: true
 
