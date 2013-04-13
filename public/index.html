@@ -632,32 +632,514 @@
       
       
   
-    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API(未完成)</a></h1>
+    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h3>案例(待补充)</h3>
+        <h3>案例</h3>
 <h4>上传本地文件到 HDFS</h4>
-<pre><code class="lang-Java">
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path srcPath = <span class="keyword">new</span> Path(src);
+    Path dstPath = <span class="keyword">new</span> Path(dst);
+    hdfs.copyFromLocalFile(srcPath, dstPath);
+    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
+    
+    FileStatus files[] = hdfs.listStatus(dstPath);
+    <span class="keyword">for</span> (FileStatus file : files) {
+        System.out.println(file.getPath());
+    }
+    hdfs.close();
+}
+</pre></td></tr></table></figure>
 
-</code></pre>
 <h4>创建 HDFS 文件</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createFile(String dst, String config) <span class="keyword">throws</span> IOException{
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    String content = <span class="string">"Hello World,beforeload"</span>;
+    <span class="keyword">byte</span>[] buff = content.getBytes();
+    FileSystem hdfs = FileSystem.get(conf);
+    Path dfsPath = <span class="keyword">new</span> Path(dst);
+    FSDataOutputStream os = hdfs.create(dfsPath);
+    os.write(buff,<span class="number">0</span>,buff.length);
+    os.write(content.getBytes(<span class="string">"UTF-8"</span>));
+    os.close();
+    hdfs.close();
+}
+</pre></td></tr></table></figure>
+
 <h4>重命名 HDFS 文件</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rename(String oldName, String newName, String config)
+        <span class="keyword">throws</span> IOException {
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path oldPath = <span class="keyword">new</span> Path(oldName);
+    Path newPath = <span class="keyword">new</span> Path(newName);
+    <span class="keyword">boolean</span> isRename = hdfs.rename(oldPath, newPath);
+}
+</pre></td></tr></table></figure>
+
 <h4>删除 HDFS 上的文件</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> deleteFile(String path, String config) <span class="keyword">throws</span> IOException {
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path deletePath = <span class="keyword">new</span> Path(path);
+    <span class="keyword">boolean</span> isDeleted = hdfs.delete(deletePath, <span class="keyword">false</span>);
+    <span class="comment">// 递归删除</span>
+    <span class="comment">// boolean isDelete = hdfs.delete(deletePath, true);</span>
+    System.out.println(<span class="string">"delete? "</span>+ isDeleted);
+}
+</pre></td></tr></table></figure>
+
 <h4>查看 HDFS 文件的最后修改时间</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getTime(String path, String config) <span class="keyword">throws</span> IOException{
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path filePath = <span class="keyword">new</span> Path(path);
+    FileStatus fileStatus = hdfs.getFileStatus(filePath);
+    <span class="keyword">long</span> modifyTime = fileStatus.getModificationTime();
+    System.out.println(<span class="string">"Modification time is:"</span> + modifyTime);
+}
+</pre></td></tr></table></figure>
+
 <h4>查看某个 HDFS 文件是否存在</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> isExist(String path, String config) <span class="keyword">throws</span> IOException {
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    <span class="keyword">boolean</span> isExist = hdfs.exists(<span class="keyword">new</span> Path(path));
+    System.out.println(<span class="string">"Exist?"</span>+ isExist);
+}
+</pre></td></tr></table></figure>
+
 <h4>查找某个文件在 HDFS 集群的位置</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getFileBlockLocation(String path, String config)
+        <span class="keyword">throws</span> IOException {
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path filePath = <span class="keyword">new</span> Path(path);
+    FileStatus fileStatus = hdfs.getFileStatus(filePath);
+    BlockLocation[] blockLocations = hdfs.getFileBlockLocations(fileStatus,
+            <span class="number">0</span>, fileStatus.getLen());
+
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; blockLocations.length; i++) {
+        String[] hosts = blockLocations[i].getHosts();
+        System.out.println(<span class="string">"block"</span> + i + <span class="string">"location:"</span> + hosts[i]);
+    }
+}
+</pre></td></tr></table></figure>
+
 <h4>获取 HDFS 集群上所有节点的名称</h4>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getHostName(String config) <span class="keyword">throws</span> IOException {
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem fs = FileSystem.get(conf);
+    DistributedFileSystem hdfs = (DistributedFileSystem) fs;
+    DatanodeInfo[] dataNodeStats = hdfs.getDataNodeStats();
+    String[] names = <span class="keyword">new</span> String[dataNodeStats.length];
+    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataNodeStats.length; i++) {
+        names[i] = dataNodeStats[i].getHostName();
+        System.out.println(<span class="string">"node "</span> + i + <span class="string">" name "</span> + names[i]);
+    }
+}
+</pre></td></tr></table></figure>
+
 <h3>问题</h3>
 <ol>
-<li>上传文件不成功</li>
+<li>&quot;Wrong FS expected: file:///&quot;</li>
 </ol>
+<p>这个问题其实严格意义上并不属于API调用方面的问题，具体问题出现的原因不得而知，不过在查阅资料一番后还是得出了问题的解决方法。</p>
+<ul>
+<li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn&#39;t work!&quot; </li>
+<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>conf.addResource(<span class="keyword">new</span> Path(<span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>));
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
 <h3>讨论</h3>
-<p>参考书籍：
-[1] 《Hadoop实战》—— &quot;Hadoop in Action&quot;
-[2] 《实战Hadoop》—— &quot;开启通向云计算的捷径&quot;</p>
+<p><strong><em>附源码如下：</em></strong></p>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+</pre></td><td class="code"><pre><span class="keyword">import</span> java.io.IOException;
+
+<span class="keyword">import</span> org.apache.hadoop.conf.Configuration;
+<span class="keyword">import</span> org.apache.hadoop.fs.BlockLocation;
+<span class="keyword">import</span> org.apache.hadoop.fs.FSDataOutputStream;
+<span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;
+<span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;
+<span class="keyword">import</span> org.apache.hadoop.fs.Path;
+<span class="keyword">import</span> org.apache.hadoop.hdfs.DistributedFileSystem;
+<span class="keyword">import</span> org.apache.hadoop.hdfs.protocol.DatanodeInfo;
+
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span> {</span>
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> IOException {
+		String src, dst1, config, dst2, oldName, newName;
+		src = <span class="string">"/root/word.txt"</span>;
+		dst1 = <span class="string">"/"</span>;
+		config = <span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>;
+		<span class="comment">// copyFile(src, dst1, config);</span>
+
+		dst2 = <span class="string">"/test.txt"</span>;
+		<span class="comment">// createFile(dst2, config);</span>
+
+		oldName = dst2;
+		newName = <span class="string">"/test1.txt"</span>;
+		<span class="comment">// rename(oldName, newName, config);</span>
+
+		<span class="comment">// deleteFile(dst2, config);</span>
+		<span class="comment">// getTime(dst1, config);</span>
+
+		<span class="comment">// isExist(dst2, config);</span>
+		<span class="comment">// isExist(dst1, config);</span>
+
+		<span class="comment">// getFileBlockLocation(dst2, config);</span>
+
+		getHostName(config);
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config)
+			<span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem hdfs = FileSystem.get(conf);
+		Path srcPath = <span class="keyword">new</span> Path(src);
+		Path dstPath = <span class="keyword">new</span> Path(dst);
+		hdfs.copyFromLocalFile(srcPath, dstPath);
+		System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
+
+		FileStatus files[] = hdfs.listStatus(dstPath);
+		<span class="keyword">for</span> (FileStatus file : files) {
+			System.out.println(file.getPath());
+		}
+		hdfs.close();
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createFile(String dst, String config) <span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		String content = <span class="string">"Hello World,beforeload"</span>;
+		<span class="keyword">byte</span>[] buff = content.getBytes();
+		FileSystem hdfs = FileSystem.get(conf);
+		Path dfsPath = <span class="keyword">new</span> Path(dst);
+		FSDataOutputStream os = hdfs.create(dfsPath);
+		os.write(buff, <span class="number">0</span>, buff.length);
+		os.write(content.getBytes(<span class="string">"UTF-8"</span>));
+		os.close();
+		hdfs.close();
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rename(String oldName, String newName, String config)
+			<span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem hdfs = FileSystem.get(conf);
+		Path oldPath = <span class="keyword">new</span> Path(oldName);
+		Path newPath = <span class="keyword">new</span> Path(newName);
+		<span class="keyword">boolean</span> isRename = hdfs.rename(oldPath, newPath);
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> deleteFile(String path, String config)
+			<span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem hdfs = FileSystem.get(conf);
+		Path deletePath = <span class="keyword">new</span> Path(path);
+		<span class="keyword">boolean</span> isDeleted = hdfs.delete(deletePath, <span class="keyword">false</span>);
+		<span class="comment">// 递归删除</span>
+		<span class="comment">// boolean isDelete = hdfs.delete(deletePath, true);</span>
+		System.out.println(<span class="string">"delete? "</span> + isDeleted);
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getTime(String path, String config) <span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem hdfs = FileSystem.get(conf);
+		Path filePath = <span class="keyword">new</span> Path(path);
+		FileStatus fileStatus = hdfs.getFileStatus(filePath);
+		<span class="keyword">long</span> modifyTime = fileStatus.getModificationTime();
+		System.out.println(<span class="string">"Modification time is:"</span> + modifyTime);
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> isExist(String path, String config) <span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem hdfs = FileSystem.get(conf);
+		<span class="keyword">boolean</span> isExist = hdfs.exists(<span class="keyword">new</span> Path(path));
+		System.out.println(<span class="string">"Exist?"</span> + isExist);
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getFileBlockLocation(String path, String config)
+			<span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem hdfs = FileSystem.get(conf);
+		Path filePath = <span class="keyword">new</span> Path(path);
+		FileStatus fileStatus = hdfs.getFileStatus(filePath);
+		BlockLocation[] blockLocations = hdfs.getFileBlockLocations(fileStatus,
+				<span class="number">0</span>, fileStatus.getLen());
+
+		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; blockLocations.length; i++) {
+			String[] hosts = blockLocations[i].getHosts();
+			System.out.println(<span class="string">"block"</span> + i + <span class="string">"location:"</span> + hosts[i]);
+		}
+	}
+
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getHostName(String config) <span class="keyword">throws</span> IOException {
+		Configuration conf = <span class="keyword">new</span> Configuration();
+		conf.addResource(<span class="keyword">new</span> Path(config));
+		FileSystem fs = FileSystem.get(conf);
+		DistributedFileSystem hdfs = (DistributedFileSystem) fs;
+		DatanodeInfo[] dataNodeStats = hdfs.getDataNodeStats();
+		String[] names = <span class="keyword">new</span> String[dataNodeStats.length];
+		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dataNodeStats.length; i++) {
+			names[i] = dataNodeStats[i].getHostName();
+			System.out.println(<span class="string">"node "</span> + i + <span class="string">" name "</span> + names[i]);
+		}
+	}
+}
+</pre></td></tr></table></figure>
+
+<h4>参考书籍：</h4>
+<ol>
+<li>《Hadoop实战》—— &quot;Hadoop in Action&quot;</li>
+<li>《实战Hadoop》—— &quot;开启通向云计算的捷径&quot;</li>
+<li><a href="http://hadoop.apache.org/core/docs/current/api/org/apache/hadoop/fs/package-summary.html">Hadoop Java API 官方文档</a></li>
+</ol>
 
       
     </div>
