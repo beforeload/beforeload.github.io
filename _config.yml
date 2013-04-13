@@ -8,7 +8,7 @@ subtitle: 对编程世界充满激情的少年
 description: 熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop
 author: beforeload
 email: fe.daniel91@gmail.com
-language: Chinese, English
+language: zh-CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -66,14 +66,15 @@ per_page: 10
 pagination_dir: page
 
 # Disqus
-disqus_shortname:
+disqus_shortname: beforeload
 
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
 ## Themes: https://github.com/tommy351/hexo/wiki/Themes
 theme: light
 exclude_generator:
-
+plugins:
+- hexo-generator-feed
 # Deployment
 ## Docs: http://zespia.tw/hexo/docs/deploy.html
 deploy:

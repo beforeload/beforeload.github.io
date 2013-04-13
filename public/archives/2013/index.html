@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2013 | beforeload</title>
+  <title>归档：2013 | beforeload</title>
   <meta name="author" content="beforeload">
   
   <meta name="description" content="熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop">
@@ -19,11 +19,23 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40059659-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
 </head>
 
 
@@ -895,14 +907,14 @@ int main(int argc, const char *argv[])
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:beforeload.github.io">
   </form>
 </div>
 
   
 <div class="widget tag">
-  <h3 class="title">Categories</h3>
+  <h3 class="title">分类</h3>
   <ul class="entry">
   
     <li><a href="/categories/C/">C</a><small>2</small></li>
@@ -917,12 +929,10 @@ int main(int argc, const char *argv[])
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">标签</h3>
   <ul class="entry">
   
     <li><a href="/tags/API/">API</a><small>1</small></li>
-  
-    <li><a href="/tags/API，HDFS/">API，HDFS</a><small>0</small></li>
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
@@ -933,8 +943,6 @@ int main(int argc, const char *argv[])
     <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   
     <li><a href="/tags/算法/">算法</a><small>2</small></li>
-  
-    <li><a href="/tags/纪事/">纪事</a><small>1</small></li>
   
     <li><a href="/tags/记事/">记事</a><small>2</small></li>
   
@@ -958,6 +966,18 @@ int main(int argc, const char *argv[])
   <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
+
+<script type="text/javascript">
+var disqus_shortname = 'beforeload';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
 
 
 
