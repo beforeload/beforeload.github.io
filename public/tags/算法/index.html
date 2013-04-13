@@ -73,7 +73,7 @@
       
       
   
-    <h1 class="title"><a href="/2013/04/09/DFS-and-BFS/">理解深度优先和广度优先(未完成)</a></h1>
+    <h1 class="title"><a href="/2013/04/09/DFS-and-BFS/">理解深度优先和广度优先</a></h1>
   
 
     </header>
@@ -94,32 +94,53 @@
     <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
 }</span>;
 </pre></td></tr></table></figure>
-#### 思路：
-<strong>解法一：</strong>
-深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。
 
-    将起点标记为已走过并压栈；
-    while (栈非空) {
-        从栈顶弹出一个点P；
-        if (p这个点是终点) {
-            break;
-        }
-        沿右、下、左、上四个方向探索相邻的点;
-        if (和p相邻的点有路可走，并且还没走过) {
-            将相邻的点标记为已走过并压栈，它的前趋就是p点;
-        }
+<h3>思路：</h3>
+<p><strong>解法一：</strong></p>
+<p>深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre>将起点标记为已走过并压栈；
+<span class="function"><span class="title">while</span> <span class="params">(栈非空)</span> {
+    从栈顶弹出一个点P；
+    <span class="title">if</span> <span class="params">(p这个点是终点)</span> {
+        <span class="title">break</span>;
     }
-    if (p点是终点) {
-        打印p点的坐标；
-        while (p点有前趋) {
-            p点 = p点的前趋;
-            打印p点的坐标;
-        }
-    } else {
-        没有路线可以到达终点;
+    沿右、下、左、上四个方向探索相邻的点;
+    <span class="title">if</span> <span class="params">(和p相邻的点有路可走，并且还没走过)</span> {
+        将相邻的点标记为已走过并压栈，它的前趋就是<span class="title">p</span>点;
     }
+}
+<span class="title">if</span> <span class="params">(p点是终点)</span> {
+    打印<span class="title">p</span>点的坐标；
+    <span class="title">while</span> <span class="params">(p点有前趋)</span> {
+        <span class="title">p</span>点 = <span class="title">p</span>点的前趋;
+        打印<span class="title">p</span>点的坐标;
+    }
+} <span class="title">else</span> {
+    没有路线可以到达终点;
+}
+</pre></td></tr></table></figure>
 
-<strong><em>附源码如下：</em></strong>
+<p><strong><em>附源码如下：</em></strong></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -221,7 +242,6 @@
 99
 100
 101
-102
 </pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <span class="preprocessor">#define MAX_ROW 5</span>
 <span class="preprocessor">#define MAX_COL 5</span>
@@ -285,7 +305,6 @@
 	push(visit_point);
 }
 
-
 <span class="keyword">int</span> main(<span class="keyword">void</span>)
 {
 	<span class="keyword">struct</span> point p = {
@@ -326,8 +345,42 @@
 }
 </pre></td></tr></table></figure>
 
-<p><strong>解法二：</strong></p>
-<pre><code>将起点标记为已经走过的队列
+<p><strong>DFS 优化：</strong></p>
+<p>代码没有什么难懂的地方，不过有很多可以优化的地方，例如在predecessor这个数据结构上，浪费了太多的存储空间，可以做以下优化：</p>
+<ol>
+<li><p>重新定义predecessor存储方式
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>struct point predecessor<span class="matrix">[MAX_ROW]</span><span class="matrix">[MAX_COL]</span> = <span class="cell">{ <span class="number">0</span> }</span>;
+</pre></td></tr></table></figure>
+所有的值定义为0,前趋点为上点，则将他赋值为1，前趋点为下点，则赋值为-1，前趋点为左点，则赋值为2,前趋点为右点，则赋值为-2；通过定义四个不同的值区分前趋点，减少了存储空间，相应的函数也要对应修改即可。</p>
+</li>
+<li><p>用递归取代predecessor数据结构</p>
+</li>
+</ol>
+<p><strong>解法二：</strong>
+广度优先搜索(BFS, Breadth First Search):
+BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往前走一步。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre>将起点标记为已经走过的队列
 <span class="function"><span class="title">while</span> <span class="params">(队列非空)</span> {
     出队一个点<span class="title">p</span>;
     <span class="title">if</span> <span class="params">(p为终点)</span> {
@@ -347,7 +400,9 @@
         没有到达终点的路线;
     }
 }
-</code></pre>
+</pre></td></tr></table></figure>
+
+<p>BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
 <p><strong><em>附源码如下:</em></strong></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -532,6 +587,12 @@
 	}
 }
 </pre></td></tr></table></figure>
+
+<h4>参考：</h4>
+<ol>
+<li>《Linux C编程一站式学习》<a href="http://learn.akae.cn/media/ch12.html">栈与队列</a></li>
+</ol>
+
       
     </div>
     <footer>
