@@ -75,7 +75,65 @@
     </header>
     <div class="entry">
       
-        <p>准备写一边博文，介绍一下对MapReduce的一点理解</p>
+        <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
+<h2>MapReduce 编程模型</h2>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>map:(K1, V1) -&gt; list(K2, V2)
+reduce: (k2, list(V2)) -&gt; list(K2, V2)
+</pre></td></tr></table></figure>
+
+<p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
+<h3>Mapper</h3>
+<p>Map阶段，MapReduce对任务输入数据分割，切割成固定大小的片段(splits)，对每个split进一步分解成一批键值对<code>(K1, V1)</code>。然后Hadoop为每个split创建Map任务(Mapper)，执行自定义的<code>map()</code>。</p>
+<p>将split中的<code>(K1, V1)</code>键值对输入，得到结果为<code>(K2, V2)</code>的中间结果。<code>map()</code>的功能到这里并没有结束，因为我们在reduce阶段需要的输入格式是<code>(K2, list(V2))</code>，所以还需要对Mapper输出结果<code>(K2, V2)</code>进行合并(Combine过程)，即将中间结果中有相同key值(如：K2)的多组<code>(key, value)</code>对合并成一对(形成<code>(K2, list(V2))</code>)。key值范围决定了这些元组分组，对应不同的Reduce任务(Reducer)。</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>一个类作为mapper，要继承MapReduceBase基类并实现Mapper接口；</li>
+<li>Mapper接口负责数据处理阶段。采用形式为<code>Mapper&lt;K1, V1, K2, V2&gt;</code> Java泛型；</li>
+<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">void</span> map(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)
+    <span class="keyword">throws</span> IOException
+</pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3>Reducer</h3>
+<p>Reduce阶段，数据整合，排序。然后调用自定义函数<code>reduce()</code>，输入<code>(K2, list(V2))</code>，得到键值对<code>&lt;K3, V3&gt;</code>输出到HDFS上。</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>Reducers数目在mapred-site.xml中决定，属性是<code>mapred.reduce.tasks</code>，默认值是 1，<code>job.setNumReduceTasks()</code>方法也可以用于设置，<strong>这是一个很重要的值</strong>；</li>
+<li><p>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: </p>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">void</span> reduce(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3, V3&gt; output, 
+        Reporter reporter) <span class="keyword">throws</span> IOException
+</pre></td></tr></table></figure>
+</li>
+<li><p><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</p>
+</li>
+<li>map阶段和reduce阶段中间还有partitioner的工作：负责将mapper的结果输出给不同的reducer。</li>
+</ol>
+<h3>Hadoop的MapReduce</h3>
+<p>Hadoop框架的核心是Map和Reduce操作，但不仅仅如此，还包括：</p>
+<p><strong><em> data spliting(数据分割), shuffling(洗牌), Partitioning(分组), Combining(合并) </em></strong></p>
+<p>以及各种格式的输入输出数据。</p>
+<h3>Shuffler</h3>
+<p>Mapper的按key值分为R份(R即为上面说到的Reducers的数目)，划分时通常采用hash函数，如<code>Hash(key) mod R</code>。目的是保证某一范围内的key一定由某个Reducer来处理。</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>洗牌之后相同的key对应的键值对放入相同的Reducer，不同的键也可以放入相同的Reducer。具体放入的位置由Partitioner决定。</li>
+</ol>
+<h3>Partitioner:重定向Mapper输出</h3>
+<p>并不是数据排序好就是最好的。利用并行计算，不能仅仅靠一个reducer，那样就不是“云”而是“雨点”。当多个reducer一起使用时，默认的做法是对键值对进行hash来确定reducer。</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>Hadoop通过HashPartitioner类强制执行Partitioner策略。但HashPartitioner有时会出错；</li>
+<li>量身定制partitioner，只需要实现<code>configure()</code>和<code>getPartition()</code>两个函数，前者将Hadoop对作业的配置应用在patitioner上，后者返回一个0到reduce任务数之间的整数，指向键/值对将要发送到的reducer。</li>
+</ol>
+<h3>Combiner: 本地reduce</h3>
+<p>--未完待续</p>
 
       
     </div>
