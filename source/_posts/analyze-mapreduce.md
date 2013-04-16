@@ -73,4 +73,20 @@ _Tips:_
 2. 量身定制partitioner，只需要实现``configure()``和``getPartition()``两个函数，前者将Hadoop对作业的配置应用在patitioner上，后者返回一个0到reduce任务数之间的整数，指向键/值对将要发送到的reducer。
 
 ###Combiner: 本地reduce###
---未完待续
+
+合并Mapper输出，即将多个key相同的``<key, value>``合并成一对。Combine过程和Reduce过程类似，很多情况下可以直接使用reduce函数，但Combiner过程是Mapper的一部分，在map函数后执行。
+
+_Tips：_
+
+1. Hadoop并不保证对一个Mapper执行多少次Combine过程，所以我们应该做到无论Combine过程执行多少次，得到结果都一样；
+2. 中间结果的读取，JobTracker介入，负责通知中间文件的位置；
+3. Mapper输出结果不在HDFS上而在本地磁盘上，出于时效性考虑，任务结束后删除，而HDFS的备份机制会造成性能损失，没有必要。
+
+###讨论：###
+
+很多时候Rudecer产生的R个结果不是我们真正需要的最终结果，此时会把R个结果作为另一个计算的输入，开始另一个MapReduce任务，即任务管道。
+
+###总结: ###
+
+MapReduce的集群行为(即MapReduce运行在大规模集群上的过程)，要完成一个并行计算，需要___任务调度与执行，本地计算，Shuffle，合并Mapper输出，读取中间结果，任务管道等一系列环节共同支撑计算的过程。
+
