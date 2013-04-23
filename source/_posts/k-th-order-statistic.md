@@ -3,8 +3,8 @@ layout: post
 title: "k-th Order Statistic"
 description: "k-th Order Statistic"
 date: 2013-04-05 20:12:32
-categories: C
-tags: [C, 算法]
+categories: Algorithm
+tags: [C, Algorithm]
 ---
 
 ###问题描述:###

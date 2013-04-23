@@ -95,14 +95,14 @@
 <p><strong><em>key</em></strong>： <strong>单词:URI</strong> (例如：MapReduce:1.txt)<br><strong><em>value</em></strong>：<strong>词频</strong>，相同单词词频组成列表传递给Combiner过程，实现的功能类似于WordCount      </p>
 <h4>Combine过程：</h4>
 <p>Combine过程会把相同的key值对应的value值累加<br>Map过程得到的结果为    </p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre><span class="string">"MapRuduce:file01.txt"</span>  <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"MapReduce:file01.txt"</span>  <span class="number">1</span>    
-<span class="string">"is:file01.txt"</span>         <span class="keyword">list</span>(<span class="number">1</span>,<span class="number">1</span>)        =&gt;     <span class="string">"is:file01.txt"</span>         <span class="number">2</span>    
-<span class="string">"powerful:file01.txt"</span>   <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"powerful:file01.txt"</span>   <span class="number">1</span>    
-<span class="string">"simple:file01.txt"</span>     <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"simple:file01.txt"</span>     <span class="number">1</span>        
+</pre></td><td class="code"><pre><span class="string">"MapRuduce:file01.txt"</span>  list(<span class="number">1</span>)          =&gt;     <span class="string">"MapReduce:file01.txt"</span>  <span class="number">1</span>    
+<span class="string">"is:file01.txt"</span>         list(<span class="number">1</span>,<span class="number">1</span>)        =&gt;     <span class="string">"is:file01.txt"</span>         <span class="number">2</span>    
+<span class="string">"powerful:file01.txt"</span>   list(<span class="number">1</span>)          =&gt;     <span class="string">"powerful:file01.txt"</span>   <span class="number">1</span>    
+<span class="string">"simple:file01.txt"</span>     list(<span class="number">1</span>)          =&gt;     <span class="string">"simple:file01.txt"</span>     <span class="number">1</span>   
 </pre></td></tr></table></figure>
 
 <p><strong><em>key</em></strong>： <strong>单词</strong>
@@ -916,11 +916,15 @@
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/C/">C</a><small>2</small></li>
+    <li><a href="/categories/Algorithm/">Algorithm</a><small>1</small></li>
   
-    <li><a href="/categories/hadoop/">hadoop</a><small>3</small></li>
+    <li><a href="/categories/Data-Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/categories/memory/">memory</a><small>2</small></li>
+    <li><a href="/categories/Hadoop/">Hadoop</a><small>3</small></li>
+  
+    <li><a href="/categories/Math/">Math</a><small>1</small></li>
+  
+    <li><a href="/categories/Memory/">Memory</a><small>2</small></li>
   
   </ul>
 </div>
@@ -933,23 +937,23 @@
   
     <li><a href="/tags/API/">API</a><small>1</small></li>
   
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>2</small></li>
+  
     <li><a href="/tags/C/">C</a><small>2</small></li>
+  
+    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
   
     <li><a href="/tags/HDFS/">HDFS</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>2</small></li>
   
-    <li><a href="/tags/InvertedIndex/">InvertedIndex</a><small>1</small></li>
+    <li><a href="/tags/Java/">Java</a><small>2</small></li>
   
     <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   
-    <li><a href="/tags/数据结构/">数据结构</a><small>1</small></li>
+    <li><a href="/tags/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/tags/算法/">算法</a><small>2</small></li>
-  
-    <li><a href="/tags/记事/">记事</a><small>2</small></li>
-  
-    <li><a href="/tags/迁移/">迁移</a><small>1</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>2</small></li>
   
   </ul>
 </div>

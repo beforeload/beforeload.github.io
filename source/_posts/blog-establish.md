@@ -3,8 +3,8 @@ layout: post
 title: "blog establish"
 description: "搭建博客"
 date: 2013-04-03 23:11:12
-categories: memory
-tags: [记事]
+categories: Memory
+tags: Memory
 ---
 
 新建第一篇博文，以纪念今天博客建立

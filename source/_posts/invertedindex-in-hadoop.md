@@ -1,7 +1,8 @@
+---
 title: Inverted Index in Hadoop
 date: 2013-04-18 12:26:32
-categories: hadoop
-tags: [Java, Hadoop, 数据结构]
+categories: Hadoop
+tags: [Java, Hadoop, Algorithm]
 ---
 
 ##倒排索引
@@ -37,7 +38,7 @@ Map过程得到的结果为
 "MapRuduce:file01.txt"  list(1)          =>     "MapReduce:file01.txt"  1    
 "is:file01.txt"         list(1,1)        =>     "is:file01.txt"         2    
 "powerful:file01.txt"   list(1)          =>     "powerful:file01.txt"   1    
-"simple:file01.txt"     list(1)          =>     "simple:file01.txt"     1        
+"simple:file01.txt"     list(1)          =>     "simple:file01.txt"     1   
 ```
 
 ___key___： __单词__
