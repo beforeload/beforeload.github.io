@@ -63,425 +63,105 @@
 <h2 class="archive-title">2013/4</h2>
 
 
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-22T13:23:27.000Z"><a href="/2013/04/22/collaborative-markov-chain-model/">Apr 22 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/22/collaborative-markov-chain-model/">Collaborative Markov Chain Model</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>理论</h2>
-<h3>马尔可夫过程(Markov Process)</h3>
-<p>Markov过程是一个满足Markov性(无后效性)的随机过程。
-具有马尔可夫性质的随机过程称为<strong>马尔可夫</strong>过程。[1]</p>
-<p>最有名的Markov过程是Markov链，但还有其他的过程，如布朗运动，也是Markov过程。</p>
-<h3>马尔可夫性质</h3>
-<p><strong>马尔可夫性质</strong>是概率论中的一个概念。当一个随即过程在给定状态及所有过去状态情况下，其未来状态的条件概率分布仅依赖于当前状态；换句话说，在给定现在状态时，它与过去状态（即该过程的历史路径）是条件独立的，那么此随机过程具有<strong>马尔可夫性质</strong>。[2]</p>
-<p>过程或（系统）在时刻t0所处的状态为已知的条件下，过程在时刻t&gt;t0所处状态的条件分布，与过程在时刻t0之前所处的状态无关的特性称为马尔可夫性或无后效性。[1]即：已知“现在”过程的情况下，“<em>将来</em>”过程的情况与“<em>过去</em>”的情况无关。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/22/collaborative-markov-chain-model/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">Apr 18 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/18/invertedindex-in-hadoop/">Inverted Index in Hadoop</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>倒排索引</h2>
-<h3>简介:</h3>
-<p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
-<p>我的理解就是找到单词出现的文档的名称，多数情况下为一个列表。</p>
-<p>一个单词可能在不同的文件中出现，所以我们需要定义一个权重，表示单词(即搜索的内容)跟文档的<strong><em>相关度</em></strong>。相关度的衡量多数情况下用<strong><em>词频</em></strong>来表示。</p>
-<p>更加复杂的算法TF-IDF(Term Frequency-Inverse Document Frequency)统计单词在多少个文档中出现，甚至考虑单词在文档中出现的位置(例如标题处反应这个单词的重要性)。</p>
-<p>理论的东西到此结束，下面写一下倒排索引的设计与实现。</p>
-<h3>问题分析：</h3>
-<p>信息的关键： <strong>单词</strong>，<strong>文档URI</strong>及<strong>词频</strong></p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/18/invertedindex-in-hadoop/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-12T18:56:30.000Z"><a href="/2013/04/13/analyze-mapreduce/">Apr 13 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/13/analyze-mapreduce/">MapReduce</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
-<h2>MapReduce 编程模型</h2>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>map:(K1, V1) -&gt; list(K2, V2)
-reduce: (k2, list(V2)) -&gt; list(K2, V2)
-</pre></td></tr></table></figure>
-
-<p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
-<h3>Mapper</h3>
-<p>Map阶段，MapReduce对任务输入数据分割，切割成固定大小的片段(splits)，对每个split进一步分解成一批键值对<code>(K1, V1)</code>。然后Hadoop为每个split创建Map任务(Mapper)，执行自定义的<code>map()</code>。</p>
-<p>将split中的<code>(K1, V1)</code>键值对输入，得到结果为<code>(K2, V2)</code>的中间结果。<code>map()</code>的功能到这里并没有结束，因为我们在reduce阶段需要的输入格式是<code>(K2, list(V2))</code>，所以还需要对Mapper输出结果<code>(K2, V2)</code>进行合并(Combine过程)，即将中间结果中有相同key值(如：K2)的多组<code>(key, value)</code>对合并成一对(形成<code>(K2, list(V2))</code>)。key值范围决定了这些元组分组，对应不同的Reduce任务(Reducer)。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/13/analyze-mapreduce/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-12T05:11:40.000Z"><a href="/2013/04/12/migrate_jekyll_to_hexo/">Apr 12 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/12/migrate_jekyll_to_hexo/">From Jekyll to Hexo</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3>从Jekyll迁移到Hexo</h3>
-<ol>
-<li><a href="http://zespia.tw/hexo">Hexo</a>! </li>
-<li><a href="http://zespia.tw/hexo/docs">documentation</a> 文档</li>
-</ol>
-<p><strong>优点：</strong></p>
-<ul>
-<li>真的很快，上手很easy</li>
-</ul>
-<p><strong>优待改进的地方：</strong></p>
-<ul>
-<li>主题欠缺，有时间改改主题</li>
-</ul>
-<h3>记录：</h3>
-<ol>
-<li>用jiathis代替addthis；</li>
-<li>找了源码加文档，终于还是在文档上找到了excerpt的用法，原来只需要在md里面加<code>&lt;!-- more --&gt;</code>即可。</li>
-</ol>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/12/migrate_jekyll_to_hexo/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-09T05:14:20.000Z"><a href="/2013/04/09/DFS-and-BFS/">Apr 9 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/09/DFS-and-BFS/">理解深度优先和广度优先</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h4>问题：</h4>
-<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-</pre></td><td class="code"><pre><span class="keyword">int</span> maze[<span class="number">5</span>][<span class="number">5</span>] = {
-    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
-    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
-    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
-    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
-};
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/09/DFS-and-BFS/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">Apr 6 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3>案例</h3>
-<h4>上传本地文件到 HDFS</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
-    Configuration conf = <span class="keyword">new</span> Configuration();
-    conf.addResource(<span class="keyword">new</span> Path(config));
-    FileSystem hdfs = FileSystem.get(conf);
-    Path srcPath = <span class="keyword">new</span> Path(src);
-    Path dstPath = <span class="keyword">new</span> Path(dst);
-    hdfs.copyFromLocalFile(srcPath, dstPath);
-    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
+  <div class="archive">
     
-    FileStatus files[] = hdfs.listStatus(dstPath);
-    <span class="keyword">for</span> (FileStatus file : files) {
-        System.out.println(file.getPath());
-    }
-    hdfs.close();
-}
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/06/hdfs-java-api/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-22T13:23:27.000Z"><a href="/2013/04/22/collaborative-markov-chain-model/">Apr 22 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/22/collaborative-markov-chain-model/">Collaborative Markov Chain Model</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">Apr 18 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/18/invertedindex-in-hadoop/">Inverted Index in Hadoop</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-12T18:56:30.000Z"><a href="/2013/04/13/analyze-mapreduce/">Apr 13 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/13/analyze-mapreduce/">MapReduce</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-12T05:11:40.000Z"><a href="/2013/04/12/migrate_jekyll_to_hexo/">Apr 12 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/12/migrate_jekyll_to_hexo/">From Jekyll to Hexo</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-09T05:14:20.000Z"><a href="/2013/04/09/DFS-and-BFS/">Apr 9 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/09/DFS-and-BFS/">理解深度优先和广度优先</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">Apr 6 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-05T12:12:32.000Z"><a href="/2013/04/05/k-th-order-statistic/">Apr 5 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/05/k-th-order-statistic/">k-th Order Statistic</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
+      <article class="post">
+        <div class="post-content">
+          <header>
+            <div class="icon"></div>
+            <time datetime="2013-04-03T15:11:12.000Z"><a href="/2013/04/03/blog-establish/">Apr 3 2013</a></time>
+            
+              <h1 class="title"><a href="/2013/04/03/blog-establish/">blog establish</a></h1>
+            
+          </header>
+        </div>
+      </article>
+    
   </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-05T12:12:32.000Z"><a href="/2013/04/05/k-th-order-statistic/">Apr 5 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/05/k-th-order-statistic/">k-th Order Statistic</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3>问题描述:</h3>
-<ol>
-<li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
-<li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
-<li>进一步泛化，在一组随机排列的数中找出第k小的，这个元素称为<code>k-th Order Statistic</code>。能想到的最直观的算法肯定是先把这些数排序然后取第k个，时间复杂度和排序算法相同，可以是Θ(nlgn)。这个问题虽然比前两个问题复杂，但它也有平均情况下时间复杂度是Θ(n)的算法</li>
-</ol>
-<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html">线性查找</a></h6>
-<hr>
-<h3>求解及算法：</h3>
-<p>求一组数中最小值，对于数组而言是一个很easy且常见的问题。
-解决算法也很容易:</p>
-<pre><code><span class="keyword">int</span> minimum(<span class="keyword">int</span> arr[])
-{
-    <span class="keyword">int</span> j,temp;
-    temp = arr[<span class="number">0</span>];
-
-    <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; N; j++) {
-        <span class="keyword">if</span>(temp &gt; arr[j]){
-            swap(&amp;temp,&amp;arr[j]);
-        }
-    }
-    <span class="keyword">return</span> temp;
-}
-</code></pre>
-<p>算法复杂度为Θ(n),且只需要遍历一次即可得出结果；</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/05/k-th-order-statistic/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-03T15:11:12.000Z"><a href="/2013/04/03/blog-establish/">Apr 3 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/03/blog-establish/">blog establish</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>新建第一篇博文，以纪念今天博客建立</p>
-<p>一直在犹豫使用Jekyll还是Octopress搭建自己的博客,虽然后者基于前者做了一些优化之类的东西,但最终犹豫再三还是使用了Jekyll。没有使用过Octopress，不知道两者之间的区别在什么地方，不过相对于初学者，使用Jekyll还是非常容易上手的，具体的步骤参看<a href="http://jekyllbootstrap.com">Jekyll Bootstrap</a>。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/03/blog-establish/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
