@@ -21,6 +21,8 @@ Map阶段，MapReduce对任务输入数据分割，切割成固定大小的片�
 
 将split中的``(K1, V1)``键值对输入，得到结果为``(K2, V2)``的中间结果。``map()``的功能到这里并没有结束，因为我们在reduce阶段需要的输入格式是``(K2, list(V2))``，所以还需要对Mapper输出结果``(K2, V2)``进行合并(Combine过程)，即将中间结果中有相同key值(如：K2)的多组``(key, value)``对合并成一对(形成``(K2, list(V2))``)。key值范围决定了这些元组分组，对应不同的Reduce任务(Reducer)。
 
+<!-- more -->
+
 _Tips:_
 
 1. 一个类作为mapper，要继承MapReduceBase基类并实现Mapper接口；

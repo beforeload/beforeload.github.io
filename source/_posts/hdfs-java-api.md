@@ -28,6 +28,8 @@ public static void copyFile(String src, String dst, String config) throws IOExce
 }
 ```
 
+<!-- more -->
+
 #### 创建 HDFS 文件
 ```Java
 public static void createFile(String dst, String config) throws IOException{
