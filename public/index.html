@@ -66,6 +66,54 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-04-29T09:19:09.000Z"><a href="/2013/04/29/graduation-summary/">Apr 29 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/29/graduation-summary/">Graduation Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>毕业总结</h2>
+<h5>写在前面的话</h5>
+<p>一直觉得自己很忙，但又说不出来自己忙在哪里，很大程度上都是各种酱油的生活，也许我应该过忙碌的生活，这样就不会想得太纠结，思考得太无聊。幸运的是受到别人总结的启发，自我感觉也算有点经历的人，写下这样的一篇自我总结，就从2012年到现在做一个总结吧。</p>
+<h3>曾经的无奈</h3>
+<p>为什么总结选择2012年开始，也许12年之前的生活太过于平庸了吧。不得不说，我的大学是失败的，至少大一大二是失败的，感觉失望，感觉没有什么收获，甚至在颓靡的学风中开始堕落。</p>
+<p>这篇总结之前写了一点，这两天看了复旦大学的退学生袁涛的事情后，其实还是有点儿羡慕的，因为同样是学风不好，别人可以激进的去挑战权威，挑战自我，而我却因此而堕落，这是无奈的，至少自我感觉很不好。我删了之前写的草稿，重写了这篇文章。</p>
+<h3>贵人相助</h3>
+<p>生活在关闭一个门之后，会给你打开另一个门。我是幸运的，很多人可能无法想象黑暗的日子重见光明的喜悦，在大学没有目标的走了两年，我终于找到自己的方向，因为我对技术的热爱从未改变，也许更准确的表达是对待技术就像对待信仰一般。</p>
+<p>大三找到一个好的实习是开心的事情，因为这代表着提前体验了社会。在找实习的过程中，同样的感到了很多的不足。经历了面试成功的喜悦，更多的是体会到面试失败的后悔。在见识到同学的成功后，我深刻体会到这样一个道理，惨淡的人生从来不会亲睐有准备的人。试问面对别人的成功，替别人感到高兴的同时，心里何尝没有一丝对自己的悲哀呀。只有意识到自己有多失败才知道自己有多大力量可以走向成功。</p>
+<p>2012年，也是开始我人生中的初恋，也许正是维系到至今的爱情，让我觉得到现在为止不是那么失败吧。从去年3,4月开始努力的学习的日子是幸福的。</p>
+<p>剩下的留到明天回到学校再写完吧，对了还有node教育网代理要开始去做了。</p>
+<p>Not finished！</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/29/graduation-summary/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-04-28T02:16:15.000Z"><a href="/2013/04/28/content-syndication-with-node.js/">Apr 28 2013</a></time>
       
       
@@ -82,13 +130,13 @@
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
 <p>安装feed包
   在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$npm install feed
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$npm</span> install feed
 </pre></td></tr></table></figure>
 
 <p>建立订阅</p>
 <p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -105,21 +153,21 @@
 15
 16
 17
-</pre></td><td class="code"><pre><span class="comment">// 需求的包</span>
+</pre></td><td class="code"><pre>// 需求的包
 varFeed=require(<span class="string">'feed'</span>);
 
-<span class="comment">// 初始化feed对象</span>
-<span class="keyword">var</span> feed =newFeed({
-  title:          <span class="string">'My Feed Title'</span>,
-  description:    <span class="string">'This is my personnal feed!'</span>,
-  link:           <span class="string">'http://example.com/'</span>,
-  image:          <span class="string">'http://example.com/logo.png'</span>,
-  copyright:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
+// 初始化feed对象
+var feed =newFeed({
+  <span class="method">title:</span>          <span class="string">'My Feed Title'</span>,
+  <span class="method">description:</span>    <span class="string">'This is my personnal feed!'</span>,
+  <span class="method">link:</span>           <span class="string">'http://example.com/'</span>,
+  <span class="method">image:</span>          <span class="string">'http://example.com/logo.png'</span>,
+  <span class="method">copyright:</span>      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
 
-  author:{
-    name:       <span class="string">'John Doe'</span>,
-    email:      <span class="string">'john.doe@example.com'</span>,
-    link:       <span class="string">'https://example.com/john-doe'</span>
+  <span class="method">author:</span>{
+    <span class="method">name:</span>       <span class="string">'John Doe'</span>,
+    <span class="method">email:</span>      <span class="string">'john.doe@example.com'</span>,
+    <span class="method">link:</span>       <span class="string">'https://example.com/john-doe'</span>
   }
 });
 </pre></td></tr></table></figure>
@@ -128,7 +176,7 @@ varFeed=require(<span class="string">'feed'</span>);
 <p><code>feed.category(&#39;Node.js&#39;);
 feed.category(&#39;JavaScript&#39;);</code></p>
 <p>第三步：每个订阅都需要至少一个项目。（最好是一个入口）要做到这一点，你必须使用这些功能项目并提供合适的对象。当然，当你正在运行一个内容网站（就像你的博客），很可能发生的情况是你有多个项目。为了填充你的订阅信息，使用一个for循环，如下：</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -136,13 +184,13 @@ feed.category(&#39;JavaScript&#39;);</code></p>
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> posts){
-  feed.item({
+</pre></td><td class="code"><pre><span class="function"><span class="title">for</span><span class="params">(var key in posts)</span>{
+  <span class="title">feed</span>.<span class="title">item</span><span class="params">(<span class="tuple">{
     title:  posts[key].title,
     link:  posts[key].link,
     description: posts[key].description,
     date: posts[key].date
-  }
+  }</span>
 }
 </pre></td></tr></table></figure>
 
@@ -150,16 +198,16 @@ feed.category(&#39;JavaScript&#39;);</code></p>
 <p>到这一步，生成RSS或者Atom标准的订阅的一切准备都已经OK了，使用下面的render方法</p>
 <p><code>var output = feed.render()</code></p>
 <p>这是含蓄的方式调用render请求。默认的是，它会渲染成RSS标准的订阅。你也可以使用这种含蓄的方式，选择RSS或者Atom</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 </pre></td><td class="code"><pre><span class="comment">// Rendering a RSS 2.0 valid feed</span>
-feed.render(<span class="string">'rss-2.0'</span>);
+feed.<span class="keyword">render</span>(<span class="string">'rss-2.0'</span>);
 
 <span class="comment">// Rendering an Atom 1.0 valid feed</span>
-feed.render(<span class="string">'atom-1.0'</span>);
+feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>);
 </pre></td></tr></table></figure>
 
 <p>是的，就是这么简单！</p>
@@ -244,6 +292,10 @@ feed.render(<span class="string">'atom-1.0'</span>);
 
 <p>总结：
 就这样了，现在人们终于可以从你的nodejs应用中读取订阅你的项目。</p>
+<p>译者：其实到这个地方还没有结束，本人在处理这个问题时感觉远远不想大神说的那么easy。
+下面附上自己的尝试：</p>
+<p>node v0.10.5
+express v3.2.0</p>
 <p>wrapper —— 包
 feed —— 订阅
 Feed —— 用来接收该信息来源更新的接口</p>
@@ -706,7 +758,7 @@ reduce: (k2, list(V2)) -&gt; list(K2, V2)
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>2</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>3</small></li>
   
     <li><a href="/categories/translate/">translate</a><small>1</small></li>
   
@@ -737,7 +789,7 @@ reduce: (k2, list(V2)) -&gt; list(K2, V2)
   
     <li><a href="/tags/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>2</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>3</small></li>
   
     <li><a href="/tags/nodejs/">nodejs</a><small>1</small></li>
   
