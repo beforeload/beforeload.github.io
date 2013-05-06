@@ -76,13 +76,12 @@
     <div class="entry">
       
         <h3>问题描述:</h3>
+<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html">线性查找</a></h6>
 <ol>
 <li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
 <li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
 <li>进一步泛化，在一组随机排列的数中找出第k小的，这个元素称为<code>k-th Order Statistic</code>。能想到的最直观的算法肯定是先把这些数排序然后取第k个，时间复杂度和排序算法相同，可以是Θ(nlgn)。这个问题虽然比前两个问题复杂，但它也有平均情况下时间复杂度是Θ(n)的算法</li>
 </ol>
-<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html">线性查找</a></h6>
-<hr>
 <h3>求解及算法：</h3>
 <p>求一组数中最小值，对于数组而言是一个很easy且常见的问题。
 解决算法也很容易:</p>
@@ -106,7 +105,7 @@
 <li>在数组中求解第二小值也不是一件难事，只要想清楚求解的思路和步骤，问题便可迎刃而解。
 当然算法可能性多种多样，我所采用的方法简单粗暴：</li>
 </ol>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4

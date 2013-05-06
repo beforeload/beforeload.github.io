@@ -70,7 +70,7 @@
       
       
   
-    <h1 class="title"><a href="/2013/05/04/three-points-understanding-node.js/">Three-points Understanding Node.js</a></h1>
+    <h1 class="title"><a href="/2013/05/04/three-points-understanding-node.js/">Three-points to Understanding Node.js</a></h1>
   
 
     </header>
@@ -79,10 +79,19 @@
         <h2>从三点去理解Node.js</h2>
 <p>Node is:  </p>
 <ul>
-<li>内置JavaScript(Built on JavaScript)</li>
-<li>事件触发和异步(Evented and asynchronous)</li>
-<li>对于数据密集型实时应用(For data-intensive real-time applications)</li>
+<li>基于JavaScript(Built on JavaScript)</li>
+<li>事件驱动和异步(Evented and Asynchronous)</li>
+<li>对于数据密集型实时应用(For Data-Intensive Real-Time Applications)</li>
 </ul>
+<h3>基于JavaScript</h3>
+<p>第一点很好理解，是用JavaScript开发，由谷歌的<a href="https://code.google.com/p/v8/">V8引擎</a>驱动运行。Node使用V8,在服务端运行JavaScript，减少了中间步骤，执行过程中，解释器直接编译成自然机器语言。好处多多：</p>
+<ol>
+<li>开发者只需要用一种语言就可以开发一套网络应用，减少服务端和客户端开发时所需要的上下文切换，且允许服务端和客户端代码共享(例如重用表单验证，或者游戏的逻辑)。</li>
+<li>JSON这种数据格式很性感，它就是自然的JavaScript</li>
+<li>JavaScript可以使用多种NoSQL数据库（如：CouchDB/MongoDB），可以和他们无缝连接，非常适合（如：MongoDB shell和查询语言就是JS，CouchDB map/reduce 是JS）。</li>
+<li>有很多语言以JavaScript为编译目标<br><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS">List of languages that compile to JS</a></li>
+<li>Node使用虚拟引擎V8,并遵守ECMAScript标准。</li>
+</ol>
 
       
     </div>
@@ -128,8 +137,6 @@
 <h3>一朝醒悟</h3>
 <p>人生在关闭一个门之后，会给你打开另一个门。我是幸运的，你可能无法想象堕落黑暗的日子重见光明的喜悦。在大学没有目标的走了两年，幸运的我终于找到自己的方向，因为我对技术的热爱从未改变，也许更准确的表达是对待技术就像对待信仰一般，追求的热情从未消退。</p>
 <p>大三找到一个好的实习是件开心的事情，提前体验社会的同时也锻炼了自己。在找实习的过程中，也发现自己存在很多不足之处的，尤其在面试受挫后，体会更加深刻。在见识到同学的成功后，我深刻体会到这样一个道理，惨淡的人生从来不会亲睐有准备的人。面对别人的成功，替别人感到高兴的同时，心里何尝没有一丝对自己的悲哀呀。每次面试的机会都应该好好把握，我感觉与面试官的交流也给自己上了很大的一课，检讨自己的不足，当然也要肯定自己的优点，对于充满挑战的人生，千万不能丧失自信。我觉得我人生的醒悟也是从这个时候开始，收起浮躁，收起颓废，开始人生的征程。</p>
-<h3>青春的爱情</h3>
-<p>在我决定充满自信的面对人生的挑战，开始新生的这一刻，令我感到惊讶的是，我爱情的萌芽也开始了。2012年，开始了我人生中的初恋，也许正是维系到至今的爱情，让我觉得到现在为止不是那么失败吧。</p>
 
       
     </div>
@@ -170,10 +177,48 @@
 <hr>
 <p>原文链接 <a href="http://howtonode.org/content-syndication-with-node">Content Syndication with Node.js</a></p>
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
-<p>安装feed包
-  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
+<h4>安装feed包</h4>
+<p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
 <figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$npm install feed
+</pre></td></tr></table></figure>
+
+<h4>建立订阅</h4>
+<p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
+<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="comment">// 需求的包</span>
+varFeed=require(<span class="string">'feed'</span>);
+
+<span class="comment">// 初始化feed对象</span>
+<span class="keyword">var</span> feed =newFeed({
+  title:          <span class="string">'My Feed Title'</span>,
+  description:    <span class="string">'This is my personnal feed!'</span>,
+  link:           <span class="string">'http://example.com/'</span>,
+  image:          <span class="string">'http://example.com/logo.png'</span>,
+  copyright:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
+
+  author:{
+    name:       <span class="string">'John Doe'</span>,
+    email:      <span class="string">'john.doe@example.com'</span>,
+    link:       <span class="string">'https://example.com/john-doe'</span>
+  }
+});
 </pre></td></tr></table></figure>
 
 
@@ -220,6 +265,9 @@
 <h3>马尔可夫性质</h3>
 <p><strong>马尔可夫性质</strong>是概率论中的一个概念。当一个随即过程在给定状态及所有过去状态情况下，其未来状态的条件概率分布仅依赖于当前状态；换句话说，在给定现在状态时，它与过去状态（即该过程的历史路径）是条件独立的，那么此随机过程具有<strong>马尔可夫性质</strong>。[2]</p>
 <p>过程或（系统）在时刻t0所处的状态为已知的条件下，过程在时刻t&gt;t0所处状态的条件分布，与过程在时刻t0之前所处的状态无关的特性称为马尔可夫性或无后效性。[1]即：已知“现在”过程的情况下，“<em>将来</em>”过程的情况与“<em>过去</em>”的情况无关。</p>
+<p>数学上，如果&#39;X(t),t&gt;0&#39;为一个随机过程，则马尔可夫性质就是指</p>
+<img src="//upload.wikimedia.org/math/7/a/d/7ad721c51e3fd880f548cbfa67e80832.png" class="[img]">
+
 
       
     </div>
@@ -526,13 +574,12 @@ reduce: (k2, list(V2)) -&gt; list(K2, V2)
     <div class="entry">
       
         <h3>问题描述:</h3>
+<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html">线性查找</a></h6>
 <ol>
 <li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
 <li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
 <li>进一步泛化，在一组随机排列的数中找出第k小的，这个元素称为<code>k-th Order Statistic</code>。能想到的最直观的算法肯定是先把这些数排序然后取第k个，时间复杂度和排序算法相同，可以是Θ(nlgn)。这个问题虽然比前两个问题复杂，但它也有平均情况下时间复杂度是Θ(n)的算法</li>
 </ol>
-<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html">线性查找</a></h6>
-<hr>
 <h3>求解及算法：</h3>
 <p>求一组数中最小值，对于数组而言是一个很easy且常见的问题。
 解决算法也很容易:</p>
@@ -577,7 +624,8 @@ reduce: (k2, list(V2)) -&gt; list(K2, V2)
     <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
-</nav></div></div>
+</nav>
+</div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
