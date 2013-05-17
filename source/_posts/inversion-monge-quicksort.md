@@ -1,8 +1,10 @@
 title: inversion monge quicksort
 date: 2013-05-17 22:44:25
-tags:
+tags: Algorithm
+categories: Algorithm
 ---
 
+##逆序对，Monge矩阵，快排优化——三数取中划分分析
 ### 题目
 
 1. 第二章思考题2-4(逆序对)
