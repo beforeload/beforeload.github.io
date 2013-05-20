@@ -66,6 +66,89 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-05-20T14:10:58.000Z"><a href="/2013/05/20/fix-some-problems/">May 20 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/05/20/fix-some-problems/">Fix Some Problems</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3>解决的一些问题汇总：</h3>
+<ol>
+<li>Fix ASUS Webcam Problem:vertically flip my webcam&#39;s image</li>
+</ol>
+<p><strong><em>问题描述</em></strong>：华硕电脑摄像头视频图像倒立</p>
+<p>解决方法： 在google上搜索了一下 ubuntu camera invert找到几篇解决的博文，步骤如下：</p>
+<p>(1) Install</p>
+<pre><code><span class="comment">$echo</span> <span class="literal">-</span><span class="comment">e</span> <span class="comment">"\n#</span> <span class="comment">libv4l</span> <span class="comment">PPA\ndeb</span> <span class="comment">http://ppa</span>.<span class="comment">launchpad</span>.<span class="comment">net/libv4l/ppa/ubuntu</span> <span class="comment">`lsb_release</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">|</span> <span class="comment">awk</span> <span class="comment">'{print</span> <span class="comment">$2}'`</span> <span class="comment">main"</span> <span class="comment">|</span> <span class="comment">sudo</span> <span class="comment">tee</span> <span class="literal">-</span><span class="comment">a</span> <span class="comment">/etc/apt/sources</span>.<span class="comment">list</span>
+
+<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">key</span> <span class="comment">adv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recv</span>-<span class="comment">keys</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keyserver</span> <span class="comment">keyserver</span>.<span class="comment">ubuntu</span>.<span class="comment">com</span> <span class="comment">C3FFB4AA</span>
+
+<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">update</span>
+
+<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">install</span> <span class="comment">libv4l</span>-<span class="comment">0
+</code></pre>
+<p>(2) Start application</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> && cheese
+<span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> && <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype
+</pre></td></tr></table></figure>
+
+<p>为了以后不需要输入这么多，建立一个bash
+Step 1:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype
+</pre></td></tr></table></figure>
+
+<p>填写下面内容</p>
+<pre><code><span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so /usr/bin/skype
+</code></pre>
+<p>Step 2:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype
+</pre></td></tr></table></figure>
+
+<p><strong><em>注意</em></strong>：
+1. v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ locate v4l1compat<span class="variable">.so</span>
+/usr/lib/i386-linux-gnu/libv4l/v4l1compat<span class="variable">.so</span>
+</pre></td></tr></table></figure>
+
+<p><strong><em>参考</em></strong>：</p>
+<p>(1) <a href="http://www.paullabis.com/2010/08/fix-upside-down-or-inverted-webcam-on.html">Fix upside-down or inverted webcam on Ubuntu linux</a></p>
+<p>(2)<a href="http://community.linuxmint.com/tutorial/view/219">How to make Webcam compatible with Skype.</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/05/20/fix-some-problems/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-05-17T14:44:25.000Z"><a href="/2013/05/17/inversion-monge-quicksort/">May 17 2013</a></time>
       
       
@@ -313,13 +396,13 @@ e)
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
 <h4>安装feed包</h4>
 <p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>$npm install feed
 </pre></td></tr></table></figure>
 
 <h4>建立订阅</h4>
 <p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -340,7 +423,7 @@ e)
 varFeed=require(<span class="string">'feed'</span>);
 
 <span class="comment">// 初始化feed对象</span>
-<span class="keyword">var</span> feed =newFeed({
+var feed =newFeed({
   title:          <span class="string">'My Feed Title'</span>,
   description:    <span class="string">'This is my personnal feed!'</span>,
   link:           <span class="string">'http://example.com/'</span>,
@@ -485,10 +568,10 @@ varFeed=require(<span class="string">'feed'</span>);
       
         <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
 <h2>MapReduce 编程模型</h2>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre>map:(K1, V1) -&gt; list(K2, V2)
-reduce: (k2, list(V2)) -&gt; list(K2, V2)
+</pre></td><td class="code"><pre><span class="label">map:</span>(K1, V1) -&gt<span class="comment">; list(K2, V2)</span>
+<span class="label">reduce:</span> (k2, list(V2)) -&gt<span class="comment">; list(K2, V2)</span>
 </pre></td></tr></table></figure>
 
 <p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
@@ -587,18 +670,18 @@ reduce: (k2, list(V2)) -&gt; list(K2, V2)
       
         <h4>问题：</h4>
 <p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
-</pre></td><td class="code"><pre><span class="keyword">int</span> maze[<span class="number">5</span>][<span class="number">5</span>] = {
+</pre></td><td class="code"><pre>int maze<span class="matrix">[<span class="number">5</span>]</span><span class="matrix">[<span class="number">5</span>]</span> = <span class="cell">{
     <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
     <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
     <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
     <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
-};
+}</span>;
 </pre></td></tr></table></figure>
 
 
@@ -609,76 +692,6 @@ reduce: (k2, list(V2)) -&gt; list(K2, V2)
         
           <div class="alignleft">
             <a href="/2013/04/09/DFS-and-BFS/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">Apr 6 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3>案例</h3>
-<h4>上传本地文件到 HDFS</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
-    Configuration conf = <span class="keyword">new</span> Configuration();
-    conf.addResource(<span class="keyword">new</span> Path(config));
-    FileSystem hdfs = FileSystem.get(conf);
-    Path srcPath = <span class="keyword">new</span> Path(src);
-    Path dstPath = <span class="keyword">new</span> Path(dst);
-    hdfs.copyFromLocalFile(srcPath, dstPath);
-    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
-    
-    FileStatus files[] = hdfs.listStatus(dstPath);
-    <span class="keyword">for</span> (FileStatus file : files) {
-        System.out.println(file.getPath());
-    }
-    hdfs.close();
-}
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/06/hdfs-java-api/#more" class="more-link">Read More</a>
           </div>
         
         
