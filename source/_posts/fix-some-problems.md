@@ -23,17 +23,13 @@ ___问题描述___：华硕电脑摄像头视频图像倒立
 
 (2) Start application
 
-```
-$export LIBV4LCONTROL_FLAGS=3 && cheese
-$export LIBV4LCONTROL_FLAGS=3 && LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so skype
-```
+    $export LIBV4LCONTROL_FLAGS=3 && cheese
+    $export LIBV4LCONTROL_FLAGS=3 && LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so skype
 
 为了以后不需要输入这么多，建立一个bash
 Step 1:
 
-```
-$sudo gedit /usr/local/bin/skype
-```
+    $sudo gedit /usr/local/bin/skype
 
 填写下面内容
 
@@ -41,17 +37,13 @@ $sudo gedit /usr/local/bin/skype
 
 Step 2:
 
-```
-sudo chmod a+x /usr/local/bin/skype
-```
+    sudo chmod a+x /usr/local/bin/skype
 
 ___注意___：
 1. v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。
 
-```
-$ locate v4l1compat.so
-/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so
-```
+    $ locate v4l1compat.so
+    /usr/lib/i386-linux-gnu/libv4l/v4l1compat.so
 
 ___参考___：
 

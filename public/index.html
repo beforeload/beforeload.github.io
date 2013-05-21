@@ -92,34 +92,24 @@
 <span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">install</span> <span class="comment">libv4l</span>-<span class="comment">0
 </code></pre>
 <p>(2) Start application</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> && cheese
-<span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> && <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype
-</pre></td></tr></table></figure>
-
+<pre><code><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; cheese
+<span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype
+</code></pre>
 <p>为了以后不需要输入这么多，建立一个bash
 Step 1:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype
-</pre></td></tr></table></figure>
-
+<pre><code>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype
+</code></pre>
 <p>填写下面内容</p>
 <pre><code><span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so /usr/bin/skype
 </code></pre>
 <p>Step 2:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype
-</pre></td></tr></table></figure>
-
+<pre><code>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype
+</code></pre>
 <p><strong><em>注意</em></strong>：
 1. v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>$ locate v4l1compat<span class="variable">.so</span>
+<pre><code>$ locate v4l1compat<span class="variable">.so</span>
 /usr/lib/i386-linux-gnu/libv4l/v4l1compat<span class="variable">.so</span>
-</pre></td></tr></table></figure>
-
+</code></pre>
 <p><strong><em>参考</em></strong>：</p>
 <p>(1) <a href="http://www.paullabis.com/2010/08/fix-upside-down-or-inverted-webcam-on.html">Fix upside-down or inverted webcam on Ubuntu linux</a></p>
 <p>(2)<a href="http://community.linuxmint.com/tutorial/view/219">How to make Webcam compatible with Skype.</a></p>
@@ -396,13 +386,13 @@ e)
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
 <h4>安装feed包</h4>
 <p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>$npm install feed
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="variable">$npm</span> install feed
 </pre></td></tr></table></figure>
 
 <h4>建立订阅</h4>
 <p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -419,21 +409,21 @@ e)
 15
 16
 17
-</pre></td><td class="code"><pre><span class="comment">// 需求的包</span>
+</pre></td><td class="code"><pre>// 需求的包
 varFeed=require(<span class="string">'feed'</span>);
 
-<span class="comment">// 初始化feed对象</span>
+// 初始化feed对象
 var feed =newFeed({
-  title:          <span class="string">'My Feed Title'</span>,
-  description:    <span class="string">'This is my personnal feed!'</span>,
-  link:           <span class="string">'http://example.com/'</span>,
-  image:          <span class="string">'http://example.com/logo.png'</span>,
-  copyright:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
+  <span class="method">title:</span>          <span class="string">'My Feed Title'</span>,
+  <span class="method">description:</span>    <span class="string">'This is my personnal feed!'</span>,
+  <span class="method">link:</span>           <span class="string">'http://example.com/'</span>,
+  <span class="method">image:</span>          <span class="string">'http://example.com/logo.png'</span>,
+  <span class="method">copyright:</span>      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
 
-  author:{
-    name:       <span class="string">'John Doe'</span>,
-    email:      <span class="string">'john.doe@example.com'</span>,
-    link:       <span class="string">'https://example.com/john-doe'</span>
+  <span class="method">author:</span>{
+    <span class="method">name:</span>       <span class="string">'John Doe'</span>,
+    <span class="method">email:</span>      <span class="string">'john.doe@example.com'</span>,
+    <span class="method">link:</span>       <span class="string">'https://example.com/john-doe'</span>
   }
 });
 </pre></td></tr></table></figure>
