@@ -1,9 +1,12 @@
-title: Fix Some Problems
+title: Fix Some Ubuntu Problems
 date: 2013-05-20 22:10:58
-tags:
+categories: Ubuntu
+tags: 
+- Ubuntu 
+- Linux
 ---
 
-###解决的一些问题汇总：
+##解决的一些Ubuntu 13.04的问题汇总
 
 1. Fix ASUS Webcam Problem:vertically flip my webcam's image
 
@@ -20,6 +23,8 @@ ___问题描述___：华硕电脑摄像头视频图像倒立
     $sudo apt-get update
 
     $sudo apt-get install libv4l-0
+
+<!-- more -->
 
 (2) Start application
 
