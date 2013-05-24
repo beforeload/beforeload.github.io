@@ -66,38 +66,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-21T15:21:10.000Z"><a href="/2013/05/21/friends-reunions/">May 21 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/21/friends-reunions/">有朋自远方来，不亦说乎</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2013-05-20T14:10:58.000Z"><a href="/2013/05/20/fix-some-problems/">May 20 2013</a></time>
       
       
@@ -303,50 +271,6 @@
 <hr>
 <p>原文链接 <a href="http://howtonode.org/content-syndication-with-node">Content Syndication with Node.js</a></p>
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
-<h4>安装feed包</h4>
-<p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
-<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="variable">$npm</span> install feed
-</pre></td></tr></table></figure>
-
-<h4>建立订阅</h4>
-<p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
-<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-</pre></td><td class="code"><pre>// 需求的包
-varFeed=require(<span class="string">'feed'</span>);
-
-// 初始化feed对象
-var feed =newFeed({
-  <span class="method">title:</span>          <span class="string">'My Feed Title'</span>,
-  <span class="method">description:</span>    <span class="string">'This is my personnal feed!'</span>,
-  <span class="method">link:</span>           <span class="string">'http://example.com/'</span>,
-  <span class="method">image:</span>          <span class="string">'http://example.com/logo.png'</span>,
-  <span class="method">copyright:</span>      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
-
-  <span class="method">author:</span>{
-    <span class="method">name:</span>       <span class="string">'John Doe'</span>,
-    <span class="method">email:</span>      <span class="string">'john.doe@example.com'</span>,
-    <span class="method">link:</span>       <span class="string">'https://example.com/john-doe'</span>
-  }
-});
-</pre></td></tr></table></figure>
-
 
       
     </div>
@@ -549,6 +473,58 @@ var feed =newFeed({
         
           <div class="alignleft">
             <a href="/2013/04/12/migrate_jekyll_to_hexo/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-09T05:14:20.000Z"><a href="/2013/04/09/DFS-and-BFS/">Apr 9 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/09/DFS-and-BFS/">理解深度优先和广度优先</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4>问题：</h4>
+<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>int maze<span class="matrix">[<span class="number">5</span>]</span><span class="matrix">[<span class="number">5</span>]</span> = <span class="cell">{
+    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
+    <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
+}</span>;
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/09/DFS-and-BFS/#more" class="more-link">Read More</a>
           </div>
         
         
