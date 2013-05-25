@@ -14,6 +14,8 @@ Node is:
   * 事件驱动和异步(Evented and Asynchronous)
   * 对于数据密集型实时应用(For Data-Intensive Real-Time Applications)
 
+<!-- more -->
+
 ###基于JavaScript
 
 第一点很好理解，是用JavaScript开发，由谷歌的[V8引擎](https://code.google.com/p/v8/)驱动运行。Node使用V8,在服务端运行JavaScript，减少了中间步骤，执行过程中，解释器直接编译成自然机器语言。好处多多：
@@ -24,8 +26,6 @@ Node is:
 4. 有很多语言以JavaScript为编译目标      
 [List of languages that compile to JS](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)
 5. Node使用虚拟引擎V8,并遵守ECMAScript标准。
-
-<!-- more -->
 
 ###时间驱动和异步
 

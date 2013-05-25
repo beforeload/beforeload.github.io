@@ -11,6 +11,8 @@ tags: Memory
 1. [Hexo](http://zespia.tw/hexo)! 
 2. [documentation](http://zespia.tw/hexo/docs) 文档
 
+<!-- more -->
+
 __优点：__
 
 * 真的很快，上手很easy

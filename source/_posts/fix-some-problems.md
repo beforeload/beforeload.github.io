@@ -14,6 +14,8 @@ ___问题描述___：华硕电脑摄像头视频图像倒立
 
 解决方法： 在google上搜索了一下 ubuntu camera invert找到几篇解决的博文，步骤如下：
 
+<!-- more -->
+
 (1) Install
 
     $echo -e "\n# libv4l PPA\ndeb http://ppa.launchpad.net/libv4l/ppa/ubuntu `lsb_release -c | awk '{print $2}'` main" | sudo tee -a /etc/apt/sources.list
@@ -24,7 +26,6 @@ ___问题描述___：华硕电脑摄像头视频图像倒立
 
     $sudo apt-get install libv4l-0
 
-<!-- more -->
 
 (2) Start application
 
