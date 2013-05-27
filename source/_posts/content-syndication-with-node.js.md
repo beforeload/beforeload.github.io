@@ -1,9 +1,9 @@
 title: 内容聚合Nodejs的实现
 date: 2013-04-28 10:16:15
 tags: 
-- translate
-- nodejs
-categories: translate
+- Translate
+- Node.js
+categories: Translate
 ---
 
 ###[翻译]Content Syndication with Node.js
