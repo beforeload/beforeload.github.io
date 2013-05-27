@@ -2,7 +2,7 @@ title: MapReduce
 date: 2013-04-13 02:56:30
 update: 2013-04-22 19:01:01
 categories: Hadoop
-tags: [MapReduce]
+tags: [Hadoop, MapReduce]
 ---
 
 写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。
