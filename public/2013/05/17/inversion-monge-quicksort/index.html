@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
+  
+  <title>inversion monge quicksort | beforeload</title>
+  <meta name="author" content="beforeload">
+  
+  <meta name="description" content="熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="inversion monge quicksort"/>
+  <meta property="og:site_name" content="beforeload"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40059659-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">beforeload</a></h1>
+  <h2><a href="/">对编程世界充满激情的少年</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-05-17T14:44:25.000Z"><a href="/2013/05/17/inversion-monge-quicksort/">May 17 2013</a></time>
+      
+      
+  
+    <h1 class="title">inversion monge quicksort</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
+<h3>题目</h3>
+<ol>
+<li>第二章思考题2-4(逆序对)</li>
+<li>第四章思考题4-7(Monge矩阵)</li>
+<li>第七章思考题7-5(快排的三数取中划分分析)</li>
+</ol>
+<a name="more"></a>
+
+<h3>2-4 逆序对</h3>
+<p>a)</p>
+<script src="https://gist.github.com/5599553.js?file=inversion.c"></script>
+
+<p>结果: </p>
+<p>(2,3)
+(2,8)
+(2,6)
+(3,8)
+(3,6)</p>
+<p>b)</p>
+<p>从1到n按倒序排列的数组含有最多的逆序对，
+个数为(n-1)+(n-2)+...+1 = (n-1 + 1) <em> (n-1)/2 = n </em> (n-1)/2</p>
+<p>c)</p>
+<p>插入排序的运行时间与输入数组中逆序对的数量之间有怎样的关系?</p>
+<p>当数组从小到大排序，插入排序算法复杂度最优为O(n),此时逆序对为0;</p>
+<p>当数组从大到小排序，插入排序算法复杂度最坏情况，此时逆序对最多为n * (n-1)/2;</p>
+<p>插入排序的过程如下：</p>
+<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="keyword">int</span> insert_sort(void)
+{
+	<span class="keyword">int</span> i, j, key;
+	<span class="keyword">for</span> (i = <span class="number">1</span>; i &<span class="keyword">lt</span>; N; i++) {
+		key = arr[i];
+		j = i;
+		<span class="keyword">while</span> (j &<span class="keyword">gt</span>; <span class="number">0</span> && arr[j - <span class="number">1</span>] &<span class="keyword">gt</span>; key) {
+			arr[j] = arr[j - <span class="number">1</span>];
+			j--;
+		}
+	}
+	<span class="keyword">for</span> (i = <span class="number">0</span>; i &<span class="keyword">lt</span>; N; i++) {
+		<span class="keyword">printf</span>(<span class="string">"<span class="variable">%d</span> "</span>, arr[i]);
+	}
+}
+</pre></td></tr></table></figure>
+
+<p>每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。   </p>
+<p>d)
+O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。</p>
+<script src="https://gist.github.com/5599593.js?file=inversion_d.c"></script>
+
+
+<h3>Monge矩阵</h3>
+<p>a)证明：当且仅当矩阵中所有2×2的矩阵都为Monge矩阵时，这个矩阵才为Monge矩阵。</p>
+<p>先对行使用归纳法：假设i,k行j，l列矩阵为Monge矩阵，证明i,k+1行，j,l列矩阵为Monge矩阵即可</p>
+<p>(1)已知i,k行j,l列为Monge矩阵即A[i,j]+A[k,l] &lt;= A[i,l] + A[k,j]<br>(2)假设A[k,j] + A[k+1,l] &lt;= A[k+1,j] + A[k,l]<br>(3)只需要证明i,k+1行j,l列的矩阵为Monge矩阵，<br>由(1),(2)得A[i,j] + A[k+1,l] &lt;= A[k,j] + A[k+1,l]                </p>
+<p>对列用归纳法也是相同步骤，</p>
+<p>已知A[i, j]+A[k, n] ≤ A[i, n]+A[k,j]<br>假设<br>A[i, n]+A[k,n+1] ≤ A[i, n+1]+A[k,n]<br>所以A[i, j]+A[k, n+1] ≤ A[i, n+1]+A[k, j]成立。                </p>
+<p>行和列都满足归纳法，当<code>A[i,j]+A[i+1,j+1] &lt;= A[i,j+1] + A[i+1,j]</code>时，整个矩阵为Monge矩阵。               </p>
+<p><strong>&quot;仅当&quot;</strong>这个条件用反正法可证。           </p>
+<p>b) 利用a)的结论：<code>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]</code>              </p>
+<p>很容易得到矩阵第二行第三列到第三行第四列的2×2矩阵不满足条件;<br>所以只需要将第二行第三列的16和第三行第三列的22交换即可。             </p>
+<p>c)<br>假设Monge矩阵中存在第x行和第x+1行，<code>f(x) &gt; f(x+1)  (1 &lt;= x &lt; m)</code>               </p>
+<p>已知<code>A[x,f(x+1)] + A[x+1, f(x)] &lt;= A[x,f(x)] + A[x+1, f(x+1)]</code>                </p>
+<p>又因为             </p>
+<p>A[x,f(x)] &lt; A[x, f(x+1)]        (1)<br>A[x+1,f(x+1)] &lt;= A[x+1, f(x)]   (2)</p>
+<p>(1) + (2) 得：                 </p>
+<p>A[x,f(x+1)] + A[x+1, f(x)] &gt; A[x, f(x)] + A[x+1,f(x+1)]   (3)</p>
+<p>根据a)结论，任意2×2矩阵都有</p>
+<p>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]      (4)</p>
+<p>(3) 和 (4)矛盾，假设不成立。<br>由此可得：</p>
+<p>f(1) &lt;= f(2) &lt;= ... &lt;= f(m)            </p>
+<p>d) 已知偶数行最左端最小值f(2), f(4), f(6), ... 
+且f(2k) &lt;= f(2k+1) &lt;= f(2(k+1))</p>
+<p>奇数行搜索一次，搜索范围为n列，偶数行重复计算两次</p>
+<p>奇数行最左端最小值时间复杂度O(m/2+n)=O(m+n)
+e)
+由d)可得递归式：T(m) = T(m/2) + O(m+n)</p>
+<p>递归运算结果：</p>
+<p>T(m) = O(nlgm) + O(m+n)<br>     = O(nlgm + m + n)<br>     = O(nlgm + m)              </p>
+<h3>快排中三数取中划分分析</h3>
+<p><img src="//i.minus.com/i29Ufb20Oolkw.jpg" class="[inversion]">
+答案用图片显示，<a href="//i.minus.com/i29Ufb20Oolkw.jpg">图片在这里</a> </p>
+<p>参考文章</p>
+<ol>
+<li><a href="//blog.csdn.net/zhanglei8893/article/details/6266915">“三数取中“划分</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Algorithm/">Algorithm</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- JiaThis Button BEGIN -->
+
+  <div class="jiathis_style_32x32">
+    
+      <a class="jiathis_button_qzone"></a>
+    
+    
+      <a class="jiathis_button_tsina"></a>
+    
+    
+      <a class="jiathis_button_tqq"></a>
+    
+    
+      <a class="jiathis_button_renren"></a>
+    
+    
+      <a class="jiathis_button_weixin"></a>
+    
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
+
+<!-- JiaThis Button END -->
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:beforeload.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Algorithm/">Algorithm</a><small>3</small></li>
+  
+    <li><a href="/categories/Hadoop/">Hadoop</a><small>3</small></li>
+  
+    <li><a href="/categories/Math/">Math</a><small>1</small></li>
+  
+    <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
+  
+    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+  
+    <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
+  
+    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
+  
+    <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/API/">API</a><small>1</small></li>
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>4</small></li>
+  
+    <li><a href="/tags/C/">C</a><small>2</small></li>
+  
+    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+  
+    <li><a href="/tags/HDFS/">HDFS</a><small>1</small></li>
+  
+    <li><a href="/tags/Hadoop/">Hadoop</a><small>3</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
+  
+    <li><a href="/tags/Math/">Math</a><small>1</small></li>
+  
+    <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
+  
+    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+  
+    <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
+  
+    <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 beforeload
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'beforeload';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

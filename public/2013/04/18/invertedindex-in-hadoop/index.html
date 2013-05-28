@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
+  
+  <title>Inverted Index in Hadoop | beforeload</title>
+  <meta name="author" content="beforeload">
+  
+  <meta name="description" content="熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Inverted Index in Hadoop"/>
+  <meta property="og:site_name" content="beforeload"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40059659-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">beforeload</a></h1>
+  <h2><a href="/">对编程世界充满激情的少年</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">Apr 18 2013</a></time>
+      
+      
+  
+    <h1 class="title">Inverted Index in Hadoop</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>倒排索引</h2>
+<h3>简介:</h3>
+<p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
+<a name="more"></a>
+
+<p>我的理解就是找到单词出现的文档的名称，多数情况下为一个列表。</p>
+<p>一个单词可能在不同的文件中出现，所以我们需要定义一个权重，表示单词(即搜索的内容)跟文档的<strong><em>相关度</em></strong>。相关度的衡量多数情况下用<strong><em>词频</em></strong>来表示。</p>
+<p>更加复杂的算法TF-IDF(Term Frequency-Inverse Document Frequency)统计单词在多少个文档中出现，甚至考虑单词在文档中出现的位置(例如标题处反应这个单词的重要性)。</p>
+<p>理论的东西到此结束，下面写一下倒排索引的设计与实现。</p>
+<h3>问题分析：</h3>
+<p>信息的关键： <strong>单词</strong>，<strong>文档URI</strong>及<strong>词频</strong></p>
+<h3>设计：</h3>
+<h4>Map过程：</h4>
+<p>TextInputFormat: 输入文件处理 -&gt; 文本每行的偏移量及其内容<br><code>&lt;key, value&gt;</code> =&gt;  单词，文档URI和词频<br>两个值对应三个值，需要增加Combine过程进行词频统计。</p>
+<p><strong><em>key</em></strong>： <strong>单词:URI</strong> (例如：MapReduce:1.txt)<br><strong><em>value</em></strong>：<strong>词频</strong>，相同单词词频组成列表传递给Combiner过程，实现的功能类似于WordCount      </p>
+<h4>Combine过程：</h4>
+<p>Combine过程会把相同的key值对应的value值累加<br>Map过程得到的结果为    </p>
+<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="string">"MapRuduce:file01.txt"</span>  <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"MapReduce:file01.txt"</span>  <span class="number">1</span>    
+<span class="string">"is:file01.txt"</span>         <span class="keyword">list</span>(<span class="number">1</span>,<span class="number">1</span>)        =&gt;     <span class="string">"is:file01.txt"</span>         <span class="number">2</span>    
+<span class="string">"powerful:file01.txt"</span>   <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"powerful:file01.txt"</span>   <span class="number">1</span>    
+<span class="string">"simple:file01.txt"</span>     <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"simple:file01.txt"</span>     <span class="number">1</span>   
+</pre></td></tr></table></figure>
+
+<p><strong><em>key</em></strong>： <strong>单词</strong>
+<strong><em>value</em></strong>: <strong>URI:词频</strong>(如：1.txt:1)</p>
+<p><strong>好处</strong>：可以利用MapReduce框架默认的HashPartitioner类完成Shuffle过程。</p>
+<h4>Reduce过程：</h4>
+<p>Combiner过程就已经把相同的单词的所有记录发送给同一个Reducer进行处理，Reduce过程就变得很简单，只需要将相同的key和value值组合成倒排索引文件所需的格式即可，剩下的交给MapReducer框架自动完成。</p>
+<h4>问题</h4>
+<ol>
+<li>文件数目;</li>
+<li>文件大小;</li>
+<li>Reduce过程没有统计词频，有可能会造成词频未统计完全的单词。    </li>
+</ol>
+<p><strong>备注及解决办法：</strong></p>
+<ol>
+<li>单个文件不宜过大，具体值与默认HDFS块大小及相关配置有关；</li>
+<li>重写InputFormat类将每个文件作为一个split；</li>
+<li>执行两次MapReduce，第一次统计词频，第二次MapReduce用于生成倒排索引。</li>
+</ol>
+<h4>优化思路：</h4>
+<ol>
+<li>利用复合键值对等实现包含更多信息的倒排索引。</li>
+</ol>
+<p><strong><strong>附Java源码：</strong></strong></p>
+<script src="https://gist.github.com/5443748.js?file=InvertedIndex.java"></script>
+
+<p><strong>参考：</strong><br>[1]. 《实战Hadoop》</p>
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Hadoop/">Hadoop</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>, <a href="/tags/Hadoop/">Hadoop</a>, <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- JiaThis Button BEGIN -->
+
+  <div class="jiathis_style_32x32">
+    
+      <a class="jiathis_button_qzone"></a>
+    
+    
+      <a class="jiathis_button_tsina"></a>
+    
+    
+      <a class="jiathis_button_tqq"></a>
+    
+    
+      <a class="jiathis_button_renren"></a>
+    
+    
+      <a class="jiathis_button_weixin"></a>
+    
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
+
+<!-- JiaThis Button END -->
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:beforeload.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/Algorithm/">Algorithm</a><small>3</small></li>
+  
+    <li><a href="/categories/Hadoop/">Hadoop</a><small>3</small></li>
+  
+    <li><a href="/categories/Math/">Math</a><small>1</small></li>
+  
+    <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
+  
+    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+  
+    <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
+  
+    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
+  
+    <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/API/">API</a><small>1</small></li>
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>4</small></li>
+  
+    <li><a href="/tags/C/">C</a><small>2</small></li>
+  
+    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+  
+    <li><a href="/tags/HDFS/">HDFS</a><small>1</small></li>
+  
+    <li><a href="/tags/Hadoop/">Hadoop</a><small>3</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>2</small></li>
+  
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
+  
+    <li><a href="/tags/Math/">Math</a><small>1</small></li>
+  
+    <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
+  
+    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+  
+    <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
+  
+    <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
+  
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 beforeload
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'beforeload';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

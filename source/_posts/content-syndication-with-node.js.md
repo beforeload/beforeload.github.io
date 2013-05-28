@@ -3,7 +3,7 @@ date: 2013-04-28 10:16:15
 tags: 
 - Translate
 - Node.js
-categories: Translate
+categories: Node.js
 ---
 
 ###[翻译]Content Syndication with Node.js
