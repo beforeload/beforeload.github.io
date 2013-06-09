@@ -65,7 +65,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">Apr 6 2013</a></time>
+        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">4月 6 2013</a></time>
       
       
   
@@ -108,10 +108,9 @@
     hdfs.close();
 }
 </pre></td></tr></table></figure>
-
 <a name="more"></a>
 
-<h4>创建 HDFS 文件</h4>
+#### 创建 HDFS 文件
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -139,8 +138,7 @@
     hdfs.close();
 }
 </pre></td></tr></table></figure>
-
-<h4>重命名 HDFS 文件</h4>
+#### 重命名 HDFS 文件
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -162,7 +160,7 @@
 </pre></td></tr></table></figure>
 
 <h4>删除 HDFS 上的文件</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -182,10 +180,9 @@
     <span class="comment">// boolean isDelete = hdfs.delete(deletePath, true);</span>
     System.out.println(<span class="string">"delete? "</span>+ isDeleted);
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h4>查看 HDFS 文件的最后修改时间</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -203,10 +200,9 @@
     <span class="keyword">long</span> modifyTime = fileStatus.getModificationTime();
     System.out.println(<span class="string">"Modification time is:"</span> + modifyTime);
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h4>查看某个 HDFS 文件是否存在</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -220,10 +216,9 @@
     <span class="keyword">boolean</span> isExist = hdfs.exists(<span class="keyword">new</span> Path(path));
     System.out.println(<span class="string">"Exist?"</span>+ isExist);
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h4>查找某个文件在 HDFS 集群的位置</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -253,10 +248,9 @@
         System.out.println(<span class="string">"block"</span> + i + <span class="string">"location:"</span> + hosts[i]);
     }
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h4>获取 HDFS 集群上所有节点的名称</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -280,8 +274,7 @@
         System.out.println(<span class="string">"node "</span> + i + <span class="string">" name "</span> + names[i]);
     }
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h3>问题</h3>
 <ol>
 <li>&quot;Wrong FS expected: file:///&quot;</li>
@@ -289,15 +282,14 @@
 <p>这个问题其实严格意义上并不属于API调用方面的问题，具体问题出现的原因不得而知，不过在查阅资料一番后还是得出了问题的解决方法。</p>
 <ul>
 <li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn&#39;t work!&quot; </li>
-<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception">Doug的博客</a>上给出了解答，通过添加一行代码即可
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>conf.addResource(<span class="keyword">new</span> Path(<span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>));
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure><h3>讨论</h3>
 </li>
 </ul>
-<h3>讨论</h3>
 <p><strong><em>附源码如下：</em></strong></p>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -571,8 +563,7 @@
 		}
 	}
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h4>参考书籍：</h4>
 <ol>
 <li>《Hadoop实战》—— &quot;Hadoop in Action&quot;</li>
@@ -657,11 +648,9 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
-  
-    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
   
     <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
   
@@ -698,7 +687,7 @@
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   

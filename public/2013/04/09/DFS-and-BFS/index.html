@@ -65,7 +65,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-09T05:14:20.000Z"><a href="/2013/04/09/DFS-and-BFS/">Apr 9 2013</a></time>
+        <time datetime="2013-04-09T05:14:20.000Z"><a href="/2013/04/09/DFS-and-BFS/">4月 9 2013</a></time>
       
       
   
@@ -77,7 +77,7 @@
       
         <h4>问题：</h4>
 <p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -90,13 +90,11 @@
     <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
 }</span>;
 </pre></td></tr></table></figure>
-
-<a name="more"></a>
-
+<a name="more"></a></p>
 <h3>思路：</h3>
 <p><strong>解法一：</strong></p>
 <p>深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -137,9 +135,8 @@
     没有路线可以到达终点;
 }
 </pre></td></tr></table></figure>
-
-<p><strong><em>附源码如下：</em></strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<strong><em>附源码如下：</em></strong></p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -244,106 +241,105 @@
 <span class="preprocessor">#define MAX_ROW 5</span>
 <span class="preprocessor">#define MAX_COL 5</span>
 
-<span class="keyword">struct</span> point {
-    <span class="keyword">int</span> row, col;
-} stack[<span class="number">512</span>];
+struct point {
+    int row, col<span class="comment">;</span>
+} stack[<span class="number">512</span>]<span class="comment">;</span>
 
-<span class="keyword">int</span> top = <span class="number">0</span>;
+int top = <span class="number">0</span><span class="comment">;</span>
 
-<span class="keyword">void</span> push(<span class="keyword">struct</span> point p)
+void <span class="keyword">push</span>(struct point p)
 {
-	stack[top++] = p;
+	stack[top++] = p<span class="comment">;</span>
 }
 
-<span class="keyword">struct</span> point pop(<span class="keyword">void</span>)
+struct point <span class="keyword">pop</span>(void)
 {
-	<span class="keyword">return</span> stack[--top];
+	return stack[--top]<span class="comment">;</span>
 }
 
-<span class="keyword">int</span> is_empty(<span class="keyword">void</span>)
+int is_empty(void)
 {
-	<span class="keyword">return</span> top == <span class="number">0</span>;
+	return top == <span class="number">0</span><span class="comment">;</span>
 }
 
-<span class="keyword">int</span> maze[MAX_ROW][MAX_COL] = {
+int maze[MAX_ROW][MAX_COL] = {
 	<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
 	<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
 	<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>,
 	<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>,
 	<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
-};
+}<span class="comment">;</span>
 
-<span class="keyword">void</span> print_maze(<span class="keyword">void</span>)
+void print_maze(void)
 {
-	<span class="keyword">int</span> i, j;
-	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; MAX_ROW; i++) {
-		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; MAX_COL; j++) {
-			printf(<span class="string">"%d "</span>, maze[i][j]);
+	int i, j<span class="comment">;</span>
+	for (i = <span class="number">0</span><span class="comment">; i &lt; MAX_ROW; i++) {</span>
+		for (j = <span class="number">0</span><span class="comment">; j &lt; MAX_COL; j++) {</span>
+			printf(<span class="string">"%d "</span>, maze[i][j])<span class="comment">;</span>
 		}
-		putchar(<span class="string">'\n'</span>);
+		putchar(<span class="string">'\n'</span>)<span class="comment">;</span>
 	}
-	printf(<span class="string">"************\n"</span>);
+	printf(<span class="string">"************\n"</span>)<span class="comment">;</span>
 }
 
-<span class="keyword">struct</span> point predecessor[MAX_ROW][MAX_COL] = {
+struct point predecessor[MAX_ROW][MAX_COL] = {
 	{ {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}},
 	{ {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}},
 	{ {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}},
 	{ {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}},
 	{ {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}, {-<span class="number">1</span>, -<span class="number">1</span>}},
-};
+}<span class="comment">;</span>
 
-<span class="keyword">void</span> visit(<span class="keyword">int</span> row, <span class="keyword">int</span> col, <span class="keyword">struct</span> point pre)
+void visit(int row, int col, struct point pre)
 {
-	<span class="keyword">struct</span> point visit_point = {
+	struct point visit_point = {
 		row, col
-	};
-	maze[row][col] = <span class="number">2</span>;
-	predecessor[row][col] = pre;
-	push(visit_point);
+	}<span class="comment">;</span>
+	maze[row][col] = <span class="number">2</span><span class="comment">;</span>
+	predecessor[row][col] = pre<span class="comment">;</span>
+	<span class="keyword">push</span>(visit_point)<span class="comment">;</span>
 }
 
-<span class="keyword">int</span> main(<span class="keyword">void</span>)
+int main(void)
 {
-	<span class="keyword">struct</span> point p = {
+	struct point p = {
 		<span class="number">0</span>, <span class="number">0</span>
-	};
-	maze[p<span class="variable">.row</span>][p<span class="variable">.col</span>] = <span class="number">2</span>;
-	push(p);
+	}<span class="comment">;</span>
+	maze[p<span class="preprocessor">.row</span>][p<span class="preprocessor">.col</span>] = <span class="number">2</span><span class="comment">;</span>
+	<span class="keyword">push</span>(p)<span class="comment">;</span>
 
-	<span class="keyword">while</span> (!is_empty()) {
-		p = pop();
-		<span class="keyword">if</span> (p<span class="variable">.row</span> == MAX_ROW - <span class="number">1</span> && p<span class="variable">.col</span> == MAX_COL - <span class="number">1</span>) {
-			<span class="keyword">break</span>;
+	while (!is_empty()) {
+		p = <span class="keyword">pop</span>()<span class="comment">;</span>
+		if (p<span class="preprocessor">.row</span> == MAX_ROW - <span class="number">1</span> && p<span class="preprocessor">.col</span> == MAX_COL - <span class="number">1</span>) {
+			<span class="keyword">break</span><span class="comment">;</span>
 		}
-		<span class="keyword">if</span> (p<span class="variable">.col</span> + <span class="number">1</span> &lt; MAX_COL && maze[p<span class="variable">.row</span>][p<span class="variable">.col</span> + <span class="number">1</span>] == <span class="number">0</span>) {
-			visit(p<span class="variable">.row</span>, p<span class="variable">.col</span> + <span class="number">1</span>, p);
+		if (p<span class="preprocessor">.col</span> + <span class="number">1</span> &lt; MAX_COL && maze[p<span class="preprocessor">.row</span>][p<span class="preprocessor">.col</span> + <span class="number">1</span>] == <span class="number">0</span>) {
+			visit(p<span class="preprocessor">.row</span>, p<span class="preprocessor">.col</span> + <span class="number">1</span>, p)<span class="comment">;</span>
 		}
-		<span class="keyword">if</span> (p<span class="variable">.row</span> + <span class="number">1</span> &lt; MAX_ROW && maze[p<span class="variable">.row</span> + <span class="number">1</span>][p<span class="variable">.col</span>] == <span class="number">0</span>) {
-			visit(p<span class="variable">.row</span> + <span class="number">1</span>, p<span class="variable">.col</span>, p);
+		if (p<span class="preprocessor">.row</span> + <span class="number">1</span> &lt; MAX_ROW && maze[p<span class="preprocessor">.row</span> + <span class="number">1</span>][p<span class="preprocessor">.col</span>] == <span class="number">0</span>) {
+			visit(p<span class="preprocessor">.row</span> + <span class="number">1</span>, p<span class="preprocessor">.col</span>, p)<span class="comment">;</span>
 		}
-		<span class="keyword">if</span> (p<span class="variable">.col</span> - <span class="number">1</span> &gt;= <span class="number">0</span> && maze[p<span class="variable">.row</span>][p<span class="variable">.col</span> - <span class="number">1</span>] == <span class="number">0</span>) {
-			visit(p<span class="variable">.row</span>, p<span class="variable">.col</span> - <span class="number">1</span>, p);
+		if (p<span class="preprocessor">.col</span> - <span class="number">1</span> &gt;= <span class="number">0</span> && maze[p<span class="preprocessor">.row</span>][p<span class="preprocessor">.col</span> - <span class="number">1</span>] == <span class="number">0</span>) {
+			visit(p<span class="preprocessor">.row</span>, p<span class="preprocessor">.col</span> - <span class="number">1</span>, p)<span class="comment">;</span>
 		}
-		<span class="keyword">if</span> (p<span class="variable">.row</span> - <span class="number">1</span> &gt;= <span class="number">0</span> && maze[p<span class="variable">.row</span> - <span class="number">1</span>][p<span class="variable">.col</span>] == <span class="number">0</span>) {
-			visit(p<span class="variable">.row</span> - <span class="number">1</span>, p<span class="variable">.col</span>, p);
+		if (p<span class="preprocessor">.row</span> - <span class="number">1</span> &gt;= <span class="number">0</span> && maze[p<span class="preprocessor">.row</span> - <span class="number">1</span>][p<span class="preprocessor">.col</span>] == <span class="number">0</span>) {
+			visit(p<span class="preprocessor">.row</span> - <span class="number">1</span>, p<span class="preprocessor">.col</span>, p)<span class="comment">;</span>
 		}
-		print_maze();
+		print_maze()<span class="comment">;</span>
 	}
-	<span class="keyword">if</span> (p<span class="variable">.col</span> == MAX_COL - <span class="number">1</span> && p<span class="variable">.row</span> == MAX_ROW - <span class="number">1</span>) {
-		printf(<span class="string">"(%d, %d)\n"</span>, p<span class="variable">.row</span>, p<span class="variable">.col</span>);
-		<span class="keyword">while</span> (predecessor[p<span class="variable">.row</span>][p<span class="variable">.col</span>]<span class="variable">.row</span> != -<span class="number">1</span>) {
-			p = predecessor[p<span class="variable">.row</span>][p<span class="variable">.col</span>];
-			printf(<span class="string">"(%d, %d)\n"</span>, p<span class="variable">.row</span>, p<span class="variable">.col</span>);
+	if (p<span class="preprocessor">.col</span> == MAX_COL - <span class="number">1</span> && p<span class="preprocessor">.row</span> == MAX_ROW - <span class="number">1</span>) {
+		printf(<span class="string">"(%d, %d)\n"</span>, p<span class="preprocessor">.row</span>, p<span class="preprocessor">.col</span>)<span class="comment">;</span>
+		while (predecessor[p<span class="preprocessor">.row</span>][p<span class="preprocessor">.col</span>]<span class="preprocessor">.row</span> != -<span class="number">1</span>) {
+			p = predecessor[p<span class="preprocessor">.row</span>][p<span class="preprocessor">.col</span>]<span class="comment">;</span>
+			printf(<span class="string">"(%d, %d)\n"</span>, p<span class="preprocessor">.row</span>, p<span class="preprocessor">.col</span>)<span class="comment">;</span>
 		}
-	} <span class="keyword">else</span> {
-		printf(<span class="string">"No path!\n"</span>);
+	} else {
+		printf(<span class="string">"No path!\n"</span>)<span class="comment">;</span>
 	}
-	<span class="keyword">return</span> <span class="number">0</span>;
+	return <span class="number">0</span><span class="comment">;</span>
 }
 </pre></td></tr></table></figure>
-
-<p><strong>DFS 优化：</strong></p>
+<strong>DFS 优化：</strong></p>
 <p>代码没有什么难懂的地方，不过有很多可以优化的地方，例如在predecessor这个数据结构上，浪费了太多的存储空间，可以做以下优化：</p>
 <ol>
 <li><p>重新定义predecessor存储方式
@@ -358,7 +354,7 @@
 <p><strong>解法二：</strong>
 广度优先搜索(BFS, Breadth First Search):
 BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往前走一步。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -399,10 +395,9 @@ BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往�
     }
 }
 </pre></td></tr></table></figure>
-
-<p>BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
+BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
 <p><strong><em>附源码如下:</em></strong></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -584,8 +579,7 @@ BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往�
 		printf(<span class="string">"No path!\n"</span>);
 	}
 }
-</pre></td></tr></table></figure>
-
+</pre></td></tr></table></figure></p>
 <h4>参考：</h4>
 <ol>
 <li>《Linux C编程一站式学习》<a href="http://learn.akae.cn/media/ch12.html">栈与队列</a></li>
@@ -668,11 +662,9 @@ BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往�
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
-  
-    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
   
     <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
   
@@ -709,7 +701,7 @@ BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往�
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   

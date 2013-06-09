@@ -65,7 +65,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">Apr 18 2013</a></time>
+        <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">4月 18 2013</a></time>
       
       
   
@@ -92,39 +92,43 @@
 <p><strong><em>key</em></strong>： <strong>单词:URI</strong> (例如：MapReduce:1.txt)<br><strong><em>value</em></strong>：<strong>词频</strong>，相同单词词频组成列表传递给Combiner过程，实现的功能类似于WordCount      </p>
 <h4>Combine过程：</h4>
 <p>Combine过程会把相同的key值对应的value值累加<br>Map过程得到的结果为    </p>
-<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 </pre></td><td class="code"><pre><span class="string">"MapRuduce:file01.txt"</span>  <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"MapReduce:file01.txt"</span>  <span class="number">1</span>    
 <span class="string">"is:file01.txt"</span>         <span class="keyword">list</span>(<span class="number">1</span>,<span class="number">1</span>)        =&gt;     <span class="string">"is:file01.txt"</span>         <span class="number">2</span>    
 <span class="string">"powerful:file01.txt"</span>   <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"powerful:file01.txt"</span>   <span class="number">1</span>    
-<span class="string">"simple:file01.txt"</span>     <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"simple:file01.txt"</span>     <span class="number">1</span>   
+<span class="string">"simple:file01.txt"</span>     <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"simple:file01.txt"</span>     <span class="number">1</span>
 </pre></td></tr></table></figure>
+<strong><em>key</em></strong>： <strong>单词</strong>
+<strong><em>value</em></strong>: <strong>URI:词频</strong>(如：1.txt:1)
 
-<p><strong><em>key</em></strong>： <strong>单词</strong>
-<strong><em>value</em></strong>: <strong>URI:词频</strong>(如：1.txt:1)</p>
-<p><strong>好处</strong>：可以利用MapReduce框架默认的HashPartitioner类完成Shuffle过程。</p>
-<h4>Reduce过程：</h4>
-<p>Combiner过程就已经把相同的单词的所有记录发送给同一个Reducer进行处理，Reduce过程就变得很简单，只需要将相同的key和value值组合成倒排索引文件所需的格式即可，剩下的交给MapReducer框架自动完成。</p>
-<h4>问题</h4>
-<ol>
-<li>文件数目;</li>
-<li>文件大小;</li>
-<li>Reduce过程没有统计词频，有可能会造成词频未统计完全的单词。    </li>
-</ol>
-<p><strong>备注及解决办法：</strong></p>
-<ol>
-<li>单个文件不宜过大，具体值与默认HDFS块大小及相关配置有关；</li>
-<li>重写InputFormat类将每个文件作为一个split；</li>
-<li>执行两次MapReduce，第一次统计词频，第二次MapReduce用于生成倒排索引。</li>
-</ol>
-<h4>优化思路：</h4>
-<ol>
-<li>利用复合键值对等实现包含更多信息的倒排索引。</li>
-</ol>
-<p><strong><strong>附Java源码：</strong></strong></p>
+<strong>好处</strong>：可以利用MapReduce框架默认的HashPartitioner类完成Shuffle过程。
+
+
+####Reduce过程：
+Combiner过程就已经把相同的单词的所有记录发送给同一个Reducer进行处理，Reduce过程就变得很简单，只需要将相同的key和value值组合成倒排索引文件所需的格式即可，剩下的交给MapReducer框架自动完成。
+
+####问题
+1. 文件数目;
+2. 文件大小;
+3. Reduce过程没有统计词频，有可能会造成词频未统计完全的单词。<br>
+<strong>备注及解决办法：</strong>
+
+0. 单个文件不宜过大，具体值与默认HDFS块大小及相关配置有关；
+1. 重写InputFormat类将每个文件作为一个split；
+2. 执行两次MapReduce，第一次统计词频，第二次MapReduce用于生成倒排索引。
+
+
+####优化思路：
+1. 利用复合键值对等实现包含更多信息的倒排索引。
+
+
+<strong><strong>附Java源码：</strong></strong>
+
 <script src="https://gist.github.com/5443748.js?file=InvertedIndex.java"></script>
+
 
 <p><strong>参考：</strong><br>[1]. 《实战Hadoop》</p>
 
@@ -205,11 +209,9 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
-  
-    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
   
     <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
   
@@ -246,7 +248,7 @@
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   

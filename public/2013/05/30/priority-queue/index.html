@@ -65,7 +65,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-29T16:40:13.000Z"><a href="/2013/05/30/priority-queue/">May 30 2013</a></time>
+        <time datetime="2013-05-29T16:40:13.000Z"><a href="/2013/05/30/priority-queue/">5月 30 2013</a></time>
       
       
   
@@ -78,8 +78,61 @@
         <ol>
 <li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
 <li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
-<li>练习6.5-8</li>
+<li>练习6.5-8 </li>
 </ol>
+<a name="more"></a>
+
+<p>6.5-1 HEAP-EXTRACT-MAX</p>
+<pre><code><figure class="highlight"><pre><span class="keyword">if</span> head-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
+    then error
+max &lt;-- A<span class="matrix">[<span class="number">1</span>]</span>
+A<span class="matrix">[<span class="number">1</span>]</span> &lt;-- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
+MAX-HEAPIFY(A, <span class="number">1</span>)
+<span class="keyword">return</span> max
+</pre></figure></code></pre>
+<img src="" class="heap-exatract-max i.minus.com/imDBy99LrOzWP.jpg" title="heap-exatract-max i.minus.com/imDBy99LrOzWP.jpg">
+
+
+<p>6.5-3 HEAP-MINIUM(A)</p>
+<p>伪代码书上已经有了</p>
+<pre><code><figure class="highlight"><pre>HEAP-MINIMUM(A)
+    <span class="keyword">return</span> A<span class="matrix">[<span class="number">1</span>]</span>
+</pre></figure></code></pre>
+<p>利用HEAP-EXTRACT-MAX(A)容易写出HEAP-EXTRACT-MIN(A)</p>
+<h4>HEAP-EXTRACT-MIN(A)</h4>
+<pre><code><figure class="highlight"><pre><span class="keyword">if</span> heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
+    then error 
+max &lt;- A<span class="matrix">[<span class="number">1</span>]</span>
+A<span class="matrix">[<span class="number">1</span>]</span> &lt;- A<span class="matrix">[heap-size[A]</span>] - <span class="number">1</span>
+heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt;- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
+MIN-HEAPIFY(A, <span class="number">1</span>)
+<span class="keyword">return</span> max
+</pre></figure></code></pre>
+<p>同样，由HEAD-INCREASE-KEY很容易就写出HEAD-DECREASE-KEY过程的伪代码：</p>
+<h4>HEAD-DECREASE-KEY</h4>
+<pre><code><figure class="highlight"><pre><span class="keyword">if</span> key &gt; A<span class="matrix">[i]</span>
+    then error
+A<span class="matrix">[i]</span> &lt;- key
+<span class="keyword">while</span> <span class="built_in">i</span> &gt; <span class="number">1</span> and A<span class="matrix">[PARENT(i)]</span> &gt; A<span class="matrix">[i]</span>
+    do exchange A<span class="matrix">[i]</span> &lt;-&gt; A<span class="matrix">[PARENT(i)]</span>
+            <span class="built_in">i</span> &lt;- PARENT(<span class="built_in">i</span>)
+</pre></figure></code></pre>
+<p>同样，由MAX-HEAP-INSERT容易写出MIN-HEAP-INSERT</p>
+<h4>MIN-HEAP-INSERT</h4>
+<pre><code><figure class="highlight"><pre>heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt;- heap-<span class="built_in">size</span><span class="matrix">[A]</span> + <span class="number">1</span>
+A<span class="matrix">[heap-size[A]</span>] &lt;- 无穷
+HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix">[A]</span>, key)
+</pre></figure></code></pre>
+<p>6.5-8</p>
+<p>每一个链表作为一个节点，链表的第一个元素作为key，然后组成一个堆，这个堆的大小为K(k个链表，k个节点)。</p>
+<p>链表合并过程思路如下：</p>
+<ol>
+<li>通过堆的根节点，获得其链表的第一个元素</li>
+<li>以获取的元素作为目标链表的尾端</li>
+<li>因为根的第一个元素的key发生改变，对其进行MIN-HEAPFIY操作，递归进行下去。</li>
+</ol>
+<p>显然，在每个堆中取一个key组成的堆是实现此过程的一个最小堆。</p>
+<p>具体的实现代码实在没有时间写了。</p>
 
       
     </div>
@@ -158,11 +211,9 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
-  
-    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
   
     <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
   
@@ -199,7 +250,7 @@
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   

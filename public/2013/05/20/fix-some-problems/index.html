@@ -65,7 +65,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-20T14:10:58.000Z"><a href="/2013/05/20/fix-some-problems/">May 20 2013</a></time>
+        <time datetime="2013-05-20T14:10:58.000Z"><a href="/2013/05/20/fix-some-problems/">5月 20 2013</a></time>
       
       
   
@@ -84,33 +84,33 @@
 <a name="more"></a>
 
 <p>(1) Install</p>
-<pre><code><span class="comment">$echo</span> <span class="literal">-</span><span class="comment">e</span> <span class="comment">"\n#</span> <span class="comment">libv4l</span> <span class="comment">PPA\ndeb</span> <span class="comment">http://ppa</span>.<span class="comment">launchpad</span>.<span class="comment">net/libv4l/ppa/ubuntu</span> <span class="comment">`lsb_release</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">|</span> <span class="comment">awk</span> <span class="comment">'{print</span> <span class="comment">$2}'`</span> <span class="comment">main"</span> <span class="comment">|</span> <span class="comment">sudo</span> <span class="comment">tee</span> <span class="literal">-</span><span class="comment">a</span> <span class="comment">/etc/apt/sources</span>.<span class="comment">list</span>
+<pre><code><figure class="highlight"><pre><span class="comment">$echo</span> <span class="literal">-</span><span class="comment">e</span> <span class="comment">"\n#</span> <span class="comment">libv4l</span> <span class="comment">PPA\ndeb</span> <span class="comment">http://ppa</span>.<span class="comment">launchpad</span>.<span class="comment">net/libv4l/ppa/ubuntu</span> <span class="comment">`lsb_release</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">|</span> <span class="comment">awk</span> <span class="comment">'{print</span> <span class="comment">$2}'`</span> <span class="comment">main"</span> <span class="comment">|</span> <span class="comment">sudo</span> <span class="comment">tee</span> <span class="literal">-</span><span class="comment">a</span> <span class="comment">/etc/apt/sources</span>.<span class="comment">list</span>
 
 <span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">key</span> <span class="comment">adv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recv</span>-<span class="comment">keys</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keyserver</span> <span class="comment">keyserver</span>.<span class="comment">ubuntu</span>.<span class="comment">com</span> <span class="comment">C3FFB4AA</span>
 
 <span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">update</span>
 
 <span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">install</span> <span class="comment">libv4l</span>-<span class="comment">0
-</code></pre>
+</pre></figure></code></pre>
 <p>(2) Start application</p>
-<pre><code><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; cheese
+<pre><code><figure class="highlight"><pre><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; cheese
 <span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype
-</code></pre>
+</pre></figure></code></pre>
 <p>为了以后不需要输入这么多，建立一个bash
 Step 1:</p>
-<pre><code>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype
-</code></pre>
+<pre><code><figure class="highlight"><pre>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype
+</pre></figure></code></pre>
 <p>填写下面内容</p>
-<pre><code><span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so /usr/bin/skype
-</code></pre>
+<pre><code><figure class="highlight"><pre><span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so /usr/bin/skype
+</pre></figure></code></pre>
 <p>Step 2:</p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype
-</code></pre>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype
+</pre></figure></code></pre>
 <p><strong><em>注意</em></strong>：
 1. v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。</p>
-<pre><code>$ locate v4l1compat<span class="variable">.so</span>
+<pre><code><figure class="highlight"><pre>$ locate v4l1compat<span class="variable">.so</span>
 /usr/lib/i386-linux-gnu/libv4l/v4l1compat<span class="variable">.so</span>
-</code></pre>
+</pre></figure></code></pre>
 <p><strong><em>参考</em></strong>：</p>
 <p>(1) <a href="http://www.paullabis.com/2010/08/fix-upside-down-or-inverted-webcam-on.html">Fix upside-down or inverted webcam on Ubuntu linux</a></p>
 <p>(2)<a href="http://community.linuxmint.com/tutorial/view/219">How to make Webcam compatible with Skype.</a></p>
@@ -192,11 +192,9 @@ Step 1:</p>
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
-  
-    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
   
     <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
   
@@ -233,7 +231,7 @@ Step 1:</p>
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   

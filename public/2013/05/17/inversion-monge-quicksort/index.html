@@ -65,7 +65,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-17T14:44:25.000Z"><a href="/2013/05/17/inversion-monge-quicksort/">May 17 2013</a></time>
+        <time datetime="2013-05-17T14:44:25.000Z"><a href="/2013/05/17/inversion-monge-quicksort/">5月 17 2013</a></time>
       
       
   
@@ -87,6 +87,7 @@
 <h3>2-4 逆序对</h3>
 <p>a)</p>
 <script src="https://gist.github.com/5599553.js?file=inversion.c"></script>
+
 
 <p>结果: </p>
 <p>(2,3)
@@ -117,27 +118,28 @@
 13
 14
 15
-</pre></td><td class="code"><pre><span class="keyword">int</span> insert_sort(void)
+</pre></td><td class="code"><pre>int insert_sort(void)
 {
-	<span class="keyword">int</span> i, j, key;
-	<span class="keyword">for</span> (i = <span class="number">1</span>; i &<span class="keyword">lt</span>; N; i++) {
-		key = arr[i];
-		j = i;
-		<span class="keyword">while</span> (j &<span class="keyword">gt</span>; <span class="number">0</span> && arr[j - <span class="number">1</span>] &<span class="keyword">gt</span>; key) {
-			arr[j] = arr[j - <span class="number">1</span>];
-			j--;
+	int i, j, key<span class="comment">;</span>
+	for (i = <span class="number">1</span><span class="comment">; i &lt; N; i++) {</span>
+		key = arr[i]<span class="comment">;</span>
+		j = i<span class="comment">;</span>
+		while (j &gt; <span class="number">0</span> && arr[j - <span class="number">1</span>] &gt; key) {
+			arr[j] = arr[j - <span class="number">1</span>]<span class="comment">;</span>
+			j--<span class="comment">;</span>
 		}
 	}
-	<span class="keyword">for</span> (i = <span class="number">0</span>; i &<span class="keyword">lt</span>; N; i++) {
-		<span class="keyword">printf</span>(<span class="string">"<span class="variable">%d</span> "</span>, arr[i]);
+	for (i = <span class="number">0</span><span class="comment">; i &lt; N; i++) {</span>
+		printf(<span class="string">"%d "</span>, arr[i])<span class="comment">;</span>
 	}
 }
 </pre></td></tr></table></figure>
+每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。<br>
+d)
+O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。
 
-<p>每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。   </p>
-<p>d)
-O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。</p>
 <script src="https://gist.github.com/5599593.js?file=inversion_d.c"></script>
+
 
 
 <h3>Monge矩阵</h3>
@@ -169,8 +171,9 @@ e)
 <p>递归运算结果：</p>
 <p>T(m) = O(nlgm) + O(m+n)<br>     = O(nlgm + m + n)<br>     = O(nlgm + m)              </p>
 <h3>快排中三数取中划分分析</h3>
-<p><img src="//i.minus.com/i29Ufb20Oolkw.jpg" class="[inversion]">
-答案用图片显示，<a href="//i.minus.com/i29Ufb20Oolkw.jpg">图片在这里</a> </p>
+<img src="//i.minus.com/i29Ufb20Oolkw.jpg" class="[inversion]">
+
+<p>答案用图片显示，<a href="//i.minus.com/i29Ufb20Oolkw.jpg">图片在这里</a> </p>
 <p>参考文章</p>
 <ol>
 <li><a href="//blog.csdn.net/zhanglei8893/article/details/6266915">“三数取中“划分</a></li>
@@ -253,11 +256,9 @@ e)
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
-  
-    <li><a href="/categories/Translate/">Translate</a><small>1</small></li>
   
     <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
   
@@ -294,7 +295,7 @@ e)
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>2</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>2</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   
