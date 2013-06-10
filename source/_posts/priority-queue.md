@@ -20,7 +20,7 @@ categories: Algorithm
     return max
 
 
-{% img heap-exatract-max i.minus.com/imDBy99LrOzWP.jpg %}
+{% img http://i.minus.com/imDBy99LrOzWP.jpg %}
 
 6.5-3 HEAP-MINIUM(A)
 
