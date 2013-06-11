@@ -76,7 +76,121 @@
     <div class="entry">
       
         <h2>Node.js网络应用开发</h2>
-<img src="http://i2.minus.com/iLMAoN6C3pEtN.png">
+<ol>
+<li>Handling HTTP requests with Node&#39;s API</li>
+<li>Building a RESTful web service</li>
+<li>Serving static files</li>
+<li>Accepting user input from forms</li>
+<li>Securing your application with HTTPS</li>
+</ol>
+<a name="more"></a>
+
+<p>Node.js网络应用开发的简单图示如下：</p>
+<img src="http://i.minus.com/iLMAoN6C3pEtN.png">
+
+
+<h3>HTTP server 的基本面</h3>
+<h4>HTTP请求在Node HTTP server中的生命周期</h4>
+<ol>
+<li>HTTP 客户端（例如：浏览器）发送HTTP请求</li>
+<li>Node进程接受到连接把请求的数据发送给HTTP server</li>
+<li>Node进程把HTTP请求头完整解析，在&#39;request&#39;的回调事件中处理相应的逻辑</li>
+<li>request的回调函数中体现应用的逻辑，例如产生一个response</li>
+<li>请求通过HTTP server返回，这个过程会格式化成一个标准的HTTP response返回给客户端</li>
+</ol>
+<h3>Building a RESTful web service</h3>
+<p>CURD: Creat, Update, Read, Delete
+HTTP: Get, Post, Put, Delete</p>
+<ol>
+<li>使用POST创建资源</li>
+<li>使用GET获取资源</li>
+<li><p>使用DELETE删除资源</p>
+<p> function(req, res){
+   switch(req.method){
+   case: &#39;GET&#39;: </p>
+<pre><code><figure class="highlight"><pre> <span class="regexp">//</span> to <span class="keyword">do</span>
+ <span class="keyword">break</span>
+</pre></figure></code></pre>
+<p>   case: &#39;POST&#39;:</p>
+<pre><code><figure class="highlight"><pre> // <span class="keyword">...</span>
+ <span class="keyword">break</span>
+</pre></figure></code></pre>
+<p>   case: &#39;DELETE&#39;:</p>
+<pre><code><figure class="highlight"><pre> // <span class="keyword">...</span>
+ <span class="keyword">break</span>
+</pre></figure></code></pre>
+<p>   }
+ }</p>
+</li>
+</ol>
+<h3>Serving static files</h3>
+<ol>
+<li>Get /index.html 用户向服务器请求一个静态文件</li>
+<li>Node 服务器接受请求，应用的逻辑部分去读取这个文件</li>
+<li>文件通过一个读取流的实例传递给服务器</li>
+<li><p>文件的ReadStream通过&#39;piped&#39;拼接方式，以HTTP的response形式返回给客户端</p>
+<p> ...
+ var stream = fs.createReadStream(path)
+ // stream.on(&#39;data&#39;, function(chunk){
+ //   res.write(chunk)
+ // })
+ // stream.on(&#39;end&#39;, function(){
+ //   res.end()
+ // })
+ stream.pipe(res)
+ ...</p>
+</li>
+</ol>
+<p>相关的图片如下：</p>
+<img src="http://i.minus.com/iOZW6WxLIsBNk.png">
+
+
+<p>...
+stream.pipe(res)
+stream.on(&#39;error&#39;,function(err){
+  res.statusCode = 500
+  res.end(&#39;Internal Server Error!&#39;)
+})
+...</p>
+<p>文件不存在错误处理&quot;ENOENT, No such file or dictionary&quot;</p>
+<p>根据<code>fs.stat(path, function(err, stat){})</code>的err判断</p>
+<h3>接受用户表单提交数据</h3>
+<ol>
+<li>表单域</li>
+<li>上传文件node-formidable</li>
+<li>实时计算上传进度</li>
+</ol>
+<p>两种类型的表单提交</p>
+<ul>
+<li>&quot;application/x-www-form-urlencoded&quot;: the default for HTML forms</li>
+<li>&quot;multipart/form-data&quot;: used when form contains files, non-ascii, or binary data</li>
+</ul>
+<p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。
+也可以计算伪实时的文件上传进度，如下所示：</p>
+<pre><code><figure class="highlight"><pre>form.<span class="literal">on</span>(<span class="string">'process'</span>, <span class="reserved">function</span>(bytesReceived, bytesExpected){
+    <span class="reserved">var</span> percent = bytesReceived / bytesExpected * <span class="number">100</span>
+    console.log(percent)
+})
+</pre></figure></code></pre>
+<p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload">node-upload</a>中完成它。</p>
+<h3>使用HTTPS 确保应用的安全性</h3>
+<p>生成一个私钥(加密)
+    openssl genrsa 1024 &gt; key.pem</p>
+<p>生成证书(解码)
+    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
+<p><strong><em>HTTPS server选项</em></strong>
+    var https = require(&#39;https&#39;)
+      , fs = require(&#39;fs&#39;)
+      , options = {
+        key: fs.readFileSync(&#39;./key.pem&#39;),
+        cert: fs.readFileSync(&#39;./key-cert.pem&#39;)
+      }</p>
+<pre><code><figure class="highlight"><pre>https.createServer(options, <span class="keyword">function</span>(req, res){
+  res.writeHead(<span class="number">200</span>)
+  res.<span class="keyword">end</span>(<span class="comment">'Hello world!')</span>
+}).listen(<span class="number">4000</span>)
+</pre></figure></code></pre>
+<p>证书可以共享，它包括public key和持有者的身份信息。当然如果要发布一个网站，就需要在Certificate Authority(CA)上去注册，获取一个真实的，受信任的SSL证书。</p>
 
       
     </div>
@@ -159,7 +273,7 @@
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
   
-    <li><a href="/categories/Ubuntu/">Ubuntu</a><small>1</small></li>
+    <li><a href="/categories/Ubuntu/">Ubuntu</a><small>2</small></li>
   
   </ul>
 </div>
@@ -173,6 +287,8 @@
     <li><a href="/tags/API/">API</a><small>1</small></li>
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>5</small></li>
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
@@ -200,7 +316,7 @@
   
     <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
   
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>1</small></li>
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
   
   </ul>
 </div>
