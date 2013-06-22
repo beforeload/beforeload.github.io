@@ -85,24 +85,29 @@
 <li>安装VLC播放器</li>
 <li>安装fcitx + 搜狗拼音</li>
 <li>安装vim</li>
+<li>安装Node.js</li>
+<li>安装锐捷校园网客户端</li>
 </ol>
 <a name="more"></a>
 
 <h4>安装zsh和oh-my-zsh</h4>
-<p><strong><em>安装 curl:</em></strong>
-    sudo apt-get install curl</p>
+<p><strong><em>安装 curl:</em></strong></p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install curl
+</pre></figure></code></pre>
 <p>然后:</p>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh
 </pre></figure></code></pre>
-<p><strong><em>可以通过curl方式安装：</em></strong>
-    curl -L <a href="https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh">https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh</a> | sh</p>
+<p><strong><em>可以通过curl方式安装：</em></strong></p>
+<pre><code><figure class="highlight"><pre>curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh
+</pre></figure></code></pre>
 <p><strong><em>也可以通过wget：</em></strong></p>
 <pre><code><figure class="highlight"><pre><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span>-<span class="comment">check</span>-<span class="comment">certificate</span> <span class="comment">https://github</span>.<span class="comment">com/robbyrussell/oh</span>-<span class="comment">my</span>-<span class="comment">zsh/raw/master/tools/install</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh
 </pre></figure></code></pre>
 <p><a href="https://github.com/robbyrussell/oh-my-zsh">参考文档</a></p>
 <h4>Ubuntu 终端透明化</h4>
-<p>Ctrl+Alt+T 打开终端，菜单 
-    Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background</p>
+<p>Ctrl+Alt+T 打开终端，菜单 </p>
+<pre><code><figure class="highlight"><pre>Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background
+</pre></figure></code></pre>
 <h4>安装 chrome</h4>
 <p><strong><em>安装依赖:</em></strong></p>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install libudev0
@@ -132,7 +137,8 @@
 <pre><code><figure class="highlight"><pre><span class="title">git</span> config user.name
 </pre></figure></code></pre>
 <p>或者 </p>
-<p>cat ~/.gitconfig</p>
+<pre><code><figure class="highlight"><pre><span class="title">cat</span> ~/.gitconfig
+</pre></figure></code></pre>
 <h4>安装VLC视频播放器</h4>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc
 </pre></figure></code></pre>
@@ -167,6 +173,29 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
 覆盖<code>~/.vimrc</code>文件即可</p>
 <p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
 <p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
+<h4>安装Node.js</h4>
+<pre><code><figure class="highlight"><pre><span class="title">mkdir</span> node &amp;&amp; cd node
+<span class="title">git</span> clone https://github.com/joyent/node.git
+./configure
+<span class="title">make</span> 
+<span class="title">make</span> install
+</pre></figure></code></pre>
+<h4>安装锐捷校园网客户端</h4>
+<p>下载[Linux SU V 1.01](<a href="http://ncs.hust.edu.cn/download/soft/Linux">http://ncs.hust.edu.cn/download/soft/Linux</a> SU V1.01版.rar)</p>
+<p>安装unrar</p>
+<pre><code><figure class="highlight"><pre><span class="title">sudo</span> apt-get install unrar
+
+<span class="title">unrar</span> ***.rar
+<span class="title">tar</span> -zxvf ***.tar.gz
+
+<span class="title">cd</span> rjsupplicant/
+</pre></figure></code></pre>
+<p>查看设置</p>
+<pre><code><figure class="highlight"><pre><span class="comment">sudo</span> <span class="string">.</span><span class="comment">/rjsupplicant</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">h
+</pre></figure></code></pre>
+<p>设置好后启动</p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> ./rjsupplicant.sh
+</pre></figure></code></pre>
 
       
     </div>

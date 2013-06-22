@@ -17,12 +17,15 @@ tags:
 5. 安装VLC播放器
 6. 安装fcitx + 搜狗拼音
 7. 安装vim
+8. 安装Node.js
+9. 安装锐捷校园网客户端
 
 <!-- more -->
 
 #### 安装zsh和oh-my-zsh
 
 ___安装 curl:___
+
     sudo apt-get install curl
 
 然后:
@@ -30,6 +33,7 @@ ___安装 curl:___
     sudo apt-get install zsh
 
 ___可以通过curl方式安装：___
+
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 ___也可以通过wget：___
@@ -41,6 +45,7 @@ ___也可以通过wget：___
 #### Ubuntu 终端透明化
 
 Ctrl+Alt+T 打开终端，菜单 
+
     Edit->Profile Preference->Background->Transparent background
 
 #### 安装 chrome
@@ -82,7 +87,7 @@ ___查看某个配置:___
 
 或者 
 
-cat ~/.gitconfig
+    cat ~/.gitconfig
 
 #### 安装VLC视频播放器
 
@@ -137,3 +142,31 @@ ___配置：___
 
 Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。
 
+#### 安装Node.js
+
+    mkdir node && cd node
+    git clone https://github.com/joyent/node.git
+    ./configure
+    make 
+    make install
+
+#### 安装锐捷校园网客户端
+
+下载[Linux SU V 1.01](http://ncs.hust.edu.cn/download/soft/Linux SU V1.01版.rar)
+
+安装unrar
+
+    sudo apt-get install unrar
+
+    unrar ***.rar
+    tar -zxvf ***.tar.gz
+
+    cd rjsupplicant/
+
+查看设置
+
+    sudo ./rjsupplicant.sh -h
+
+设置好后启动
+
+    sudo ./rjsupplicant.sh
