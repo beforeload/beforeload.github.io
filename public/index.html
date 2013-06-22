@@ -66,6 +66,186 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-06-22T13:14:49.000Z"><a href="/2013/06/22/my-software-installation-and-configuration-ubuntu-1304/">6月 22 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/06/22/my-software-installation-and-configuration-ubuntu-1304/">My Software Installation and Configuration Ubuntu 13.04</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>在Ubuntu 13.04上常用软件的安装配置</h2>
+<p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
+<ol>
+<li>安装zsh和oh-my-zsh</li>
+<li>终端透明化</li>
+<li>安装chrome</li>
+<li>安装git</li>
+<li>安装VLC播放器</li>
+<li>安装fcitx + 搜狗拼音</li>
+<li>安装vim</li>
+</ol>
+<h4>安装zsh和oh-my-zsh</h4>
+<p><strong><em>安装 curl:</em></strong>
+    sudo apt-get install curl</p>
+<p>然后:</p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh
+</pre></figure></code></pre>
+<p><strong><em>可以通过curl方式安装：</em></strong>
+    curl -L <a href="https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh">https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh</a> | sh</p>
+<p><strong><em>也可以通过wget：</em></strong></p>
+<pre><code><figure class="highlight"><pre><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span>-<span class="comment">check</span>-<span class="comment">certificate</span> <span class="comment">https://github</span>.<span class="comment">com/robbyrussell/oh</span>-<span class="comment">my</span>-<span class="comment">zsh/raw/master/tools/install</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh
+</pre></figure></code></pre>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh">参考文档</a></p>
+<h4>Ubuntu 终端透明化</h4>
+<p>Ctrl+Alt+T 打开终端，菜单 
+    Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background</p>
+<h4>安装 chrome</h4>
+<p><strong><em>安装依赖:</em></strong></p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install libudev0
+</pre></figure></code></pre>
+<p>然后从google chrome官方网站上下载安装</p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> dpkg -i google-chrome-stable_current_amd64.deb
+</pre></figure></code></pre>
+<p>终端输入<code>google-chrome</code>即可启动。</p>
+<h4>安装git</h4>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git
+</pre></figure></code></pre>
+<p><strong><em>相关配置:</em></strong></p>
+<pre><code><figure class="highlight"><pre><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">name</span> <span class="comment">"beforeload"</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">email</span> <span class="comment">fe</span>.<span class="comment">daniel91@gmail</span>.<span class="comment">com</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">diff</span> <span class="comment">auto</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">status</span> <span class="comment">jauto</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">branch</span> <span class="comment">auto</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">push</span>.<span class="comment">default</span> <span class="comment">current</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">core</span>.<span class="comment">editor</span> <span class="comment">vim</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">merge</span>.<span class="comment">tool</span> <span class="comment">vimdiff
+</pre></figure></code></pre>
+<h5>查看配置</h5>
+<p><strong><em>查看所有配置:</em></strong></p>
+<pre><code><figure class="highlight"><pre><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list
+</pre></figure></code></pre>
+<p><strong><em>查看某个配置:</em></strong></p>
+<pre><code><figure class="highlight"><pre><span class="title">git</span> config user.name
+</pre></figure></code></pre>
+<p>或者 </p>
+<p>cat ~/.gitconfig</p>
+<h4>安装VLC视频播放器</h4>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc
+</pre></figure></code></pre>
+<p>终端输入<code>vlc</code>启动，在菜单栏</p>
+<pre><code><figure class="highlight"><pre>Tools-&gt; Preference -&gt; Subtitles &amp; OSD 修改Default encoding为Universal(UTF-<span class="number">8</span>)
+</pre></figure></code></pre>
+<p>还可以设置相关中文字体（中文可选）。</p>
+<p>然后在右上角:</p>
+<pre><code><figure class="highlight"><pre><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Details</span> <span class="literal">-</span>&gt; <span class="comment">Default</span> <span class="comment">Applications</span> <span class="literal">-</span>&gt; <span class="comment">Video选择VLC</span> <span class="comment">media</span> <span class="comment">player
+</pre></figure></code></pre>
+<p>这样打开相关视频文件，可以直接使用VLC播放。</p>
+<h4>安装sougou + fcitx</h4>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> <span class="keyword">add</span>-apt-repository ppa:fcitx-team/nightly
+sudo apt-<span class="keyword">get</span> <span class="keyword">update</span>
+sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
+</pre></figure></code></pre>
+<p>然后在<code>System Settings -&gt; Language Support -&gt; Keyboard input method system</code> 中选择 fcitx。</p>
+<p><strong><em>[可选]安装皮肤：</em></strong></p>
+<p>下载<a href="http://pan.baidu.com/share/link?shareid=591450&amp;uk=4060302862">fcitx-sougou-skin</a></p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> dpkg -i fcitx-skin-sogou_0<span class="number">.0</span><span class="number">.2</span>_<span class="keyword">all</span>.deb
+</pre></figure></code></pre>
+<p>在fcitx外观中选择sougou即可。</p>
+<p>最后注销，重新登录，输入法生效。</p>
+<h4>安装配置VIM</h4>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vim
+</pre></figure></code></pre>
+<p><strong><em>配置：</em></strong></p>
+<p>安装vundle</p>
+<pre><code><figure class="highlight"><pre>git clone https://github<span class="preprocessor">.com</span>/gmarik/vundle<span class="preprocessor">.git</span> ~/<span class="preprocessor">.vim</span>/bundle/vundle
+</pre></figure></code></pre>
+<p>用<a href="https://github.com/beforeload/myconf/blob/master/.vimrc">我的.vimrc配置文件</a>
+覆盖<code>~/.vimrc</code>文件即可</p>
+<p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
+<p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-06-15T12:52:00.000Z"><a href="/2013/06/15/storing-node-application-data/">6月 15 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/06/15/storing-node-application-data/">Storing Node application data</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>浅析Node.js应用的数据存储</h2>
+<p>主要从以下三点简要分析</p>
+<ol>
+<li>内存和文件系统数据存储</li>
+<li>传统的关系型数据库存储</li>
+<li>非关系型数据库存储</li>
+</ol>
+<p>选择一种合适的数据存储机制主要依赖五个因素：</p>
+<ol>
+<li>存什么样的数据</li>
+<li>数据读写的速度要求以满足足够的性能</li>
+<li>多大规模的数据</li>
+<li>数据查询方式</li>
+<li>数据存储和保存的生命周期</li>
+</ol>
+<h3>Relational Database</h3>
+<ol>
+<li>MySQL</li>
+<li>Postgres</li>
+</ol>
+<h3>NoSQL databases</h3>
+<ol>
+<li>Redis</li>
+<li>MongoDB</li>
+<li>Mongoose</li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-06-11T18:29:06.000Z"><a href="/2013/06/12/building-phonegap-development-environment/">6月 12 2013</a></time>
       
       
@@ -406,85 +586,6 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-29T09:19:09.000Z"><a href="/2013/04/29/graduation-summary/">4月 29 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/29/graduation-summary/">Graduation Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>毕业总结</h2>
-<h5>写在前面的话</h5>
-<p>一直觉得自己很忙，但又说不出来自己忙在哪里，很大程度上都是各种酱油的生活，也许我应该过忙碌的生活，这样就不会想得太纠结，思考得太无聊。幸运的是受到别人总结的启发，自我感觉也算有点经历的人，写下这样的一篇自我总结，就从2012年到现在做一个总结吧。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/29/graduation-summary/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-28T02:16:15.000Z"><a href="/2013/04/28/content-syndication-with-nodejs/">4月 28 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/28/content-syndication-with-nodejs/">内容聚合Nodejs的实现</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3>[翻译]Content Syndication with Node.js</h3>
-<hr>
-<p>原文链接 <a href="http://howtonode.org/content-syndication-with-node">Content Syndication with Node.js</a></p>
-<p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/28/content-syndication-with-nodejs/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
@@ -515,11 +616,11 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/categories/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>3</small></li>
+    <li><a href="/categories/Nodejs/">Node.js</a><small>4</small></li>
   
     <li><a href="/categories/Recommendation/">Recommendation</a><small>1</small></li>
   
-    <li><a href="/categories/Ubuntu/">Ubuntu</a><small>2</small></li>
+    <li><a href="/categories/Ubuntu/">Ubuntu</a><small>3</small></li>
   
   </ul>
 </div>
@@ -556,13 +657,13 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/tags/Memory/">Memory</a><small>4</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>3</small></li>
+    <li><a href="/tags/Nodejs/">Node.js</a><small>4</small></li>
   
     <li><a href="/tags/Recommendation/">Recommendation</a><small>1</small></li>
   
     <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
   
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>2</small></li>
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>3</small></li>
   
   </ul>
 </div>

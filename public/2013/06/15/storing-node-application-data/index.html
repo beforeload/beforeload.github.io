@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
-  <title>API | beforeload</title>
+  <title>Storing Node application data | beforeload</title>
   <meta name="author" content="beforeload">
   
   <meta name="description" content="熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Storing Node application data"/>
   <meta property="og:site_name" content="beforeload"/>
 
   
@@ -59,71 +59,90 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">API</h2>
-
-
-  
-    <article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">4月 6 2013</a></time>
+        <time datetime="2013-06-15T12:52:00.000Z"><a href="/2013/06/15/storing-node-application-data/">6月 15 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
+    <h1 class="title">Storing Node application data</h1>
   
 
     </header>
     <div class="entry">
       
-        <h3>案例</h3>
-<h4>上传本地文件到 HDFS</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
-    Configuration conf = <span class="keyword">new</span> Configuration();
-    conf.addResource(<span class="keyword">new</span> Path(config));
-    FileSystem hdfs = FileSystem.get(conf);
-    Path srcPath = <span class="keyword">new</span> Path(src);
-    Path dstPath = <span class="keyword">new</span> Path(dst);
-    hdfs.copyFromLocalFile(srcPath, dstPath);
-    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
-    
-    FileStatus files[] = hdfs.listStatus(dstPath);
-    <span class="keyword">for</span> (FileStatus file : files) {
-        System.out.println(file.getPath());
-    }
-    hdfs.close();
-}
-</pre></td></tr></table></figure>
+        <h2>浅析Node.js应用的数据存储</h2>
+<p>主要从以下三点简要分析</p>
+<ol>
+<li>内存和文件系统数据存储</li>
+<li>传统的关系型数据库存储</li>
+<li>非关系型数据库存储</li>
+</ol>
+<p>选择一种合适的数据存储机制主要依赖五个因素：</p>
+<ol>
+<li>存什么样的数据</li>
+<li>数据读写的速度要求以满足足够的性能</li>
+<li>多大规模的数据</li>
+<li>数据查询方式</li>
+<li>数据存储和保存的生命周期</li>
+</ol>
+<h3>Relational Database</h3>
+<ol>
+<li>MySQL</li>
+<li>Postgres</li>
+</ol>
+<h3>NoSQL databases</h3>
+<ol>
+<li>Redis</li>
+<li>MongoDB</li>
+<li>Mongoose</li>
+</ol>
 
       
     </div>
     <footer>
       
         
-          <div class="alignleft">
-            <a href="/2013/04/06/hdfs-java-api/#more" class="more-link">Read More</a>
-          </div>
+  
+  <div class="categories">
+    <a href="/categories/Nodejs/">Node.js</a>
+  </div>
+
         
-        
+  
+  <div class="tags">
+    <a href="/tags/Nodejs/">Node.js</a>
+  </div>
+
+        <!-- JiaThis Button BEGIN -->
+
+  <div class="jiathis_style_32x32">
+    
+      <a class="jiathis_button_qzone"></a>
+    
+    
+      <a class="jiathis_button_tsina"></a>
+    
+    
+      <a class="jiathis_button_tqq"></a>
+    
+    
+      <a class="jiathis_button_renren"></a>
+    
+    
+      <a class="jiathis_button_weixin"></a>
+    
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
+
+<!-- JiaThis Button END -->
+
       
       <div class="clearfix"></div>
     </footer>
@@ -131,14 +150,13 @@
 </article>
 
 
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 
-  
-
-  <nav id="pagination">
-  
-  
-  <div class="clearfix"></div>
-</nav>
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -236,7 +254,7 @@ var disqus_shortname = 'beforeload';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
