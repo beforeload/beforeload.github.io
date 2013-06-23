@@ -87,6 +87,7 @@
 <li>安装vim</li>
 <li>安装Node.js</li>
 <li>安装锐捷校园网客户端</li>
+<li>安装配置jdk</li>
 </ol>
 <a name="more"></a>
 
@@ -195,6 +196,27 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
 </pre></figure></code></pre>
 <p>设置好后启动</p>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> ./rjsupplicant.sh
+</pre></figure></code></pre>
+<h4>安装配置JDK</h4>
+<p>第一步 下载</p>
+<p>第二步 解压</p>
+<pre><code><figure class="highlight"><pre>sudo tar zxvf .<span class="javadoc">/***.tar.gz  -C /usr/lib/jvm
+cd /usr/lib/jvm
+sudo mv jdk1.7.0/ jdk
+</pre></figure></code></pre>
+<p>第三步 修改环境变量</p>
+<pre><code><figure class="highlight"><pre><span class="title">vim</span> ~/.bashrc
+<span class="title">export</span> <span class="type">JAVA_HOME</span>=/usr/lib/jvm/jdk
+<span class="title">export</span> <span class="type">JRE_HOME</span>=${<span class="type">JAVA_HOME</span>}/jre  
+<span class="title">export</span> <span class="type">CLASSPATH</span>=.:${<span class="type">JAVA_HOME</span>}/lib:${<span class="type">JRE_HOME</span>}/lib  
+<span class="title">export</span> <span class="type">PATH</span>=${<span class="type">JAVA_HOME</span>}/bin:$<span class="type">PATH</span>  
+
+<span class="title">source</span> ~/.bashrc
+
+<span class="title">sudo</span> update-alternatives <span class="comment">--config java </span>
+</pre></figure></code></pre>
+<p>检查是否安装成功</p>
+<pre><code><figure class="highlight"><pre><span class="title">java</span> -version
 </pre></figure></code></pre>
 
       
