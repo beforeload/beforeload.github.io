@@ -4,7 +4,7 @@ tags: Node.js
 categories: Node.js
 ---
 
-##浅析Node.js应用的数据存储
+## 浅析Node.js应用的数据存储
 
 主要从以下三点简要分析
 

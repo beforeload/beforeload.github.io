@@ -145,6 +145,12 @@ Powerline中下面的箭头可能存在字体问题，解决的办法是给字�
 
 #### 安装Node.js
 
+安装依赖
+
+    sudo apt-get install build-essential libssl-dev
+
+编译安装
+
     mkdir node && cd node
     git clone https://github.com/joyent/node.git
     ./configure

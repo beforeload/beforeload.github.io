@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-06-23T10:14:37.242Z</updated>
+  <updated>2013-06-23T14:14:14.627Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -12,11 +12,22 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
+    <title type="html"><![CDATA[Testing Node applications]]></title>
+    <link href="http://beforeload.github.io/2013/06/23/testing-node-applications/"/>
+    <id>http://beforeload.github.io/2013/06/23/testing-node-applications/</id>
+    <published>2013-06-23T14:13:27.000Z</published>
+    <updated>2013-06-23T14:14:03.963Z</updated>
+    <content type="html"><![CDATA[<h2>Node.js应用测试</h2>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Nodejs/" term="Node.js"/>
+    <category scheme="http://beforeload.github.io/categories/Nodejs/" term="Node.js"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[My Software Installation and Configuration on Ubuntu 13.04]]></title>
     <link href="http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/"/>
     <id>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</id>
     <published>2013-06-22T13:23:50.000Z</published>
-    <updated>2013-06-23T08:12:42.663Z</updated>
+    <updated>2013-06-23T14:01:51.443Z</updated>
     <content type="html"><![CDATA[<h2>在Ubuntu 13.04上常用软件的安装配置</h2>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
@@ -117,6 +128,10 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
 <p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
 <p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
 <h4>安装Node.js</h4>
+<p>安装依赖</p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install build-essential libssl-dev
+</pre></figure></code></pre>
+<p>编译安装</p>
 <pre><code><figure class="highlight"><pre><span class="title">mkdir</span> node &amp;&amp; cd node
 <span class="title">git</span> clone https://github.com/joyent/node.git
 ./configure
@@ -170,7 +185,7 @@ sudo mv jdk1.7.0/ jdk
     <link href="http://beforeload.github.io/2013/06/15/storing-node-application-data/"/>
     <id>http://beforeload.github.io/2013/06/15/storing-node-application-data/</id>
     <published>2013-06-15T12:52:00.000Z</published>
-    <updated>2013-06-16T02:28:19.343Z</updated>
+    <updated>2013-06-23T14:02:13.355Z</updated>
     <content type="html"><![CDATA[<h2>浅析Node.js应用的数据存储</h2>
 <p>主要从以下三点简要分析</p>
 <ol>
@@ -482,8 +497,8 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
     <link href="http://beforeload.github.io/2013/05/20/fix-some-problems/"/>
     <id>http://beforeload.github.io/2013/05/20/fix-some-problems/</id>
     <published>2013-05-20T14:10:58.000Z</published>
-    <updated>2013-06-15T12:23:56.160Z</updated>
-    <content type="html"><![CDATA[<h2>解决的一些Ubuntu 13.04的问题汇总</h2>
+    <updated>2013-06-23T14:03:16.675Z</updated>
+    <content type="html"><![CDATA[<h2>解决 Ubuntu 13.04的视频音频相关问题</h2>
 <ol>
 <li>Fix ASUS Webcam Problem:vertically flip my webcam&#39;s image</li>
 </ol>
@@ -2329,17 +2344,5 @@ int main(int argc, const char *argv[])
     <category scheme="http://beforeload.github.io/tags/C/" term="C"/>
     <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
     <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[blog establish]]></title>
-    <link href="http://beforeload.github.io/2013/04/03/blog-establish/"/>
-    <id>http://beforeload.github.io/2013/04/03/blog-establish/</id>
-    <published>2013-04-03T15:11:12.000Z</published>
-    <updated>2013-06-15T12:23:56.160Z</updated>
-    <content type="html"><![CDATA[<p>新建第一篇博文，以纪念今天博客建立</p>
-<p>一直在犹豫使用Jekyll还是Octopress搭建自己的博客,虽然后者基于前者做了一些优化之类的东西,但最终犹豫再三还是使用了Jekyll。没有使用过Octopress，不知道两者之间的区别在什么地方，不过相对于初学者，使用Jekyll还是非常容易上手的，具体的步骤参看<a href="http://jekyllbootstrap.com">Jekyll Bootstrap</a>。</p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
-    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
   </entry>
 </feed>

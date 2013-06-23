@@ -6,7 +6,7 @@ tags:
 - Linux
 ---
 
-##解决的一些Ubuntu 13.04的问题汇总
+##解决 Ubuntu 13.04的视频音频相关问题
 
 1. Fix ASUS Webcam Problem:vertically flip my webcam's image
 
