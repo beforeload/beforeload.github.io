@@ -159,7 +159,7 @@ Powerline中下面的箭头可能存在字体问题，解决的办法是给字�
 
 #### 安装锐捷校园网客户端
 
-下载[Linux SU V 1.01](http://ncs.hust.edu.cn/download/soft/Linux SU V1.01版.rar)
+下载[Linux SU V 1.01](http://ncs.hust.edu.cn/download/soft/Linux\ SU\ V1.01版.rar)
 
 安装unrar
 
