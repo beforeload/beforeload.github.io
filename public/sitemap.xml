@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
+    <lastmod>2013-06-29T16:54:32.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
     <lastmod>2013-06-29T11:24:28.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
     <lastmod>2013-06-29T11:23:54.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
-    <lastmod>2013-06-29T11:21:30.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</loc>

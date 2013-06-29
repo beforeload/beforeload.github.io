@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-06-29T11:32:02.091Z</updated>
+  <updated>2013-06-29T17:07:11.049Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,7 +16,7 @@
     <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-28T17:13:47.000Z</published>
-    <updated>2013-06-29T11:21:30.000Z</updated>
+    <updated>2013-06-29T16:54:32.000Z</updated>
     <content type="html"><![CDATA[<h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
@@ -54,6 +54,19 @@ export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOM
 Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
 Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)
 </pre></figure></code></pre>
+<h4>安装eclipse</h4>
+<p>下载eclipse<strong>**</strong>.tar.gz</p>
+<pre><code><figure class="highlight"><pre>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
+mv eclipse /usr/<span class="keyword">local</span>
+/usr/<span class="keyword">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span>
+</pre></figure></code></pre>
+<p>通过修改快捷键，可以迅速启动eclipse</p>
+<pre><code><figure class="highlight"><pre><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</span>
+
+<span class="comment">Name:</span> <span class="comment">eclipse</span>
+<span class="comment">Command:</span> <span class="comment">/usr/local/eclipse/eclipse
+</pre></figure></code></pre>
+<p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
