@@ -82,36 +82,21 @@
       
         <h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
-<h4>安装jdk</h4>
-<p>下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<p><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now</code></p>
-<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
-<pre><code><figure class="highlight"><pre>sudo mkdir /usr/java
-tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
-sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
-</pre></figure></code></pre>
-<p>然后修改配置文件</p>
-<p><code>sudo vi /etc/profile</code></p>
-<p>按G可以直接到文件尾端，填写下面内容</p>
-<pre><code><figure class="highlight"><pre><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
-export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
-export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
-export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
-</pre></figure></code></pre>
-<p>保存退出。</p>
-<pre><code><figure class="highlight"><pre><span class="title">source</span> /etc/profile
-<span class="title">java</span> -version
-</pre></figure></code></pre>
-<p>如果显示下面结果，表示安装成功。</p>
-<pre><code><figure class="highlight"><pre><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
-Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
-Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)
-</pre></figure></code></pre>
+<p>分为以下安装过程：</p>
+<ol>
+<li>安装jdk</li>
+<li>安装eclipse</li>
+<li>安装hadoop</li>
+</ol>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/29/building-distributed-systems-development-environment/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -194,30 +179,15 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
 sudo apt-<span class="keyword">get</span> install ant
 </pre></figure></code></pre>
-<h4>安装独立SDK</h4>
-<p>下载<a href="http://developer.android.com/sdk/index.html">SDK</a></p>
-<pre><code><figure class="highlight"><pre><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
-<span class="comment">cd</span> <span class="comment">~/DevTools/android</span>-<span class="comment">sdk</span>-<span class="comment">linux/tools/</span>
-<span class="string">.</span><span class="comment">/android</span> <span class="comment">sdk
-</pre></figure></code></pre>
-<h4>配置环境变量</h4>
-<p>在~/.bashrc或者/etc/environemnt</p>
-<pre><code><figure class="highlight"><pre>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</pre></figure></code></pre>
-<h4>测试</h4>
-<pre><code><figure class="highlight"><pre>android list targets    <span class="comment">#查看可用平台</span>
-android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
-android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
-cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
-ant debug   <span class="comment">#debug模式打包</span>
-adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span>
-</pre></figure></code></pre>
-<p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html">Building Your First App</a></p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/12/building-phonegap-development-environment/#more" class="more-link">Read More</a>
+          </div>
         
         
       

@@ -180,4 +180,4 @@ Powerline中下面的箭头可能存在字体问题，解决的办法是给字�
 
 #### 安装配置JDK
 
-相关安装步骤已经在另外一篇博文中做出更新。
+相关安装步骤已经在另外[一篇博文](//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/)中做出更新。

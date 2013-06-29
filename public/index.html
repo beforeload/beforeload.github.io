@@ -78,36 +78,21 @@
       
         <h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
-<h4>安装jdk</h4>
-<p>下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<p><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now</code></p>
-<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
-<pre><code><figure class="highlight"><pre>sudo mkdir /usr/java
-tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
-sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
-</pre></figure></code></pre>
-<p>然后修改配置文件</p>
-<p><code>sudo vi /etc/profile</code></p>
-<p>按G可以直接到文件尾端，填写下面内容</p>
-<pre><code><figure class="highlight"><pre><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
-export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
-export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
-export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
-</pre></figure></code></pre>
-<p>保存退出。</p>
-<pre><code><figure class="highlight"><pre><span class="title">source</span> /etc/profile
-<span class="title">java</span> -version
-</pre></figure></code></pre>
-<p>如果显示下面结果，表示安装成功。</p>
-<pre><code><figure class="highlight"><pre><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
-Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
-Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)
-</pre></figure></code></pre>
+<p>分为以下安装过程：</p>
+<ol>
+<li>安装jdk</li>
+<li>安装eclipse</li>
+<li>安装hadoop</li>
+</ol>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/29/building-distributed-systems-development-environment/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -138,72 +123,16 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
         <h2>使用Yeoman 快速构建Web应用</h2>
 <h4>简介</h4>
 <p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
-<p>相关介绍参见<a href="http://yeoman.io/">官网文档</a></p>
-<p>它由三个组件组成：</p>
-<ol>
-<li>Yo 脚手架工具：我理解成项目工程目录和文件生成工具。用来构建生产环境和生成编译环境。</li>
-<li>Grunt 构建工具：主要用来构建，预览和测试你的项目。</li>
-<li>Bower 包管理工具：处理包依赖关系，不需要手动下载管理脚本。可以理解成前端的NPM。</li>
-</ol>
-<p><strong>协作关系图：</strong></p>
-<img src="//images.cnitblog.com/blog/39469/201303/09214923-27fe6dea6eb34f468e601589ea83a675.png" class="[yo-grunt-bower]">
-
-
-<p>从上面流水线一样的协作图，可以看出一个项目产品的生成可以做到很规范化，从而提高生成效率。</p>
-<p>我觉得在说应用之前，先要思考一下使用Yeoman的场景，如果是我们负责一个项目，思考一下如下的问题：</p>
-<ol>
-<li>项目目录是怎样的？</li>
-<li>需要用到哪些类库？</li>
-<li>(基于PHP和基于Node.js)生产环境是怎样的？</li>
-<li>如果使用CoffeeScript/sass/less，又需要增加什么样的编译环境？</li>
-<li>单元测试要如何进行？</li>
-<li>调试环境是怎么样的？</li>
-<li>打包部署要遵循什么样的流程？</li>
-<li>...</li>
-</ol>
-<p>这些问题不能很好的解决，项目开发中都会存在或多或少的效率问题。</p>
-<p>其实，解决他们很简单，yeoman提供方便快捷的解决方法，下面简单介绍一下如何构建一个项目。</p>
-<h3>安装它</h3>
-<p>第一步：首先确认拥有Node.js, Ruby的环境。</p>
-<p>最好安装一下 Compass(Sass的工具库)</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> gem install compass
-</pre></figure></code></pre>
-<p>如果想了解一下Compass，推荐阮一峰的一篇<a href="http://www.ruanyifeng.com/blog/2012/11/compass.html">博文</a>。</p>
-<p>第二步：然后安装三个组件</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> npm install -g yo grunt-cli bower
-</pre></figure></code></pre>
-<p>第三步：安装网络应用生成器</p>
-<p>选择web app生成器：</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> npm install -g generator-webapp
-</pre></figure></code></pre>
-<p>也可以选择安装AngularJS生成器：</p>
-<pre><code><figure class="highlight"><pre><span class="title">sudo</span> npm install -g generator-angular  <span class="comment"># install generator</span>
-</pre></figure></code></pre>
-<h3>快速构建</h3>
-<p>由于上面web应用生成器有两种，所以可以通过两种不同的方式构建我们的项目：</p>
-<ol>
-<li><p>使用<code>yo webapp</code>方式：</p>
-<p> yo webapp                     # 搭建项目骨架
- bower install underscore      # 依赖通过bower安装
- grunt                         # 构建测试发布环境</p>
-</li>
-<li><p>使用<code>yo angular</code>方式：</p>
-<p> yo angular                    # 搭建项目骨架
- bower install angular-ui      # 依赖通过bower安装
- grunt test                    # 测试
- grunt server                  # 预览
- grunt  </p>
-</li>
-</ol>
-<h3>总结</h3>
-<p>通过以上的步骤，我们很容易的构建出了一个简易的web项目。yeoman有很多特性，例如可以自定义模板（如HTML5, Boilerplate, Twitter Bootstrap等），AMD（通过RequireJS）等其他工具。</p>
-<p>自动编译CoffeeScript和Compass也是一大亮点，值得一提的是，yeoman提供了live reload功能，在对项目文件修改保存后，前端页面回自动刷新。</p>
-<p>还有太多太多特性了，如jslint完善脚本，内置HTTP服务器，集成包管理，ES6的语法支持，PhantomJS单元测试等等。希望大家使用愉快。</p>
+<p>相关介绍参见<a href="http://yeoman.io/">官网文档</a>。</p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/28/building-webapps-with-yeoman/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -288,30 +217,15 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
 <li>传统的关系型数据库存储</li>
 <li>非关系型数据库存储</li>
 </ol>
-<p>选择一种合适的数据存储机制主要依赖五个因素：</p>
-<ol>
-<li>存什么样的数据</li>
-<li>数据读写的速度要求以满足足够的性能</li>
-<li>多大规模的数据</li>
-<li>数据查询方式</li>
-<li>数据存储和保存的生命周期</li>
-</ol>
-<h3>Relational Database</h3>
-<ol>
-<li>MySQL</li>
-<li>Postgres</li>
-</ol>
-<h3>NoSQL databases</h3>
-<ol>
-<li>Redis</li>
-<li>MongoDB</li>
-<li>Mongoose</li>
-</ol>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/15/storing-node-application-data/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -344,30 +258,15 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
 sudo apt-<span class="keyword">get</span> install ant
 </pre></figure></code></pre>
-<h4>安装独立SDK</h4>
-<p>下载<a href="http://developer.android.com/sdk/index.html">SDK</a></p>
-<pre><code><figure class="highlight"><pre><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
-<span class="comment">cd</span> <span class="comment">~/DevTools/android</span>-<span class="comment">sdk</span>-<span class="comment">linux/tools/</span>
-<span class="string">.</span><span class="comment">/android</span> <span class="comment">sdk
-</pre></figure></code></pre>
-<h4>配置环境变量</h4>
-<p>在~/.bashrc或者/etc/environemnt</p>
-<pre><code><figure class="highlight"><pre>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</pre></figure></code></pre>
-<h4>测试</h4>
-<pre><code><figure class="highlight"><pre>android list targets    <span class="comment">#查看可用平台</span>
-android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
-android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
-cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
-ant debug   <span class="comment">#debug模式打包</span>
-adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span>
-</pre></figure></code></pre>
-<p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html">Building Your First App</a></p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/12/building-phonegap-development-environment/#more" class="more-link">Read More</a>
+          </div>
         
         
       

@@ -85,30 +85,15 @@
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
 sudo apt-<span class="keyword">get</span> install ant
 </pre></figure></code></pre>
-<h4>安装独立SDK</h4>
-<p>下载<a href="http://developer.android.com/sdk/index.html">SDK</a></p>
-<pre><code><figure class="highlight"><pre><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
-<span class="comment">cd</span> <span class="comment">~/DevTools/android</span>-<span class="comment">sdk</span>-<span class="comment">linux/tools/</span>
-<span class="string">.</span><span class="comment">/android</span> <span class="comment">sdk
-</pre></figure></code></pre>
-<h4>配置环境变量</h4>
-<p>在~/.bashrc或者/etc/environemnt</p>
-<pre><code><figure class="highlight"><pre>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</pre></figure></code></pre>
-<h4>测试</h4>
-<pre><code><figure class="highlight"><pre>android list targets    <span class="comment">#查看可用平台</span>
-android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
-android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
-cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
-ant debug   <span class="comment">#debug模式打包</span>
-adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span>
-</pre></figure></code></pre>
-<p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html">Building Your First App</a></p>
 
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2013/06/12/building-phonegap-development-environment/#more" class="more-link">Read More</a>
+          </div>
         
         
       

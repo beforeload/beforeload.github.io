@@ -77,17 +77,27 @@
       
         <h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
+<p>分为以下安装过程：</p>
+<ol>
+<li>安装jdk</li>
+<li>安装eclipse</li>
+<li>安装hadoop</li>
+</ol>
+<a name="more"></a>
+
 <h4>安装jdk</h4>
 <p>下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<p><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now</code></p>
+<pre><code><figure class="highlight"><pre><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now
+</pre></figure></code></pre>
 <p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
 <pre><code><figure class="highlight"><pre>sudo mkdir /usr/java
 tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
 sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
 </pre></figure></code></pre>
 <p>然后修改配置文件</p>
-<p><code>sudo vi /etc/profile</code></p>
-<p>按G可以直接到文件尾端，填写下面内容</p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> vi /etc/profile
+</pre></figure></code></pre>
+<p>按G可以直接到文件尾端，填写下面内容:</p>
 <pre><code><figure class="highlight"><pre><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
 export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
 export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar

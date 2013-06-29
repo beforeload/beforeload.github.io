@@ -11,6 +11,8 @@ categories: Ubuntu
     sudo apt-get install ia32-libs #64位系统的32位程序兼容库adb需要此库(32位系统的当然略过此步骤)
     sudo apt-get install ant
 
+<!-- more -->
+
 #### 安装独立SDK
 下载[SDK](http://developer.android.com/sdk/index.html)
 

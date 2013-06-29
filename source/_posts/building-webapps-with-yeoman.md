@@ -10,7 +10,9 @@ categories: Node.js
 
 Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。
 
-相关介绍参见[官网文档](http://yeoman.io/)
+相关介绍参见[官网文档](http://yeoman.io/)。
+
+<!-- more -->
 
 它由三个组件组成：
 
@@ -67,13 +69,13 @@ __协作关系图：__
 
 由于上面web应用生成器有两种，所以可以通过两种不同的方式构建我们的项目：
 
-1. 使用`yo webapp`方式：
+第一种：使用`yo webapp`方式
 
     yo webapp                     # 搭建项目骨架
     bower install underscore      # 依赖通过bower安装
     grunt                         # 构建测试发布环境
 
-2. 使用`yo angular`方式：
+第二种：使用`yo angular`方式
 
     yo angular                    # 搭建项目骨架
     bower install angular-ui      # 依赖通过bower安装

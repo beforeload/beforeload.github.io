@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
-    <lastmod>2013-06-29T11:05:59.000Z</lastmod>
+    <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
+    <lastmod>2013-06-29T11:24:28.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
+    <lastmod>2013-06-29T11:23:54.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
-    <lastmod>2013-06-29T11:04:47.000Z</lastmod>
+    <lastmod>2013-06-29T11:21:30.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</loc>
-    <lastmod>2013-06-28T16:40:07.000Z</lastmod>
+    <lastmod>2013-06-29T11:18:09.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
+    <lastmod>2013-06-29T11:15:13.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/06/15/storing-node-application-data/</loc>
+    <lastmod>2013-06-29T11:09:21.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/05/20/fix-some-problems/</loc>
     <lastmod>2013-06-23T14:03:16.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/15/storing-node-application-data/</loc>
-    <lastmod>2013-06-23T14:02:13.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
-    <lastmod>2013-06-15T12:23:56.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</loc>
-    <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/04/28/content-syndication-with-nodejs/</loc>
@@ -77,11 +77,11 @@
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
+    <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
+    <loc>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</loc>
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-06-29T11:06:13.048Z</updated>
+  <updated>2013-06-29T11:27:53.488Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,20 +16,30 @@
     <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-28T17:13:47.000Z</published>
-    <updated>2013-06-29T11:04:47.000Z</updated>
+    <updated>2013-06-29T11:21:30.000Z</updated>
     <content type="html"><![CDATA[<h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
+<p>分为以下安装过程：</p>
+<ol>
+<li>安装jdk</li>
+<li>安装eclipse</li>
+<li>安装hadoop</li>
+</ol>
+<a name="more"></a>
+
 <h4>安装jdk</h4>
 <p>下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<p><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now</code></p>
+<pre><code><figure class="highlight"><pre><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now
+</pre></figure></code></pre>
 <p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
 <pre><code><figure class="highlight"><pre>sudo mkdir /usr/java
 tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
 sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
 </pre></figure></code></pre>
 <p>然后修改配置文件</p>
-<p><code>sudo vi /etc/profile</code></p>
-<p>按G可以直接到文件尾端，填写下面内容</p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> vi /etc/profile
+</pre></figure></code></pre>
+<p>按G可以直接到文件尾端，填写下面内容:</p>
 <pre><code><figure class="highlight"><pre><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
 export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
 export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
@@ -55,11 +65,13 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
     <link href="http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/"/>
     <id>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</id>
     <published>2013-06-28T14:11:40.000Z</published>
-    <updated>2013-06-28T16:40:07.000Z</updated>
+    <updated>2013-06-29T11:18:09.000Z</updated>
     <content type="html"><![CDATA[<h2>使用Yeoman 快速构建Web应用</h2>
 <h4>简介</h4>
 <p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
-<p>相关介绍参见<a href="http://yeoman.io/">官网文档</a></p>
+<p>相关介绍参见<a href="http://yeoman.io/">官网文档</a>。</p>
+<a name="more"></a>
+
 <p>它由三个组件组成：</p>
 <ol>
 <li>Yo 脚手架工具：我理解成项目工程目录和文件生成工具。用来构建生产环境和生成编译环境。</li>
@@ -102,20 +114,18 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
 </pre></figure></code></pre>
 <h3>快速构建</h3>
 <p>由于上面web应用生成器有两种，所以可以通过两种不同的方式构建我们的项目：</p>
-<ol>
-<li><p>使用<code>yo webapp</code>方式：</p>
-<p> yo webapp                     # 搭建项目骨架
- bower install underscore      # 依赖通过bower安装
- grunt                         # 构建测试发布环境</p>
-</li>
-<li><p>使用<code>yo angular</code>方式：</p>
-<p> yo angular                    # 搭建项目骨架
- bower install angular-ui      # 依赖通过bower安装
- grunt test                    # 测试
- grunt server                  # 预览
- grunt  </p>
-</li>
-</ol>
+<p>第一种：使用<code>yo webapp</code>方式</p>
+<pre><code><figure class="highlight"><pre><span class="title">yo</span> webapp                     <span class="comment"># 搭建项目骨架</span>
+bower install underscore      <span class="comment"># 依赖通过bower安装</span>
+grunt                         <span class="comment"># 构建测试发布环境</span>
+</pre></figure></code></pre>
+<p>第二种：使用<code>yo angular</code>方式</p>
+<pre><code><figure class="highlight"><pre><span class="title">yo</span> angular                    <span class="comment"># 搭建项目骨架</span>
+bower install angular-ui      <span class="comment"># 依赖通过bower安装</span>
+grunt test                    <span class="comment"># 测试</span>
+grunt server                  <span class="comment"># 预览</span>
+grunt  
+</pre></figure></code></pre>
 <h3>总结</h3>
 <p>通过以上的步骤，我们很容易的构建出了一个简易的web项目。yeoman有很多特性，例如可以自定义模板（如HTML5, Boilerplate, Twitter Bootstrap等），AMD（通过RequireJS）等其他工具。</p>
 <p>自动编译CoffeeScript和Compass也是一大亮点，值得一提的是，yeoman提供了live reload功能，在对项目文件修改保存后，前端页面回自动刷新。</p>
@@ -129,7 +139,7 @@ Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class
     <link href="http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/"/>
     <id>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</id>
     <published>2013-06-22T13:23:50.000Z</published>
-    <updated>2013-06-29T11:05:59.000Z</updated>
+    <updated>2013-06-29T11:15:13.000Z</updated>
     <content type="html"><![CDATA[<h2>在Ubuntu 13.04上常用软件的安装配置</h2>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
@@ -257,7 +267,7 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> ./rjsupplicant.sh
 </pre></figure></code></pre>
 <h4>安装配置JDK</h4>
-<p>相关安装步骤已经在另外一篇博文中做出更新。</p>
+<p>相关安装步骤已经在另外<a href="//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a>中做出更新。</p>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
@@ -268,7 +278,7 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
     <link href="http://beforeload.github.io/2013/06/15/storing-node-application-data/"/>
     <id>http://beforeload.github.io/2013/06/15/storing-node-application-data/</id>
     <published>2013-06-15T12:52:00.000Z</published>
-    <updated>2013-06-23T14:02:13.000Z</updated>
+    <updated>2013-06-29T11:09:21.000Z</updated>
     <content type="html"><![CDATA[<h2>浅析Node.js应用的数据存储</h2>
 <p>主要从以下三点简要分析</p>
 <ol>
@@ -276,6 +286,8 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
 <li>传统的关系型数据库存储</li>
 <li>非关系型数据库存储</li>
 </ol>
+<a name="more"></a>
+
 <p>选择一种合适的数据存储机制主要依赖五个因素：</p>
 <ol>
 <li>存什么样的数据</li>
@@ -304,12 +316,14 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
     <link href="http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</id>
     <published>2013-06-11T18:29:06.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-29T11:24:28.000Z</updated>
     <content type="html"><![CDATA[<h3>Ubuntu 13.04 Android开发基本环境配置</h3>
 <h4>基本环境</h4>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
 sudo apt-<span class="keyword">get</span> install ant
 </pre></figure></code></pre>
+<a name="more"></a>
+
 <h4>安装独立SDK</h4>
 <p>下载<a href="http://developer.android.com/sdk/index.html">SDK</a></p>
 <pre><code><figure class="highlight"><pre><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
@@ -339,7 +353,7 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
     <link href="http://beforeload.github.io/2013/06/10/building-node-web-applications/"/>
     <id>http://beforeload.github.io/2013/06/10/building-node-web-applications/</id>
     <published>2013-06-10T10:10:49.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-29T11:23:54.000Z</updated>
     <content type="html"><![CDATA[<h2>Node.js网络应用开发</h2>
 <ol>
 <li>Handling HTTP requests with Node&#39;s API</li>

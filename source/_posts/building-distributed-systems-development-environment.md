@@ -11,13 +11,19 @@ tags:
 
 由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。
 
+分为以下安装过程：
+
+1. 安装jdk
+2. 安装eclipse
+3. 安装hadoop
+
+<!-- more -->
+
 #### 安装jdk
 
 下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。
 
-``
-gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now
-``
+    gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now
 
 从[官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)上根据自己的系统下载相应的JDK。
 
@@ -27,11 +33,9 @@ gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in arch
 
 然后修改配置文件
 
-``
-sudo vi /etc/profile
-``
+    sudo vi /etc/profile
 
-按G可以直接到文件尾端，填写下面内容
+按G可以直接到文件尾端，填写下面内容:
 
     export JAVA_HOME=/usr/java/jdk1.7.0_25
     export JRE_HOME=$JAVA_HOME/jre
