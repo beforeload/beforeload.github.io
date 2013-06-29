@@ -53,3 +53,20 @@ tags:
     Java(TM) SE Runtime Environment (build 1.7.0_25-b15)
     Java HotSpot(TM) 64-Bit Server VM (build 23.25-b01, mixed mode)
 
+#### 安装eclipse
+
+下载eclipse******.tar.gz
+
+    tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
+    mv eclipse /usr/local
+    /usr/local/eclipse/eclipse    #启动eclipse
+
+通过修改快捷键，可以迅速启动eclipse
+
+    System Settings -> Keyboard -> Shortcuts -> Custom Shortcuts
+
+    Name: eclipse
+    Command: /usr/local/eclipse/eclipse
+
+Apply退出后，`Ctrl+Alt+E`，添加快捷键。以后只需要通过`Ctrl+Alt+E`，即可启动Eclipse。
+    
