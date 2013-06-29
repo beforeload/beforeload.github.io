@@ -180,26 +180,4 @@ Powerline中下面的箭头可能存在字体问题，解决的办法是给字�
 
 #### 安装配置JDK
 
-第一步 下载
-
-第二步 解压
-
-    sudo tar zxvf ./***.tar.gz  -C /usr/lib/jvm
-    cd /usr/lib/jvm
-    sudo mv jdk1.7.0/ jdk
-
-第三步 修改环境变量
-
-    vim ~/.bashrc
-    export JAVA_HOME=/usr/lib/jvm/jdk
-    export JRE_HOME=${JAVA_HOME}/jre  
-    export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib  
-    export PATH=${JAVA_HOME}/bin:$PATH  
-
-    source ~/.bashrc
-
-    sudo update-alternatives --config java 
-
-检查是否安装成功
-
-    java -version
+相关安装步骤已经在另外一篇博文中做出更新。

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
-  <title>归档：2013/5 | beforeload</title>
+  <title>Building Distributed Systems Development Environment | beforeload</title>
   <meta name="author" content="beforeload">
   
   <meta name="description" content="熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Building Distributed Systems Development Environment"/>
   <meta property="og:site_name" content="beforeload"/>
 
   
@@ -59,85 +59,105 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2013/5</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-06-28T17:13:47.000Z"><a href="/2013/06/29/building-distributed-systems-development-environment/">6月 29 2013</a></time>
+      
+      
+  
+    <h1 class="title">Building Distributed Systems Development Environment</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+        <h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
+<p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
+<h4>安装jdk</h4>
+<p>下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
+<p><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF in archivetar: Unexpected EOF in archivetar: Error is not recoverable: exiting now</code></p>
+<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
+<pre><code><figure class="highlight"><pre>sudo mkdir /usr/java
+tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
+sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
+</pre></figure></code></pre>
+<p>然后修改配置文件</p>
+<p><code>sudo vi /etc/profile</code></p>
+<p>按G可以直接到文件尾端，填写下面内容</p>
+<pre><code><figure class="highlight"><pre><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
+export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
+export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
+export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
+</pre></figure></code></pre>
+<p>保存退出。</p>
+<pre><code><figure class="highlight"><pre><span class="title">source</span> /etc/profile
+<span class="title">java</span> -version
+</pre></figure></code></pre>
+<p>如果显示下面结果，表示安装成功。</p>
+<pre><code><figure class="highlight"><pre><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
+Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
+Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)
+</pre></figure></code></pre>
 
-  <div class="archive">
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2013-05-29T16:40:13.000Z"><a href="/2013/05/30/priority-queue/">5月 30 2013</a></time>
-            
-              <h1 class="title"><a href="/2013/05/30/priority-queue/">Priority Queue</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2013-05-27T14:14:53.000Z"><a href="/2013/05/27/common-problems-of-recommendation-systems/">5月 27 2013</a></time>
-            
-              <h1 class="title"><a href="/2013/05/27/common-problems-of-recommendation-systems/">Common Problems of Recommender Systems</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2013-05-25T12:51:15.000Z"><a href="/2013/05/25/my-daily-life/">5月 25 2013</a></time>
-            
-              <h1 class="title"><a href="/2013/05/25/my-daily-life/">我的一天</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2013-05-20T14:10:58.000Z"><a href="/2013/05/20/fix-some-problems/">5月 20 2013</a></time>
-            
-              <h1 class="title"><a href="/2013/05/20/fix-some-problems/">Fix Some Ubuntu Problems</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2013-05-17T14:44:25.000Z"><a href="/2013/05/17/inversion-monge-quicksort/">5月 17 2013</a></time>
-            
-              <h1 class="title"><a href="/2013/05/17/inversion-monge-quicksort/">inversion monge quicksort</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2013-05-03T18:24:52.000Z"><a href="/2013/05/04/three-points-understanding-nodejs/">5月 4 2013</a></time>
-            
-              <h1 class="title"><a href="/2013/05/04/three-points-understanding-nodejs/">Three-points to Understanding Node.js</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/Ubuntu/">Ubuntu</a>
   </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/Linux/">Linux</a>, <a href="/tags/Hadoop/">Hadoop</a>
+  </div>
+
+        <!-- JiaThis Button BEGIN -->
+
+  <div class="jiathis_style_32x32">
+    
+      <a class="jiathis_button_qzone"></a>
+    
+    
+      <a class="jiathis_button_tsina"></a>
+    
+    
+      <a class="jiathis_button_tqq"></a>
+    
+    
+      <a class="jiathis_button_renren"></a>
+    
+    
+      <a class="jiathis_button_weixin"></a>
+    
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+  </div>
+  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
+
+<!-- JiaThis Button END -->
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -235,7 +255,7 @@ var disqus_shortname = 'beforeload';
   var dsq = document.createElement('script');
   dsq.type = 'text/javascript';
   dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 }());
 </script>
