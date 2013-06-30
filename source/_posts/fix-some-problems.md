@@ -1,6 +1,6 @@
 title: Fix Some Ubuntu Problems
 date: 2013-05-20 22:10:58
-categories: Ubuntu
+categories: Linux
 tags: 
 - Ubuntu 
 - Linux

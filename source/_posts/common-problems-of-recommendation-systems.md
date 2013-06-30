@@ -1,9 +1,8 @@
 title: Common Problems of Recommender Systems
 date: 2013-05-27 22:14:53
+categories: Distributed Systems
 tags:
-- Recommendation
 - Translate
-categories: Recommendation
 ---
 
 

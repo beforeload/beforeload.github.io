@@ -1,6 +1,6 @@
 title: Building Distributed Systems Development Environment
 date: 2013-06-29 01:13:47
-categories: Ubuntu
+categories: Linux
 tags: 
 - Ubuntu
 - Linux

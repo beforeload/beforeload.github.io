@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-06-30T12:04:09.872Z</updated>
+  <updated>2013-06-30T12:23:50.778Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,7 +16,7 @@
     <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-28T17:13:47.000Z</published>
-    <updated>2013-06-30T11:32:06.000Z</updated>
+    <updated>2013-06-30T12:12:12.000Z</updated>
     <content type="html"><![CDATA[<h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
@@ -142,7 +142,7 @@ source ~/.bashrc
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
     <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
-    <category scheme="http://beforeload.github.io/categories/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Building Webapps with Yeoman]]></title>
@@ -223,7 +223,7 @@ grunt
     <link href="http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/"/>
     <id>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</id>
     <published>2013-06-22T13:23:50.000Z</published>
-    <updated>2013-06-29T11:15:13.000Z</updated>
+    <updated>2013-06-30T12:14:18.000Z</updated>
     <content type="html"><![CDATA[<h2>在Ubuntu 13.04上常用软件的安装配置</h2>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
@@ -355,7 +355,7 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
-    <category scheme="http://beforeload.github.io/categories/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Storing Node application data]]></title>
@@ -400,7 +400,7 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
     <link href="http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</id>
     <published>2013-06-11T18:29:06.000Z</published>
-    <updated>2013-06-29T11:24:28.000Z</updated>
+    <updated>2013-06-30T12:23:00.000Z</updated>
     <content type="html"><![CDATA[<h3>Ubuntu 13.04 Android开发基本环境配置</h3>
 <h4>基本环境</h4>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
@@ -428,9 +428,10 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
 </pre></figure></code></pre>
 <p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html">Building Your First App</a></p>
 ]]></content>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Android/" term="Android"/>
-    <category scheme="http://beforeload.github.io/categories/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Building Node web Applications]]></title>
@@ -563,7 +564,7 @@ stream.on(&#39;error&#39;,function(err){
     <link href="http://beforeload.github.io/2013/05/30/priority-queue/"/>
     <id>http://beforeload.github.io/2013/05/30/priority-queue/</id>
     <published>2013-05-29T16:40:13.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T12:21:31.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
 <li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
@@ -631,7 +632,7 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
     <link href="http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/"/>
     <id>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</id>
     <published>2013-05-27T14:14:53.000Z</published>
-    <updated>2013-06-30T11:20:34.000Z</updated>
+    <updated>2013-06-30T12:22:38.000Z</updated>
     <content type="html"><![CDATA[<h3>推荐系统的常见问题</h3>
 <h4>缺少大数据问题</h4>
 <p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
@@ -650,9 +651,8 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
 <h4>参考</h4>
 <p>(1) <a href="http://readwrite.com/2009/01/28/5_problems_of_recommender_systems">5 Problems of Recommender Systems</a><br>(2) <a href="http://www.resyschina.com/2010/03/five_problems_of_resys.html">推荐系统5大问题</a></p>
 ]]></content>
-    <category scheme="http://beforeload.github.io/tags/Recommendation/" term="Recommendation"/>
     <category scheme="http://beforeload.github.io/tags/Translate/" term="Translate"/>
-    <category scheme="http://beforeload.github.io/categories/Recommendation/" term="Recommendation"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed-Systems/" term="Distributed Systems"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[我的一天]]></title>
@@ -678,7 +678,7 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
     <link href="http://beforeload.github.io/2013/05/20/fix-some-problems/"/>
     <id>http://beforeload.github.io/2013/05/20/fix-some-problems/</id>
     <published>2013-05-20T14:10:58.000Z</published>
-    <updated>2013-06-23T14:03:16.000Z</updated>
+    <updated>2013-06-30T12:13:29.000Z</updated>
     <content type="html"><![CDATA[<h2>解决 Ubuntu 13.04的视频音频相关问题</h2>
 <ol>
 <li>Fix ASUS Webcam Problem:vertically flip my webcam&#39;s image</li>
@@ -721,7 +721,7 @@ Step 1:</p>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
-    <category scheme="http://beforeload.github.io/categories/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[inversion monge quicksort]]></title>
@@ -841,7 +841,7 @@ e)
     <link href="http://beforeload.github.io/2013/05/04/three-points-understanding-nodejs/"/>
     <id>http://beforeload.github.io/2013/05/04/three-points-understanding-nodejs/</id>
     <published>2013-05-03T18:24:52.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T12:15:24.000Z</updated>
     <content type="html"><![CDATA[<h2>从三点去理解Node.js</h2>
 <p>Node is:  </p>
 <ul>
@@ -912,7 +912,7 @@ e)
     <link href="http://beforeload.github.io/2013/04/28/content-syndication-with-nodejs/"/>
     <id>http://beforeload.github.io/2013/04/28/content-syndication-with-nodejs/</id>
     <published>2013-04-28T02:16:15.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T12:13:11.000Z</updated>
     <content type="html"><![CDATA[<h3>[翻译]Content Syndication with Node.js</h3>
 <hr>
 <p>原文链接 <a href="http://howtonode.org/content-syndication-with-node">Content Syndication with Node.js</a></p>
@@ -1163,7 +1163,7 @@ Feed —— 用来接收该信息来源更新的接口</p>
     <link href="http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/"/>
     <id>http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/</id>
     <published>2013-04-18T04:26:32.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T12:14:02.000Z</updated>
     <content type="html"><![CDATA[<h2>倒排索引</h2>
 <h3>简介:</h3>
 <p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
@@ -1224,14 +1224,14 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
     <category scheme="http://beforeload.github.io/tags/Java/" term="Java"/>
     <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
     <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
-    <category scheme="http://beforeload.github.io/categories/Hadoop/" term="Hadoop"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed-Systems/" term="Distributed Systems"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[MapReduce]]></title>
     <link href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/"/>
     <id>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</id>
     <published>2013-04-12T18:56:30.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T12:11:39.000Z</updated>
     <content type="html"><![CDATA[<p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
 <h2>MapReduce 编程模型</h2>
 <p><figure class="highlight"><table><tr><td class="gutter"><pre>1
@@ -1301,7 +1301,7 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
     <category scheme="http://beforeload.github.io/tags/MapReduce/" term="MapReduce"/>
-    <category scheme="http://beforeload.github.io/categories/Hadoop/" term="Hadoop"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed-Systems/" term="Distributed Systems"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[From Jekyll to Hexo]]></title>
@@ -1859,7 +1859,7 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
     <link href="http://beforeload.github.io/2013/04/06/hdfs-java-api/"/>
     <id>http://beforeload.github.io/2013/04/06/hdfs-java-api/</id>
     <published>2013-04-06T07:14:42.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T12:22:07.000Z</updated>
     <content type="html"><![CDATA[<h3>案例</h3>
 <h4>上传本地文件到 HDFS</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
@@ -2358,8 +2358,6 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Java/" term="Java"/>
     <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
-    <category scheme="http://beforeload.github.io/tags/API/" term="API"/>
-    <category scheme="http://beforeload.github.io/tags/HDFS/" term="HDFS"/>
-    <category scheme="http://beforeload.github.io/categories/Hadoop/" term="Hadoop"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed-Systems/" term="Distributed Systems"/>
   </entry>
 </feed>

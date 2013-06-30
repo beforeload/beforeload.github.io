@@ -1,6 +1,6 @@
 title: My Software Installation and Configuration on Ubuntu 13.04
 date: 2013-06-22 21:23:50
-categories: Ubuntu
+categories: Linux
 tags: 
 - Ubuntu
 - Linux

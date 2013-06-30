@@ -1,7 +1,7 @@
 title: Priority Queue
 date: 2013-05-30 00:40:13
-tags: Algorithm
 categories: Algorithm
+tags: Algorithm
 ---
 
 1. 以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 

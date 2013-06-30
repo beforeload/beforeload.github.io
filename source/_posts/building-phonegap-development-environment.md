@@ -1,9 +1,10 @@
 title: building PhoneGap development environment
 date: 2013-06-12 02:29:06
+categories: Linux
 tags: 
+- Linux
 - Ubuntu
 - Android
-categories: Ubuntu
 ---
 
 ### Ubuntu 13.04 Android开发基本环境配置

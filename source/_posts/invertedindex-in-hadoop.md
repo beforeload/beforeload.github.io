@@ -1,7 +1,7 @@
 ---
 title: Inverted Index in Hadoop
 date: 2013-04-18 12:26:32
-categories: Hadoop
+categories: Distributed Systems
 tags: [Java, Hadoop, Algorithm]
 ---
 

@@ -1,7 +1,7 @@
 title: MapReduce
 date: 2013-04-13 02:56:30
 update: 2013-04-22 19:01:01
-categories: Hadoop
+categories: Distributed Systems
 tags: [Hadoop, MapReduce]
 ---
 

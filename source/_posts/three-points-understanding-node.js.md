@@ -1,9 +1,9 @@
 title: Three-points to Understanding Node.js
 date: 2013-05-04 02:24:52
+categories: Node.js
 tags:
 - Node.js
 - JavaScript
-categories: Node.js
 ---
 
 ##从三点去理解Node.js
