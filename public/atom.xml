@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-06-29T17:07:11.049Z</updated>
+  <updated>2013-06-30T12:04:09.872Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,7 +16,7 @@
     <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-28T17:13:47.000Z</published>
-    <updated>2013-06-29T16:54:32.000Z</updated>
+    <updated>2013-06-30T11:32:06.000Z</updated>
     <content type="html"><![CDATA[<h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
@@ -27,8 +27,9 @@
 </ol>
 <a name="more"></a>
 
-<h4>安装jdk</h4>
-<p>下载JDK，Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
+<h3>安装jdk</h3>
+<p><strong>(1) 下载JDK</strong></p>
+<p>Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
 <pre><code><figure class="highlight"><pre><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now
 </pre></figure></code></pre>
 <p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
@@ -36,7 +37,7 @@
 tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
 sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
 </pre></figure></code></pre>
-<p>然后修改配置文件</p>
+<p><strong>(2) 然后修改配置文件</strong></p>
 <pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> vi /etc/profile
 </pre></figure></code></pre>
 <p>按G可以直接到文件尾端，填写下面内容:</p>
@@ -46,6 +47,7 @@ export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span cla
 export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
 </pre></figure></code></pre>
 <p>保存退出。</p>
+<p><strong>(3) 检测是否成功</strong> </p>
 <pre><code><figure class="highlight"><pre><span class="title">source</span> /etc/profile
 <span class="title">java</span> -version
 </pre></figure></code></pre>
@@ -54,19 +56,88 @@ export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOM
 Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
 Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)
 </pre></figure></code></pre>
-<h4>安装eclipse</h4>
-<p>下载eclipse<strong>**</strong>.tar.gz</p>
+<h3>安装eclipse</h3>
+<p><strong>(1) 下载eclipse<em>*</em>.tar.gz</strong></p>
 <pre><code><figure class="highlight"><pre>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
 mv eclipse /usr/<span class="keyword">local</span>
 /usr/<span class="keyword">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span>
 </pre></figure></code></pre>
-<p>通过修改快捷键，可以迅速启动eclipse</p>
-<pre><code><figure class="highlight"><pre><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</span>
-
-<span class="comment">Name:</span> <span class="comment">eclipse</span>
-<span class="comment">Command:</span> <span class="comment">/usr/local/eclipse/eclipse
+<p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
+<pre><code><figure class="highlight"><pre><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts
+</pre></figure></code></pre>
+<p><strong><em>在弹窗中输入：</em></strong></p>
+<pre><code><figure class="highlight"><pre><span class="attribute">Name</span>: <span class="string">eclipse</span>
+<span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span>
 </pre></figure></code></pre>
 <p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
+<h4>ssh 无密码登录</h4>
+<p><strong>(1) 安装SSH</strong></p>
+<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install openssh-server
+</pre></figure></code></pre>
+<p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
+<p><strong>(2) 生成密钥的步骤也很简单：</strong></p>
+<pre><code><figure class="highlight"><pre><span class="comment">ssh</span>-<span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span>.<span class="comment">com"
+</pre></figure></code></pre>
+<p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
+<pre><code><figure class="highlight"><pre><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys
+</pre></figure></code></pre>
+<p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
+<pre><code><figure class="highlight"><pre><span class="title">ssh</span> localhost
+</pre></figure></code></pre>
+<p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，
+然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
+<h4>安装Hadoop</h4>
+<p><strong>(1) 下载解压hadoop</strong></p>
+<pre><code><figure class="highlight"><pre>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="variable">.tar</span><span class="variable">.gz</span>    <span class="preprocessor">#解压</span>
+</pre></figure></code></pre>
+<p><strong>(2) 配置四个文件</strong></p>
+<p>1) ~/hadoop-0.20.2/conf/hadoop-env.sh</p>
+<pre><code><figure class="highlight"><pre>export <span class="constant">JAVA_HOME</span>=<span class="regexp">/usr/java</span><span class="regexp">/jdk1.7.0_25
+</pre></figure></code></pre>
+<p>2) ~/hadoop-0.20.2/conf/core-site.xml</p>
+<pre><code><figure class="highlight"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span> 
+  <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></figure></code></pre>
+<p>3) ~/hadoop-0.20.2/conf/hdfs-site.xml</p>
+<pre><code><figure class="highlight"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">value</span>&gt;</span>1<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></figure></code></pre>
+<p>4) ~/hadoop-0.20.2/conf/mapred-site.xml</p>
+<pre><code><figure class="highlight"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">value</span>&gt;</span>localhost:9001<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</pre></figure></code></pre>
+<p><strong>(3) 修改～/.bashrc</strong></p>
+<pre><code><figure class="highlight"><pre><span class="title">echo</span> <span class="string">'export HADOOP_HOME=/home/beforeload/hadoop-0.20.2'</span> &gt;&gt; ~/.bashrc
+echo <span class="string">'export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin'</span> &gt;&gt; ~/.bashrc
+source ~/.bashrc
+</pre></figure></code></pre>
+<p>现在在任何目录下，都可以输入hadoop命令了。</p>
+<p><strong>(4) 格式化HDFS并启动hadoop</strong></p>
+<pre><code><figure class="highlight"><pre><span class="title">hadoop</span> namenode -format
+<span class="title">start</span>-all.sh
+<span class="title">jps</span>   #查看运行的进程
+</pre></figure></code></pre>
+<p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
+<ol>
+<li>NameNode <a href="http://localhost:50070/dfshealth.jsp">http://localhost:50070/dfshealth.jsp</a></li>
+<li>JobTracker <a href="http://localhost:50030/jobtracker.jsp">http://localhost:50030/jobtracker.jsp</a></li>
+</ol>
+<p><strong>(6) 重要参数</strong></p>
+<pre><code><figure class="highlight"><pre><span class="keyword">echo</span> <span class="variable">$JAVA_HOME</span>     
+<span class="keyword">echo</span> <span class="variable">$HADOOP_HOME</span>
+</pre></figure></code></pre>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
@@ -560,7 +631,7 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
     <link href="http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/"/>
     <id>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</id>
     <published>2013-05-27T14:14:53.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
+    <updated>2013-06-30T11:20:34.000Z</updated>
     <content type="html"><![CDATA[<h3>推荐系统的常见问题</h3>
 <h4>缺少大数据问题</h4>
 <p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>

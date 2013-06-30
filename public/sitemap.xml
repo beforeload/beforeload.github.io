@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
-    <lastmod>2013-06-29T16:54:32.000Z</lastmod>
+    <lastmod>2013-06-30T11:32:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</loc>
+    <lastmod>2013-06-30T11:20:34.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
@@ -29,11 +33,7 @@
     <lastmod>2013-06-23T14:03:16.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/04/28/content-syndication-with-nodejs/</loc>
-    <lastmod>2013-06-15T12:23:56.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</loc>
+    <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
@@ -69,7 +69,7 @@
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
+    <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
@@ -77,11 +77,11 @@
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
+    <loc>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</loc>
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</loc>
+    <loc>http://beforeload.github.io/2013/04/28/content-syndication-with-nodejs/</loc>
     <lastmod>2013-06-15T12:23:56.000Z</lastmod>
   </url>
   <url>
