@@ -15,6 +15,8 @@ tags:
 
 >Google出品，必属精品！
 
+<!-- more -->
+
 #### 四大经典论文(必看)
 
 1. The Anatomy of a Large-Scale Hypertextual Web Search Engine
@@ -71,7 +73,7 @@ ___论文来源和下载：___
 
 #### Hadoop
 
-1.《Hadoop in action》、 《Hadoop实战》
+1. 《Hadoop in action》、 《Hadoop实战》
   
   我看的第一本分布式计算的书，里面的内容有点老。入门的书籍，所以推荐的时候难免掺杂了感情分。
 
@@ -98,9 +100,11 @@ ___论文来源和下载：___
 ### 总结
 
 1. 环境搭建
+
   [基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建](http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/)
 
 2. MapReduce
+
   [MapReduce](http://beforeload.github.io/2013/04/13/analyze-mapreduce/)
 学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！
 
@@ -116,3 +120,4 @@ ___论文来源和下载：___
 附： 
 
 1. [推荐系统公共资源汇总](http://aoyouzi.iteye.com/blog/1845235)
+
