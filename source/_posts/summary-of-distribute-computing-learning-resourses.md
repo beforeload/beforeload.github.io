@@ -1,4 +1,4 @@
-title: Summary of Distribute Computing Learning Resourses
+title: Summary of Distributed Computing Learning Resourses
 date: 2013-07-11 21:01:59
 categories: Distributed Computing
 tags: 
@@ -99,6 +99,8 @@ ___论文来源和下载：___
 
 ### 总结
 
+学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！
+
 1. 环境搭建
 
   [基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建](http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/)
@@ -106,12 +108,12 @@ ___论文来源和下载：___
 2. MapReduce
 
   [MapReduce](http://beforeload.github.io/2013/04/13/analyze-mapreduce/)
-学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！
 
 3. Hadoop的一点应用
   
   * [理解 Hadoop 的 Java API](http://beforeload.github.io/2013/04/06/hdfs-java-api/)
   * [倒排索引](http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/)
+
 
 看论文和书籍只是一部分，懂理论才算刚刚入门！要努力做到能应用还要争取有创新！
 

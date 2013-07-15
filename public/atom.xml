@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-07-15T16:16:14.425Z</updated>
+  <updated>2013-07-15T16:39:08.190Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -12,11 +12,11 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
-    <title type="html"><![CDATA[Summary of Distribute Computing Learning Resourses]]></title>
+    <title type="html"><![CDATA[Summary of Distributed Computing Learning Resourses]]></title>
     <link href="http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/"/>
     <id>http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/</id>
     <published>2013-07-11T13:01:59.000Z</published>
-    <updated>2013-07-15T16:15:59.000Z</updated>
+    <updated>2013-07-15T16:38:56.000Z</updated>
     <content type="html"><![CDATA[<h2>分布式计算相关资源总结</h2>
 <h3>论文</h3>
 <p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
@@ -92,13 +92,13 @@ Google在四位数以上的个节点上运行MapReduce，并且还在持续扩�
 <li>《Cloudera Hadoop 4系列实战课程40讲》</li>
 </ol>
 <h3>总结</h3>
+<p>学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！</p>
 <ol>
 <li><p>环境搭建</p>
 <p><a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</a></p>
 </li>
 <li><p>MapReduce</p>
-<p><a href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/">MapReduce</a>
-学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！</p>
+<p><a href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/">MapReduce</a></p>
 </li>
 <li><p>Hadoop的一点应用</p>
 <ul>
