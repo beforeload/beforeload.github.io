@@ -66,52 +66,109 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-07-06T13:11:47.000Z"><a href="/2013/07/06/longest-palindromic-substring-part-ii/">7月 6 2013</a></time>
+        <time datetime="2013-07-11T13:01:59.000Z"><a href="/2013/07/11/summary-of-distribute-computing-learning-resourses/">7月 11 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/07/06/longest-palindromic-substring-part-ii/">Longest Palindromic Substring Part II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>最大回文子串（二）</h2>
-<p>问题来源： <a href="http://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html">LeetCode</a></p>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-07-06T13:07:48.000Z"><a href="/2013/07/06/longest-palindromic-substring-part-i/">7月 6 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/07/06/longest-palindromic-substring-part-i/">Longest Palindromic Substring Part I</a></h1>
+    <h1 class="title"><a href="/2013/07/11/summary-of-distribute-computing-learning-resourses/">Summary of Distribute Computing Learning Resourses</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2>最大回文子串（一）</h2>
-<p>问题来源：<a href="http://leetcode.com/2011/11/longest-palindromic-substring-part-i.html">LeetCode</a></p>
+        <h2>分布式计算相关资源总结</h2>
+<h3>论文</h3>
+<p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
+<blockquote>
+<p>Google出品，必属精品！</p>
+</blockquote>
+<h4>四大经典论文(必看)</h4>
+<ol>
+<li><p>The Anatomy of a Large-Scale Hypertextual Web Search Engine</p>
+<p>分布式计算的奠基制作，介绍了Google搜索引擎的原型，讲解了一个基于超文本的大型系统建立过程。</p>
+</li>
+<li><p>The Google File System</p>
+<p>GFS这篇论文已然成为分布式文件系统相关技术的一种标准。对于分布式应用的接口，分布式系统设计，
+数据的存储以及分布式系统监控和管理相关的技术实现具有指导意义。</p>
+</li>
+<li><p>MapReduce: Simplified Data Processing on Large Clusters</p>
+<p>MapReduce的奠基之作，就凭它提出了MapReduce编程模式，就必须要读这篇论文。通过它，可以初窥云计算的世界。
+Google在四位数以上的个节点上运行MapReduce，并且还在持续扩展中。</p>
+</li>
+<li><p>BigTable: A Distributed Storage System for Structured Data.</p>
+<p>这篇论文主要实现了分布式存储数据的结构化，Google Earth和网页索引都是基于BigTable实现。论文很清晰的讲解了BigTable的设计实现思路和方法。</p>
+</li>
+</ol>
+<h4>三篇补充论文(推荐看)</h4>
+<ol>
+<li><p>Dynamo</p>
+<p>Google原始之作！</p>
+</li>
+<li><p><a href="http://www.sosp2007.org/papers/sosp064-aguilera.pdf">Sinfonia: A New Paradigm for Building Scalable Distributed Systems</a></p>
+<p>阐述构建分布式文件系统的范式方法。淘宝构建TFS，OceanBase和Tair等系统的时候充分参考了这篇论文！</p>
+</li>
+<li><p><a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/zh-CN//archive/chubby-osdi06.pdf">The Chubby lock service for loosely-coupled distributed systems</a></p>
+<p>Google的BigTable，MapReduce和Spanner服务都是在这个基础上构建的！分布式事务的基础，我正在看这篇论文。</p>
+</li>
+<li><p><a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/es//archive/spanner-osdi2012.pdf">Spanner: Google&#39;s Globally-Distributed Database</a></p>
+</li>
+</ol>
+<p>第一个全球意义上的分布式数据库，推荐它的其中一个原因是，我完全看不懂！！！</p>
+<h4>其他论文</h4>
+<p>这里还有一份别人总结的<a href="http://duanple.blog.163.com/blog/static/709717672011330101333271/">分布式系统领域经典论文翻译集</a>。</p>
+<p><strong><em>论文来源和下载：</em></strong></p>
+<p>大多数论文来源于OSDI上。可以直接去会议网站上下载。直接google scholar一下，也可以下载。</p>
+<h3>书籍</h3>
+<h4>分布式计算</h4>
+<ol>
+<li><a href="http://book.douban.com/subject/3108801/">分布式系统原理与范型</a></li>
+<li><a href="http://book.douban.com/subject/2698938/">分布式系统概念与设计</a></li>
+</ol>
+<h4>Hadoop</h4>
+<p>1.《Hadoop in action》、 《Hadoop实战》</p>
+<p>  我看的第一本分布式计算的书，里面的内容有点老。入门的书籍，所以推荐的时候难免掺杂了感情分。</p>
+<ol>
+<li><p>《Oreilly.Hadoop.The.Definitive.Guide.2nd.Edition 》</p>
+<p>中文版本就不推荐了，直接看英文版的吧！</p>
+</li>
+<li><p>《Hadoop权威指南》</p>
+</li>
+</ol>
+<p>这本书同样适合初学者，书里面有基础的实例实现。属于分布式计算方面少数可以看的中文书。
+翻译的比较成功的两本书！当然看原版更好！</p>
+<h4>其他书籍</h4>
+<ol>
+<li>《推荐系统实践》</li>
+<li>《集体智慧编程》</li>
+</ol>
+<h3>其他Hadoop教程</h3>
+<ol>
+<li>《深入浅出Hadoop实战开发30讲》</li>
+<li>《Hadoop应用开发实战 28讲》</li>
+<li>《Cloudera Hadoop 4系列实战课程40讲》</li>
+</ol>
+<h3>总结</h3>
+<ol>
+<li><p>环境搭建
+<a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</a></p>
+</li>
+<li><p>MapReduce
+<a href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/">MapReduce</a>
+学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！</p>
+</li>
+<li><p>Hadoop的一点应用</p>
+<ul>
+<li><a href="http://beforeload.github.io/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></li>
+<li><a href="http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/">倒排索引</a></li>
+</ul>
+</li>
+</ol>
+<p>看论文和书籍只是一部分，懂理论才算刚刚入门！要努力做到能应用还要争取有创新！</p>
+<p>另外, Hadoop不代表分布式，还有很多类似于Hadoop且比Hadoop更具有优势的框架，如Spark就更适合实验室内的研究的小规模分布式系统，Storm更适用于实时数据流。</p>
+<p>附： </p>
+<ol>
+<li><a href="http://aoyouzi.iteye.com/blog/1845235">推荐系统公共资源汇总</a></li>
+</ol>
 
       
     </div>
@@ -470,6 +527,44 @@ sudo apt-<span class="keyword">get</span> install ant
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-05-25T12:51:15.000Z"><a href="/2013/05/25/my-daily-life/">5月 25 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/05/25/my-daily-life/">我的一天</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>前两天，和两个还在武汉的老同学，还有一个从北京远道而来的老同学会餐，有感于每个人不同的际遇与成。听到别人打趣的说我越来越像一个程序员，傲娇的技术宅，心里反而感觉挺开心。时至周末，思及每天幸福而快乐的生活，遂记下我的一天，以作留恋。</p>
+<p>从周一到周五，早上8点半之前起来，这绝对不是说起来很早，只是对比之前每天10点之后起来，这绝对是我今年来做到的最伟大的改变之一了。即使是周末，也在9点左右起来了，真的很不容易，一定要坚持下去。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/05/25/my-daily-life/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
 
 <nav id="pagination">
   
@@ -492,7 +587,9 @@ sudo apt-<span class="keyword">get</span> install ant
   <h3 class="title">分类</h3>
   <ul class="entry">
   
-    <li><a href="/categories/Algorithm/">Algorithm</a><small>6</small></li>
+    <li><a href="/categories/Algorithm/">Algorithm</a><small>4</small></li>
+  
+    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
   
     <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
   
@@ -513,7 +610,7 @@ sudo apt-<span class="keyword">get</span> install ant
   <h3 class="title">标签</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Algorithm/">Algorithm</a><small>7</small></li>
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>5</small></li>
   
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
@@ -521,13 +618,15 @@ sudo apt-<span class="keyword">get</span> install ant
   
     <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Hadoop/">Hadoop</a><small>4</small></li>
+    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+  
+    <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
     <li><a href="/tags/Java/">Java</a><small>2</small></li>
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   
