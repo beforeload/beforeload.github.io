@@ -4,13 +4,141 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-07-25T17:08:23.715Z</updated>
+  <updated>2013-08-20T02:39:42.789Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[The Fundamentals Knowledge of Python]]></title>
+    <link href="http://beforeload.github.io/2013/08/20/the-fundamentals-knowledge-of-python/"/>
+    <id>http://beforeload.github.io/2013/08/20/the-fundamentals-knowledge-of-python/</id>
+    <published>2013-08-19T18:19:22.000Z</published>
+    <updated>2013-08-20T02:39:01.000Z</updated>
+    <content type="html"><![CDATA[<h2>Python 基础知识</h2>
+<p>简介：这是对Coursera上的<a href="https://class.coursera.org/programming1-002/class">Learn to Program: The Fundamentals</a>第一周课程的一次总结。 </p>
+<p><a name="more"></a></p>
+<blockquote>
+<p>第一点： 作为计算器使用</p>
+</blockquote>
+<ol>
+<li>加减乘除和其他语言的运算符号相同；</li>
+<li>两个符号<ul>
+<li>// 整除符号(可对应模除符号 % 记忆)</li>
+<li>** 求幂(乘方)</li>
+</ul>
+</li>
+<li>两种数据类型<ul>
+<li>int: 整型</li>
+<li>float: 浮点型（近似数）</li>
+</ul>
+</li>
+<li>符号优先级<ul>
+<li>**最高</li>
+<li>-负数</li>
+<li>*,/,//,%</li>
+<li>+,- 加减运算</li>
+</ul>
+</li>
+<li>语法和语义</li>
+<li>错误<ul>
+<li>例如输入<code>3) + 2 * 4</code>， 执行时会报出语法错误(SyntaxError)</li>
+<li>例如输入<code>89.0 / 0</code>， 执行时会报<code>ZeroDivisionError: float division by zero</code></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>第二点： Python 和计算机内存</p>
+</blockquote>
+<p><strong>计算机内存：</strong></p>
+<p>  计算机内存中，内存地址指向存储的数据。我们会在地址前加上前缀&#39;id&#39;（例如，id201代表内存地址201）。备注：Python中可以通过id方法去查看内存地址，该方法返回一个整型数。help(id)</p>
+<p>在内存中，变量是存储值的一种方法。变量命名指代的是内存中的地址，Python在相对于值之外的一个独立的list中存储变量。一个变量容纳内存中的地址，而这个地址容纳对应的值(value)。因此，这个变量映射到这个值。</p>
+<p><strong>术语:</strong></p>
+<ol>
+<li>A value has a memory address. 一个值有一个内存地址</li>
+<li>A variable contains a memory address. 一个变量容纳一个内存地址</li>
+<li>A variable refers to a value.一个变量映射一个值</li>
+<li>A variable points to a value.一个变量指向一个值</li>
+</ol>
+<blockquote>
+<p>第三点： 变量</p>
+</blockquote>
+<pre><code><figure class="highlight"><pre><span class="setting">variable = <span class="value">expression</span></span>
+</pre></figure></code></pre>
+<p><strong>赋值语句：</strong></p>
+<p>执行赋值语句的规则是：</p>
+<ol>
+<li>执行表达式，它会产生一个内存地址；</li>
+<li>存储内存地址到一个变量。</li>
+</ol>
+<p><strong>变量名：</strong></p>
+<p>Python合法的变量名规则是：</p>
+<ol>
+<li>名字以字母或_开头；</li>
+<li>名字必须只包含字母，数字和下划线_。</li>
+</ol>
+<p>对于Python，大多数场景下，约定俗成的使用凹槽方式pothole_case。</p>
+<blockquote>
+<p>第四点：内置函数</p>
+</blockquote>
+<p><strong>函数调用：</strong></p>
+<pre><code><figure class="highlight"><pre><span class="function"><span class="title">function_name</span><span class="params">(arguments)</span>
+</pre></figure></code></pre>
+<p>术语：</p>
+<ul>
+<li>Argument: 形参</li>
+<li>Pass: 传递</li>
+<li>Call: 调用</li>
+<li>Return: 返回结果</li>
+</ul>
+<p><strong>Function dir</strong></p>
+<p>Python有一系列内置的函数。运行<code>dir(__builtins__)</code>可以查看内置的函数列表。</p>
+<p><strong>Function help</strong></p>
+<p>为了得到某个函数的具体信息，可以调用help方法，将函数名作为参数，如下：</p>
+<pre><code><figure class="highlight"><pre>&gt;&gt;&gt; help(abs)
+Help on built-<span class="keyword">in</span> <span class="function"><span class="keyword">function</span> <span class="title">abs</span> <span class="title">in</span> <span class="title">module</span> <span class="title">builtins</span>:
+<span class="title">abs</span><span class="params">(...)</span>
+    <span class="title">abs</span><span class="params">(number)</span> -&gt; <span class="title">number</span>
+
+        <span class="title">Return</span> <span class="title">the</span> <span class="title">absolute</span> <span class="title">value</span> <span class="title">of</span> <span class="title">the</span> <span class="title">argument</span>.
+</pre></figure></code></pre>
+<p><strong>可选参数</strong></p>
+<p>例如在pow函数中[, z]表示z参数可选。</p>
+<pre><code><figure class="highlight"><pre>&gt;&gt;&gt; help(pow)
+<span class="type">Help</span> on built-<span class="keyword">in</span> function pow <span class="keyword">in</span> <span class="module"><span class="keyword">module</span> builtins:
+
+pow<span class="container">(...)</span>
+    pow<span class="container">(<span class="title">x</span>, <span class="title">y</span>[, <span class="title">z</span>])</span> -&gt; number
+
+        With two arguments, equivalent to x**y.  With three arguments,
+            equivalent to <span class="container">(<span class="title">x</span>**<span class="title">y</span>)</span> % z, but may be more efficient <span class="container">(<span class="title">e</span>.<span class="title">g</span>. <span class="title">for</span> <span class="title">longs</span>)</span>.
+</pre></figure></code></pre>
+<blockquote>
+<p>第五点：函数</p>
+</blockquote>
+<p><strong>函数定义：</strong></p>
+<pre><code><figure class="highlight"><pre><span class="function"><span class="keyword">def</span> <span class="title">function_name</span><span class="params">(parameters)</span>:</span>
+    body
+</pre></figure></code></pre>
+<p><strong>执行return语句过程：</strong></p>
+<ol>
+<li>执行语句的表述，产生一个内存地址；</li>
+<li>将内存地址传递给调用者，结束函数。</li>
+</ol>
+<p><strong>执行函数调用的过程：</strong></p>
+<ol>
+<li>求实参的值，产生内存地址；</li>
+<li>存储内存地址到对应的形参；</li>
+<li>执行函数体。</li>
+</ol>
+<p><strong>保存程序到&quot;.py&quot;文件中:</strong></p>
+<p>我们通常将Python程序保存到&quot;.py&quot;文件中。一个文件可以包含多个函数定义以及一些其他语句表述。调用&quot;.py&quot;文件的函数之前，要先运行这个模块，否则IDLE的shell解释器不会识别这个函数调用。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Python/" term="Python"/>
+    <category scheme="http://beforeload.github.io/categories/Python/" term="Python"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[The Master Method]]></title>
     <link href="http://beforeload.github.io/2013/07/21/the-master-method/"/>
@@ -1425,35 +1553,5 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
     <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
     <category scheme="http://beforeload.github.io/tags/MapReduce/" term="MapReduce"/>
     <category scheme="http://beforeload.github.io/categories/Distributed-Computing/" term="Distributed Computing"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[From Jekyll to Hexo]]></title>
-    <link href="http://beforeload.github.io/2013/04/12/migrate_jekyll_to_hexo/"/>
-    <id>http://beforeload.github.io/2013/04/12/migrate_jekyll_to_hexo/</id>
-    <published>2013-04-12T05:11:40.000Z</published>
-    <updated>2013-06-15T12:23:56.000Z</updated>
-    <content type="html"><![CDATA[<h3>从Jekyll迁移到Hexo</h3>
-<ol>
-<li><a href="http://zespia.tw/hexo">Hexo</a>! </li>
-<li><a href="http://zespia.tw/hexo/docs">documentation</a> 文档</li>
-</ol>
-<a name="more"></a>
-
-<p><strong>优点：</strong></p>
-<ul>
-<li>真的很快，上手很easy</li>
-</ul>
-<p><strong>优待改进的地方：</strong></p>
-<ul>
-<li>主题欠缺，有时间改改主题</li>
-</ul>
-<h3>记录：</h3>
-<ol>
-<li>用jiathis代替addthis；</li>
-<li>找了源码加文档，终于还是在文档上找到了excerpt的用法，原来只需要在md里面加<code>&lt;!-- more --&gt;</code>即可。</li>
-</ol>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
-    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
   </entry>
 </feed>
