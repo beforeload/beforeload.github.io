@@ -4,13 +4,44 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-08-20T02:39:42.789Z</updated>
+  <updated>2013-08-22T19:39:28.770Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Too young too simple]]></title>
+    <link href="http://beforeload.github.io/2013/08/22/too-young-too-simple/"/>
+    <id>http://beforeload.github.io/2013/08/22/too-young-too-simple/</id>
+    <published>2013-08-22T15:57:37.000Z</published>
+    <updated>2013-08-22T19:38:47.000Z</updated>
+    <content type="html"><![CDATA[<h2>一个菜鸟程序员的总结与展望</h2>
+<p><strong><em>写在前面的话：虽然还是一名学生，但我以一名优秀的程序员为目标要求自己。</em></strong></p>
+<a name="more"></a>
+
+<h3>我还是太年轻了</h3>
+<p>决定写这篇博客的时候，才深深意识到自己还是太年轻了。大学四年都没有真正明白自己真的想要什么样的生活，或者说想过目标却没想过去实现它。这是悲剧的，非常悲剧的。曾经虚度那么多时间，得到的除了一时的安逸之外，就是深深的愧疚。大学四年染上了不少的坏习惯，有过通宵看过小说，上课也看，逃课玩游戏，也挂过科。很多门课都不知道哪个老师讲的，更不知道讲了什么东西。现在才意识到这是多么残忍而可怕呀！很多时候都感觉，曾经的我给我留下的只有不堪和悔恨！</p>
+<h3>做点有成就感的事情</h3>
+<p>有想过希望什么样的生活，也非常希望能够得到很多人的关注与承认。但是应该怎么做，对人生对自己迷茫，非常迷茫。也在zhihu上问过这样的问题:<a href="http://www.zhihu.com/question/20760217">怎样戒骄戒躁，明确学习目标，提高自己的积极性，保证良好的执行力？</a>现在想想，不管别人怎么说，怎么做，关键还是在于自己应该怎么行动。所以我开始每天让自己过的稍微充实一点，至少搞点有成就感的事情。慢慢的我发现这个方法很管用，就这样我找到了第一份实习工作，在大众点评网的前端开发。</p>
+<p>刚学HTML+CSS的时候，我感觉这玩意太easy了。就这么有成就感的学了一点前端知识，竟然让我有幸进入公司实习，不得不说这是一点点小幸运。于是我开始学习，心里只有一个念头，就是想得到他们的认可。</p>
+<p>我发现一个很重要的事实，当一个人在某个领域，或者说某个方面感觉很有成就感的时候，他会非常希望和迫切的去获得更大的成就感，就好比人总是贪婪和不容易满足的。不过我就是这样的人，在实习阶段，真的让我有种迫切学习的欲望。很有压力也很开心的那段日子。</p>
+<h3>找到学习的伙伴</h3>
+<p>对自己的女朋友，我鼓励她去完成她没有自信去完成的目标，但是对自己，想要实现一些目标，但我却一点自信都没有。可笑的是我还自以为是。学习这种东西，一个人学习的时候，总是孤独而胆怯的。窃以为，如果身边有志同道合的朋友，那对自己的帮助真的太大了。三人行必有我师焉！古人诚不欺我！</p>
+<p>很一些同学交流之后才发现，原来很多同学也想找到伙伴。组队刷题什么的最有爱了不是吗？于是我在github上建了一个Bantor的Team，想和别人一起刷题。也参加了一些Coursera的课程，收获颇多。更开心的是，时刻有来自全球的伙伴和你同台竞技，交流经验，幸福感油然而生！</p>
+<h3>心的强大才是真的强大</h3>
+<p>现在该操心的不是该看什么小说，不是该玩什么游戏，也不是该怎么计划生活，而是在你的伙伴身边行动起来，获得别人的尊重就要收获比别人更多的东西。</p>
+<p>一个人不能脆弱，身边有为同样目标奋斗的伙伴时，人便不会再迷茫，不会再浮躁。安静而强大的内心凝聚的是你生命的力量，每个人都可以用它来实现任何目标和理想。</p>
+<h3>未来何去何从</h3>
+<p>现在的自己迫切的需要磨练自己的技艺。未来的自己呢？</p>
+<p>把自己的目光放的长远些，当你感到压力与迫不及待想去实现的动力的时候，还会缺乏执行力吗？</p>
+<p>我的目标是：明年，我想找到自己理想的实习工作。</p>
+<p>谢谢来自很多朋友的鼓励与支持。希望你们能够收获自己的成功！</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[The Fundamentals Knowledge of Python]]></title>
     <link href="http://beforeload.github.io/2013/08/20/the-fundamentals-knowledge-of-python/"/>
@@ -1476,82 +1507,5 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
     <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
     <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
     <category scheme="http://beforeload.github.io/categories/Distributed-Systems/" term="Distributed Systems"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[MapReduce]]></title>
-    <link href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/"/>
-    <id>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</id>
-    <published>2013-04-12T18:56:30.000Z</published>
-    <updated>2013-07-11T13:05:09.000Z</updated>
-    <content type="html"><![CDATA[<p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
-<h2>MapReduce 编程模型</h2>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">map</span>:(K1, V1) -&gt; <span class="built_in">list</span>(K2, V2)
-reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in">list</span>(K2, V2)
-</pre></td></tr></table></figure>
-简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
-<a name="more"></a>
-
-<h3>Mapper</h3>
-<p>Map阶段，MapReduce对任务输入数据分割，切割成固定大小的片段(splits)，对每个split进一步分解成一批键值对<code>(K1, V1)</code>。然后Hadoop为每个split创建Map任务(Mapper)，执行自定义的<code>map()</code>。</p>
-<p>将split中的<code>(K1, V1)</code>键值对输入，得到结果为<code>(K2, V2)</code>的中间结果。<code>map()</code>的功能到这里并没有结束，因为我们在reduce阶段需要的输入格式是<code>(K2, list(V2))</code>，所以还需要对Mapper输出结果<code>(K2, V2)</code>进行合并(Combine过程)，即将中间结果中有相同key值(如：K2)的多组<code>(key, value)</code>对合并成一对(形成<code>(K2, list(V2))</code>)。key值范围决定了这些元组分组，对应不同的Reduce任务(Reducer)。</p>
-<p><em>Tips:</em></p>
-<ol>
-<li>一个类作为mapper，要继承MapReduceBase基类并实现Mapper接口；</li>
-<li>Mapper接口负责数据处理阶段。采用形式为<code>Mapper&lt;K1, V1, K2, V2&gt;</code> Java泛型；</li>
-<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">void</span> map(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)
-    <span class="keyword">throws</span> IOException
-</pre></td></tr></table></figure><h3>Reducer</h3>
-</li>
-</ol>
-<p>Reduce阶段，数据整合，排序。然后调用自定义函数<code>reduce()</code>，输入<code>(K2, list(V2))</code>，得到键值对<code>&lt;K3, V3&gt;</code>输出到HDFS上。</p>
-<p><em>Tips:</em></p>
-<ol>
-<li>Reducers数目在mapred-site.xml中决定，属性是<code>mapred.reduce.tasks</code>，默认值是 1，<code>job.setNumReduceTasks()</code>方法也可以用于设置，<strong>这是一个很重要的值</strong>；</li>
-<li>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">void</span> reduce(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3, V3&gt; output, 
-        Reporter reporter) <span class="keyword">throws</span> IOException
-</pre></td></tr></table></figure></li>
-<li><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</li>
-<li>map阶段和reduce阶段中间还有partitioner的工作：负责将mapper的结果输出给不同的reducer。</li>
-</ol>
-<h3>Hadoop的MapReduce</h3>
-<p>Hadoop框架的核心是Map和Reduce操作，但不仅仅如此，还包括：</p>
-<p><strong><em> data spliting(数据分割), shuffling(洗牌), Partitioning(分组), Combining(合并) </em></strong></p>
-<p>以及各种格式的输入输出数据。</p>
-<h3>Shuffler</h3>
-<p>Mapper的按key值分为R份(R即为上面说到的Reducers的数目)，划分时通常采用hash函数，如<code>Hash(key) mod R</code>。目的是保证某一范围内的key一定由某个Reducer来处理。</p>
-<p><em>Tips:</em></p>
-<ol>
-<li>洗牌之后相同的key对应的键值对放入相同的Reducer，不同的键也可以放入相同的Reducer。具体放入的位置由Partitioner决定。</li>
-</ol>
-<h3>Partitioner:重定向Mapper输出</h3>
-<p>并不是数据排序好就是最好的。利用并行计算，不能仅仅靠一个reducer，那样就不是“云”而是“雨点”。当多个reducer一起使用时，默认的做法是对键值对进行hash来确定reducer。</p>
-<p><em>Tips:</em></p>
-<ol>
-<li>Hadoop通过HashPartitioner类强制执行Partitioner策略。但HashPartitioner有时会出错；</li>
-<li>量身定制partitioner，只需要实现<code>configure()</code>和<code>getPartition()</code>两个函数，前者将Hadoop对作业的配置应用在patitioner上，后者返回一个0到reduce任务数之间的整数，指向键/值对将要发送到的reducer。</li>
-</ol>
-<h3>Combiner: 本地reduce</h3>
-<p>合并Mapper输出，即将多个key相同的<code>&lt;key, value&gt;</code>合并成一对。Combine过程和Reduce过程类似，很多情况下可以直接使用reduce函数，但Combiner过程是Mapper的一部分，在map函数后执行。</p>
-<p><em>Tips：</em></p>
-<ol>
-<li>Hadoop并不保证对一个Mapper执行多少次Combine过程，所以我们应该做到无论Combine过程执行多少次，得到结果都一样；</li>
-<li>中间结果的读取，JobTracker介入，负责通知中间文件的位置；</li>
-<li>Mapper输出结果不在HDFS上而在本地磁盘上，出于时效性考虑，任务结束后删除，而HDFS的备份机制会造成性能损失，没有必要。</li>
-</ol>
-<h3>讨论：</h3>
-<p>很多时候Rudecer产生的R个结果不是我们真正需要的最终结果，此时会把R个结果作为另一个计算的输入，开始另一个MapReduce任务，即任务管道。</p>
-<h3>总结:</h3>
-<p>MapReduce的集群行为(即MapReduce运行在大规模集群上的过程)，要完成一个并行计算，需要<em>_</em>任务调度与执行，本地计算，Shuffle，合并Mapper输出，读取中间结果，任务管道等一系列环节共同支撑计算的过程。</p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
-    <category scheme="http://beforeload.github.io/tags/MapReduce/" term="MapReduce"/>
-    <category scheme="http://beforeload.github.io/categories/Distributed-Computing/" term="Distributed Computing"/>
   </entry>
 </feed>
