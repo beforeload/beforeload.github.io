@@ -70,6 +70,90 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-09-03T14:49:38.000Z"><a href="/2013/09/03/install-jbpm54-and-build-a-simple-demo/">9月 3 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/09/03/install-jbpm54-and-build-a-simple-demo/">Install JBPM 5.4</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2>JBPM5.4环境搭建和建立简易Demo</h2>
+<h3>Step 1: 准备工作</h3>
+<ol>
+<li>下载JDK，安装配置Java环境</li>
+<li>下载Ant，配置Java自动化脚本引擎</li>
+</ol>
+<p><strong>备注:</strong></p>
+<ol>
+<li>Linux的JDK安装可以参考我的另外<a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a></li>
+<li>Windows的安装可以参考<a href="http://www.cnitblog.com/intrl/archive/2009/04/11/56254.aspx">这里</a></li>
+</ol>
+<h3>Step 2: 下载JBPM 5.4安装相关开发工具</h3>
+<ol>
+<li>下载<a href="http://softlayer-dal.dl.sourceforge.net/project/jbpm/jBPM%205/jbpm-5.4.0.Final/jbpm-5.4.0.Final-installer-full.zip">jbpm-5.4.0.Final-installer-full.zip</a></li>
+<li><p>解压缩，从控制台(Windows用户是command)进入相应文件夹下，然后输入命令</p>
+<p> ant install.demo</p>
+</li>
+</ol>
+<p>这个过程是下载Eclipse, Jboss等工具，自动化构建开发环境。</p>
+<p>备注： 之所以选择这样的构建方式，是因为不想在环境搭建上浪费太多时间，以便拥有更多的时间投入JBPM5的学习开发过程中。</p>
+<h3>Step 3: 测试环境是否搭建成功</h3>
+<ol>
+<li><p>启动JBPM</p>
+<p> ant start.demo</p>
+</li>
+</ol>
+<p>在控制中可以看到相关的启动情况，会看到自动化的启动了若干组件。</p>
+<ol>
+<li>重点是测试JBoss启动</li>
+</ol>
+<p>在控制台输入<a href="http://localhost:8080/，会看到Jboss启动的情况，大致应该如下所示：">http://localhost:8080/，会看到Jboss启动的情况，大致应该如下所示：</a></p>
+<img src="http://i.minus.com/iHKyfjT9AxDg8.png">
+
+
+<ol>
+<li>Web管理控制台</li>
+</ol>
+<p>打开浏览器，输入<a href="http://localhost:8080/jbpm-console，重点看一下">http://localhost:8080/jbpm-console，重点看一下</a></p>
+<p>登录的用户名、密码均为krisv </p>
+<ol>
+<li>使用Guvnor仓库和设计 </li>
+</ol>
+<p>输入如下地址可以进入</p>
+<p><a href="http://localhost:8080/drools-guvnor">http://localhost:8080/drools-guvnor</a></p>
+<p>最后，视频演示请戳<a href="http://people.redhat.com/kverlaen/install-gwt-console-jbpm.swf">这里</a></p>
+<h3>参考博文：</h3>
+<ol>
+<li><a href="http://wanglu271991027.iteye.com/blog/1495799">jbpm5.2学习------安装与配置</a></li>
+<li><a href="http://www.cnblogs.com/skyme/archive/2011/11/07/2238782.html">JBPM5.1的介绍</a></li>
+<li><a href="http://w26.iteye.com/blog/998431">jBPM5 入门</a></li>
+<li><a href="http://blog.chinaunix.net/uid-122937-id-3731868.html">Jbpm5安装</a></li>
+</ol>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-06-28T17:13:47.000Z"><a href="/2013/06/29/building-distributed-systems-development-environment/">6月 29 2013</a></time>
       
       
@@ -267,7 +351,7 @@ sudo apt-<span class="keyword">get</span> install ant
   
     <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>4</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
@@ -298,11 +382,11 @@ sudo apt-<span class="keyword">get</span> install ant
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>2</small></li>
+    <li><a href="/tags/Java/">Java</a><small>3</small></li>
   
     <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>5</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>6</small></li>
   
     <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   
@@ -316,7 +400,7 @@ sudo apt-<span class="keyword">get</span> install ant
   
     <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
   
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>4</small></li>
+    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>5</small></li>
   
   </ul>
 </div>
