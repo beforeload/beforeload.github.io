@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-09-03T16:02:52.688Z</updated>
+  <updated>2013-09-03T16:10:21.578Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,13 +16,15 @@
     <link href="http://beforeload.github.io/2013/09/03/install-jbpm54/"/>
     <id>http://beforeload.github.io/2013/09/03/install-jbpm54/</id>
     <published>2013-09-03T14:49:38.000Z</published>
-    <updated>2013-09-03T16:02:43.000Z</updated>
+    <updated>2013-09-03T16:09:51.000Z</updated>
     <content type="html"><![CDATA[<h2>JBPM5.4环境搭建</h2>
 <h3>Step 1: 准备工作</h3>
 <ol>
 <li>下载JDK，安装配置Java环境</li>
 <li>下载Ant，配置Java自动化脚本引擎</li>
 </ol>
+<a name="more"></a>
+
 <p><strong>备注:</strong></p>
 <ol>
 <li>Linux的JDK安装可以参考我的另外<a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a></li>
@@ -80,9 +82,11 @@
     <link href="http://beforeload.github.io/2013/09/01/i-am-always-so-busy/"/>
     <id>http://beforeload.github.io/2013/09/01/i-am-always-so-busy/</id>
     <published>2013-09-01T14:39:13.000Z</published>
-    <updated>2013-09-01T16:01:04.000Z</updated>
+    <updated>2013-09-03T16:10:16.000Z</updated>
     <content type="html"><![CDATA[<h2>我很忙</h2>
 <p>最近一周时间睡眠好欠缺，平均一天两三个小时左右，Coursera上跟了好多课，没时间完成作业好悲哀。跟别人一起刷LeetCode，也没时间完成，好焦虑。</p>
+<a name="more"></a>
+
 <h2>什么都不想放弃</h2>
 <p>好辛苦的感觉，每天4，5点睡觉，8点起床，走在路上都有点昏昏欲睡的好痛苦。注意力集中起来啊，混蛋混蛋啊！不想吐槽了。</p>
 <p>JBPM5虐的我欲仙欲死，还有助管工作简直就是对我生命的补刀啊。状态好差好差！想睡个好觉，就是这样！</p>

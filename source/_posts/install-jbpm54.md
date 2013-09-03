@@ -14,6 +14,8 @@ tags:
 1. 下载JDK，安装配置Java环境
 2. 下载Ant，配置Java自动化脚本引擎
 
+<!-- more -->
+
 __备注:__
 
 1. Linux的JDK安装可以参考我的另外[一篇博文](http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/)
