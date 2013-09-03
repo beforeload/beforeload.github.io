@@ -7,7 +7,7 @@ tags:
 - Java
 ---
 
-## JBPM5.4环境搭建和建立简易Demo
+## JBPM5.4环境搭建
 
 ### Step 1: 准备工作
 
