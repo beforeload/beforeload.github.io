@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>Building Node web Applications | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -83,7 +67,7 @@
 <li>Accepting user input from forms</li>
 <li>Securing your application with HTTPS</li>
 </ol>
-<a name="more"></a>
+<a id="more"></a>
 
 <p>Node.js网络应用开发的简单图示如下：</p>
 <img src="http://i.minus.com/iLMAoN6C3pEtN.png">
@@ -94,33 +78,26 @@
 <ol>
 <li>HTTP 客户端（例如：浏览器）发送HTTP请求</li>
 <li>Node进程接受到连接把请求的数据发送给HTTP server</li>
-<li>Node进程把HTTP请求头完整解析，在&#39;request&#39;的回调事件中处理相应的逻辑</li>
+<li>Node进程把HTTP请求头完整解析，在‘request’的回调事件中处理相应的逻辑</li>
 <li>request的回调函数中体现应用的逻辑，例如产生一个response</li>
 <li>请求通过HTTP server返回，这个过程会格式化成一个标准的HTTP response返回给客户端</li>
 </ol>
 <h3>Building a RESTful web service</h3>
-<p>CURD: Creat, Update, Read, Delete
-HTTP: Get, Post, Put, Delete</p>
+<p>CURD: Creat, Update, Read, Delete<br>HTTP: Get, Post, Put, Delete</p>
 <ol>
 <li>使用POST创建资源</li>
 <li>使用GET获取资源</li>
 <li><p>使用DELETE删除资源</p>
-<p> function(req, res){
-   switch(req.method){
-   case: &#39;GET&#39;: </p>
-<pre><code><figure class="highlight"><pre> <span class="regexp">//</span> to <span class="keyword">do</span>
- <span class="keyword">break</span>
-</pre></figure></code></pre>
-<p>   case: &#39;POST&#39;:</p>
-<pre><code><figure class="highlight"><pre> // <span class="keyword">...</span>
- <span class="keyword">break</span>
-</pre></figure></code></pre>
-<p>   case: &#39;DELETE&#39;:</p>
-<pre><code><figure class="highlight"><pre> // <span class="keyword">...</span>
- <span class="keyword">break</span>
-</pre></figure></code></pre>
-<p>   }
- }</p>
+<p> function(req, res){<br>   switch(req.method){<br>   case: ‘GET’: </p>
+<pre><code> <span class="regexp">//</span> to <span class="keyword">do</span>
+ <span class="keyword">break</span></code></pre>
+<p>   case: ‘POST’:</p>
+<pre><code> // <span class="keyword">...</span>
+ <span class="keyword">break</span></code></pre>
+<p>   case: ‘DELETE’:</p>
+<pre><code> // <span class="keyword">...</span>
+ <span class="keyword">break</span></code></pre>
+<p>   }<br> }</p>
 </li>
 </ol>
 <h3>Serving static files</h3>
@@ -128,31 +105,16 @@ HTTP: Get, Post, Put, Delete</p>
 <li>Get /index.html 用户向服务器请求一个静态文件</li>
 <li>Node 服务器接受请求，应用的逻辑部分去读取这个文件</li>
 <li>文件通过一个读取流的实例传递给服务器</li>
-<li><p>文件的ReadStream通过&#39;piped&#39;拼接方式，以HTTP的response形式返回给客户端</p>
-<p> ...
- var stream = fs.createReadStream(path)
- // stream.on(&#39;data&#39;, function(chunk){
- //   res.write(chunk)
- // })
- // stream.on(&#39;end&#39;, function(){
- //   res.end()
- // })
- stream.pipe(res)
- ...</p>
+<li><p>文件的ReadStream通过‘piped’拼接方式，以HTTP的response形式返回给客户端</p>
+<p> …<br> var stream = fs.createReadStream(path)<br> // stream.on(‘data’, function(chunk){<br> //   res.write(chunk)<br> // })<br> // stream.on(‘end’, function(){<br> //   res.end()<br> // })<br> stream.pipe(res)<br> …</p>
 </li>
 </ol>
 <p>相关的图片如下：</p>
 <img src="http://i.minus.com/iOZW6WxLIsBNk.png">
 
 
-<p>...
-stream.pipe(res)
-stream.on(&#39;error&#39;,function(err){
-  res.statusCode = 500
-  res.end(&#39;Internal Server Error!&#39;)
-})
-...</p>
-<p>文件不存在错误处理&quot;ENOENT, No such file or dictionary&quot;</p>
+<p>…<br>stream.pipe(res)<br>stream.on(‘error’,function(err){<br>  res.statusCode = 500<br>  res.end(&#39;Internal Server Error!&#39;)<br>})<br>…</p>
+<p>文件不存在错误处理“ENOENT, No such file or dictionary”</p>
 <p>根据<code>fs.stat(path, function(err, stat){})</code>的err判断</p>
 <h3>接受用户表单提交数据</h3>
 <ol>
@@ -162,34 +124,23 @@ stream.on(&#39;error&#39;,function(err){
 </ol>
 <p>两种类型的表单提交</p>
 <ul>
-<li>&quot;application/x-www-form-urlencoded&quot;: the default for HTML forms</li>
-<li>&quot;multipart/form-data&quot;: used when form contains files, non-ascii, or binary data</li>
+<li>“application/x-www-form-urlencoded”: the default for HTML forms</li>
+<li>“multipart/form-data”: used when form contains files, non-ascii, or binary data</li>
 </ul>
-<p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。
-也可以计算伪实时的文件上传进度，如下所示：</p>
-<pre><code><figure class="highlight"><pre>form.<span class="literal">on</span>(<span class="string">'process'</span>, <span class="reserved">function</span>(bytesReceived, bytesExpected){
+<p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。<br>也可以计算伪实时的文件上传进度，如下所示：</p>
+<pre><code>form.<span class="literal">on</span>(<span class="string">'process'</span>, <span class="reserved">function</span>(bytesReceived, bytesExpected){
     <span class="reserved">var</span> percent = bytesReceived / bytesExpected * <span class="number">100</span>
     console.log(percent)
-})
-</pre></figure></code></pre>
-<p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload">node-upload</a>中完成它。</p>
+})</code></pre>
+<p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload" target="_blank">node-upload</a>中完成它。</p>
 <h3>使用HTTPS 确保应用的安全性</h3>
-<p>生成一个私钥(加密)
-    openssl genrsa 1024 &gt; key.pem</p>
-<p>生成证书(解码)
-    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
-<p><strong><em>HTTPS server选项</em></strong>
-    var https = require(&#39;https&#39;)
-      , fs = require(&#39;fs&#39;)
-      , options = {
-        key: fs.readFileSync(&#39;./key.pem&#39;),
-        cert: fs.readFileSync(&#39;./key-cert.pem&#39;)
-      }</p>
-<pre><code><figure class="highlight"><pre>https.createServer(options, <span class="keyword">function</span>(req, res){
+<p>生成一个私钥(加密)<br>    openssl genrsa 1024 &gt; key.pem</p>
+<p>生成证书(解码)<br>    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
+<p><strong><em>HTTPS server选项</em></strong><br>    var https = require(‘https’)<br>      , fs = require(‘fs’)<br>      , options = {<br>        key: fs.readFileSync(‘./key.pem’),<br>        cert: fs.readFileSync(‘./key-cert.pem’)<br>      }</p>
+<pre><code>https.createServer(options, <span class="keyword">function</span>(req, res){
   res.writeHead(<span class="number">200</span>)
   res.<span class="keyword">end</span>(<span class="comment">'Hello world!')</span>
-}).listen(<span class="number">4000</span>)
-</pre></figure></code></pre>
+}).listen(<span class="number">4000</span>)</code></pre>
 <p>证书可以共享，它包括public key和持有者的身份信息。当然如果要发布一个网站，就需要在Certificate Authority(CA)上去注册，获取一个真实的，受信任的SSL证书。</p>
 
       
@@ -199,39 +150,32 @@ stream.on(&#39;error&#39;,function(err){
         
   
   <div class="categories">
-    <a href="/categories/Nodejs/">Node.js</a>
+    <a href="/categories/Node.js/">Node.js</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/Nodejs/">Node.js</a>
+    <a href="/tags/Node.js/">Node.js</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -246,7 +190,6 @@ stream.on(&#39;error&#39;,function(err){
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -263,17 +206,17 @@ stream.on(&#39;error&#39;,function(err){
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -292,9 +235,9 @@ stream.on(&#39;error&#39;,function(err){
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -308,9 +251,9 @@ stream.on(&#39;error&#39;,function(err){
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -321,9 +264,6 @@ stream.on(&#39;error&#39;,function(err){
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -333,7 +273,8 @@ stream.on(&#39;error&#39;,function(err){
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

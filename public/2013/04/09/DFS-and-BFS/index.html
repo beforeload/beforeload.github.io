@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>理解深度优先和广度优先 | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -77,7 +61,7 @@
       
         <h4>问题：</h4>
 <p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -90,11 +74,13 @@
     <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>,
 }</span>;
 </pre></td></tr></table></figure>
-<a name="more"></a></p>
+
+<a id="more"></a>
+
 <h3>思路：</h3>
 <p><strong>解法一：</strong></p>
 <p>深度优先搜索(DFS, Depth First Search):每次搜索完各个方向相邻的点之后，取其中一个相邻的点走下去，一直走到无路可走了再退回来(回溯)，取另一个相邻的点再走下去。</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -135,8 +121,9 @@
     没有路线可以到达终点;
 }
 </pre></td></tr></table></figure>
-<strong><em>附源码如下：</em></strong></p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+
+<p><strong><em>附源码如下：</em></strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -339,22 +326,22 @@ int main(void)
 	return <span class="number">0</span><span class="comment">;</span>
 }
 </pre></td></tr></table></figure>
-<strong>DFS 优化：</strong></p>
+
+<p><strong>DFS 优化：</strong></p>
 <p>代码没有什么难懂的地方，不过有很多可以优化的地方，例如在predecessor这个数据结构上，浪费了太多的存储空间，可以做以下优化：</p>
 <ol>
-<li><p>重新定义predecessor存储方式
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<li>重新定义predecessor存储方式<figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>struct point predecessor<span class="matrix">[MAX_ROW]</span><span class="matrix">[MAX_COL]</span> = <span class="cell">{ <span class="number">0</span> }</span>;
 </pre></td></tr></table></figure>
-所有的值定义为0,前趋点为上点，则将他赋值为1，前趋点为下点，则赋值为-1，前趋点为左点，则赋值为2,前趋点为右点，则赋值为-2；通过定义四个不同的值区分前趋点，减少了存储空间，相应的函数也要对应修改即可。</p>
-</li>
-<li><p>用递归取代predecessor数据结构</p>
+
 </li>
 </ol>
-<p><strong>解法二：</strong>
-广度优先搜索(BFS, Breadth First Search):
-BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往前走一步。</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+<p>所有的值定义为0,前趋点为上点，则将他赋值为1，前趋点为下点，则赋值为-1，前趋点为左点，则赋值为2,前趋点为右点，则赋值为-2；通过定义四个不同的值区分前趋点，减少了存储空间，相应的函数也要对应修改即可。</p>
+<ol>
+<li>用递归取代predecessor数据结构</li>
+</ol>
+<p><strong>解法二：</strong><br>广度优先搜索(BFS, Breadth First Search):<br>BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往前走一步。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -395,9 +382,10 @@ BFS沿各个方向上同时展开搜索，每个可以走通的方向轮流往�
     }
 }
 </pre></td></tr></table></figure>
-BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
+
+<p>BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
 <p><strong><em>附源码如下:</em></strong></p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -579,10 +567,11 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
 		printf(<span class="string">"No path!\n"</span>);
 	}
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h4>参考：</h4>
 <ol>
-<li>《Linux C编程一站式学习》<a href="http://learn.akae.cn/media/ch12.html">栈与队列</a></li>
+<li>《Linux C编程一站式学习》<a href="http://learn.akae.cn/media/ch12.html" target="_blank">栈与队列</a></li>
 </ol>
 
       
@@ -598,33 +587,26 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
         
   
   <div class="tags">
-    <a href="/tags/C/">C</a>, <a href="/tags/Data-Structure/">Data Structure</a>, <a href="/tags/Algorithm/">Algorithm</a>
+    <a href="/tags/C/">C</a>, <a href="/tags/Data Structure/">Data Structure</a>, <a href="/tags/Algorithm/">Algorithm</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -639,7 +621,6 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -656,17 +637,17 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -685,9 +666,9 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -701,9 +682,9 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -714,9 +695,6 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -726,7 +704,8 @@ BFS相比较于DFS，BFS可以找到从起点到终点的最短路径。</p>
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

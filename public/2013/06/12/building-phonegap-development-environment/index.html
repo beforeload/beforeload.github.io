@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>building PhoneGap development environment | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -77,30 +61,26 @@
       
         <h3>Ubuntu 13.04 Android开发基本环境配置</h3>
 <h4>基本环境</h4>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
-sudo apt-<span class="keyword">get</span> install ant
-</pre></figure></code></pre>
-<a name="more"></a>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
+sudo apt-<span class="keyword">get</span> install ant</code></pre>
+<a id="more"></a>
 
 <h4>安装独立SDK</h4>
-<p>下载<a href="http://developer.android.com/sdk/index.html">SDK</a></p>
-<pre><code><figure class="highlight"><pre><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
+<p>下载<a href="http://developer.android.com/sdk/index.html" target="_blank">SDK</a></p>
+<pre><code><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
 <span class="comment">cd</span> <span class="comment">~/DevTools/android</span>-<span class="comment">sdk</span>-<span class="comment">linux/tools/</span>
-<span class="string">.</span><span class="comment">/android</span> <span class="comment">sdk
-</pre></figure></code></pre>
+<span class="string">.</span><span class="comment">/android</span> <span class="comment">sdk</code></pre>
 <h4>配置环境变量</h4>
 <p>在~/.bashrc或者/etc/environemnt</p>
-<pre><code><figure class="highlight"><pre>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</pre></figure></code></pre>
+<pre><code>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span></code></pre>
 <h4>测试</h4>
-<pre><code><figure class="highlight"><pre>android list targets    <span class="comment">#查看可用平台</span>
+<pre><code>android list targets    <span class="comment">#查看可用平台</span>
 android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
 android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
 cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
 ant debug   <span class="comment">#debug模式打包</span>
-adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span>
-</pre></figure></code></pre>
-<p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html">Building Your First App</a></p>
+adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span></code></pre>
+<p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html" target="_blank">Building Your First App</a></p>
 
       
     </div>
@@ -118,30 +98,23 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
     <a href="/tags/Linux/">Linux</a>, <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/Android/">Android</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -156,7 +129,6 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -173,17 +145,17 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -202,9 +174,9 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -218,9 +190,9 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -231,9 +203,6 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -243,7 +212,8 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

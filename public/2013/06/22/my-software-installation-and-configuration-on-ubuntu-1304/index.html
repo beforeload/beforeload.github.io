@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>My Software Installation and Configuration on Ubuntu 13.04 | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -89,118 +73,93 @@
 <li>安装锐捷校园网客户端</li>
 <li>安装配置jdk</li>
 </ol>
-<a name="more"></a>
+<a id="more"></a>
 
 <h4>安装zsh和oh-my-zsh</h4>
 <p><strong><em>安装 curl:</em></strong></p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install curl
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install curl</code></pre>
 <p>然后:</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh</code></pre>
 <p><strong><em>可以通过curl方式安装：</em></strong></p>
-<pre><code><figure class="highlight"><pre>curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh
-</pre></figure></code></pre>
+<pre><code>curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</code></pre>
 <p><strong><em>也可以通过wget：</em></strong></p>
-<pre><code><figure class="highlight"><pre><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span>-<span class="comment">check</span>-<span class="comment">certificate</span> <span class="comment">https://github</span>.<span class="comment">com/robbyrussell/oh</span>-<span class="comment">my</span>-<span class="comment">zsh/raw/master/tools/install</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh
-</pre></figure></code></pre>
-<p><a href="https://github.com/robbyrussell/oh-my-zsh">参考文档</a></p>
+<pre><code><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span>-<span class="comment">check</span>-<span class="comment">certificate</span> <span class="comment">https://github</span>.<span class="comment">com/robbyrussell/oh</span>-<span class="comment">my</span>-<span class="comment">zsh/raw/master/tools/install</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh</code></pre>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">参考文档</a></p>
 <h4>Ubuntu 终端透明化</h4>
 <p>Ctrl+Alt+T 打开终端，菜单 </p>
-<pre><code><figure class="highlight"><pre>Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background
-</pre></figure></code></pre>
+<pre><code>Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background</code></pre>
 <h4>安装 chrome</h4>
 <p><strong><em>安装依赖:</em></strong></p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install libudev0
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install libudev0</code></pre>
 <p>然后从google chrome官方网站上下载安装</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> dpkg -i google-chrome-stable_current_amd64.deb
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> dpkg -i google-chrome-stable_current_amd64.deb</code></pre>
 <p>终端输入<code>google-chrome</code>即可启动。</p>
 <h4>安装git</h4>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git</code></pre>
 <p><strong><em>相关配置:</em></strong></p>
-<pre><code><figure class="highlight"><pre><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">name</span> <span class="comment">"beforeload"</span>
+<pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">name</span> <span class="comment">"beforeload"</span>
 <span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">email</span> <span class="comment">fe</span>.<span class="comment">daniel91@gmail</span>.<span class="comment">com</span>
 <span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">diff</span> <span class="comment">auto</span>
 <span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">status</span> <span class="comment">jauto</span>
 <span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">branch</span> <span class="comment">auto</span>
 <span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">push</span>.<span class="comment">default</span> <span class="comment">current</span>
 <span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">core</span>.<span class="comment">editor</span> <span class="comment">vim</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">merge</span>.<span class="comment">tool</span> <span class="comment">vimdiff
-</pre></figure></code></pre>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">merge</span>.<span class="comment">tool</span> <span class="comment">vimdiff</code></pre>
 <h5>查看配置</h5>
 <p><strong><em>查看所有配置:</em></strong></p>
-<pre><code><figure class="highlight"><pre><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list
-</pre></figure></code></pre>
+<pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</code></pre>
 <p><strong><em>查看某个配置:</em></strong></p>
-<pre><code><figure class="highlight"><pre><span class="title">git</span> config user.name
-</pre></figure></code></pre>
+<pre><code><span class="title">git</span> config user.name</code></pre>
 <p>或者 </p>
-<pre><code><figure class="highlight"><pre><span class="title">cat</span> ~/.gitconfig
-</pre></figure></code></pre>
+<pre><code><span class="title">cat</span> ~/.gitconfig</code></pre>
 <h4>安装VLC视频播放器</h4>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc</code></pre>
 <p>终端输入<code>vlc</code>启动，在菜单栏</p>
-<pre><code><figure class="highlight"><pre>Tools-&gt; Preference -&gt; Subtitles &amp; OSD 修改Default encoding为Universal(UTF-<span class="number">8</span>)
-</pre></figure></code></pre>
+<pre><code>Tools-&gt; Preference -&gt; Subtitles &amp; OSD 修改Default encoding为Universal(UTF-<span class="number">8</span>)</code></pre>
 <p>还可以设置相关中文字体（中文可选）。</p>
 <p>然后在右上角:</p>
-<pre><code><figure class="highlight"><pre><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Details</span> <span class="literal">-</span>&gt; <span class="comment">Default</span> <span class="comment">Applications</span> <span class="literal">-</span>&gt; <span class="comment">Video选择VLC</span> <span class="comment">media</span> <span class="comment">player
-</pre></figure></code></pre>
+<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Details</span> <span class="literal">-</span>&gt; <span class="comment">Default</span> <span class="comment">Applications</span> <span class="literal">-</span>&gt; <span class="comment">Video选择VLC</span> <span class="comment">media</span> <span class="comment">player</code></pre>
 <p>这样打开相关视频文件，可以直接使用VLC播放。</p>
 <h4>安装sougou + fcitx</h4>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> <span class="keyword">add</span>-apt-repository ppa:fcitx-team/nightly
+<pre><code>su<span class="operator"><span class="keyword">do</span> <span class="keyword">add</span>-apt-repository ppa:fcitx-team/nightly
 sudo apt-<span class="keyword">get</span> <span class="keyword">update</span>
-sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
-</pre></figure></code></pre>
+sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin</code></pre>
 <p>然后在<code>System Settings -&gt; Language Support -&gt; Keyboard input method system</code> 中选择 fcitx。</p>
 <p><strong><em>[可选]安装皮肤：</em></strong></p>
-<p>下载<a href="http://pan.baidu.com/share/link?shareid=591450&amp;uk=4060302862">fcitx-sougou-skin</a></p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> dpkg -i fcitx-skin-sogou_0<span class="number">.0</span><span class="number">.2</span>_<span class="keyword">all</span>.deb
-</pre></figure></code></pre>
+<p>下载<a href="http://pan.baidu.com/share/link?shareid=591450&amp;uk=4060302862" target="_blank">fcitx-sougou-skin</a></p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> dpkg -i fcitx-skin-sogou_0<span class="number">.0</span><span class="number">.2</span>_<span class="keyword">all</span>.deb</code></pre>
 <p>在fcitx外观中选择sougou即可。</p>
 <p>最后注销，重新登录，输入法生效。</p>
 <h4>安装配置VIM</h4>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vim
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vim</code></pre>
 <p><strong><em>配置：</em></strong></p>
 <p>安装vundle</p>
-<pre><code><figure class="highlight"><pre>git clone https://github<span class="preprocessor">.com</span>/gmarik/vundle<span class="preprocessor">.git</span> ~/<span class="preprocessor">.vim</span>/bundle/vundle
-</pre></figure></code></pre>
-<p>用<a href="https://github.com/beforeload/myconf/blob/master/.vimrc">我的.vimrc配置文件</a>
-覆盖<code>~/.vimrc</code>文件即可</p>
+<pre><code>git clone https://github<span class="preprocessor">.com</span>/gmarik/vundle<span class="preprocessor">.git</span> ~/<span class="preprocessor">.vim</span>/bundle/vundle</code></pre>
+<p>用<a href="https://github.com/beforeload/myconf/blob/master/.vimrc" target="_blank">我的.vimrc配置文件</a><br>覆盖<code>~/.vimrc</code>文件即可</p>
 <p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
 <p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
 <h4>安装Node.js</h4>
 <p>安装依赖</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install build-essential libssl-dev
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install build-essential libssl-dev</code></pre>
 <p>编译安装</p>
-<pre><code><figure class="highlight"><pre><span class="title">mkdir</span> node &amp;&amp; cd node
+<pre><code><span class="title">mkdir</span> node &amp;&amp; cd node
 <span class="title">git</span> clone https://github.com/joyent/node.git
 ./configure
 <span class="title">make</span> 
-<span class="title">make</span> install
-</pre></figure></code></pre>
+<span class="title">make</span> install</code></pre>
 <h4>安装锐捷校园网客户端</h4>
-<p>下载[Linux SU V 1.01](<a href="http://ncs.hust.edu.cn/download/soft/Linux\">http://ncs.hust.edu.cn/download/soft/Linux\</a> SU\ V1.01版.rar)</p>
+<p>下载[Linux SU V 1.01](<a href="http://ncs.hust.edu.cn/download/soft/Linux\" target="_blank">http://ncs.hust.edu.cn/download/soft/Linux\</a> SU\ V1.01版.rar)</p>
 <p>安装unrar</p>
-<pre><code><figure class="highlight"><pre><span class="title">sudo</span> apt-get install unrar
+<pre><code><span class="title">sudo</span> apt-get install unrar
 
 <span class="title">unrar</span> ***.rar
 <span class="title">tar</span> -zxvf ***.tar.gz
 
-<span class="title">cd</span> rjsupplicant/
-</pre></figure></code></pre>
+<span class="title">cd</span> rjsupplicant/</code></pre>
 <p>查看设置</p>
-<pre><code><figure class="highlight"><pre><span class="comment">sudo</span> <span class="string">.</span><span class="comment">/rjsupplicant</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">h
-</pre></figure></code></pre>
+<pre><code><span class="comment">sudo</span> <span class="string">.</span><span class="comment">/rjsupplicant</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">h</code></pre>
 <p>设置好后启动</p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> ./rjsupplicant.sh
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> ./rjsupplicant.sh</code></pre>
 <h4>安装配置JDK</h4>
 <p>相关安装步骤已经在另外<a href="//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a>中做出更新。</p>
 
@@ -220,30 +179,23 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
     <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/Linux/">Linux</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -258,7 +210,6 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -275,17 +226,17 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -304,9 +255,9 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -320,9 +271,9 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -333,9 +284,6 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -345,7 +293,8 @@ sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

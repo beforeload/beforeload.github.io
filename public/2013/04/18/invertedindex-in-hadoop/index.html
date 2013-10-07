@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>Inverted Index in Hadoop | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -78,7 +62,7 @@
         <h2>倒排索引</h2>
 <h3>简介:</h3>
 <p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
-<a name="more"></a>
+<a id="more"></a>
 
 <p>我的理解就是找到单词出现的文档的名称，多数情况下为一个列表。</p>
 <p>一个单词可能在不同的文件中出现，所以我们需要定义一个权重，表示单词(即搜索的内容)跟文档的<strong><em>相关度</em></strong>。相关度的衡量多数情况下用<strong><em>词频</em></strong>来表示。</p>
@@ -101,32 +85,28 @@
 <span class="string">"powerful:file01.txt"</span>   <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"powerful:file01.txt"</span>   <span class="number">1</span>    
 <span class="string">"simple:file01.txt"</span>     <span class="keyword">list</span>(<span class="number">1</span>)          =&gt;     <span class="string">"simple:file01.txt"</span>     <span class="number">1</span>
 </pre></td></tr></table></figure>
-<strong><em>key</em></strong>： <strong>单词</strong>
-<strong><em>value</em></strong>: <strong>URI:词频</strong>(如：1.txt:1)
 
-<strong>好处</strong>：可以利用MapReduce框架默认的HashPartitioner类完成Shuffle过程。
-
-
-####Reduce过程：
-Combiner过程就已经把相同的单词的所有记录发送给同一个Reducer进行处理，Reduce过程就变得很简单，只需要将相同的key和value值组合成倒排索引文件所需的格式即可，剩下的交给MapReducer框架自动完成。
-
-####问题
-1. 文件数目;
-2. 文件大小;
-3. Reduce过程没有统计词频，有可能会造成词频未统计完全的单词。<br>
-<strong>备注及解决办法：</strong>
-
-0. 单个文件不宜过大，具体值与默认HDFS块大小及相关配置有关；
-1. 重写InputFormat类将每个文件作为一个split；
-2. 执行两次MapReduce，第一次统计词频，第二次MapReduce用于生成倒排索引。
-
-
-####优化思路：
-1. 利用复合键值对等实现包含更多信息的倒排索引。
-
-
-<strong><strong>附Java源码：</strong></strong>
-
+<p><strong><em>key</em></strong>： <strong>单词</strong><br><strong><em>value</em></strong>: <strong>URI:词频</strong>(如：1.txt:1)</p>
+<p><strong>好处</strong>：可以利用MapReduce框架默认的HashPartitioner类完成Shuffle过程。</p>
+<h4>Reduce过程：</h4>
+<p>Combiner过程就已经把相同的单词的所有记录发送给同一个Reducer进行处理，Reduce过程就变得很简单，只需要将相同的key和value值组合成倒排索引文件所需的格式即可，剩下的交给MapReducer框架自动完成。</p>
+<h4>问题</h4>
+<ol>
+<li>文件数目;</li>
+<li>文件大小;</li>
+<li>Reduce过程没有统计词频，有可能会造成词频未统计完全的单词。    </li>
+</ol>
+<p><strong>备注及解决办法：</strong></p>
+<ol>
+<li>单个文件不宜过大，具体值与默认HDFS块大小及相关配置有关；</li>
+<li>重写InputFormat类将每个文件作为一个split；</li>
+<li>执行两次MapReduce，第一次统计词频，第二次MapReduce用于生成倒排索引。</li>
+</ol>
+<h4>优化思路：</h4>
+<ol>
+<li>利用复合键值对等实现包含更多信息的倒排索引。</li>
+</ol>
+<p><strong><strong>附Java源码：</strong></strong></p>
 <script src="https://gist.github.com/5443748.js?file=InvertedIndex.java"></script>
 
 
@@ -139,7 +119,7 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
         
   
   <div class="categories">
-    <a href="/categories/Distributed-Systems/">Distributed Systems</a>
+    <a href="/categories/Distributed Systems/">Distributed Systems</a>
   </div>
 
         
@@ -148,30 +128,23 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
     <a href="/tags/Java/">Java</a>, <a href="/tags/Hadoop/">Hadoop</a>, <a href="/tags/Algorithm/">Algorithm</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -186,7 +159,6 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -203,17 +175,17 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -232,9 +204,9 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -248,9 +220,9 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -261,9 +233,6 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -273,7 +242,8 @@ Combiner过程就已经把相同的单词的所有记录发送给同一个Reduce
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>inversion monge quicksort | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -82,7 +66,7 @@
 <li>第四章思考题4-7(Monge矩阵)</li>
 <li>第七章思考题7-5(快排的三数取中划分分析)</li>
 </ol>
-<a name="more"></a>
+<a id="more"></a>
 
 <h3>2-4 逆序对</h3>
 <p>a)</p>
@@ -90,14 +74,9 @@
 
 
 <p>结果: </p>
-<p>(2,3)
-(2,8)
-(2,6)
-(3,8)
-(3,6)</p>
+<p>(2,3)<br>(2,8)<br>(2,6)<br>(3,8)<br>(3,6)</p>
 <p>b)</p>
-<p>从1到n按倒序排列的数组含有最多的逆序对，
-个数为(n-1)+(n-2)+...+1 = (n-1 + 1) <em> (n-1)/2 = n </em> (n-1)/2</p>
+<p>从1到n按倒序排列的数组含有最多的逆序对，<br>个数为(n-1)+(n-2)+…+1 = (n-1 + 1) <em> (n-1)/2 = n </em> (n-1)/2</p>
 <p>c)</p>
 <p>插入排序的运行时间与输入数组中逆序对的数量之间有怎样的关系?</p>
 <p>当数组从小到大排序，插入排序算法复杂度最优为O(n),此时逆序对为0;</p>
@@ -134,10 +113,9 @@
 	}
 }
 </pre></td></tr></table></figure>
-每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。<br>
-d)
-O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。
 
+<p>每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。   </p>
+<p>d)<br>O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。</p>
 <script src="https://gist.github.com/5599593.js?file=inversion_d.c"></script>
 
 
@@ -149,7 +127,7 @@ O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数�
 <p>对列用归纳法也是相同步骤，</p>
 <p>已知A[i, j]+A[k, n] ≤ A[i, n]+A[k,j]<br>假设<br>A[i, n]+A[k,n+1] ≤ A[i, n+1]+A[k,n]<br>所以A[i, j]+A[k, n+1] ≤ A[i, n+1]+A[k, j]成立。                </p>
 <p>行和列都满足归纳法，当<code>A[i,j]+A[i+1,j+1] &lt;= A[i,j+1] + A[i+1,j]</code>时，整个矩阵为Monge矩阵。               </p>
-<p><strong>&quot;仅当&quot;</strong>这个条件用反正法可证。           </p>
+<p><strong>“仅当”</strong>这个条件用反正法可证。           </p>
 <p>b) 利用a)的结论：<code>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]</code>              </p>
 <p>很容易得到矩阵第二行第三列到第三行第四列的2×2矩阵不满足条件;<br>所以只需要将第二行第三列的16和第三行第三列的22交换即可。             </p>
 <p>c)<br>假设Monge矩阵中存在第x行和第x+1行，<code>f(x) &gt; f(x+1)  (1 &lt;= x &lt; m)</code>               </p>
@@ -161,13 +139,10 @@ O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数�
 <p>根据a)结论，任意2×2矩阵都有</p>
 <p>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]      (4)</p>
 <p>(3) 和 (4)矛盾，假设不成立。<br>由此可得：</p>
-<p>f(1) &lt;= f(2) &lt;= ... &lt;= f(m)            </p>
-<p>d) 已知偶数行最左端最小值f(2), f(4), f(6), ... 
-且f(2k) &lt;= f(2k+1) &lt;= f(2(k+1))</p>
+<p>f(1) &lt;= f(2) &lt;= … &lt;= f(m)            </p>
+<p>d) 已知偶数行最左端最小值f(2), f(4), f(6), …<br>且f(2k) &lt;= f(2k+1) &lt;= f(2(k+1))</p>
 <p>奇数行搜索一次，搜索范围为n列，偶数行重复计算两次</p>
-<p>奇数行最左端最小值时间复杂度O(m/2+n)=O(m+n)
-e)
-由d)可得递归式：T(m) = T(m/2) + O(m+n)</p>
+<p>奇数行最左端最小值时间复杂度O(m/2+n)=O(m+n)<br>e)<br>由d)可得递归式：T(m) = T(m/2) + O(m+n)</p>
 <p>递归运算结果：</p>
 <p>T(m) = O(nlgm) + O(m+n)<br>     = O(nlgm + m + n)<br>     = O(nlgm + m)              </p>
 <h3>快排中三数取中划分分析</h3>
@@ -195,30 +170,23 @@ e)
     <a href="/tags/Algorithm/">Algorithm</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -233,7 +201,6 @@ e)
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -250,17 +217,17 @@ e)
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -279,9 +246,9 @@ e)
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -295,9 +262,9 @@ e)
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -308,9 +275,6 @@ e)
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -320,7 +284,8 @@ e)
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

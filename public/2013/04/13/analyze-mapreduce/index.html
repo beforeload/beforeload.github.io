@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>MapReduce | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -77,13 +61,14 @@
       
         <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
 <h2>MapReduce 编程模型</h2>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="built_in">map</span>:(K1, V1) -&gt; <span class="built_in">list</span>(K2, V2)
 reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in">list</span>(K2, V2)
 </pre></td></tr></table></figure>
-简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
-<a name="more"></a>
+
+<p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
+<a id="more"></a>
 
 <h3>Mapper</h3>
 <p>Map阶段，MapReduce对任务输入数据分割，切割成固定大小的片段(splits)，对每个split进一步分解成一批键值对<code>(K1, V1)</code>。然后Hadoop为每个split创建Map任务(Mapper)，执行自定义的<code>map()</code>。</p>
@@ -92,24 +77,28 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
 <ol>
 <li>一个类作为mapper，要继承MapReduceBase基类并实现Mapper接口；</li>
 <li>Mapper接口负责数据处理阶段。采用形式为<code>Mapper&lt;K1, V1, K2, V2&gt;</code> Java泛型；</li>
-<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">void</span> map(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)
     <span class="keyword">throws</span> IOException
-</pre></td></tr></table></figure><h3>Reducer</h3>
+</pre></td></tr></table></figure>
+
 </li>
 </ol>
+<h3>Reducer</h3>
 <p>Reduce阶段，数据整合，排序。然后调用自定义函数<code>reduce()</code>，输入<code>(K2, list(V2))</code>，得到键值对<code>&lt;K3, V3&gt;</code>输出到HDFS上。</p>
 <p><em>Tips:</em></p>
 <ol>
 <li>Reducers数目在mapred-site.xml中决定，属性是<code>mapred.reduce.tasks</code>，默认值是 1，<code>job.setNumReduceTasks()</code>方法也可以用于设置，<strong>这是一个很重要的值</strong>；</li>
-<li>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<li><p>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: </p>
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">void</span> reduce(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3, V3&gt; output, 
         Reporter reporter) <span class="keyword">throws</span> IOException
-</pre></td></tr></table></figure></li>
-<li><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</li>
+</pre></td></tr></table></figure>
+</li>
+<li><p><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</p>
+</li>
 <li>map阶段和reduce阶段中间还有partitioner的工作：负责将mapper的结果输出给不同的reducer。</li>
 </ol>
 <h3>Hadoop的MapReduce</h3>
@@ -149,7 +138,7 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
         
   
   <div class="categories">
-    <a href="/categories/Distributed-Computing/">Distributed Computing</a>
+    <a href="/categories/Distributed Computing/">Distributed Computing</a>
   </div>
 
         
@@ -158,30 +147,23 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
     <a href="/tags/Hadoop/">Hadoop</a>, <a href="/tags/MapReduce/">MapReduce</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -196,7 +178,6 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -213,17 +194,17 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -242,9 +223,9 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -258,9 +239,9 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -271,9 +252,6 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -283,7 +261,8 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

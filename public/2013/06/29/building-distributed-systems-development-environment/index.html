@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>Building Distributed Systems Development Environment | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -83,119 +67,97 @@
 <li>安装eclipse</li>
 <li>安装hadoop</li>
 </ol>
-<a name="more"></a>
+<a id="more"></a>
 
 <h3>安装jdk</h3>
 <p><strong>(1) 下载JDK</strong></p>
 <p>Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<pre><code><figure class="highlight"><pre><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now
-</pre></figure></code></pre>
-<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html">官网</a>上根据自己的系统下载相应的JDK。</p>
-<pre><code><figure class="highlight"><pre>sudo mkdir /usr/java
+<pre><code><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now</code></pre>
+<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">官网</a>上根据自己的系统下载相应的JDK。</p>
+<pre><code>sudo mkdir /usr/java
 tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
-sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/
-</pre></figure></code></pre>
+sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/</code></pre>
 <p><strong>(2) 然后修改配置文件</strong></p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> vi /etc/profile
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> vi /etc/profile</code></pre>
 <p>按G可以直接到文件尾端，填写下面内容:</p>
-<pre><code><figure class="highlight"><pre><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
+<pre><code><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
 export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
 export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
-export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
-</pre></figure></code></pre>
+export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</code></pre>
 <p>保存退出。</p>
 <p><strong>(3) 检测是否成功</strong> </p>
-<pre><code><figure class="highlight"><pre><span class="title">source</span> /etc/profile
-<span class="title">java</span> -version
-</pre></figure></code></pre>
+<pre><code><span class="title">source</span> /etc/profile
+<span class="title">java</span> -version</code></pre>
 <p>如果显示下面结果，表示安装成功。</p>
-<pre><code><figure class="highlight"><pre><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
+<pre><code><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
 Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
-Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)
-</pre></figure></code></pre>
+Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)</code></pre>
 <h3>安装eclipse</h3>
 <p><strong>(1) 下载eclipse<em>*</em>.tar.gz</strong></p>
-<pre><code><figure class="highlight"><pre>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
+<pre><code>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
 mv eclipse /usr/<span class="keyword">local</span>
-/usr/<span class="keyword">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span>
-</pre></figure></code></pre>
+/usr/<span class="keyword">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span></code></pre>
 <p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
-<pre><code><figure class="highlight"><pre><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts
-</pre></figure></code></pre>
+<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</code></pre>
 <p><strong><em>在弹窗中输入：</em></strong></p>
-<pre><code><figure class="highlight"><pre><span class="attribute">Name</span>: <span class="string">eclipse</span>
-<span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span>
-</pre></figure></code></pre>
+<pre><code><span class="attribute">Name</span>: <span class="string">eclipse</span>
+<span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span></code></pre>
 <p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
 <h4>ssh 无密码登录</h4>
 <p><strong>(1) 安装SSH</strong></p>
-<pre><code><figure class="highlight"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install openssh-server
-</pre></figure></code></pre>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install openssh-server</code></pre>
 <p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
 <p><strong>(2) 生成密钥的步骤也很简单：</strong></p>
-<pre><code><figure class="highlight"><pre><span class="comment">ssh</span>-<span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span>.<span class="comment">com"
-</pre></figure></code></pre>
+<pre><code><span class="comment">ssh</span>-<span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span>.<span class="comment">com"</code></pre>
 <p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
-<pre><code><figure class="highlight"><pre><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys
-</pre></figure></code></pre>
+<pre><code><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys</code></pre>
 <p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
-<pre><code><figure class="highlight"><pre><span class="title">ssh</span> localhost
-</pre></figure></code></pre>
-<p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，
-然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
+<pre><code><span class="title">ssh</span> localhost</code></pre>
+<p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，<br>然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
 <h4>安装Hadoop</h4>
 <p><strong>(1) 下载解压hadoop</strong></p>
-<pre><code><figure class="highlight"><pre>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="variable">.tar</span><span class="variable">.gz</span>    <span class="preprocessor">#解压</span>
-</pre></figure></code></pre>
+<pre><code>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="variable">.tar</span><span class="variable">.gz</span>    <span class="preprocessor">#解压</span></code></pre>
 <p><strong>(2) 配置四个文件</strong></p>
 <p>1) ~/hadoop-0.20.2/conf/hadoop-env.sh</p>
-<pre><code><figure class="highlight"><pre>export <span class="constant">JAVA_HOME</span>=<span class="regexp">/usr/java</span><span class="regexp">/jdk1.7.0_25
-</pre></figure></code></pre>
+<pre><code>export <span class="constant">JAVA_HOME</span>=<span class="regexp">/usr/java</span><span class="regexp">/jdk1.7.0_25</code></pre>
 <p>2) ~/hadoop-0.20.2/conf/core-site.xml</p>
-<pre><code><figure class="highlight"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span> 
+<pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span> 
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
     <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
     <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
-</pre></figure></code></pre>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <p>3) ~/hadoop-0.20.2/conf/hdfs-site.xml</p>
-<pre><code><figure class="highlight"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+<pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
     <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
     <span class="tag">&lt;<span class="title">value</span>&gt;</span>1<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
-</pre></figure></code></pre>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <p>4) ~/hadoop-0.20.2/conf/mapred-site.xml</p>
-<pre><code><figure class="highlight"><pre><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+<pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
     <span class="tag">&lt;<span class="title">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
     <span class="tag">&lt;<span class="title">value</span>&gt;</span>localhost:9001<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
-</pre></figure></code></pre>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
 <p><strong>(3) 修改～/.bashrc</strong></p>
-<pre><code><figure class="highlight"><pre><span class="title">echo</span> <span class="string">'export HADOOP_HOME=/home/beforeload/hadoop-0.20.2'</span> &gt;&gt; ~/.bashrc
+<pre><code><span class="title">echo</span> <span class="string">'export HADOOP_HOME=/home/beforeload/hadoop-0.20.2'</span> &gt;&gt; ~/.bashrc
 echo <span class="string">'export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin'</span> &gt;&gt; ~/.bashrc
-source ~/.bashrc
-</pre></figure></code></pre>
+source ~/.bashrc</code></pre>
 <p>现在在任何目录下，都可以输入hadoop命令了。</p>
 <p><strong>(4) 格式化HDFS并启动hadoop</strong></p>
-<pre><code><figure class="highlight"><pre><span class="title">hadoop</span> namenode -format
+<pre><code><span class="title">hadoop</span> namenode -format
 <span class="title">start</span>-all.sh
-<span class="title">jps</span>   #查看运行的进程
-</pre></figure></code></pre>
+<span class="title">jps</span>   #查看运行的进程</code></pre>
 <p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
 <ol>
-<li>NameNode <a href="http://localhost:50070/dfshealth.jsp">http://localhost:50070/dfshealth.jsp</a></li>
-<li>JobTracker <a href="http://localhost:50030/jobtracker.jsp">http://localhost:50030/jobtracker.jsp</a></li>
+<li>NameNode <a href="http://localhost:50070/dfshealth.jsp" target="_blank">http://localhost:50070/dfshealth.jsp</a></li>
+<li>JobTracker <a href="http://localhost:50030/jobtracker.jsp" target="_blank">http://localhost:50030/jobtracker.jsp</a></li>
 </ol>
 <p><strong>(6) 重要参数</strong></p>
-<pre><code><figure class="highlight"><pre><span class="keyword">echo</span> <span class="variable">$JAVA_HOME</span>     
-<span class="keyword">echo</span> <span class="variable">$HADOOP_HOME</span>
-</pre></figure></code></pre>
+<pre><code><span class="keyword">echo</span> <span class="variable">$JAVA_HOME</span>     
+<span class="keyword">echo</span> <span class="variable">$HADOOP_HOME</span></code></pre>
 
       
     </div>
@@ -213,30 +175,23 @@ source ~/.bashrc
     <a href="/tags/Ubuntu/">Ubuntu</a>, <a href="/tags/Linux/">Linux</a>, <a href="/tags/Hadoop/">Hadoop</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -251,7 +206,6 @@ source ~/.bashrc
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -268,17 +222,17 @@ source ~/.bashrc
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -297,9 +251,9 @@ source ~/.bashrc
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -313,9 +267,9 @@ source ~/.bashrc
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -326,9 +280,6 @@ source ~/.bashrc
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -338,7 +289,8 @@ source ~/.bashrc
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 

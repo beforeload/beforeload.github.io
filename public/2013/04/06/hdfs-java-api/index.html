@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="baidu-site-verification" content="OPRXXGXcV6onVshr" />
   
   <title>理解 Hadoop 的 Java API | beforeload</title>
   <meta name="author" content="beforeload">
@@ -20,23 +19,10 @@
   
 
   <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="beforeload" type="application/atom+xml">
   <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
   
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-40059659-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
 </head>
 
 
@@ -51,8 +37,6 @@
       <li><a href="/">Home</a></li>
     
       <li><a href="/archives">Archives</a></li>
-    
-      <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
   <div class="clearfix"></div>
@@ -108,9 +92,10 @@
     hdfs.close();
 }
 </pre></td></tr></table></figure>
-<a name="more"></a>
 
-#### 创建 HDFS 文件
+<a id="more"></a>
+
+<h4>创建 HDFS 文件</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -138,7 +123,8 @@
     hdfs.close();
 }
 </pre></td></tr></table></figure>
-#### 重命名 HDFS 文件
+
+<h4>重命名 HDFS 文件</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -159,8 +145,9 @@
 }
 </pre></td></tr></table></figure>
 
+
 <h4>删除 HDFS 上的文件</h4>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -180,9 +167,10 @@
     <span class="comment">// boolean isDelete = hdfs.delete(deletePath, true);</span>
     System.out.println(<span class="string">"delete? "</span>+ isDeleted);
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h4>查看 HDFS 文件的最后修改时间</h4>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -200,9 +188,10 @@
     <span class="keyword">long</span> modifyTime = fileStatus.getModificationTime();
     System.out.println(<span class="string">"Modification time is:"</span> + modifyTime);
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h4>查看某个 HDFS 文件是否存在</h4>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -216,9 +205,10 @@
     <span class="keyword">boolean</span> isExist = hdfs.exists(<span class="keyword">new</span> Path(path));
     System.out.println(<span class="string">"Exist?"</span>+ isExist);
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h4>查找某个文件在 HDFS 集群的位置</h4>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -248,9 +238,10 @@
         System.out.println(<span class="string">"block"</span> + i + <span class="string">"location:"</span> + hosts[i]);
     }
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h4>获取 HDFS 集群上所有节点的名称</h4>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -274,22 +265,24 @@
         System.out.println(<span class="string">"node "</span> + i + <span class="string">" name "</span> + names[i]);
     }
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h3>问题</h3>
 <ol>
-<li>&quot;Wrong FS expected: file:///&quot;</li>
+<li>“Wrong FS expected: file:///”</li>
 </ol>
 <p>这个问题其实严格意义上并不属于API调用方面的问题，具体问题出现的原因不得而知，不过在查阅资料一番后还是得出了问题的解决方法。</p>
 <ul>
-<li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn&#39;t work!&quot; </li>
-<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception">Doug的博客</a>上给出了解答，通过添加一行代码即可
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180" target="_blank">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn&#39;t work!&quot; </li>
+<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>conf.addResource(<span class="keyword">new</span> Path(<span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>));
-</pre></td></tr></table></figure><h3>讨论</h3>
+</pre></td></tr></table></figure>
+
 </li>
 </ul>
+<h3>讨论</h3>
 <p><strong><em>附源码如下：</em></strong></p>
-<p><figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -563,12 +556,13 @@
 		}
 	}
 }
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
+
 <h4>参考书籍：</h4>
 <ol>
-<li>《Hadoop实战》—— &quot;Hadoop in Action&quot;</li>
-<li>《实战Hadoop》—— &quot;开启通向云计算的捷径&quot;</li>
-<li><a href="http://hadoop.apache.org/core/docs/current/api/org/apache/hadoop/fs/package-summary.html">Hadoop Java API 官方文档</a></li>
+<li>《Hadoop实战》—— “Hadoop in Action”</li>
+<li>《实战Hadoop》—— “开启通向云计算的捷径”</li>
+<li><a href="http://hadoop.apache.org/core/docs/current/api/org/apache/hadoop/fs/package-summary.html" target="_blank">Hadoop Java API 官方文档</a></li>
 </ol>
 
       
@@ -578,7 +572,7 @@
         
   
   <div class="categories">
-    <a href="/categories/Distributed-Systems/">Distributed Systems</a>
+    <a href="/categories/Distributed Systems/">Distributed Systems</a>
   </div>
 
         
@@ -587,30 +581,23 @@
     <a href="/tags/Java/">Java</a>, <a href="/tags/Hadoop/">Hadoop</a>
   </div>
 
-        <!-- JiaThis Button BEGIN -->
-
-  <div class="jiathis_style_32x32">
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
     
-      <a class="jiathis_button_qzone"></a>
-    
-    
-      <a class="jiathis_button_tsina"></a>
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
     
     
-      <a class="jiathis_button_tqq"></a>
+      <a class="addthis_button_tweet"></a>
     
     
-      <a class="jiathis_button_renren"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
     
     
-      <a class="jiathis_button_weixin"></a>
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
     
-	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	<a class="jiathis_counter_style"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
   </div>
-  <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1364445005630661" charset="utf-8"></script>
-
-<!-- JiaThis Button END -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
 
       
       <div class="clearfix"></div>
@@ -625,7 +612,6 @@
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -642,17 +628,17 @@
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed-Computing/">Distributed Computing</a><small>2</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
   
-    <li><a href="/categories/Distributed-Systems/">Distributed Systems</a><small>4</small></li>
+    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>5</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/categories/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
@@ -671,9 +657,9 @@
   
     <li><a href="/tags/C/">C</a><small>2</small></li>
   
-    <li><a href="/tags/Data-Structure/">Data Structure</a><small>1</small></li>
+    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed-Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -687,9 +673,9 @@
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>6</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
   
-    <li><a href="/tags/Nodejs/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -700,9 +686,6 @@
   </ul>
 </div>
 
-
-  
-
 </aside>
     <div class="clearfix"></div>
   </div>
@@ -712,7 +695,8 @@
   
 </div>
 <div class="clearfix"></div></footer>
-  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 
 
