@@ -1,0 +1,1168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[beforeload]]></title>
+  <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
+  <link href="http://beforeload.github.io/atom.xml" rel="self"/>
+  <link href="http://beforeload.github.io"/>
+  <updated>2013-10-07T15:27:31.538Z</updated>
+  <id>http://beforeload.github.io/</id>
+  <author>
+    <name><![CDATA[beforeload]]></name>
+    <email><![CDATA[fe.daniel91@gmail.com]]></email>
+  </author>
+  <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[My pale National Day Holidays]]></title>
+    <link href="http://beforeload.github.io/2013/10/07/my-pale-national-day-holidays/"/>
+    <id>http://beforeload.github.io/2013/10/07/my-pale-national-day-holidays/</id>
+    <published>2013-10-07T14:11:51.000Z</published>
+    <updated>2013-10-07T15:10:59.000Z</updated>
+    <content type="html"><![CDATA[<h2>惨淡的国庆节</h2>
+<p>真是惨不忍睹！</p>
+<p>我容易吗我？打了几百字结果由于更新了一些hexo版本，结果报错给我回归了版本，最后才发现原来是theme没有更新，这个国庆在最后一天也不让我好过！第一次在自己的博客里吐槽，实在是忘不了jBPM5在这个国庆假日给我带来的痛。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Install JBPM 5.4]]></title>
+    <link href="http://beforeload.github.io/2013/09/03/install-jbpm54/"/>
+    <id>http://beforeload.github.io/2013/09/03/install-jbpm54/</id>
+    <published>2013-09-03T14:49:38.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>JBPM5.4环境搭建</h2>
+<h3>Step 1: 准备工作</h3>
+<ol>
+<li>下载JDK，安装配置Java环境</li>
+<li>下载Ant，配置Java自动化脚本引擎</li>
+</ol>
+<a id="more"></a>
+
+<p><strong>备注:</strong></p>
+<ol>
+<li>Linux的JDK安装可以参考我的另外<a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a></li>
+<li>Windows的安装可以参考<a href="http://www.cnitblog.com/intrl/archive/2009/04/11/56254.aspx" target="_blank">这里</a></li>
+</ol>
+<h3>Step 2: 下载JBPM 5.4安装相关开发工具</h3>
+<ol>
+<li>下载<a href="http://softlayer-dal.dl.sourceforge.net/project/jbpm/jBPM%205/jbpm-5.4.0.Final/jbpm-5.4.0.Final-installer-full.zip" target="_blank">jbpm-5.4.0.Final-installer-full.zip</a></li>
+<li><p>解压缩，从控制台(Windows用户是command)进入相应文件夹下，然后输入命令</p>
+<p> ant install.demo</p>
+</li>
+</ol>
+<p>这个过程是下载Eclipse, Jboss等工具，自动化构建开发环境。</p>
+<p>备注： 之所以选择这样的构建方式，是因为不想在环境搭建上浪费太多时间，以便拥有更多的时间投入JBPM5的学习开发过程中。</p>
+<h3>Step 3: 测试环境是否搭建成功</h3>
+<ol>
+<li><p>启动JBPM</p>
+<p> ant start.demo</p>
+</li>
+</ol>
+<p>在控制中可以看到相关的启动情况，会看到自动化的启动了若干组件。</p>
+<ol>
+<li>重点是测试JBoss启动</li>
+</ol>
+<p>在控制台输入<a href="http://localhost:8080/，会看到Jboss启动的情况，大致应该如下所示：" target="_blank">http://localhost:8080/，会看到Jboss启动的情况，大致应该如下所示：</a></p>
+<img src="http://i.minus.com/iHKyfjT9AxDg8.png">
+
+
+<ol>
+<li>Web管理控制台</li>
+</ol>
+<p>打开浏览器，输入<a href="http://localhost:8080/jbpm-console，重点看一下" target="_blank">http://localhost:8080/jbpm-console，重点看一下</a></p>
+<p>登录的用户名、密码均为krisv </p>
+<ol>
+<li>使用Guvnor仓库和设计 </li>
+</ol>
+<p>输入如下地址可以进入</p>
+<p><a href="http://localhost:8080/drools-guvnor" target="_blank">http://localhost:8080/drools-guvnor</a></p>
+<p>最后，视频演示请戳<a href="http://people.redhat.com/kverlaen/install-gwt-console-jbpm.swf" target="_blank">这里</a></p>
+<h3>参考博文：</h3>
+<ol>
+<li><a href="http://wanglu271991027.iteye.com/blog/1495799" target="_blank">jbpm5.2学习———安装与配置</a></li>
+<li><a href="http://www.cnblogs.com/skyme/archive/2011/11/07/2238782.html" target="_blank">JBPM5.1的介绍</a></li>
+<li><a href="http://w26.iteye.com/blog/998431" target="_blank">jBPM5 入门</a></li>
+<li><a href="http://blog.chinaunix.net/uid-122937-id-3731868.html" target="_blank">Jbpm5安装</a></li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/tags/Java/" term="Java"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[I am always so busy]]></title>
+    <link href="http://beforeload.github.io/2013/09/01/i-am-always-so-busy/"/>
+    <id>http://beforeload.github.io/2013/09/01/i-am-always-so-busy/</id>
+    <published>2013-09-01T14:39:13.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>我很忙</h2>
+<p>最近一周时间睡眠好欠缺，平均一天两三个小时左右，Coursera上跟了好多课，没时间完成作业好悲哀。跟别人一起刷LeetCode，也没时间完成，好焦虑。</p>
+<a id="more"></a>
+
+<h2>什么都不想放弃</h2>
+<p>好辛苦的感觉，每天4，5点睡觉，8点起床，走在路上都有点昏昏欲睡的好痛苦。注意力集中起来啊，混蛋混蛋啊！不想吐槽了。</p>
+<p>JBPM5虐的我欲仙欲死，还有助管工作简直就是对我生命的补刀啊。状态好差好差！想睡个好觉，就是这样！</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Too young too simple]]></title>
+    <link href="http://beforeload.github.io/2013/08/22/too-young-too-simple/"/>
+    <id>http://beforeload.github.io/2013/08/22/too-young-too-simple/</id>
+    <published>2013-08-22T15:57:37.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>一个菜鸟程序员的总结与展望</h2>
+<p><strong><em>写在前面的话：虽然还是一名学生，但我以一名优秀的程序员为目标要求自己。</em></strong></p>
+<a id="more"></a>
+
+<h3>我还是太年轻了</h3>
+<p>决定写这篇博客的时候，才深深意识到自己还是太年轻了。大学四年都没有真正明白自己真的想要什么样的生活，或者说想过目标却没想过去实现它。这是悲剧的，非常悲剧的。曾经虚度那么多时间，得到的除了一时的安逸之外，就是深深的愧疚。大学四年染上了不少的坏习惯，有过通宵看过小说，上课也看，逃课玩游戏，也挂过科。很多门课都不知道哪个老师讲的，更不知道讲了什么东西。现在才意识到这是多么残忍而可怕呀！很多时候都感觉，曾经的我给我留下的只有不堪和悔恨！</p>
+<h3>做点有成就感的事情</h3>
+<p>有想过希望什么样的生活，也非常希望能够得到很多人的关注与承认。但是应该怎么做，对人生对自己迷茫，非常迷茫。也在zhihu上问过这样的问题:<a href="http://www.zhihu.com/question/20760217" target="_blank">怎样戒骄戒躁，明确学习目标，提高自己的积极性，保证良好的执行力？</a>现在想想，不管别人怎么说，怎么做，关键还是在于自己应该怎么行动。所以我开始每天让自己过的稍微充实一点，至少搞点有成就感的事情。慢慢的我发现这个方法很管用，就这样我找到了第一份实习工作，在大众点评网的前端开发。</p>
+<p>刚学HTML+CSS的时候，我感觉这玩意太easy了。就这么有成就感的学了一点前端知识，竟然让我有幸进入公司实习，不得不说这是一点点小幸运。于是我开始学习，心里只有一个念头，就是想得到他们的认可。</p>
+<p>我发现一个很重要的事实，当一个人在某个领域，或者说某个方面感觉很有成就感的时候，他会非常希望和迫切的去获得更大的成就感，就好比人总是贪婪和不容易满足的。不过我就是这样的人，在实习阶段，真的让我有种迫切学习的欲望。很有压力也很开心的那段日子。</p>
+<h3>找到学习的伙伴</h3>
+<p>对自己的女朋友，我鼓励她去完成她没有自信去完成的目标，但是对自己，想要实现一些目标，但我却一点自信都没有。可笑的是我还自以为是。学习这种东西，一个人学习的时候，总是孤独而胆怯的。窃以为，如果身边有志同道合的朋友，那对自己的帮助真的太大了。三人行必有我师焉！古人诚不欺我！</p>
+<p>很一些同学交流之后才发现，原来很多同学也想找到伙伴。组队刷题什么的最有爱了不是吗？于是我在github上建了一个Bantor的Team，想和别人一起刷题。也参加了一些Coursera的课程，收获颇多。更开心的是，时刻有来自全球的伙伴和你同台竞技，交流经验，幸福感油然而生！</p>
+<h3>心的强大才是真的强大</h3>
+<p>现在该操心的不是该看什么小说，不是该玩什么游戏，也不是该怎么计划生活，而是在你的伙伴身边行动起来，获得别人的尊重就要收获比别人更多的东西。</p>
+<p>一个人不能脆弱，身边有为同样目标奋斗的伙伴时，人便不会再迷茫，不会再浮躁。安静而强大的内心凝聚的是你生命的力量，每个人都可以用它来实现任何目标和理想。</p>
+<h3>未来何去何从</h3>
+<p>现在的自己迫切的需要磨练自己的技艺。未来的自己呢？</p>
+<p>把自己的目光放的长远些，当你感到压力与迫不及待想去实现的动力的时候，还会缺乏执行力吗？</p>
+<p>我的目标是：明年，我想找到自己理想的实习工作。</p>
+<p>谢谢来自很多朋友的鼓励与支持。希望你们能够收获自己的成功！</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[The Fundamentals Knowledge of Python]]></title>
+    <link href="http://beforeload.github.io/2013/08/20/the-fundamentals-knowledge-of-python/"/>
+    <id>http://beforeload.github.io/2013/08/20/the-fundamentals-knowledge-of-python/</id>
+    <published>2013-08-19T18:19:22.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>Python 基础知识</h2>
+<p>简介：这是对Coursera上的<a href="https://class.coursera.org/programming1-002/class" target="_blank">Learn to Program: The Fundamentals</a>第一周课程的一次总结。 </p>
+<p><a id="more"></a></p>
+<blockquote>
+<p>第一点： 作为计算器使用</p>
+</blockquote>
+<ol>
+<li>加减乘除和其他语言的运算符号相同；</li>
+<li>两个符号<ul>
+<li>// 整除符号(可对应模除符号 % 记忆)</li>
+<li>** 求幂(乘方)</li>
+</ul>
+</li>
+<li>两种数据类型<ul>
+<li>int: 整型</li>
+<li>float: 浮点型（近似数）</li>
+</ul>
+</li>
+<li>符号优先级<ul>
+<li>**最高</li>
+<li>-负数</li>
+<li>*,/,//,%</li>
+<li>+,- 加减运算</li>
+</ul>
+</li>
+<li>语法和语义</li>
+<li>错误<ul>
+<li>例如输入<code>3) + 2 * 4</code>， 执行时会报出语法错误(SyntaxError)</li>
+<li>例如输入<code>89.0 / 0</code>， 执行时会报<code>ZeroDivisionError: float division by zero</code></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>第二点： Python 和计算机内存</p>
+</blockquote>
+<p><strong>计算机内存：</strong></p>
+<p>  计算机内存中，内存地址指向存储的数据。我们会在地址前加上前缀‘id’（例如，id201代表内存地址201）。备注：Python中可以通过id方法去查看内存地址，该方法返回一个整型数。help(id)</p>
+<p>在内存中，变量是存储值的一种方法。变量命名指代的是内存中的地址，Python在相对于值之外的一个独立的list中存储变量。一个变量容纳内存中的地址，而这个地址容纳对应的值(value)。因此，这个变量映射到这个值。</p>
+<p><strong>术语:</strong></p>
+<ol>
+<li>A value has a memory address. 一个值有一个内存地址</li>
+<li>A variable contains a memory address. 一个变量容纳一个内存地址</li>
+<li>A variable refers to a value.一个变量映射一个值</li>
+<li>A variable points to a value.一个变量指向一个值</li>
+</ol>
+<blockquote>
+<p>第三点： 变量</p>
+</blockquote>
+<pre><code><span class="setting">variable = <span class="value">expression</span></span></code></pre>
+<p><strong>赋值语句：</strong></p>
+<p>执行赋值语句的规则是：</p>
+<ol>
+<li>执行表达式，它会产生一个内存地址；</li>
+<li>存储内存地址到一个变量。</li>
+</ol>
+<p><strong>变量名：</strong></p>
+<p>Python合法的变量名规则是：</p>
+<ol>
+<li>名字以字母或_开头；</li>
+<li>名字必须只包含字母，数字和下划线_。</li>
+</ol>
+<p>对于Python，大多数场景下，约定俗成的使用凹槽方式pothole_case。</p>
+<blockquote>
+<p>第四点：内置函数</p>
+</blockquote>
+<p><strong>函数调用：</strong></p>
+<pre><code><span class="function"><span class="title">function_name</span><span class="params">(arguments)</span></code></pre>
+<p>术语：</p>
+<ul>
+<li>Argument: 形参</li>
+<li>Pass: 传递</li>
+<li>Call: 调用</li>
+<li>Return: 返回结果</li>
+</ul>
+<p><strong>Function dir</strong></p>
+<p>Python有一系列内置的函数。运行<code>dir(__builtins__)</code>可以查看内置的函数列表。</p>
+<p><strong>Function help</strong></p>
+<p>为了得到某个函数的具体信息，可以调用help方法，将函数名作为参数，如下：</p>
+<pre><code>&gt;&gt;&gt; help(abs)
+Help on built-<span class="keyword">in</span> <span class="function"><span class="keyword">function</span> <span class="title">abs</span> <span class="title">in</span> <span class="title">module</span> <span class="title">builtins</span>:
+<span class="title">abs</span><span class="params">(...)</span>
+    <span class="title">abs</span><span class="params">(number)</span> -&gt; <span class="title">number</span>
+
+        <span class="title">Return</span> <span class="title">the</span> <span class="title">absolute</span> <span class="title">value</span> <span class="title">of</span> <span class="title">the</span> <span class="title">argument</span>.</code></pre>
+<p><strong>可选参数</strong></p>
+<p>例如在pow函数中[, z]表示z参数可选。</p>
+<pre><code>&gt;&gt;&gt; help(pow)
+<span class="type">Help</span> on built-<span class="keyword">in</span> function pow <span class="keyword">in</span> <span class="module"><span class="keyword">module</span> builtins:
+
+pow<span class="container">(...)</span>
+    pow<span class="container">(<span class="title">x</span>, <span class="title">y</span>[, <span class="title">z</span>])</span> -&gt; number
+
+        With two arguments, equivalent to x**y.  With three arguments,
+            equivalent to <span class="container">(<span class="title">x</span>**<span class="title">y</span>)</span> % z, but may be more efficient <span class="container">(<span class="title">e</span>.<span class="title">g</span>. <span class="title">for</span> <span class="title">longs</span>)</span>.</code></pre>
+<blockquote>
+<p>第五点：函数</p>
+</blockquote>
+<p><strong>函数定义：</strong></p>
+<pre><code><span class="function"><span class="keyword">def</span> <span class="title">function_name</span><span class="params">(parameters)</span>:</span>
+    body</code></pre>
+<p><strong>执行return语句过程：</strong></p>
+<ol>
+<li>执行语句的表述，产生一个内存地址；</li>
+<li>将内存地址传递给调用者，结束函数。</li>
+</ol>
+<p><strong>执行函数调用的过程：</strong></p>
+<ol>
+<li>求实参的值，产生内存地址；</li>
+<li>存储内存地址到对应的形参；</li>
+<li>执行函数体。</li>
+</ol>
+<p><strong>保存程序到“.py”文件中:</strong></p>
+<p>我们通常将Python程序保存到“.py”文件中。一个文件可以包含多个函数定义以及一些其他语句表述。调用“.py”文件的函数之前，要先运行这个模块，否则IDLE的shell解释器不会识别这个函数调用。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Python/" term="Python"/>
+    <category scheme="http://beforeload.github.io/categories/Python/" term="Python"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[The Master Method]]></title>
+    <link href="http://beforeload.github.io/2013/07/21/the-master-method/"/>
+    <id>http://beforeload.github.io/2013/07/21/the-master-method/</id>
+    <published>2013-07-21T02:53:44.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<p>T(n) &lt;= aT(n/b) + O(n<sup>d</sup>)</p>
+<p>T(n) = O(n<sup>d</sup>logn) if a = b<sup>d</sup> (Case 1)</p>
+<p>T(n) = O(n<sup>d</sup>) if a &lt; b<sup>d</sup> (Case 2)</p>
+<p>T(n) = O(n<sup>log<sub>b</sub>a</sup>) if a &gt; b<sup>d</sup> (Case 3)</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
+    <category scheme="http://beforeload.github.io/tags/Math/" term="Math"/>
+    <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Summary of Distributed Computing Learning Resourses]]></title>
+    <link href="http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/"/>
+    <id>http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/</id>
+    <published>2013-07-11T13:01:59.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>分布式计算相关资源总结</h2>
+<h3>论文</h3>
+<p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
+<blockquote>
+<p>Google出品，必属精品！</p>
+</blockquote>
+<a id="more"></a>
+
+<h4>四大经典论文(必看)</h4>
+<ol>
+<li><p>The Anatomy of a Large-Scale Hypertextual Web Search Engine</p>
+<p>分布式计算的奠基制作，介绍了Google搜索引擎的原型，讲解了一个基于超文本的大型系统建立过程。</p>
+</li>
+<li><p>The Google File System</p>
+<p>GFS这篇论文已然成为分布式文件系统相关技术的一种标准。对于分布式应用的接口，分布式系统设计，<br>数据的存储以及分布式系统监控和管理相关的技术实现具有指导意义。</p>
+</li>
+<li><p>MapReduce: Simplified Data Processing on Large Clusters</p>
+<p>MapReduce的奠基之作，就凭它提出了MapReduce编程模式，就必须要读这篇论文。通过它，可以初窥云计算的世界。<br>Google在四位数以上的个节点上运行MapReduce，并且还在持续扩展中。</p>
+</li>
+<li><p>BigTable: A Distributed Storage System for Structured Data.</p>
+<p>这篇论文主要实现了分布式存储数据的结构化，Google Earth和网页索引都是基于BigTable实现。论文很清晰的讲解了BigTable的设计实现思路和方法。</p>
+</li>
+</ol>
+<h4>三篇补充论文(推荐看)</h4>
+<ol>
+<li><p>Dynamo</p>
+<p>Google原始之作！</p>
+</li>
+<li><p><a href="http://www.sosp2007.org/papers/sosp064-aguilera.pdf" target="_blank">Sinfonia: A New Paradigm for Building Scalable Distributed Systems</a></p>
+<p>阐述构建分布式文件系统的范式方法。淘宝构建TFS，OceanBase和Tair等系统的时候充分参考了这篇论文！</p>
+</li>
+<li><p><a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/zh-CN//archive/chubby-osdi06.pdf" target="_blank">The Chubby lock service for loosely-coupled distributed systems</a></p>
+<p>Google的BigTable，MapReduce和Spanner服务都是在这个基础上构建的！分布式事务的基础，我正在看这篇论文。</p>
+</li>
+<li><p><a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/es//archive/spanner-osdi2012.pdf" target="_blank">Spanner: Google&#39;s Globally-Distributed Database</a></p>
+</li>
+</ol>
+<p>第一个全球意义上的分布式数据库，推荐它的其中一个原因是，我完全看不懂！！！</p>
+<h4>其他论文</h4>
+<p>这里还有一份别人总结的<a href="http://duanple.blog.163.com/blog/static/709717672011330101333271/" target="_blank">分布式系统领域经典论文翻译集</a>。</p>
+<p><strong><em>论文来源和下载：</em></strong></p>
+<p>大多数论文来源于OSDI上。可以直接去会议网站上下载。直接google scholar一下，也可以下载。</p>
+<h3>书籍</h3>
+<h4>分布式计算</h4>
+<ol>
+<li><a href="http://book.douban.com/subject/3108801/" target="_blank">分布式系统原理与范型</a></li>
+<li><a href="http://book.douban.com/subject/2698938/" target="_blank">分布式系统概念与设计</a></li>
+</ol>
+<h4>Hadoop</h4>
+<ol>
+<li><p>《Hadoop in action》、 《Hadoop实战》</p>
+<p>我看的第一本分布式计算的书，里面的内容有点老。入门的书籍，所以推荐的时候难免掺杂了感情分。</p>
+</li>
+<li><p>《Oreilly.Hadoop.The.Definitive.Guide.2nd.Edition 》</p>
+<p>中文版本就不推荐了，直接看英文版的吧！</p>
+</li>
+<li><p>《Hadoop权威指南》</p>
+</li>
+</ol>
+<p>这本书同样适合初学者，书里面有基础的实例实现。属于分布式计算方面少数可以看的中文书。<br>翻译的比较成功的两本书！当然看原版更好！</p>
+<h4>其他书籍</h4>
+<ol>
+<li>《推荐系统实践》</li>
+<li>《集体智慧编程》</li>
+</ol>
+<h3>其他Hadoop教程</h3>
+<ol>
+<li>《深入浅出Hadoop实战开发30讲》</li>
+<li>《Hadoop应用开发实战 28讲》</li>
+<li>《Cloudera Hadoop 4系列实战课程40讲》</li>
+</ol>
+<h3>总结</h3>
+<p>学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！</p>
+<ol>
+<li><p>环境搭建</p>
+<p><a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</a></p>
+</li>
+<li><p>MapReduce</p>
+<p><a href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/">MapReduce</a></p>
+</li>
+<li><p>Hadoop的一点应用</p>
+<ul>
+<li><a href="http://beforeload.github.io/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></li>
+<li><a href="http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/">倒排索引</a></li>
+</ul>
+</li>
+</ol>
+<p>看论文和书籍只是一部分，懂理论才算刚刚入门！要努力做到能应用还要争取有创新！</p>
+<p>另外, Hadoop不代表分布式，还有很多类似于Hadoop且比Hadoop更具有优势的框架，如Spark就更适合实验室内的研究的小规模分布式系统，Storm更适用于实时数据流。</p>
+<p>附： </p>
+<ol>
+<li><a href="http://aoyouzi.iteye.com/blog/1845235" target="_blank">推荐系统公共资源汇总</a></li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Distributed Computing/" term="Distributed Computing"/>
+    <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed Computing/" term="Distributed Computing"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Building Distributed Systems Development Environment]]></title>
+    <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
+    <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
+    <published>2013-06-28T17:13:47.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
+<p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
+<p>分为以下安装过程：</p>
+<ol>
+<li>安装jdk</li>
+<li>安装eclipse</li>
+<li>安装hadoop</li>
+</ol>
+<a id="more"></a>
+
+<h3>安装jdk</h3>
+<p><strong>(1) 下载JDK</strong></p>
+<p>Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
+<pre><code><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now</code></pre>
+<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">官网</a>上根据自己的系统下载相应的JDK。</p>
+<pre><code>sudo mkdir /usr/java
+tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
+sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/</code></pre>
+<p><strong>(2) 然后修改配置文件</strong></p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> vi /etc/profile</code></pre>
+<p>按G可以直接到文件尾端，填写下面内容:</p>
+<pre><code><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
+export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
+export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
+export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</code></pre>
+<p>保存退出。</p>
+<p><strong>(3) 检测是否成功</strong> </p>
+<pre><code><span class="title">source</span> /etc/profile
+<span class="title">java</span> -version</code></pre>
+<p>如果显示下面结果，表示安装成功。</p>
+<pre><code><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
+Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
+Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)</code></pre>
+<h3>安装eclipse</h3>
+<p><strong>(1) 下载eclipse<em>*</em>.tar.gz</strong></p>
+<pre><code>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
+mv eclipse /usr/<span class="keyword">local</span>
+/usr/<span class="keyword">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span></code></pre>
+<p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
+<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</code></pre>
+<p><strong><em>在弹窗中输入：</em></strong></p>
+<pre><code><span class="attribute">Name</span>: <span class="string">eclipse</span>
+<span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span></code></pre>
+<p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
+<h4>ssh 无密码登录</h4>
+<p><strong>(1) 安装SSH</strong></p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install openssh-server</code></pre>
+<p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
+<p><strong>(2) 生成密钥的步骤也很简单：</strong></p>
+<pre><code><span class="comment">ssh</span>-<span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span>.<span class="comment">com"</code></pre>
+<p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
+<pre><code><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys</code></pre>
+<p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
+<pre><code><span class="title">ssh</span> localhost</code></pre>
+<p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，<br>然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
+<h4>安装Hadoop</h4>
+<p><strong>(1) 下载解压hadoop</strong></p>
+<pre><code>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="variable">.tar</span><span class="variable">.gz</span>    <span class="preprocessor">#解压</span></code></pre>
+<p><strong>(2) 配置四个文件</strong></p>
+<p>1) ~/hadoop-0.20.2/conf/hadoop-env.sh</p>
+<pre><code>export <span class="constant">JAVA_HOME</span>=<span class="regexp">/usr/java</span><span class="regexp">/jdk1.7.0_25</code></pre>
+<p>2) ~/hadoop-0.20.2/conf/core-site.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span> 
+  <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
+<p>3) ~/hadoop-0.20.2/conf/hdfs-site.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">value</span>&gt;</span>1<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
+<p>4) ~/hadoop-0.20.2/conf/mapred-site.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">property</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">value</span>&gt;</span>localhost:9001<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
+  <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
+<p><strong>(3) 修改～/.bashrc</strong></p>
+<pre><code><span class="title">echo</span> <span class="string">'export HADOOP_HOME=/home/beforeload/hadoop-0.20.2'</span> &gt;&gt; ~/.bashrc
+echo <span class="string">'export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin'</span> &gt;&gt; ~/.bashrc
+source ~/.bashrc</code></pre>
+<p>现在在任何目录下，都可以输入hadoop命令了。</p>
+<p><strong>(4) 格式化HDFS并启动hadoop</strong></p>
+<pre><code><span class="title">hadoop</span> namenode -format
+<span class="title">start</span>-all.sh
+<span class="title">jps</span>   #查看运行的进程</code></pre>
+<p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
+<ol>
+<li>NameNode <a href="http://localhost:50070/dfshealth.jsp" target="_blank">http://localhost:50070/dfshealth.jsp</a></li>
+<li>JobTracker <a href="http://localhost:50030/jobtracker.jsp" target="_blank">http://localhost:50030/jobtracker.jsp</a></li>
+</ol>
+<p><strong>(6) 重要参数</strong></p>
+<pre><code><span class="keyword">echo</span> <span class="variable">$JAVA_HOME</span>     
+<span class="keyword">echo</span> <span class="variable">$HADOOP_HOME</span></code></pre>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/tags/Hadoop/" term="Hadoop"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Building Webapps with Yeoman]]></title>
+    <link href="http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/"/>
+    <id>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</id>
+    <published>2013-06-28T14:11:40.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>使用Yeoman 快速构建Web应用</h2>
+<h4>简介</h4>
+<p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
+<p>相关介绍参见<a href="http://yeoman.io/" target="_blank">官网文档</a>。</p>
+<a id="more"></a>
+
+<p>它由三个组件组成：</p>
+<ol>
+<li>Yo 脚手架工具：我理解成项目工程目录和文件生成工具。用来构建生产环境和生成编译环境。</li>
+<li>Grunt 构建工具：主要用来构建，预览和测试你的项目。</li>
+<li>Bower 包管理工具：处理包依赖关系，不需要手动下载管理脚本。可以理解成前端的NPM。</li>
+</ol>
+<p><strong>协作关系图：</strong></p>
+<img src="//images.cnitblog.com/blog/39469/201303/09214923-27fe6dea6eb34f468e601589ea83a675.png" class="[yo-grunt-bower]">
+
+
+<p>从上面流水线一样的协作图，可以看出一个项目产品的生成可以做到很规范化，从而提高生成效率。</p>
+<p>我觉得在说应用之前，先要思考一下使用Yeoman的场景，如果是我们负责一个项目，思考一下如下的问题：</p>
+<ol>
+<li>项目目录是怎样的？</li>
+<li>需要用到哪些类库？</li>
+<li>(基于PHP和基于Node.js)生产环境是怎样的？</li>
+<li>如果使用CoffeeScript/sass/less，又需要增加什么样的编译环境？</li>
+<li>单元测试要如何进行？</li>
+<li>调试环境是怎么样的？</li>
+<li>打包部署要遵循什么样的流程？</li>
+<li>…</li>
+</ol>
+<p>这些问题不能很好的解决，项目开发中都会存在或多或少的效率问题。</p>
+<p>其实，解决他们很简单，yeoman提供方便快捷的解决方法，下面简单介绍一下如何构建一个项目。</p>
+<h3>安装它</h3>
+<p>第一步：首先确认拥有Node.js, Ruby的环境。</p>
+<p>最好安装一下 Compass(Sass的工具库)</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> gem install compass</code></pre>
+<p>如果想了解一下Compass，推荐阮一峰的一篇<a href="http://www.ruanyifeng.com/blog/2012/11/compass.html" target="_blank">博文</a>。</p>
+<p>第二步：然后安装三个组件</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> npm install -g yo grunt-cli bower</code></pre>
+<p>第三步：安装网络应用生成器</p>
+<p>选择web app生成器：</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> npm install -g generator-webapp</code></pre>
+<p>也可以选择安装AngularJS生成器：</p>
+<pre><code><span class="title">sudo</span> npm install -g generator-angular  <span class="comment"># install generator</span></code></pre>
+<h3>快速构建</h3>
+<p>由于上面web应用生成器有两种，所以可以通过两种不同的方式构建我们的项目：</p>
+<p>第一种：使用<code>yo webapp</code>方式</p>
+<pre><code><span class="title">yo</span> webapp                     <span class="comment"># 搭建项目骨架</span>
+bower install underscore      <span class="comment"># 依赖通过bower安装</span>
+grunt                         <span class="comment"># 构建测试发布环境</span></code></pre>
+<p>第二种：使用<code>yo angular</code>方式</p>
+<pre><code><span class="title">yo</span> angular                    <span class="comment"># 搭建项目骨架</span>
+bower install angular-ui      <span class="comment"># 依赖通过bower安装</span>
+grunt test                    <span class="comment"># 测试</span>
+grunt server                  <span class="comment"># 预览</span>
+grunt  </code></pre>
+<h3>总结</h3>
+<p>通过以上的步骤，我们很容易的构建出了一个简易的web项目。yeoman有很多特性，例如可以自定义模板（如HTML5, Boilerplate, Twitter Bootstrap等），AMD（通过RequireJS）等其他工具。</p>
+<p>自动编译CoffeeScript和Compass也是一大亮点，值得一提的是，yeoman提供了live reload功能，在对项目文件修改保存后，前端页面回自动刷新。</p>
+<p>还有太多太多特性了，如jslint完善脚本，内置HTTP服务器，集成包管理，ES6的语法支持，PhantomJS单元测试等等。希望大家使用愉快。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
+    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[My Software Installation and Configuration on Ubuntu 13.04]]></title>
+    <link href="http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/"/>
+    <id>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</id>
+    <published>2013-06-22T13:23:50.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>在Ubuntu 13.04上常用软件的安装配置</h2>
+<p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
+<ol>
+<li>安装zsh和oh-my-zsh</li>
+<li>终端透明化</li>
+<li>安装chrome</li>
+<li>安装git</li>
+<li>安装VLC播放器</li>
+<li>安装fcitx + 搜狗拼音</li>
+<li>安装vim</li>
+<li>安装Node.js</li>
+<li>安装锐捷校园网客户端</li>
+<li>安装配置jdk</li>
+</ol>
+<a id="more"></a>
+
+<h4>安装zsh和oh-my-zsh</h4>
+<p><strong><em>安装 curl:</em></strong></p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install curl</code></pre>
+<p>然后:</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh</code></pre>
+<p><strong><em>可以通过curl方式安装：</em></strong></p>
+<pre><code>curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</code></pre>
+<p><strong><em>也可以通过wget：</em></strong></p>
+<pre><code><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span>-<span class="comment">check</span>-<span class="comment">certificate</span> <span class="comment">https://github</span>.<span class="comment">com/robbyrussell/oh</span>-<span class="comment">my</span>-<span class="comment">zsh/raw/master/tools/install</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh</code></pre>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">参考文档</a></p>
+<h4>Ubuntu 终端透明化</h4>
+<p>Ctrl+Alt+T 打开终端，菜单 </p>
+<pre><code>Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background</code></pre>
+<h4>安装 chrome</h4>
+<p><strong><em>安装依赖:</em></strong></p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install libudev0</code></pre>
+<p>然后从google chrome官方网站上下载安装</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> dpkg -i google-chrome-stable_current_amd64.deb</code></pre>
+<p>终端输入<code>google-chrome</code>即可启动。</p>
+<h4>安装git</h4>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git</code></pre>
+<p><strong><em>相关配置:</em></strong></p>
+<pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">name</span> <span class="comment">"beforeload"</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">email</span> <span class="comment">fe</span>.<span class="comment">daniel91@gmail</span>.<span class="comment">com</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">diff</span> <span class="comment">auto</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">status</span> <span class="comment">jauto</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">branch</span> <span class="comment">auto</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">push</span>.<span class="comment">default</span> <span class="comment">current</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">core</span>.<span class="comment">editor</span> <span class="comment">vim</span>
+<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">merge</span>.<span class="comment">tool</span> <span class="comment">vimdiff</code></pre>
+<h5>查看配置</h5>
+<p><strong><em>查看所有配置:</em></strong></p>
+<pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</code></pre>
+<p><strong><em>查看某个配置:</em></strong></p>
+<pre><code><span class="title">git</span> config user.name</code></pre>
+<p>或者 </p>
+<pre><code><span class="title">cat</span> ~/.gitconfig</code></pre>
+<h4>安装VLC视频播放器</h4>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc</code></pre>
+<p>终端输入<code>vlc</code>启动，在菜单栏</p>
+<pre><code>Tools-&gt; Preference -&gt; Subtitles &amp; OSD 修改Default encoding为Universal(UTF-<span class="number">8</span>)</code></pre>
+<p>还可以设置相关中文字体（中文可选）。</p>
+<p>然后在右上角:</p>
+<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Details</span> <span class="literal">-</span>&gt; <span class="comment">Default</span> <span class="comment">Applications</span> <span class="literal">-</span>&gt; <span class="comment">Video选择VLC</span> <span class="comment">media</span> <span class="comment">player</code></pre>
+<p>这样打开相关视频文件，可以直接使用VLC播放。</p>
+<h4>安装sougou + fcitx</h4>
+<pre><code>su<span class="operator"><span class="keyword">do</span> <span class="keyword">add</span>-apt-repository ppa:fcitx-team/nightly
+sudo apt-<span class="keyword">get</span> <span class="keyword">update</span>
+sudo apt-<span class="keyword">get</span> install fcitx-sogoupinyin</code></pre>
+<p>然后在<code>System Settings -&gt; Language Support -&gt; Keyboard input method system</code> 中选择 fcitx。</p>
+<p><strong><em>[可选]安装皮肤：</em></strong></p>
+<p>下载<a href="http://pan.baidu.com/share/link?shareid=591450&amp;uk=4060302862" target="_blank">fcitx-sougou-skin</a></p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> dpkg -i fcitx-skin-sogou_0<span class="number">.0</span><span class="number">.2</span>_<span class="keyword">all</span>.deb</code></pre>
+<p>在fcitx外观中选择sougou即可。</p>
+<p>最后注销，重新登录，输入法生效。</p>
+<h4>安装配置VIM</h4>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vim</code></pre>
+<p><strong><em>配置：</em></strong></p>
+<p>安装vundle</p>
+<pre><code>git clone https://github<span class="preprocessor">.com</span>/gmarik/vundle<span class="preprocessor">.git</span> ~/<span class="preprocessor">.vim</span>/bundle/vundle</code></pre>
+<p>用<a href="https://github.com/beforeload/myconf/blob/master/.vimrc" target="_blank">我的.vimrc配置文件</a><br>覆盖<code>~/.vimrc</code>文件即可</p>
+<p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
+<p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
+<h4>安装Node.js</h4>
+<p>安装依赖</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install build-essential libssl-dev</code></pre>
+<p>编译安装</p>
+<pre><code><span class="title">mkdir</span> node &amp;&amp; cd node
+<span class="title">git</span> clone https://github.com/joyent/node.git
+./configure
+<span class="title">make</span> 
+<span class="title">make</span> install</code></pre>
+<h4>安装锐捷校园网客户端</h4>
+<p>下载[Linux SU V 1.01](<a href="http://ncs.hust.edu.cn/download/soft/Linux\" target="_blank">http://ncs.hust.edu.cn/download/soft/Linux\</a> SU\ V1.01版.rar)</p>
+<p>安装unrar</p>
+<pre><code><span class="title">sudo</span> apt-get install unrar
+
+<span class="title">unrar</span> ***.rar
+<span class="title">tar</span> -zxvf ***.tar.gz
+
+<span class="title">cd</span> rjsupplicant/</code></pre>
+<p>查看设置</p>
+<pre><code><span class="comment">sudo</span> <span class="string">.</span><span class="comment">/rjsupplicant</span>.<span class="comment">sh</span> <span class="literal">-</span><span class="comment">h</code></pre>
+<p>设置好后启动</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> ./rjsupplicant.sh</code></pre>
+<h4>安装配置JDK</h4>
+<p>相关安装步骤已经在另外<a href="//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a>中做出更新。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Storing Node application data]]></title>
+    <link href="http://beforeload.github.io/2013/06/15/storing-node-application-data/"/>
+    <id>http://beforeload.github.io/2013/06/15/storing-node-application-data/</id>
+    <published>2013-06-15T12:52:00.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>浅析Node.js应用的数据存储</h2>
+<p>主要从以下三点简要分析</p>
+<ol>
+<li>内存和文件系统数据存储</li>
+<li>传统的关系型数据库存储</li>
+<li>非关系型数据库存储</li>
+</ol>
+<a id="more"></a>
+
+<p>选择一种合适的数据存储机制主要依赖五个因素：</p>
+<ol>
+<li>存什么样的数据</li>
+<li>数据读写的速度要求以满足足够的性能</li>
+<li>多大规模的数据</li>
+<li>数据查询方式</li>
+<li>数据存储和保存的生命周期</li>
+</ol>
+<h3>Relational Database</h3>
+<ol>
+<li>MySQL</li>
+<li>Postgres</li>
+</ol>
+<h3>NoSQL databases</h3>
+<ol>
+<li>Redis</li>
+<li>MongoDB</li>
+<li>Mongoose</li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
+    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[building PhoneGap development environment]]></title>
+    <link href="http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/"/>
+    <id>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</id>
+    <published>2013-06-11T18:29:06.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h3>Ubuntu 13.04 Android开发基本环境配置</h3>
+<h4>基本环境</h4>
+<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install ia32-libs #<span class="number">64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
+sudo apt-<span class="keyword">get</span> install ant</code></pre>
+<a id="more"></a>
+
+<h4>安装独立SDK</h4>
+<p>下载<a href="http://developer.android.com/sdk/index.html" target="_blank">SDK</a></p>
+<pre><code><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">path/to/android</span>-<span class="comment">sdk_r21</span>.<span class="comment">0</span>.<span class="comment">1</span>-<span class="comment">linux</span>.<span class="comment">tgz</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">~/DevTools</span>
+<span class="comment">cd</span> <span class="comment">~/DevTools/android</span>-<span class="comment">sdk</span>-<span class="comment">linux/tools/</span>
+<span class="string">.</span><span class="comment">/android</span> <span class="comment">sdk</code></pre>
+<h4>配置环境变量</h4>
+<p>在~/.bashrc或者/etc/environemnt</p>
+<pre><code>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span></code></pre>
+<h4>测试</h4>
+<pre><code>android list targets    <span class="comment">#查看可用平台</span>
+android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
+android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
+cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
+ant debug   <span class="comment">#debug模式打包</span>
+adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span></code></pre>
+<p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html" target="_blank">Building Your First App</a></p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/tags/Android/" term="Android"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Building Node web Applications]]></title>
+    <link href="http://beforeload.github.io/2013/06/10/building-node-web-applications/"/>
+    <id>http://beforeload.github.io/2013/06/10/building-node-web-applications/</id>
+    <published>2013-06-10T10:10:49.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>Node.js网络应用开发</h2>
+<ol>
+<li>Handling HTTP requests with Node&#39;s API</li>
+<li>Building a RESTful web service</li>
+<li>Serving static files</li>
+<li>Accepting user input from forms</li>
+<li>Securing your application with HTTPS</li>
+</ol>
+<a id="more"></a>
+
+<p>Node.js网络应用开发的简单图示如下：</p>
+<img src="http://i.minus.com/iLMAoN6C3pEtN.png">
+
+
+<h3>HTTP server 的基本面</h3>
+<h4>HTTP请求在Node HTTP server中的生命周期</h4>
+<ol>
+<li>HTTP 客户端（例如：浏览器）发送HTTP请求</li>
+<li>Node进程接受到连接把请求的数据发送给HTTP server</li>
+<li>Node进程把HTTP请求头完整解析，在‘request’的回调事件中处理相应的逻辑</li>
+<li>request的回调函数中体现应用的逻辑，例如产生一个response</li>
+<li>请求通过HTTP server返回，这个过程会格式化成一个标准的HTTP response返回给客户端</li>
+</ol>
+<h3>Building a RESTful web service</h3>
+<p>CURD: Creat, Update, Read, Delete<br>HTTP: Get, Post, Put, Delete</p>
+<ol>
+<li>使用POST创建资源</li>
+<li>使用GET获取资源</li>
+<li><p>使用DELETE删除资源</p>
+<p> function(req, res){<br>   switch(req.method){<br>   case: ‘GET’: </p>
+<pre><code> <span class="regexp">//</span> to <span class="keyword">do</span>
+ <span class="keyword">break</span></code></pre>
+<p>   case: ‘POST’:</p>
+<pre><code> // <span class="keyword">...</span>
+ <span class="keyword">break</span></code></pre>
+<p>   case: ‘DELETE’:</p>
+<pre><code> // <span class="keyword">...</span>
+ <span class="keyword">break</span></code></pre>
+<p>   }<br> }</p>
+</li>
+</ol>
+<h3>Serving static files</h3>
+<ol>
+<li>Get /index.html 用户向服务器请求一个静态文件</li>
+<li>Node 服务器接受请求，应用的逻辑部分去读取这个文件</li>
+<li>文件通过一个读取流的实例传递给服务器</li>
+<li><p>文件的ReadStream通过‘piped’拼接方式，以HTTP的response形式返回给客户端</p>
+<p> …<br> var stream = fs.createReadStream(path)<br> // stream.on(‘data’, function(chunk){<br> //   res.write(chunk)<br> // })<br> // stream.on(‘end’, function(){<br> //   res.end()<br> // })<br> stream.pipe(res)<br> …</p>
+</li>
+</ol>
+<p>相关的图片如下：</p>
+<img src="http://i.minus.com/iOZW6WxLIsBNk.png">
+
+
+<p>…<br>stream.pipe(res)<br>stream.on(‘error’,function(err){<br>  res.statusCode = 500<br>  res.end(&#39;Internal Server Error!&#39;)<br>})<br>…</p>
+<p>文件不存在错误处理“ENOENT, No such file or dictionary”</p>
+<p>根据<code>fs.stat(path, function(err, stat){})</code>的err判断</p>
+<h3>接受用户表单提交数据</h3>
+<ol>
+<li>表单域</li>
+<li>上传文件node-formidable</li>
+<li>实时计算上传进度</li>
+</ol>
+<p>两种类型的表单提交</p>
+<ul>
+<li>“application/x-www-form-urlencoded”: the default for HTML forms</li>
+<li>“multipart/form-data”: used when form contains files, non-ascii, or binary data</li>
+</ul>
+<p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。<br>也可以计算伪实时的文件上传进度，如下所示：</p>
+<pre><code>form.<span class="literal">on</span>(<span class="string">'process'</span>, <span class="reserved">function</span>(bytesReceived, bytesExpected){
+    <span class="reserved">var</span> percent = bytesReceived / bytesExpected * <span class="number">100</span>
+    console.log(percent)
+})</code></pre>
+<p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload" target="_blank">node-upload</a>中完成它。</p>
+<h3>使用HTTPS 确保应用的安全性</h3>
+<p>生成一个私钥(加密)<br>    openssl genrsa 1024 &gt; key.pem</p>
+<p>生成证书(解码)<br>    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
+<p><strong><em>HTTPS server选项</em></strong><br>    var https = require(‘https’)<br>      , fs = require(‘fs’)<br>      , options = {<br>        key: fs.readFileSync(‘./key.pem’),<br>        cert: fs.readFileSync(‘./key-cert.pem’)<br>      }</p>
+<pre><code>https.createServer(options, <span class="keyword">function</span>(req, res){
+  res.writeHead(<span class="number">200</span>)
+  res.<span class="keyword">end</span>(<span class="comment">'Hello world!')</span>
+}).listen(<span class="number">4000</span>)</code></pre>
+<p>证书可以共享，它包括public key和持有者的身份信息。当然如果要发布一个网站，就需要在Certificate Authority(CA)上去注册，获取一个真实的，受信任的SSL证书。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
+    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Priority Queue]]></title>
+    <link href="http://beforeload.github.io/2013/05/30/priority-queue/"/>
+    <id>http://beforeload.github.io/2013/05/30/priority-queue/</id>
+    <published>2013-05-29T16:40:13.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<ol>
+<li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
+<li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
+<li>练习6.5-8 </li>
+</ol>
+<a id="more"></a>
+
+<p>6.5-1 HEAP-EXTRACT-MAX</p>
+<pre><code><span class="keyword">if</span> head-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
+    then error
+max &lt;-- A<span class="matrix">[<span class="number">1</span>]</span>
+A<span class="matrix">[<span class="number">1</span>]</span> &lt;-- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
+MAX-HEAPIFY(A, <span class="number">1</span>)
+<span class="keyword">return</span> max</code></pre>
+<img src="http://i.minus.com/imDBy99LrOzWP.jpg">
+
+
+<p>6.5-3 HEAP-MINIUM(A)</p>
+<p>伪代码书上已经有了</p>
+<pre><code>HEAP-MINIMUM(A)
+    <span class="keyword">return</span> A<span class="matrix">[<span class="number">1</span>]</span></code></pre>
+<p>利用HEAP-EXTRACT-MAX(A)容易写出HEAP-EXTRACT-MIN(A)</p>
+<h4>HEAP-EXTRACT-MIN(A)</h4>
+<pre><code><span class="keyword">if</span> heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
+    then error 
+max &lt;- A<span class="matrix">[<span class="number">1</span>]</span>
+A<span class="matrix">[<span class="number">1</span>]</span> &lt;- A<span class="matrix">[heap-size[A]</span>] - <span class="number">1</span>
+heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt;- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
+MIN-HEAPIFY(A, <span class="number">1</span>)
+<span class="keyword">return</span> max</code></pre>
+<p>同样，由HEAD-INCREASE-KEY很容易就写出HEAD-DECREASE-KEY过程的伪代码：</p>
+<h4>HEAD-DECREASE-KEY</h4>
+<pre><code><span class="keyword">if</span> key &gt; A<span class="matrix">[i]</span>
+    then error
+A<span class="matrix">[i]</span> &lt;- key
+<span class="keyword">while</span> <span class="built_in">i</span> &gt; <span class="number">1</span> and A<span class="matrix">[PARENT(i)]</span> &gt; A<span class="matrix">[i]</span>
+    do exchange A<span class="matrix">[i]</span> &lt;-&gt; A<span class="matrix">[PARENT(i)]</span>
+            <span class="built_in">i</span> &lt;- PARENT(<span class="built_in">i</span>)</code></pre>
+<p>同样，由MAX-HEAP-INSERT容易写出MIN-HEAP-INSERT</p>
+<h4>MIN-HEAP-INSERT</h4>
+<pre><code>heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt;- heap-<span class="built_in">size</span><span class="matrix">[A]</span> + <span class="number">1</span>
+A<span class="matrix">[heap-size[A]</span>] &lt;- 无穷
+HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix">[A]</span>, key)</code></pre>
+<p>6.5-8</p>
+<p>每一个链表作为一个节点，链表的第一个元素作为key，然后组成一个堆，这个堆的大小为K(k个链表，k个节点)。</p>
+<p>链表合并过程思路如下：</p>
+<ol>
+<li>通过堆的根节点，获得其链表的第一个元素</li>
+<li>以获取的元素作为目标链表的尾端</li>
+<li>因为根的第一个元素的key发生改变，对其进行MIN-HEAPFIY操作，递归进行下去。</li>
+</ol>
+<p>显然，在每个堆中取一个key组成的堆是实现此过程的一个最小堆。</p>
+<p>具体的实现代码实在没有时间写了。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
+    <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Common Problems of Recommender Systems]]></title>
+    <link href="http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/"/>
+    <id>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</id>
+    <published>2013-05-27T14:14:53.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h3>推荐系统的常见问题</h3>
+<h4>缺少大数据问题</h4>
+<p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
+<a id="more"></a>
+
+<h4>冷启动问题</h4>
+<p>在推荐系统的冷启动问题中，最主要包括两个方面：新用户问题，新资源问题。</p>
+<p>(1) 新用户问题</p>
+<p>这部分用户在系统中没有资源浏览访问记录，系统无法根据该用户行为数据对其浏览行为进行资源访问的预测和推推荐。</p>
+<p>(2) 新资源问题</p>
+<p>该部分资源没有用户的访问记录，使得系统在做数据分析时无法将其纳入待处理数据中，进而无法向用户推荐该资源。</p>
+<h4>变化数据问题</h4>
+<p>推荐系统中的变化数据问题是指推荐系统中常常充斥着老的内容，新的数据资料等很难得到推荐。</p>
+<h4>变化喜好问题</h4>
+<p>在推荐系统中用户也许怀着不同的目的对于文件资源进行搜索浏览，及用户的喜好是变化跳跃的，系统很难对这种跳跃的喜好类别进行资源数据推荐。</p>
+<h4>参考</h4>
+<p>(1) <a href="http://readwrite.com/2009/01/28/5_problems_of_recommender_systems" target="_blank">5 Problems of Recommender Systems</a><br>(2) <a href="http://www.resyschina.com/2010/03/five_problems_of_resys.html" target="_blank">推荐系统5大问题</a></p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Translate/" term="Translate"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed Systems/" term="Distributed Systems"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[我的一天]]></title>
+    <link href="http://beforeload.github.io/2013/05/25/my-daily-life/"/>
+    <id>http://beforeload.github.io/2013/05/25/my-daily-life/</id>
+    <published>2013-05-25T12:51:15.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<p>前两天，和两个还在武汉的老同学，还有一个从北京远道而来的老同学会餐，有感于每个人不同的际遇与成。听到别人打趣的说我越来越像一个程序员，傲娇的技术宅，心里反而感觉挺开心。时至周末，思及每天幸福而快乐的生活，遂记下我的一天，以作留恋。</p>
+<p>从周一到周五，早上8点半之前起来，这绝对不是说起来很早，只是对比之前每天10点之后起来，这绝对是我今年来做到的最伟大的改变之一了。即使是周末，也在9点左右起来了，真的很不容易，一定要坚持下去。</p>
+<a id="more"></a>
+
+<p>最近这段时间，上午都在狂补数据库相关知识，开心的每天练习SQL语句，中午坐在图书馆，恶补数据库相关知识，也许等我研究生毕业，DBA也是一个选择吧。不过周末的时候，我更喜欢泡在实验室，泡杯咖啡，刷刷算法题和ACM题目，或者想一个idea，独自给自己一个hackthon。</p>
+<p>下午的时候一般属于精神亢奋期，我的研究方向是分布式计算集群，下午的时候，一边coding，一边看文档是我的常态。当然，偶然也会因为什么问题，一折腾就是一个下午。希望一年之后在分布式计算上也能有所收获吧。</p>
+<p>晚自习的时间，通常找本书看个一整章的，静下心来看书是一件很有感觉的事情。最近在看一本书是《Node.js in Action》。而由于女朋友考研，晚上跟她打着电话开心的聊聊天，陪她一起背背单词，真的好幸福。</p>
+<p>打过电话睡觉之前，我一般喜欢看看技术博客，刷刷微博，作为一个追求细节的人，每天精读一篇优秀的博文，写点自己的感受。另外把今天学习到的东西做一个总结，这个习惯的养成，主要是有感于最近的两篇blog，<a href="http://blog.jobbole.com/38203/" target="_blank">黄博文：敏捷地写博客</a>和<a href="http://blog.jobbole.com/38258/" target="_blank">《即便没有读者，你也要写博客》</a>。而作为一个技术宅，幸福的在github写着自己的博客。</p>
+<p>以上就是我一天的生活。以优秀的工程师为目标，我为自己代言。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Fix Some Ubuntu Problems]]></title>
+    <link href="http://beforeload.github.io/2013/05/20/fix-some-problems/"/>
+    <id>http://beforeload.github.io/2013/05/20/fix-some-problems/</id>
+    <published>2013-05-20T14:10:58.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>解决 Ubuntu 13.04的视频音频相关问题</h2>
+<ol>
+<li>Fix ASUS Webcam Problem:vertically flip my webcam&#39;s image</li>
+</ol>
+<p><strong><em>问题描述</em></strong>：华硕电脑摄像头视频图像倒立</p>
+<p>解决方法： 在google上搜索了一下 ubuntu camera invert找到几篇解决的博文，步骤如下：</p>
+<a id="more"></a>
+
+<p>(1) Install</p>
+<pre><code><span class="comment">$echo</span> <span class="literal">-</span><span class="comment">e</span> <span class="comment">"\n#</span> <span class="comment">libv4l</span> <span class="comment">PPA\ndeb</span> <span class="comment">http://ppa</span>.<span class="comment">launchpad</span>.<span class="comment">net/libv4l/ppa/ubuntu</span> <span class="comment">`lsb_release</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">|</span> <span class="comment">awk</span> <span class="comment">'{print</span> <span class="comment">$2}'`</span> <span class="comment">main"</span> <span class="comment">|</span> <span class="comment">sudo</span> <span class="comment">tee</span> <span class="literal">-</span><span class="comment">a</span> <span class="comment">/etc/apt/sources</span>.<span class="comment">list</span>
+
+<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">key</span> <span class="comment">adv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recv</span>-<span class="comment">keys</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keyserver</span> <span class="comment">keyserver</span>.<span class="comment">ubuntu</span>.<span class="comment">com</span> <span class="comment">C3FFB4AA</span>
+
+<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">update</span>
+
+<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">install</span> <span class="comment">libv4l</span>-<span class="comment">0</code></pre>
+<p>(2) Start application</p>
+<pre><code><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; cheese
+<span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype</code></pre>
+<p>为了以后不需要输入这么多，建立一个bash<br>Step 1:</p>
+<pre><code>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype</code></pre>
+<p>填写下面内容</p>
+<pre><code><span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so /usr/bin/skype</code></pre>
+<p>Step 2:</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype</code></pre>
+<p><strong><em>注意</em></strong>：<br>1. v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。</p>
+<pre><code>$ locate v4l1compat<span class="variable">.so</span>
+/usr/lib/i386-linux-gnu/libv4l/v4l1compat<span class="variable">.so</span></code></pre>
+<p><strong><em>参考</em></strong>：</p>
+<p>(1) <a href="http://www.paullabis.com/2010/08/fix-upside-down-or-inverted-webcam-on.html" target="_blank">Fix upside-down or inverted webcam on Ubuntu linux</a></p>
+<p>(2)<a href="http://community.linuxmint.com/tutorial/view/219" target="_blank">How to make Webcam compatible with Skype.</a></p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[inversion monge quicksort]]></title>
+    <link href="http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/"/>
+    <id>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</id>
+    <published>2013-05-17T14:44:25.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
+<h3>题目</h3>
+<ol>
+<li>第二章思考题2-4(逆序对)</li>
+<li>第四章思考题4-7(Monge矩阵)</li>
+<li>第七章思考题7-5(快排的三数取中划分分析)</li>
+</ol>
+<a id="more"></a>
+
+<h3>2-4 逆序对</h3>
+<p>a)</p>
+<script src="https://gist.github.com/5599553.js?file=inversion.c"></script>
+
+
+<p>结果: </p>
+<p>(2,3)<br>(2,8)<br>(2,6)<br>(3,8)<br>(3,6)</p>
+<p>b)</p>
+<p>从1到n按倒序排列的数组含有最多的逆序对，<br>个数为(n-1)+(n-2)+…+1 = (n-1 + 1) <em> (n-1)/2 = n </em> (n-1)/2</p>
+<p>c)</p>
+<p>插入排序的运行时间与输入数组中逆序对的数量之间有怎样的关系?</p>
+<p>当数组从小到大排序，插入排序算法复杂度最优为O(n),此时逆序对为0;</p>
+<p>当数组从大到小排序，插入排序算法复杂度最坏情况，此时逆序对最多为n * (n-1)/2;</p>
+<p>插入排序的过程如下：</p>
+<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre>int insert_sort(void)
+{
+	int i, j, key<span class="comment">;</span>
+	for (i = <span class="number">1</span><span class="comment">; i &lt; N; i++) {</span>
+		key = arr[i]<span class="comment">;</span>
+		j = i<span class="comment">;</span>
+		while (j &gt; <span class="number">0</span> && arr[j - <span class="number">1</span>] &gt; key) {
+			arr[j] = arr[j - <span class="number">1</span>]<span class="comment">;</span>
+			j--<span class="comment">;</span>
+		}
+	}
+	for (i = <span class="number">0</span><span class="comment">; i &lt; N; i++) {</span>
+		printf(<span class="string">"%d "</span>, arr[i])<span class="comment">;</span>
+	}
+}
+</pre></td></tr></table></figure>
+
+<p>每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。   </p>
+<p>d)<br>O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。</p>
+<script src="https://gist.github.com/5599593.js?file=inversion_d.c"></script>
+
+
+
+<h3>Monge矩阵</h3>
+<p>a)证明：当且仅当矩阵中所有2×2的矩阵都为Monge矩阵时，这个矩阵才为Monge矩阵。</p>
+<p>先对行使用归纳法：假设i,k行j，l列矩阵为Monge矩阵，证明i,k+1行，j,l列矩阵为Monge矩阵即可</p>
+<p>(1)已知i,k行j,l列为Monge矩阵即A[i,j]+A[k,l] &lt;= A[i,l] + A[k,j]<br>(2)假设A[k,j] + A[k+1,l] &lt;= A[k+1,j] + A[k,l]<br>(3)只需要证明i,k+1行j,l列的矩阵为Monge矩阵，<br>由(1),(2)得A[i,j] + A[k+1,l] &lt;= A[k,j] + A[k+1,l]                </p>
+<p>对列用归纳法也是相同步骤，</p>
+<p>已知A[i, j]+A[k, n] ≤ A[i, n]+A[k,j]<br>假设<br>A[i, n]+A[k,n+1] ≤ A[i, n+1]+A[k,n]<br>所以A[i, j]+A[k, n+1] ≤ A[i, n+1]+A[k, j]成立。                </p>
+<p>行和列都满足归纳法，当<code>A[i,j]+A[i+1,j+1] &lt;= A[i,j+1] + A[i+1,j]</code>时，整个矩阵为Monge矩阵。               </p>
+<p><strong>“仅当”</strong>这个条件用反正法可证。           </p>
+<p>b) 利用a)的结论：<code>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]</code>              </p>
+<p>很容易得到矩阵第二行第三列到第三行第四列的2×2矩阵不满足条件;<br>所以只需要将第二行第三列的16和第三行第三列的22交换即可。             </p>
+<p>c)<br>假设Monge矩阵中存在第x行和第x+1行，<code>f(x) &gt; f(x+1)  (1 &lt;= x &lt; m)</code>               </p>
+<p>已知<code>A[x,f(x+1)] + A[x+1, f(x)] &lt;= A[x,f(x)] + A[x+1, f(x+1)]</code>                </p>
+<p>又因为             </p>
+<p>A[x,f(x)] &lt; A[x, f(x+1)]        (1)<br>A[x+1,f(x+1)] &lt;= A[x+1, f(x)]   (2)</p>
+<p>(1) + (2) 得：                 </p>
+<p>A[x,f(x+1)] + A[x+1, f(x)] &gt; A[x, f(x)] + A[x+1,f(x+1)]   (3)</p>
+<p>根据a)结论，任意2×2矩阵都有</p>
+<p>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]      (4)</p>
+<p>(3) 和 (4)矛盾，假设不成立。<br>由此可得：</p>
+<p>f(1) &lt;= f(2) &lt;= … &lt;= f(m)            </p>
+<p>d) 已知偶数行最左端最小值f(2), f(4), f(6), …<br>且f(2k) &lt;= f(2k+1) &lt;= f(2(k+1))</p>
+<p>奇数行搜索一次，搜索范围为n列，偶数行重复计算两次</p>
+<p>奇数行最左端最小值时间复杂度O(m/2+n)=O(m+n)<br>e)<br>由d)可得递归式：T(m) = T(m/2) + O(m+n)</p>
+<p>递归运算结果：</p>
+<p>T(m) = O(nlgm) + O(m+n)<br>     = O(nlgm + m + n)<br>     = O(nlgm + m)              </p>
+<h3>快排中三数取中划分分析</h3>
+<img src="//i.minus.com/i29Ufb20Oolkw.jpg" class="[inversion]">
+
+<p>答案用图片显示，<a href="//i.minus.com/i29Ufb20Oolkw.jpg">图片在这里</a> </p>
+<p>参考文章</p>
+<ol>
+<li><a href="//blog.csdn.net/zhanglei8893/article/details/6266915">“三数取中“划分</a></li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
+    <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Three-points to Understanding Node.js]]></title>
+    <link href="http://beforeload.github.io/2013/05/04/three-points-understanding-node.js/"/>
+    <id>http://beforeload.github.io/2013/05/04/three-points-understanding-node.js/</id>
+    <published>2013-05-03T18:24:52.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>从三点去理解Node.js</h2>
+<p>Node is:  </p>
+<ul>
+<li>基于JavaScript(Built on JavaScript)</li>
+<li>事件驱动和异步(Evented and Asynchronous)</li>
+<li>对于数据密集型实时应用(For Data-Intensive Real-Time Applications)</li>
+</ul>
+<a id="more"></a>
+
+<h3>基于JavaScript</h3>
+<p>第一点很好理解，是用JavaScript开发，由谷歌的<a href="https://code.google.com/p/v8/" target="_blank">V8引擎</a>驱动运行。Node使用V8,在服务端运行JavaScript，减少了中间步骤，执行过程中，解释器直接编译成自然机器语言。好处多多：</p>
+<ol>
+<li>开发者只需要用一种语言就可以开发一套网络应用，减少服务端和客户端开发时所需要的上下文切换，且允许服务端和客户端代码共享(例如重用表单验证，或者游戏的逻辑)。</li>
+<li>JSON这种数据格式很性感，它就是自然的JavaScript</li>
+<li>JavaScript可以使用多种NoSQL数据库（如：CouchDB/MongoDB），可以和他们无缝连接，非常适合（如：MongoDB shell和查询语言就是JS，CouchDB map/reduce 是JS）。</li>
+<li>有很多语言以JavaScript为编译目标<br><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank">List of languages that compile to JS</a></li>
+<li>Node使用虚拟引擎V8,并遵守ECMAScript标准。</li>
+</ol>
+<h3>时间驱动和异步</h3>
+<p>第二点，Node.js给服务器端JavaScript提供了一个事件驱动和异步的平台。JavaScript跑在服务端其实和JavaSript跑在客户端在很大程度上是相似的。理解浏览器的怎么运行对于理解Node的运行很重要。两者都是事件驱动（使用的是事件循环）和无阻塞IO处理（如：异步IO）。</p>
+<p>未完！</p>
+<h3>DIRTy Applications(<strong><em>Data-Intensive Real-Time</em></strong> Applications)</h3>
+<h3>推荐资源：</h3>
+<ol>
+<li>强烈推荐视频<a href="//www.youtube.com/watch?v=Trurfqh_6fQ">Javascript: Your New Overlord</a>, 由Douglas Crockford大神主讲。</li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
+    <category scheme="http://beforeload.github.io/tags/JavaScript/" term="JavaScript"/>
+    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
+  </entry>
+  <entry>
+    <title type="html"><![CDATA[Graduation Summary]]></title>
+    <link href="http://beforeload.github.io/2013/04/29/graduation-summary/"/>
+    <id>http://beforeload.github.io/2013/04/29/graduation-summary/</id>
+    <published>2013-04-29T09:19:09.000Z</published>
+    <updated>2013-10-07T14:06:13.000Z</updated>
+    <content type="html"><![CDATA[<h2>毕业总结</h2>
+<h5>写在前面的话</h5>
+<p>一直觉得自己很忙，但又说不出来自己忙在哪里，很大程度上都是各种酱油的生活，也许我应该过忙碌的生活，这样就不会想得太纠结，思考得太无聊。幸运的是受到别人总结的启发，自我感觉也算有点经历的人，写下这样的一篇自我总结，就从2012年到现在做一个总结吧。</p>
+<a id="more"></a>
+
+<h3>曾经的无奈</h3>
+<p>为什么总结选择2012年开始，也许12年之前的生活太过于平庸了吧。不得不说，我的大学是失败的，至少大一大二是失败的，感觉失望，感觉没有什么收获，甚至在颓靡的学风中开始堕落。</p>
+<p>这篇总结之前写了一点，这两天看了复旦大学的退学生袁涛的事情后，其实还是有点儿羡慕的，因为同样是学风不好，别人可以激进的去挑战权威，挑战自我，而我却因此而堕落，这是无奈的，至少自我感觉很不好。我删了之前写的草稿，重写了这篇文章。</p>
+<h3>一朝醒悟</h3>
+<p>人生在关闭一个门之后，会给你打开另一个门。我是幸运的，你可能无法想象堕落黑暗的日子重见光明的喜悦。在大学没有目标的走了两年，幸运的我终于找到自己的方向，因为我对技术的热爱从未改变，也许更准确的表达是对待技术就像对待信仰一般，追求的热情从未消退。</p>
+<p>大三找到一个好的实习是件开心的事情，提前体验社会的同时也锻炼了自己。在找实习的过程中，也发现自己存在很多不足之处的，尤其在面试受挫后，体会更加深刻。在见识到同学的成功后，我深刻体会到这样一个道理，惨淡的人生从来不会亲睐有准备的人。面对别人的成功，替别人感到高兴的同时，心里何尝没有一丝对自己的悲哀呀。每次面试的机会都应该好好把握，我感觉与面试官的交流也给自己上了很大的一课，检讨自己的不足，当然也要肯定自己的优点，对于充满挑战的人生，千万不能丧失自信。我觉得我人生的醒悟也是从这个时候开始，收起浮躁，收起颓废，开始人生的征程。</p>
+<h3>青春的爱情</h3>
+<p>在我决定充满自信的面对人生的挑战，开始新生的这一刻，令我感到惊讶的是，我爱情的萌芽也开始了。2012年，开始了我人生中的初恋，也许正是维系到至今的爱情，让我觉得到现在为止不是那么失败吧。</p>
+<p>爱情的力量是伟大的，至少在某一时期，是可以超越一切的。我从没想过我的感情给我带来如此之大的改变，看到我不再逃避的时候，心里还是有点窃喜的。</p>
+<h3>实习的收获</h3>
+<p>在点评实习，有幸遇到鑫威，寸老师等良师益友，很想亲口对他们说句谢谢，一直回来后没有开口，想来还是挺后悔。从一开始的零基础，一步步的成长，虽然现在还是一无所长，不过至少被师傅领进门了吧。记得在公司的一件开心的事，和寸老师玩LOL，和鑫威打dota，为此老大还特意喊我聊过天，至今想起来还是觉得挺亏欠老大的，当然也不得不提跟亮亮一起玩桌球，跟云华，寸老师一起打乒乓球，还有超哥一起玩桌上足球，实在是开心至极。后来老大为我这样一个实习生离职，还举办了欢送晚餐，实在是感动至极。与人相处，共同进步，这是我在点评第一点重大收获。</p>
+<p>在点评，技术氛围是很浓厚的，虽然提倡产品思想，但是团队里还是很多geek的存在。记得刚刚接触Node.js，寸老师让我写一个HTTP Server，没做的时候不知道怎么去做，觉得好难，后来用了express，只写了10行代码，自以为了不起的时候，寸老师给了一个pull request，精简到只要4行代码，当时我就觉得我还有很长的路要走呀。戒骄戒躁，追求完美，这是我在点评学到的第二点重要的收获。</p>
+<p>在点评，参加两次举办的hackthon也是收获颇丰的，一两天时间，实现一个堪比在学校一两个月做出来项目，也是我越来越喜欢coding或者说希望成为一个技术专家。用技术实现自己的idea，是一件幸福的事情。小时候看父亲会修自行车，会装玻璃，动手能力一流，我就很羡慕和崇拜。所以现在coding的时候，感觉自己想是在写作品，虽然至今没写出来什么NB的东西，不过总感觉coding的过程，充满了艺术气息。热爱技术，解决问题，这是我在点评收获的第三点吧。</p>
+<p>当然还有很多收获，不能一一列举，现在回到学校读研，记下这些也是保留这段美好的回忆吧。</p>
+<h3>大四在大学</h3>
+<p>实习回来，学校还是当年的学校，刚刚回到大学的时候，我不能适应这样的生活，现在的大学教育是有问题的，很多人也说学校的学风大不如从前。我喜欢忙碌的生活，喜欢去学习，去追求点什么。大学里的悠闲，身边的安逸，与我开始有点格格不入，对大学还有憧憬的人肯定无法想象。其实大学上与不上无关紧要，跳出大学再回来看，我开始明白我的路还是要独自奋斗，知道路在何方，走下去就可以了，找到了人生的追求和理想，也许这就是我大学最大的收获吧。</p>
+<h3>收获</h3>
+<p>在大学里，培养了一些恶习，比如说拖延症之类的。大学还是很开心的，遇到一群良师益友，很感谢他们给了我很大的帮助。</p>
+<p>人生不能没有目标，对待梦想，要想饿狼一样随时保持冲刺的姿态，看到别人的成功，本科阶段就要告一段落了，虽然失败，懊悔挺多，但是，还是学到很多</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
+  </entry>
+</feed>
