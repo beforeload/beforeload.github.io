@@ -24,7 +24,7 @@ lscpu               # 指令 2
 4. 一级缓存大小 cat /sys/devices/system/cpu/cpu0/cache/index1/size
 5. 二级缓存大小 cat /sys/devices/system/cpu/cpu0/cache/index2/size
 6. 三级缓存大小 cat /sys/devices/system/cpu/cpu0/cache/index3/size
-7. 支持的指令集 
+7. 支持的指令集 flags
 
 ### Q2: 关于内存
 
@@ -54,3 +54,4 @@ lscpu               # 指令 2
 5. 数据传输率
 6. 硬盘转速
 
+很多东西我也不知道怎么查，简单总结一下，竟然发现一个电脑有这么多东西不知道的，用了三年的电脑，实在是不敢说对自己电脑了解多深呀！
