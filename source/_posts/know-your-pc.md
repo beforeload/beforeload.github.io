@@ -9,6 +9,8 @@ tags: Linux
 
 写这篇博客的原因是，我在使用Linux到现在位置还不知道怎么样去查找电脑相关信息，受到Coursera上[Introduction to Computing 计算概论A](https://class.coursera.org/pkuic-001)课程启发，学习同时分享一下自己查看电脑信息的相关命令和过程。
 
+<!-- more -->
+
 ### Q1: 关于CPU
 
 ```shell
