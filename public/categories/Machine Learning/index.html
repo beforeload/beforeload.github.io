@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Distributed Systems | beforeload</title>
+  <title>Machine Learning | beforeload</title>
   <meta name="author" content="beforeload">
   
   <meta name="description" content="熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop">
@@ -56,7 +56,7 @@
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">Distributed Systems</h2>
+<h2 class="archive-title category">Machine Learning</h2>
 
 
   
@@ -66,19 +66,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-27T14:14:53.000Z"><a href="/2013/05/27/common-problems-of-recommendation-systems/">5月 27 2013</a></time>
+        <time datetime="2013-10-19T12:25:13.000Z"><a href="/2013/10/19/introduction-to-machine-learning/">10月 19 2013</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/05/27/common-problems-of-recommendation-systems/">Common Problems of Recommender Systems</a></h1>
+    <h1 class="title"><a href="/2013/10/19/introduction-to-machine-learning/">Introduction to Machine Learning</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h3>推荐系统的常见问题</h3>
-<h4>缺少大数据问题</h4>
-<p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
+        <h2>机器学习简介</h2>
+<h3>一、定义</h3>
+<blockquote>
+<p>Arthur Samuel (1959): Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed.<br>Tom Mitchell (1998) : Well-posed Learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+</blockquote>
 
       
     </div>
@@ -86,114 +88,7 @@
       
         
           <div class="alignleft">
-            <a href="/2013/05/27/common-problems-of-recommendation-systems/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">4月 18 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/18/invertedindex-in-hadoop/">Inverted Index in Hadoop</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2>倒排索引</h2>
-<h3>简介:</h3>
-<p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/18/invertedindex-in-hadoop/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">4月 6 2013</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3>案例</h3>
-<h4>上传本地文件到 HDFS</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
-    Configuration conf = <span class="keyword">new</span> Configuration();
-    conf.addResource(<span class="keyword">new</span> Path(config));
-    FileSystem hdfs = FileSystem.get(conf);
-    Path srcPath = <span class="keyword">new</span> Path(src);
-    Path dstPath = <span class="keyword">new</span> Path(dst);
-    hdfs.copyFromLocalFile(srcPath, dstPath);
-    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
-    
-    FileStatus files[] = hdfs.listStatus(dstPath);
-    <span class="keyword">for</span> (FileStatus file : files) {
-        System.out.println(file.getPath());
-    }
-    hdfs.close();
-}
-</pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/06/hdfs-java-api/#more" class="more-link">Read More</a>
+            <a href="/2013/10/19/introduction-to-machine-learning/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -227,11 +122,11 @@
   
     <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
   
-    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>2</small></li>
-  
-    <li><a href="/categories/Distributed Systems/">Distributed Systems</a><small>3</small></li>
+    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>5</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>6</small></li>
+  
+    <li><a href="/categories/Machine Learning/">Machine Learning</a><small>1</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
@@ -258,7 +153,7 @@
   
     <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
   
-    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>1</small></li>
+    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>4</small></li>
   
     <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
   
@@ -267,6 +162,8 @@
     <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
   
     <li><a href="/tags/Linux/">Linux</a><small>7</small></li>
+  
+    <li><a href="/tags/Machine Learning/">Machine Learning</a><small>1</small></li>
   
     <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
   

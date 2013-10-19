@@ -4,13 +4,63 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-10-19T03:39:58.511Z</updated>
+  <updated>2013-10-19T05:42:21.790Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Introduction to Machine Learning]]></title>
+    <link href="http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/"/>
+    <id>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</id>
+    <published>2013-10-19T12:25:13.000Z</published>
+    <updated>2013-10-19T13:27:54.743Z</updated>
+    <content type="html"><![CDATA[<h2>机器学习简介</h2>
+<h3>一、定义</h3>
+<blockquote>
+<p>Arthur Samuel (1959): Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed.<br>Tom Mitchell (1998) : Well-posed Learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
+</blockquote>
+<a id="more"></a>
+
+<p>个人理解，一句话就是不通过明确的编程让机器具有学习能力，以垃圾邮件为例：<br>1. 邮件分为垃圾邮件和非垃圾邮件为任务T；<br>2. 查看哪些邮件被标记为垃圾邮件，以及哪些标记为非垃圾邮件是经验E；<br>3. 正确识别垃圾邮件或非垃圾邮件比例（或数量）为P。</p>
+<h3>二、机器学习算法的类型</h3>
+<p>(1) 监督学习(Supervised learning)</p>
+<ol>
+<li>概念： 通过生成一个函数将输入映射为一个合适的输出（通常也称为标记，多数情况下训练集都是有人工专家标注生成的）。</li>
+<li>理解： 通过分好类的输入，模拟出一个函数，以预测相应的结果产生的概率。</li>
+<li>问题： 分类问题（Classification）和回归问题（Regression）<ul>
+<li>分类问题： 离散型（如预测乳腺癌良性、恶性还有预测明天下午5点会不会下雨），预测的离散输出值(0, 1)。</li>
+<li>回归问题： 连续型（如预测房屋价格），预测结果为连续的输出值。</li>
+</ul>
+</li>
+<li>案例：<ul>
+<li>Given genetic (DNA) data from a person, predict the odds of him/her developing diabetes over the next 10 years.</li>
+<li>Given 50 articles written by male authors, and 50 articles written by female authors, learn to predict the gender of a new manuscript&#39;s author (when the identity of this author is unknown).</li>
+</ul>
+</li>
+</ol>
+<p>(2) 无监督学习(Unsupervised learning)</p>
+<ol>
+<li>概念： 与有监督学习相比，训练集没有人为标注的结果。</li>
+<li>理解： 对输入的训练集没有进行标注，即不告诉你分类情况，让机器自己进行相应的分类，即无监督学习常见算法聚类。</li>
+<li>案例： Google News， 基因序列分析，社会网络分析，市场切分等。</li>
+<li>特别的例子： 鸡尾酒宴会。<ul>
+<li>鸡尾酒问题算法： [W,s,v] = svd((repmat(sum(x.<em>x,1),size(x,1),1).</em>x)*x&#39;);</li>
+</ul>
+</li>
+</ol>
+<p>(3) 半监督学习</p>
+<p>介于监督学习与无监督学习之间。</p>
+<p>(4) 强化学习(Reinforcement learning)</p>
+<p>通过观察来学习如何做出动作，每个动作都会对环境有所影响，而环境的反馈又可以引导该学习算法。</p>
+<p>(5) 其他</p>
+<p>还有其他包括推荐系统，Transduction，Learning to learn等类型。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Machine Learning/" term="Machine Learning"/>
+    <category scheme="http://beforeload.github.io/categories/Machine Learning/" term="Machine Learning"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Know your PC]]></title>
     <link href="http://beforeload.github.io/2013/10/08/know-your-pc/"/>
@@ -973,7 +1023,7 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
     <link href="http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/"/>
     <id>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</id>
     <published>2013-05-27T14:14:53.000Z</published>
-    <updated>2013-10-19T03:30:11.823Z</updated>
+    <updated>2013-10-19T12:44:18.895Z</updated>
     <content type="html"><![CDATA[<h3>推荐系统的常见问题</h3>
 <h4>缺少大数据问题</h4>
 <p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
@@ -993,7 +1043,8 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
 <p>(1) <a href="http://readwrite.com/2009/01/28/5_problems_of_recommender_systems" target="_blank">5 Problems of Recommender Systems</a><br>(2) <a href="http://www.resyschina.com/2010/03/five_problems_of_resys.html" target="_blank">推荐系统5大问题</a></p>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Translate/" term="Translate"/>
-    <category scheme="http://beforeload.github.io/categories/Distributed Systems/" term="Distributed Systems"/>
+    <category scheme="http://beforeload.github.io/tags/Distributed Computing/" term="Distributed Computing"/>
+    <category scheme="http://beforeload.github.io/categories/Distributed Computing/" term="Distributed Computing"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[我的一天]]></title>
@@ -1159,42 +1210,5 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
     <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Three-points to Understanding Node.js]]></title>
-    <link href="http://beforeload.github.io/2013/05/04/three-points-understanding-node.js/"/>
-    <id>http://beforeload.github.io/2013/05/04/three-points-understanding-node.js/</id>
-    <published>2013-05-03T18:24:52.000Z</published>
-    <updated>2013-10-19T03:30:11.827Z</updated>
-    <content type="html"><![CDATA[<h2>从三点去理解Node.js</h2>
-<p>Node is:  </p>
-<ul>
-<li>基于JavaScript(Built on JavaScript)</li>
-<li>事件驱动和异步(Evented and Asynchronous)</li>
-<li>对于数据密集型实时应用(For Data-Intensive Real-Time Applications)</li>
-</ul>
-<a id="more"></a>
-
-<h3>基于JavaScript</h3>
-<p>第一点很好理解，是用JavaScript开发，由谷歌的<a href="https://code.google.com/p/v8/" target="_blank">V8引擎</a>驱动运行。Node使用V8,在服务端运行JavaScript，减少了中间步骤，执行过程中，解释器直接编译成自然机器语言。好处多多：</p>
-<ol>
-<li>开发者只需要用一种语言就可以开发一套网络应用，减少服务端和客户端开发时所需要的上下文切换，且允许服务端和客户端代码共享(例如重用表单验证，或者游戏的逻辑)。</li>
-<li>JSON这种数据格式很性感，它就是自然的JavaScript</li>
-<li>JavaScript可以使用多种NoSQL数据库（如：CouchDB/MongoDB），可以和他们无缝连接，非常适合（如：MongoDB shell和查询语言就是JS，CouchDB map/reduce 是JS）。</li>
-<li>有很多语言以JavaScript为编译目标<br><a href="https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS" target="_blank">List of languages that compile to JS</a></li>
-<li>Node使用虚拟引擎V8,并遵守ECMAScript标准。</li>
-</ol>
-<h3>时间驱动和异步</h3>
-<p>第二点，Node.js给服务器端JavaScript提供了一个事件驱动和异步的平台。JavaScript跑在服务端其实和JavaSript跑在客户端在很大程度上是相似的。理解浏览器的怎么运行对于理解Node的运行很重要。两者都是事件驱动（使用的是事件循环）和无阻塞IO处理（如：异步IO）。</p>
-<p>未完！</p>
-<h3>DIRTy Applications(<strong><em>Data-Intensive Real-Time</em></strong> Applications)</h3>
-<h3>推荐资源：</h3>
-<ol>
-<li>强烈推荐视频<a href="//www.youtube.com/watch?v=Trurfqh_6fQ">Javascript: Your New Overlord</a>, 由Douglas Crockford大神主讲。</li>
-</ol>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
-    <category scheme="http://beforeload.github.io/tags/JavaScript/" term="JavaScript"/>
-    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
   </entry>
 </feed>

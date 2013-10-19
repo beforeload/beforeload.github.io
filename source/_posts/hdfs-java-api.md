@@ -4,8 +4,8 @@ title: "理解 Hadoop 的 Java API"
 description: "HDFS 文件上传、创建、重命名、删除等操作"
 date: 2013-04-06 15:14:42
 update: 2013-04-13 18:50:12
-categories: Distributed Systems
-tags: [Java, Hadoop]
+categories: Distributed Computing
+tags: [Java, Hadoop, Distributed Computing]
 ---
 
 ### 案例
