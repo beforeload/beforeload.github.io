@@ -1,5 +1,6 @@
 title: My Software Installation and Configuration on Ubuntu 13.04
 date: 2013-06-22 21:23:50
+update: 2013-10-19 11:37:52
 categories: Linux
 tags: 
 - Ubuntu
@@ -57,7 +58,7 @@ ___安装依赖:___
 
 然后从google chrome官方网站上下载安装
 
-    sudo dpkg -i google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_*.deb
 
 终端输入`google-chrome`即可启动。
 
@@ -67,14 +68,17 @@ ___安装依赖:___
 
 ___相关配置:___
 
-    git config --global user.name "beforeload"
-    git config --global user.email fe.daniel91@gmail.com
-    git config --global color.diff auto
-    git config --global color.status jauto
-    git config --global color.branch auto
-    git config --global push.default current
-    git config --global core.editor vim
-    git config --global merge.tool vimdiff
+    git config --global user.name=beforeload
+    git config --global user.email=fe.daniel91@gmail.com
+    git config --global color.diff=auto
+    git config --global color.branch=auto
+    git config --global color.ui=true
+    git config --global color.interactive=auto
+    git config --global color.status=auto
+    git config --global push.default=current
+    git config --global core.editor=vim
+    git config --global core.autocrlf=off
+    git config --global merge.tool=vimdiff
 
 #####查看配置#####
 

@@ -104,19 +104,22 @@
 <p><strong><em>安装依赖:</em></strong></p>
 <pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install libudev0</code></pre>
 <p>然后从google chrome官方网站上下载安装</p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> dpkg -i google-chrome-stable_current_amd64.deb</code></pre>
+<pre><code><span class="title">sudo</span> dpkg -i google-chrome-stable_<span class="regexp">*.deb</span></code></pre>
 <p>终端输入<code>google-chrome</code>即可启动。</p>
 <h4>安装git</h4>
 <pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git</code></pre>
 <p><strong><em>相关配置:</em></strong></p>
-<pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">name</span> <span class="comment">"beforeload"</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">user</span>.<span class="comment">email</span> <span class="comment">fe</span>.<span class="comment">daniel91@gmail</span>.<span class="comment">com</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">diff</span> <span class="comment">auto</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">status</span> <span class="comment">jauto</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">color</span>.<span class="comment">branch</span> <span class="comment">auto</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">push</span>.<span class="comment">default</span> <span class="comment">current</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">core</span>.<span class="comment">editor</span> <span class="comment">vim</span>
-<span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">global</span> <span class="comment">merge</span>.<span class="comment">tool</span> <span class="comment">vimdiff</code></pre>
+<pre><code>git config --<span class="keyword">global</span> <span class="transposed_variable">user.</span>name=beforeload
+git config --<span class="keyword">global</span> <span class="transposed_variable">user.</span>email=<span class="transposed_variable">fe.</span>daniel91@<span class="transposed_variable">gmail.</span>com
+git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>diff=auto
+git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>branch=auto
+git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>ui=true
+git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>interactive=auto
+git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>status=auto
+git config --<span class="keyword">global</span> <span class="transposed_variable">push.</span>default=current
+git config --<span class="keyword">global</span> <span class="transposed_variable">core.</span>editor=vim
+git config --<span class="keyword">global</span> <span class="transposed_variable">core.</span>autocrlf=off
+git config --<span class="keyword">global</span> <span class="transposed_variable">merge.</span>tool=vimdiff</code></pre>
 <h5>查看配置</h5>
 <p><strong><em>查看所有配置:</em></strong></p>
 <pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</code></pre>
