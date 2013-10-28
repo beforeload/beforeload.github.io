@@ -4,13 +4,43 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2013-10-19T05:42:21.790Z</updated>
+  <updated>2013-10-28T13:00:21.200Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[A trick in python]]></title>
+    <link href="http://beforeload.github.io/2013/10/28/a-trick-in-python/"/>
+    <id>http://beforeload.github.io/2013/10/28/a-trick-in-python/</id>
+    <published>2013-10-28T12:46:09.000Z</published>
+    <updated>2013-10-28T12:58:16.038Z</updated>
+    <content type="html"><![CDATA[<h2>一个让我惊讶的转换</h2>
+<p>今天写python，无意中发现一次打印的结果让我甚是惊讶！</p>
+<p>废话不多说，见源码：</p>
+<script src="https://gist.github.com/7196281.js?file=amazing_convert.py"></script>
+
+
+<a id="more"></a>
+
+<p><strong>打印结果如下：</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="literal">-</span><span class="comment">40</span>.<span class="comment">0</span> <span class="literal">-</span><span class="comment">39</span>
+<span class="literal">-</span><span class="comment">40</span> <span class="literal">-</span><span class="comment">40</span>
+<span class="literal">-</span><span class="comment">1</span> <span class="literal">-</span><span class="comment">39</span> <span class="literal">-</span><span class="comment">39</span>
+<span class="literal">-</span><span class="comment">1</span> <span class="comment">dollars</span> <span class="comment">and</span> <span class="literal">-</span><span class="comment">39</span> <span class="comment">cents
+</pre></td></tr></table></figure>
+
+<p>惊讶的发现<code>cents</code>打印出来是-39,竟然不是-40！<br>而<code>int(-40.0)</code>结果是-40</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Python/" term="Python"/>
+    <category scheme="http://beforeload.github.io/categories/Python/" term="Python"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Introduction to Machine Learning]]></title>
     <link href="http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/"/>
@@ -1106,109 +1136,5 @@ HEAP-INCREASE-KEY(A, heap-<span class="built_in">size</span><span class="matrix"
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
     <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[inversion monge quicksort]]></title>
-    <link href="http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/"/>
-    <id>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</id>
-    <published>2013-05-17T14:44:25.000Z</published>
-    <updated>2013-10-19T03:30:11.823Z</updated>
-    <content type="html"><![CDATA[<h2>逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
-<h3>题目</h3>
-<ol>
-<li>第二章思考题2-4(逆序对)</li>
-<li>第四章思考题4-7(Monge矩阵)</li>
-<li>第七章思考题7-5(快排的三数取中划分分析)</li>
-</ol>
-<a id="more"></a>
-
-<h3>2-4 逆序对</h3>
-<p>a)</p>
-<script src="https://gist.github.com/5599553.js?file=inversion.c"></script>
-
-
-<p>结果: </p>
-<p>(2,3)<br>(2,8)<br>(2,6)<br>(3,8)<br>(3,6)</p>
-<p>b)</p>
-<p>从1到n按倒序排列的数组含有最多的逆序对，<br>个数为(n-1)+(n-2)+…+1 = (n-1 + 1) <em> (n-1)/2 = n </em> (n-1)/2</p>
-<p>c)</p>
-<p>插入排序的运行时间与输入数组中逆序对的数量之间有怎样的关系?</p>
-<p>当数组从小到大排序，插入排序算法复杂度最优为O(n),此时逆序对为0;</p>
-<p>当数组从大到小排序，插入排序算法复杂度最坏情况，此时逆序对最多为n * (n-1)/2;</p>
-<p>插入排序的过程如下：</p>
-<figure class="highlight lang-C"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="code"><pre>int insert_sort(void)
-{
-	int i, j, key<span class="comment">;</span>
-	for (i = <span class="number">1</span><span class="comment">; i &lt; N; i++) {</span>
-		key = arr[i]<span class="comment">;</span>
-		j = i<span class="comment">;</span>
-		while (j &gt; <span class="number">0</span> && arr[j - <span class="number">1</span>] &gt; key) {
-			arr[j] = arr[j - <span class="number">1</span>]<span class="comment">;</span>
-			j--<span class="comment">;</span>
-		}
-	}
-	for (i = <span class="number">0</span><span class="comment">; i &lt; N; i++) {</span>
-		printf(<span class="string">"%d "</span>, arr[i])<span class="comment">;</span>
-	}
-}
-</pre></td></tr></table></figure>
-
-<p>每多一个逆序对存在，就需要多一次比较，运行时间增加。插入排序每次比较后交换元素都是减少一对逆序对，循环本身是对所有的逆序对排序的过程。   </p>
-<p>d)<br>O(nlg(n))修改合并排序，确定n个元素的任意排列中逆序对的数目。</p>
-<script src="https://gist.github.com/5599593.js?file=inversion_d.c"></script>
-
-
-
-<h3>Monge矩阵</h3>
-<p>a)证明：当且仅当矩阵中所有2×2的矩阵都为Monge矩阵时，这个矩阵才为Monge矩阵。</p>
-<p>先对行使用归纳法：假设i,k行j，l列矩阵为Monge矩阵，证明i,k+1行，j,l列矩阵为Monge矩阵即可</p>
-<p>(1)已知i,k行j,l列为Monge矩阵即A[i,j]+A[k,l] &lt;= A[i,l] + A[k,j]<br>(2)假设A[k,j] + A[k+1,l] &lt;= A[k+1,j] + A[k,l]<br>(3)只需要证明i,k+1行j,l列的矩阵为Monge矩阵，<br>由(1),(2)得A[i,j] + A[k+1,l] &lt;= A[k,j] + A[k+1,l]                </p>
-<p>对列用归纳法也是相同步骤，</p>
-<p>已知A[i, j]+A[k, n] ≤ A[i, n]+A[k,j]<br>假设<br>A[i, n]+A[k,n+1] ≤ A[i, n+1]+A[k,n]<br>所以A[i, j]+A[k, n+1] ≤ A[i, n+1]+A[k, j]成立。                </p>
-<p>行和列都满足归纳法，当<code>A[i,j]+A[i+1,j+1] &lt;= A[i,j+1] + A[i+1,j]</code>时，整个矩阵为Monge矩阵。               </p>
-<p><strong>“仅当”</strong>这个条件用反正法可证。           </p>
-<p>b) 利用a)的结论：<code>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]</code>              </p>
-<p>很容易得到矩阵第二行第三列到第三行第四列的2×2矩阵不满足条件;<br>所以只需要将第二行第三列的16和第三行第三列的22交换即可。             </p>
-<p>c)<br>假设Monge矩阵中存在第x行和第x+1行，<code>f(x) &gt; f(x+1)  (1 &lt;= x &lt; m)</code>               </p>
-<p>已知<code>A[x,f(x+1)] + A[x+1, f(x)] &lt;= A[x,f(x)] + A[x+1, f(x+1)]</code>                </p>
-<p>又因为             </p>
-<p>A[x,f(x)] &lt; A[x, f(x+1)]        (1)<br>A[x+1,f(x+1)] &lt;= A[x+1, f(x)]   (2)</p>
-<p>(1) + (2) 得：                 </p>
-<p>A[x,f(x+1)] + A[x+1, f(x)] &gt; A[x, f(x)] + A[x+1,f(x+1)]   (3)</p>
-<p>根据a)结论，任意2×2矩阵都有</p>
-<p>A[i,j] + A[i+1,j+1] &lt;= A[i,j+1]+A[i+1,j]      (4)</p>
-<p>(3) 和 (4)矛盾，假设不成立。<br>由此可得：</p>
-<p>f(1) &lt;= f(2) &lt;= … &lt;= f(m)            </p>
-<p>d) 已知偶数行最左端最小值f(2), f(4), f(6), …<br>且f(2k) &lt;= f(2k+1) &lt;= f(2(k+1))</p>
-<p>奇数行搜索一次，搜索范围为n列，偶数行重复计算两次</p>
-<p>奇数行最左端最小值时间复杂度O(m/2+n)=O(m+n)<br>e)<br>由d)可得递归式：T(m) = T(m/2) + O(m+n)</p>
-<p>递归运算结果：</p>
-<p>T(m) = O(nlgm) + O(m+n)<br>     = O(nlgm + m + n)<br>     = O(nlgm + m)              </p>
-<h3>快排中三数取中划分分析</h3>
-<img src="//i.minus.com/i29Ufb20Oolkw.jpg" class="[inversion]">
-
-<p>答案用图片显示，<a href="//i.minus.com/i29Ufb20Oolkw.jpg">图片在这里</a> </p>
-<p>参考文章</p>
-<ol>
-<li><a href="//blog.csdn.net/zhanglei8893/article/details/6266915">“三数取中“划分</a></li>
-</ol>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
-    <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
   </entry>
 </feed>
