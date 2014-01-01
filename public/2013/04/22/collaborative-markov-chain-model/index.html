@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,16 +83,16 @@
     </header>
     <div class="entry">
       
-        <h2>理论</h2>
-<h3>马尔可夫过程(Markov Process)</h3>
+        <h2 id="-7406-8bba-">理论</h2>
+<h3 id="-9a6c-5c14-53ef-592b-8fc7-7a0b-28-Markov_Process-29-">马尔可夫过程(Markov Process)</h3>
 <p>Markov过程是一个满足Markov性(无后效性)的随机过程。<br>具有马尔可夫性质的随机过程称为<strong>马尔可夫</strong>过程。[1]</p>
 <p>最有名的Markov过程是Markov链，但还有其他的过程，如布朗运动，也是Markov过程。</p>
 <a id="more"></a>
 
-<h3>马尔可夫性质</h3>
+<h3 id="-9a6c-5c14-53ef-592b-6027-8d28-">马尔可夫性质</h3>
 <p><strong>马尔可夫性质</strong>是概率论中的一个概念。当一个随即过程在给定状态及所有过去状态情况下，其未来状态的条件概率分布仅依赖于当前状态；换句话说，在给定现在状态时，它与过去状态（即该过程的历史路径）是条件独立的，那么此随机过程具有<strong>马尔可夫性质</strong>。[2]</p>
 <p>过程或（系统）在时刻t0所处的状态为已知的条件下，过程在时刻t&gt;t0所处状态的条件分布，与过程在时刻t0之前所处的状态无关的特性称为马尔可夫性或无后效性。[1]即：已知“现在”过程的情况下，“<em>将来</em>”过程的情况与“<em>过去</em>”的情况无关。</p>
-<p>数学上，如果‘X(t),t&gt;0’为一个随机过程，则马尔可夫性质就是指</p>
+<p>数学上，如果’X(t),t&gt;0’为一个随机过程，则马尔可夫性质就是指</p>
 <img src="//upload.wikimedia.org/math/7/a/d/7ad721c51e3fd880f548cbfa67e80832.png" class="[img]">
 
 
@@ -90,15 +102,15 @@
 
 
 <p>则称为<strong>（时间)非齐次</strong></p>
-<h3>马尔可夫链</h3>
+<h3 id="-9a6c-5c14-53ef-592b-94fe-">马尔可夫链</h3>
 <p><strong>定义：</strong></p>
 <p>马尔可夫链是随机变量<em>X1,X2,X3…</em>的一个数列。这些变量的范围，即他们所有可能取值的集合，被称为“状态空间”，而Xn的值则是在时间的状态。</p>
 <p>已知随机变量Xn是n时刻的状态，如果Xn+1对于过去状态的条件概率分布仅是Xn的一个函数，则</p>
 <p><code>P(Xn+1=x|X0,X1,X2,…,Xn)=P(Xn+1=x|Xn), x为过程中的某个状态。</code></p>
 <p>时间和状态都是离散的Markov过程称之为Markov链，简记为马氏链。</p>
-<h3>马氏链的转移概率(Transition probability)</h3>
+<h3 id="-9a6c-6c0f-94fe-7684-8f6c-79fb-6982-7387-28-Transition_probability-29-">马氏链的转移概率(Transition probability)</h3>
 <p>在经过一段较长时间的状态转移后，Markov过程会逐渐趋于稳定状态，且与初始状态无关，称为终极状态概率，或平衡状态概率。此时，记终极状态概率向量为X=[x1,x2,…,xn],则有X=Xp,0&lt;=Xi&lt;=1(I=1,2，…,n)，可用于预测Markov过程在未来出现什么趋势的重要信息。目前多应用于统计，生物，地理统计学，人力资源，因特网应用等多个领域。</p>
-<h3>Slope one 协同过滤算法</h3>
+<h3 id="Slope_one_-534f-540c-8fc7-6ee4-7b97-6cd5-">Slope one 协同过滤算法</h3>
 <p><strong>Slope One</strong> 是一系列应用于 协同过滤的算法的统称。由于它的简洁高效，并拥有不输于其他复杂算法的精确度，因此用它来改进Markov链模型。</p>
 <p>简要说明一下，<strong>Slope One</strong>和大多评分算法类似并不适用于类似电子商务中，买家只提供买或者不买这样的二进制数据情况。</p>
 <p>Slope One的一系列基于Item-based协同过滤算法，其本质上都是线性回归函数(f(x) = x + c)，好处是减少<strong>过适（过拟合）</strong>。对比于一个项目评分和另一个项目评分的线性回归（f(x) = ax + c），它只需要一半的存储量。也符合<strong><em>奥卡姆剃刀</em></strong>的原理：<strong>若无必要，勿增实体</strong>。</p>
@@ -112,11 +124,11 @@
 <li>Slope One 的答案是：2.5 (1.5-1+2=2.5).</li>
 </ol>
 <p>对“n”个项目，想要实现 <strong>Slope One</strong>，只需要计算并存储“n”对评分间的平均差值和评价数目即可。</p>
-<h3>协同马尔可夫链模型</h3>
+<h3 id="-534f-540c-9a6c-5c14-53ef-592b-94fe-6a21-578b-">协同马尔可夫链模型</h3>
 <p>使用改变的<strong>Slope One</strong>对数据进行初次协同过滤处理，并在此基础上结合Markov链模型对用户行为进行分析预测。在一个推荐系统中，推荐的准确性很大程度上取决于其基于的数据库的大小，数据量小的情况下，经常会遇到冷启动的问题（Cold boot problem），区别于计算机系统的冷启动（Cold Start），它包括两个方面，一方面是新指用户没有行为数据，无法根据历史行为，预测其兴趣爱好，另一方面是新资源没有访问记录，没有数据分析，无法向用户推荐。</p>
 <p>使用协同马尔可夫链模型，可以相对准确的预测用户的兴趣，有效的减少冷启动的问题。</p>
 <p>以上是理论部分，简单介绍了协同马尔可夫模型的一些理论依据，下面重点讲解其在用户行为分析中的应用与分析。</p>
-<h3>参考文献：</h3>
+<h3 id="-53c2-8003-6587-732e-ff1a-">参考文献：</h3>
 <ol>
 <li><a href="http://wiki.mbalib.com/wiki/马尔可夫过程" target="_blank">马尔可夫过程 - MBA智库百科</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/马尔可夫性质" target="_blank">马尔可夫性质- 维基百科，自由的百科全书 - 维基百科- Wikipedia</a></li>
@@ -193,7 +205,7 @@
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -232,7 +244,7 @@
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -258,7 +270,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,34 +83,37 @@
     </header>
     <div class="entry">
       
-        <h2>解决 Ubuntu 13.04的视频音频相关问题</h2>
+        <h2 id="-89e3-51b3-_Ubuntu_13-04-7684-89c6-9891-97f3-9891-76f8-5173-95ee-9898-">解决 Ubuntu 13.04的视频音频相关问题</h2>
 <ol>
-<li>Fix ASUS Webcam Problem:vertically flip my webcam&#39;s image</li>
+<li>Fix ASUS Webcam Problem:vertically flip my webcam’s image</li>
 </ol>
 <p><strong><em>问题描述</em></strong>：华硕电脑摄像头视频图像倒立</p>
 <p>解决方法： 在google上搜索了一下 ubuntu camera invert找到几篇解决的博文，步骤如下：</p>
 <a id="more"></a>
 
 <p>(1) Install</p>
-<pre><code><span class="comment">$echo</span> <span class="literal">-</span><span class="comment">e</span> <span class="comment">"\n#</span> <span class="comment">libv4l</span> <span class="comment">PPA\ndeb</span> <span class="comment">http://ppa</span>.<span class="comment">launchpad</span>.<span class="comment">net/libv4l/ppa/ubuntu</span> <span class="comment">`lsb_release</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">|</span> <span class="comment">awk</span> <span class="comment">'{print</span> <span class="comment">$2}'`</span> <span class="comment">main"</span> <span class="comment">|</span> <span class="comment">sudo</span> <span class="comment">tee</span> <span class="literal">-</span><span class="comment">a</span> <span class="comment">/etc/apt/sources</span>.<span class="comment">list</span>
+<pre><code><span class="comment">$echo</span> <span class="literal">-</span><span class="comment">e</span> <span class="comment">"\n#</span> <span class="comment">libv4l</span> <span class="comment">PPA\ndeb</span> <span class="comment">http://ppa</span><span class="string">.</span><span class="comment">launchpad</span><span class="string">.</span><span class="comment">net/libv4l/ppa/ubuntu</span> <span class="comment">`lsb_release</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">|</span> <span class="comment">awk</span> <span class="comment">'{print</span> <span class="comment">$2}'`</span> <span class="comment">main"</span> <span class="comment">|</span> <span class="comment">sudo</span> <span class="comment">tee</span> <span class="literal">-</span><span class="comment">a</span> <span class="comment">/etc/apt/sources</span><span class="string">.</span><span class="comment">list</span>
 
-<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">key</span> <span class="comment">adv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recv</span>-<span class="comment">keys</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keyserver</span> <span class="comment">keyserver</span>.<span class="comment">ubuntu</span>.<span class="comment">com</span> <span class="comment">C3FFB4AA</span>
+<span class="comment">$sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">key</span> <span class="comment">adv</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">recv</span><span class="literal">-</span><span class="comment">keys</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">keyserver</span> <span class="comment">keyserver</span><span class="string">.</span><span class="comment">ubuntu</span><span class="string">.</span><span class="comment">com</span> <span class="comment">C3FFB4AA</span>
 
-<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">update</span>
+<span class="comment">$sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">update</span>
 
-<span class="comment">$sudo</span> <span class="comment">apt</span>-<span class="comment">get</span> <span class="comment">install</span> <span class="comment">libv4l</span>-<span class="comment">0</code></pre>
-<p>(2) Start application</p>
+<span class="comment">$sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">libv4l</span><span class="literal">-</span><span class="comment">0</span>
+</code></pre><p>(2) Start application</p>
 <pre><code><span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; cheese
-<span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype</code></pre>
-<p>为了以后不需要输入这么多，建立一个bash<br>Step 1:</p>
-<pre><code>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype</code></pre>
-<p>填写下面内容</p>
-<pre><code><span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so /usr/bin/skype</code></pre>
-<p>Step 2:</p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype</code></pre>
-<p><strong><em>注意</em></strong>：<br>1. v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。</p>
-<pre><code>$ locate v4l1compat<span class="variable">.so</span>
-/usr/lib/i386-linux-gnu/libv4l/v4l1compat<span class="variable">.so</span></code></pre>
+<span class="variable">$export</span> <span class="constant">LIBV4LCONTROL_FLAGS</span>=<span class="number">3</span> &amp;&amp; <span class="constant">LD_PRELOAD</span>=<span class="regexp">/usr/lib</span><span class="regexp">/i386-linux-gnu/libv</span>4l/v4l1compat.so skype
+</code></pre><p>为了以后不需要输入这么多，建立一个bash<br>Step 1:</p>
+<pre><code>$su<span class="operator"><span class="keyword">do</span> gedit /usr/<span class="keyword">local</span>/bin/skype</span>
+</code></pre><p>填写下面内容</p>
+<pre><code><span class="comment">LD_PRELOAD=/usr/lib/i386</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">gnu/libv4l/v4l1compat</span><span class="string">.</span><span class="comment">so</span> <span class="comment">/usr/bin/skype</span>
+</code></pre><p>Step 2:</p>
+<pre><code>su<span class="operator"><span class="keyword">do</span> chmod a+x /usr/<span class="keyword">local</span>/bin/skype</span>
+</code></pre><p><strong><em>注意</em></strong>：</p>
+<ol>
+<li><p>v4l1compat.so的位置在Ubuntu 13.04上可能和之前的版本不同，使用locate指令可以先确定一下位置。</p>
+<p> $ locate v4l1compat.so<br> /usr/lib/i386-linux-gnu/libv4l/v4l1compat.so</p>
+</li>
+</ol>
 <p><strong><em>参考</em></strong>：</p>
 <p>(1) <a href="http://www.paullabis.com/2010/08/fix-upside-down-or-inverted-webcam-on.html" target="_blank">Fix upside-down or inverted webcam on Ubuntu linux</a></p>
 <p>(2)<a href="http://community.linuxmint.com/tutorial/view/219" target="_blank">How to make Webcam compatible with Skype.</a></p>
@@ -174,7 +189,7 @@
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -213,7 +228,7 @@
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -239,7 +254,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

@@ -62,6 +62,18 @@
   
     <article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -77,11 +89,11 @@
     <div class="entry">
       
         <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
-<h2>MapReduce 编程模型</h2>
+<h2 id="MapReduce_-7f16-7a0b-6a21-578b-">MapReduce 编程模型</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="built_in">map</span>:(K1, V1) -&gt; <span class="built_in">list</span>(K2, V2)
-reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in">list</span>(K2, V2)
+</pre></td><td class="code"><pre><span class="attribute">map</span>:<span class="function"><span class="params">(K1, V1)</span> -&gt;</span> list(K2, V2)
+<span class="attribute">reduce</span>: <span class="function"><span class="params">(k2, list(V2))</span> -&gt;</span> list(K2, V2)
 </pre></td></tr></table></figure>
 
 <p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
@@ -134,7 +146,7 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -173,7 +185,7 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -199,7 +211,7 @@ reduce: (k2, <span class="built_in">list</span>(V2)) -&gt; <span class="built_in
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,7 +83,7 @@
     </header>
     <div class="entry">
       
-        <h2>Python 基础知识</h2>
+        <h2 id="Python_-57fa-7840-77e5-8bc6-">Python 基础知识</h2>
 <p>简介：这是对Coursera上的<a href="https://class.coursera.org/programming1-002/class" target="_blank">Learn to Program: The Fundamentals</a>第一周课程的一次总结。 </p>
 <p><a id="more"></a></p>
 <blockquote>
@@ -107,7 +119,7 @@
 <p>第二点： Python 和计算机内存</p>
 </blockquote>
 <p><strong>计算机内存：</strong></p>
-<p>  计算机内存中，内存地址指向存储的数据。我们会在地址前加上前缀‘id’（例如，id201代表内存地址201）。备注：Python中可以通过id方法去查看内存地址，该方法返回一个整型数。help(id)</p>
+<p>  计算机内存中，内存地址指向存储的数据。我们会在地址前加上前缀’id’（例如，id201代表内存地址201）。备注：Python中可以通过id方法去查看内存地址，该方法返回一个整型数。help(id)</p>
 <p>在内存中，变量是存储值的一种方法。变量命名指代的是内存中的地址，Python在相对于值之外的一个独立的list中存储变量。一个变量容纳内存中的地址，而这个地址容纳对应的值(value)。因此，这个变量映射到这个值。</p>
 <p><strong>术语:</strong></p>
 <ol>
@@ -119,8 +131,8 @@
 <blockquote>
 <p>第三点： 变量</p>
 </blockquote>
-<pre><code><span class="setting">variable = <span class="value">expression</span></span></code></pre>
-<p><strong>赋值语句：</strong></p>
+<pre><code><span class="title">variable</span> = expression
+</code></pre><p><strong>赋值语句：</strong></p>
 <p>执行赋值语句的规则是：</p>
 <ol>
 <li>执行表达式，它会产生一个内存地址；</li>
@@ -137,8 +149,8 @@
 <p>第四点：内置函数</p>
 </blockquote>
 <p><strong>函数调用：</strong></p>
-<pre><code><span class="function"><span class="title">function_name</span><span class="params">(arguments)</span></code></pre>
-<p>术语：</p>
+<pre><code><span class="function"><span class="title">function_name</span><span class="params">(arguments)</span></span>
+</code></pre><p>术语：</p>
 <ul>
 <li>Argument: 形参</li>
 <li>Pass: 传递</li>
@@ -154,8 +166,8 @@ Help on built-<span class="keyword">in</span> <span class="function"><span class
 <span class="title">abs</span><span class="params">(...)</span>
     <span class="title">abs</span><span class="params">(number)</span> -&gt; <span class="title">number</span>
 
-        <span class="title">Return</span> <span class="title">the</span> <span class="title">absolute</span> <span class="title">value</span> <span class="title">of</span> <span class="title">the</span> <span class="title">argument</span>.</code></pre>
-<p><strong>可选参数</strong></p>
+        <span class="title">Return</span> <span class="title">the</span> <span class="title">absolute</span> <span class="title">value</span> <span class="title">of</span> <span class="title">the</span> <span class="title">argument</span>.</span>
+</code></pre><p><strong>可选参数</strong></p>
 <p>例如在pow函数中[, z]表示z参数可选。</p>
 <pre><code>&gt;&gt;&gt; help(pow)
 <span class="type">Help</span> on built-<span class="keyword">in</span> function pow <span class="keyword">in</span> <span class="module"><span class="keyword">module</span> builtins:
@@ -164,14 +176,14 @@ pow<span class="container">(...)</span>
     pow<span class="container">(<span class="title">x</span>, <span class="title">y</span>[, <span class="title">z</span>])</span> -&gt; number
 
         With two arguments, equivalent to x**y.  With three arguments,
-            equivalent to <span class="container">(<span class="title">x</span>**<span class="title">y</span>)</span> % z, but may be more efficient <span class="container">(<span class="title">e</span>.<span class="title">g</span>. <span class="title">for</span> <span class="title">longs</span>)</span>.</code></pre>
-<blockquote>
+            equivalent to <span class="container">(<span class="title">x</span>**<span class="title">y</span>)</span> % z, but may be more efficient <span class="container">(<span class="title">e</span>.<span class="title">g</span>. <span class="title">for</span> <span class="title">longs</span>)</span>.</span>
+</code></pre><blockquote>
 <p>第五点：函数</p>
 </blockquote>
 <p><strong>函数定义：</strong></p>
 <pre><code><span class="function"><span class="keyword">def</span> <span class="title">function_name</span><span class="params">(parameters)</span>:</span>
-    body</code></pre>
-<p><strong>执行return语句过程：</strong></p>
+    body
+</code></pre><p><strong>执行return语句过程：</strong></p>
 <ol>
 <li>执行语句的表述，产生一个内存地址；</li>
 <li>将内存地址传递给调用者，结束函数。</li>
@@ -182,8 +194,8 @@ pow<span class="container">(...)</span>
 <li>存储内存地址到对应的形参；</li>
 <li>执行函数体。</li>
 </ol>
-<p><strong>保存程序到“.py”文件中:</strong></p>
-<p>我们通常将Python程序保存到“.py”文件中。一个文件可以包含多个函数定义以及一些其他语句表述。调用“.py”文件的函数之前，要先运行这个模块，否则IDLE的shell解释器不会识别这个函数调用。</p>
+<p><strong>保存程序到”.py”文件中:</strong></p>
+<p>我们通常将Python程序保存到”.py”文件中。一个文件可以包含多个函数定义以及一些其他语句表述。调用”.py”文件的函数之前，要先运行这个模块，否则IDLE的shell解释器不会识别这个函数调用。</p>
 
       
     </div>
@@ -256,7 +268,7 @@ pow<span class="container">(...)</span>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -295,7 +307,7 @@ pow<span class="container">(...)</span>
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -321,7 +333,7 @@ pow<span class="container">(...)</span>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

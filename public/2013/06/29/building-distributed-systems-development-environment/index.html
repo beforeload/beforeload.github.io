@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,7 +83,7 @@
     </header>
     <div class="entry">
       
-        <h2>基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
+        <h2 id="-57fa-4e8e-Hadoop-7684-5206-5e03-5f0f-7cfb-7edf-5f00-53d1-73af-5883-5728-Ubuntu_13-04-4e2d-7684-642d-5efa-">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
 <ol>
@@ -81,96 +93,96 @@
 </ol>
 <a id="more"></a>
 
-<h3>安装jdk</h3>
+<h3 id="-5b89-88c5-jdk">安装jdk</h3>
 <p><strong>(1) 下载JDK</strong></p>
 <p>Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<pre><code><span class="method">gzip:</span> <span class="method">stdin:</span> invalid compressed data--format <span class="method">violatedtar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Unexpected</span> <span class="class">EOF</span> in <span class="method">archivetar:</span> <span class="class">Error</span> is not <span class="method">recoverable:</span> exiting now</code></pre>
-<p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">官网</a>上根据自己的系统下载相应的JDK。</p>
-<pre><code>sudo mkdir /usr/java
-tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span>
-sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="variable">.tar</span><span class="variable">.gz</span> /usr/java/</code></pre>
-<p><strong>(2) 然后修改配置文件</strong></p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> vi /etc/profile</code></pre>
-<p>按G可以直接到文件尾端，填写下面内容:</p>
-<pre><code><span class="title">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7</span>.0_25
-export JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
-export CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
-export PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</code></pre>
-<p>保存退出。</p>
+<pre><code><span class="attribute">gzip</span>: <span class="attribute">stdin</span>: invalid compressed data--format <span class="attribute">violatedtar</span>: Unexpected EOF <span class="keyword">in</span> <span class="attribute">archivetar</span>: Unexpected EOF <span class="keyword">in</span> <span class="attribute">archivetar</span>: Error <span class="keyword">is</span> <span class="keyword">not</span> <span class="attribute">recoverable</span>: exiting now
+</code></pre><p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">官网</a>上根据自己的系统下载相应的JDK。</p>
+<pre><code><span class="comment">sudo</span> <span class="comment">mkdir</span> <span class="comment">/usr/java</span>
+<span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">jdk</span><span class="literal">-</span><span class="comment">7u25</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">x64</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span>
+<span class="comment">sudo</span> <span class="comment">mv</span> <span class="comment">jdk</span><span class="literal">-</span><span class="comment">7u25</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">x64</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span> <span class="comment">/usr/java/</span>
+</code></pre><p><strong>(2) 然后修改配置文件</strong></p>
+<pre><code><span class="built_in">sudo</span> vi /etc/profile
+</code></pre><p>按G可以直接到文件尾端，填写下面内容:</p>
+<pre><code><span class="keyword">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7.0</span>_25
+<span class="keyword">export</span> JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
+<span class="keyword">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar
+<span class="keyword">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
+</code></pre><p>保存退出。</p>
 <p><strong>(3) 检测是否成功</strong> </p>
 <pre><code><span class="title">source</span> /etc/profile
-<span class="title">java</span> -version</code></pre>
-<p>如果显示下面结果，表示安装成功。</p>
-<pre><code><span class="title">java</span> version <span class="string">"1.7.0_25"</span>
-Java(TM) SE Runtime Environment (build <span class="number">1</span>.<span class="number">7</span>.0_25-b15)
-Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23</span>.<span class="number">25</span>-b01, mixed mode)</code></pre>
-<h3>安装eclipse</h3>
+<span class="title">java</span> -version
+</code></pre><p>如果显示下面结果，表示安装成功。</p>
+<pre><code><span class="comment">java</span> <span class="comment">version</span> <span class="comment">"1</span><span class="string">.</span><span class="comment">7</span><span class="string">.</span><span class="comment">0_25"</span>
+<span class="comment">Java(TM)</span> <span class="comment">SE</span> <span class="comment">Runtime</span> <span class="comment">Environment</span> <span class="comment">(build</span> <span class="comment">1</span><span class="string">.</span><span class="comment">7</span><span class="string">.</span><span class="comment">0_25</span><span class="literal">-</span><span class="comment">b15)</span>
+<span class="comment">Java</span> <span class="comment">HotSpot(TM)</span> <span class="comment">64</span><span class="literal">-</span><span class="comment">Bit</span> <span class="comment">Server</span> <span class="comment">VM</span> <span class="comment">(build</span> <span class="comment">23</span><span class="string">.</span><span class="comment">25</span><span class="literal">-</span><span class="comment">b01</span><span class="string">,</span> <span class="comment">mixed</span> <span class="comment">mode)</span>
+</code></pre><h3 id="-5b89-88c5-eclipse">安装eclipse</h3>
 <p><strong>(1) 下载eclipse<em>*</em>.tar.gz</strong></p>
-<pre><code>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
-mv eclipse /usr/<span class="keyword">local</span>
-/usr/<span class="keyword">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span></code></pre>
-<p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
-<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</code></pre>
-<p><strong><em>在弹窗中输入：</em></strong></p>
+<pre><code><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">eclipse</span><span class="literal">-</span><span class="comment">standard</span><span class="literal">-</span><span class="comment">kepler</span><span class="literal">-</span><span class="comment">R</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">gtk</span><span class="literal">-</span><span class="comment">x86_64</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span>
+<span class="comment">mv</span> <span class="comment">eclipse</span> <span class="comment">/usr/local</span>
+<span class="comment">/usr/local/eclipse/eclipse</span>    <span class="comment">#启动eclipse</span>
+</code></pre><p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
+<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</span>
+</code></pre><p><strong><em>在弹窗中输入：</em></strong></p>
 <pre><code><span class="attribute">Name</span>: <span class="string">eclipse</span>
-<span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span></code></pre>
-<p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
-<h4>ssh 无密码登录</h4>
+<span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span>
+</code></pre><p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
+<h4 id="ssh_-65e0-5bc6-7801-767b-5f55-">ssh 无密码登录</h4>
 <p><strong>(1) 安装SSH</strong></p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install openssh-server</code></pre>
-<p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
+<pre><code><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">openssh</span><span class="literal">-</span><span class="comment">server</span>
+</code></pre><p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
 <p><strong>(2) 生成密钥的步骤也很简单：</strong></p>
-<pre><code><span class="comment">ssh</span>-<span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span>.<span class="comment">com"</code></pre>
-<p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
-<pre><code><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys</code></pre>
-<p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
-<pre><code><span class="title">ssh</span> localhost</code></pre>
-<p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，<br>然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
-<h4>安装Hadoop</h4>
+<pre><code><span class="comment">ssh</span><span class="literal">-</span><span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span><span class="string">.</span><span class="comment">com"</span>
+</code></pre><p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
+<pre><code><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys
+</code></pre><p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
+<pre><code><span class="title">ssh</span> localhost
+</code></pre><p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，<br>然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
+<h4 id="-5b89-88c5-Hadoop">安装Hadoop</h4>
 <p><strong>(1) 下载解压hadoop</strong></p>
-<pre><code>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="variable">.tar</span><span class="variable">.gz</span>    <span class="preprocessor">#解压</span></code></pre>
-<p><strong>(2) 配置四个文件</strong></p>
+<pre><code>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>    <span class="preprocessor">#解压</span>
+</code></pre><p><strong>(2) 配置四个文件</strong></p>
 <p>1) ~/hadoop-0.20.2/conf/hadoop-env.sh</p>
-<pre><code>export <span class="constant">JAVA_HOME</span>=<span class="regexp">/usr/java</span><span class="regexp">/jdk1.7.0_25</code></pre>
-<p>2) ~/hadoop-0.20.2/conf/core-site.xml</p>
+<pre><code><span class="keyword">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7.0</span>_25
+</code></pre><p>2) ~/hadoop-0.20.2/conf/core-site.xml</p>
 <pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span> 
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
     <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.default.name<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
     <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
-<p>3) ~/hadoop-0.20.2/conf/hdfs-site.xml</p>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</code></pre><p>3) ~/hadoop-0.20.2/conf/hdfs-site.xml</p>
 <pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
     <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
     <span class="tag">&lt;<span class="title">value</span>&gt;</span>1<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
-<p>4) ~/hadoop-0.20.2/conf/mapred-site.xml</p>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</code></pre><p>4) ~/hadoop-0.20.2/conf/mapred-site.xml</p>
 <pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
     <span class="tag">&lt;<span class="title">name</span>&gt;</span>mapred.job.tracker<span class="tag">&lt;/<span class="title">name</span>&gt;</span>
     <span class="tag">&lt;<span class="title">value</span>&gt;</span>localhost:9001<span class="tag">&lt;/<span class="title">value</span>&gt;</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></code></pre>
-<p><strong>(3) 修改～/.bashrc</strong></p>
-<pre><code><span class="title">echo</span> <span class="string">'export HADOOP_HOME=/home/beforeload/hadoop-0.20.2'</span> &gt;&gt; ~/.bashrc
-echo <span class="string">'export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin'</span> &gt;&gt; ~/.bashrc
-source ~/.bashrc</code></pre>
-<p>现在在任何目录下，都可以输入hadoop命令了。</p>
+<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
+</code></pre><p><strong>(3) 修改～/.bashrc</strong></p>
+<pre><code><span class="title">echo</span> '<span class="keyword">export</span> <span class="type">HADOOP_HOME</span>=/home/beforeload/hadoop-<span class="number">0.20</span><span class="number">.2</span>' &gt;&gt; ~/.bashrc
+<span class="title">echo</span> '<span class="keyword">export</span> <span class="type">PATH</span>=$<span class="type">PATH</span>:$<span class="type">HADOOP_HOME</span>/bin' &gt;&gt; ~/.bashrc
+<span class="title">source</span> ~/.bashrc
+</code></pre><p>现在在任何目录下，都可以输入hadoop命令了。</p>
 <p><strong>(4) 格式化HDFS并启动hadoop</strong></p>
 <pre><code><span class="title">hadoop</span> namenode -format
 <span class="title">start</span>-all.sh
-<span class="title">jps</span>   #查看运行的进程</code></pre>
-<p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
+<span class="title">jps</span>   #查看运行的进程
+</code></pre><p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
 <ol>
 <li>NameNode <a href="http://localhost:50070/dfshealth.jsp" target="_blank">http://localhost:50070/dfshealth.jsp</a></li>
 <li>JobTracker <a href="http://localhost:50030/jobtracker.jsp" target="_blank">http://localhost:50030/jobtracker.jsp</a></li>
 </ol>
 <p><strong>(6) 重要参数</strong></p>
-<pre><code><span class="keyword">echo</span> <span class="variable">$JAVA_HOME</span>     
-<span class="keyword">echo</span> <span class="variable">$HADOOP_HOME</span></code></pre>
-
+<pre><code><span class="built_in">echo</span> <span class="variable">$JAVA_HOME</span>     
+<span class="built_in">echo</span> <span class="variable">$HADOOP_HOME</span>
+</code></pre>
       
     </div>
     <footer>
@@ -242,7 +254,7 @@ source ~/.bashrc</code></pre>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -281,7 +293,7 @@ source ~/.bashrc</code></pre>
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -307,7 +319,7 @@ source ~/.bashrc</code></pre>
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

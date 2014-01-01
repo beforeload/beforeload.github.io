@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,19 +83,19 @@
     </header>
     <div class="entry">
       
-        <h3>[翻译]Content Syndication with Node.js</h3>
+        <h3 id="-5b-7ffb-8bd1-5d-Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
 <hr>
 <p>原文链接 <a href="http://howtonode.org/content-syndication-with-node" target="_blank">Content Syndication with Node.js</a></p>
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/" target="_blank">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
 <a id="more"></a>
 
-<h4>安装feed包</h4>
+<h4 id="-5b89-88c5-feed-5305-">安装feed包</h4>
 <p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="variable">$npm</span> install feed
 </pre></td></tr></table></figure>
 
-<h4>建立订阅</h4>
+<h4 id="-5efa-7acb-8ba2-9605-">建立订阅</h4>
 <p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -102,21 +114,21 @@
 15
 16
 17
-</pre></td><td class="code"><pre>// 需求的包
-varFeed=require(<span class="string">'feed'</span>);
+</pre></td><td class="code"><pre><span class="regexp">//</span> 需求的包
+varFeed=<span class="built_in">require</span>(<span class="string">'feed'</span>);
 
-// 初始化feed对象
-var feed =newFeed({
-  <span class="method">title:</span>          <span class="string">'My Feed Title'</span>,
-  <span class="method">description:</span>    <span class="string">'This is my personnal feed!'</span>,
-  <span class="method">link:</span>           <span class="string">'http://example.com/'</span>,
-  <span class="method">image:</span>          <span class="string">'http://example.com/logo.png'</span>,
-  <span class="method">copyright:</span>      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
+<span class="regexp">//</span> 初始化feed对象
+<span class="reserved">var</span> feed =newFeed({
+  <span class="attribute">title</span>:          <span class="string">'My Feed Title'</span>,
+  <span class="attribute">description</span>:    <span class="string">'This is my personnal feed!'</span>,
+  <span class="attribute">link</span>:           <span class="string">'http://example.com/'</span>,
+  <span class="attribute">image</span>:          <span class="string">'http://example.com/logo.png'</span>,
+  <span class="attribute">copyright</span>:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
 
-  <span class="method">author:</span>{
-    <span class="method">name:</span>       <span class="string">'John Doe'</span>,
-    <span class="method">email:</span>      <span class="string">'john.doe@example.com'</span>,
-    <span class="method">link:</span>       <span class="string">'https://example.com/john-doe'</span>
+  <span class="attribute">author</span>:{
+    <span class="attribute">name</span>:       <span class="string">'John Doe'</span>,
+    <span class="attribute">email</span>:      <span class="string">'john.doe@example.com'</span>,
+    <span class="attribute">link</span>:       <span class="string">'https://example.com/john-doe'</span>
   }
 });
 </pre></td></tr></table></figure>
@@ -133,13 +145,13 @@ feed.category(&#39;JavaScript&#39;);</code></p>
 6
 7
 8
-</pre></td><td class="code"><pre><span class="function"><span class="title">for</span><span class="params">(var key in posts)</span>{
-  <span class="title">feed</span>.<span class="title">item</span><span class="params">(<span class="tuple">{
-    title:  posts[key].title,
-    link:  posts[key].link,
-    description: posts[key].description,
-    date: posts[key].date
-  }</span>
+</pre></td><td class="code"><pre><span class="keyword">for</span>(<span class="reserved">var</span> key <span class="keyword">in</span> posts){
+  feed.item({
+    <span class="attribute">title</span>:  posts[key].title,
+    <span class="attribute">link</span>:  posts[key].link,
+    <span class="attribute">description</span>: posts[key].description,
+    <span class="attribute">date</span>: posts[key].date
+  }
 }
 </pre></td></tr></table></figure>
 
@@ -198,7 +210,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
 36
 37
 38
-</pre></td><td class="code"><pre>app.get(<span class="string">'/rss'</span>,<span class="keyword">function</span>(req, res){
+</pre></td><td class="code"><pre>app.get(<span class="string">'/rss'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span>
   <span class="comment">// Initializing feed object</span>
   <span class="keyword">var</span> feed =newFeed({
     title:          <span class="string">'My Feed Title'</span>,
@@ -216,7 +228,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
 
   <span class="comment">// Function requesting the last 5 posts to a database. This is just an</span>
   <span class="comment">// example, use the way you prefer to get your posts.</span>
-  Post.findPosts(<span class="keyword">function</span>(posts, err){
+  Post.findPosts(<span class="function"><span class="keyword">function</span><span class="params">(posts, err)</span>{</span>
     <span class="keyword">if</span>(err)
       res.send(<span class="string">'404 Not found'</span>,<span class="number">404</span>);
     <span class="keyword">else</span>{
@@ -239,7 +251,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
 </pre></td></tr></table></figure>
 
 
-<h3>总结：</h3>
+<h3 id="-603b-7ed3-ff1a-">总结：</h3>
 <p>就这样了，现在人们终于可以从你的nodejs应用中读取订阅你的项目。</p>
 <p>译者：其实到这个地方还没有结束，本人在处理这个问题时感觉远远不想大神说的那么easy。有兴趣的最好自己尝试一下。</p>
 <p>wrapper —— 包<br>feed —— 订阅<br>Feed —— 用来接收该信息来源更新的接口</p>
@@ -315,7 +327,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -354,7 +366,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -380,7 +392,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

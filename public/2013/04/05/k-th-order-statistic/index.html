@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,8 +83,8 @@
     </header>
     <div class="entry">
       
-        <h3>问题描述:</h3>
-<h6>问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank">线性查找</a></h6>
+        <h3 id="-95ee-9898-63cf-8ff0-3a-">问题描述:</h3>
+<h6 id="-95ee-9898-6765-6e90-3a-_-3c-a_href-3d-22-http-3a-2f-2f-learn-akae-cn-2f-media-2f-ch11s05-html-22-3e-7ebf-6027-67e5-627e-3c-2f-a-3e-">问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank">线性查找</a></h6>
 <ol>
 <li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
 <li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
@@ -80,21 +92,21 @@
 </ol>
 <a id="more"></a>
 
-<h3>求解及算法：</h3>
+<h3 id="-6c42-89e3-53ca-7b97-6cd5-ff1a-">求解及算法：</h3>
 <p>求一组数中最小值，对于数组而言是一个很easy且常见的问题。<br>解决算法也很容易:</p>
-<pre><code><span class="keyword">int</span> minimum(<span class="keyword">int</span> arr[])
+<pre><code>int minimum(int arr<span class="matrix">[]</span>)
 {
-    <span class="keyword">int</span> j,temp;
-    temp = arr[<span class="number">0</span>];
+    int j,temp;
+    temp = arr<span class="matrix">[<span class="number">0</span>]</span>;
 
     <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; N; j++) {
-        <span class="keyword">if</span>(temp &gt; arr[j]){
-            swap(&amp;temp,&amp;arr[j]);
+        <span class="keyword">if</span>(temp &gt; arr<span class="matrix">[j]</span>){
+            swap(&amp;temp,&amp;arr<span class="matrix">[j]</span>);
         }
     }
     <span class="keyword">return</span> temp;
-}</code></pre>
-<p>算法复杂度为Θ(n),且只需要遍历一次即可得出结果；</p>
+}
+</code></pre><p>算法复杂度为Θ(n),且只需要遍历一次即可得出结果；</p>
 <ol>
 <li>在数组中求解第二小值也不是一件难事，只要想清楚求解的思路和步骤，问题便可迎刃而解。<br>当然算法可能性多种多样，我所采用的方法简单粗暴：</li>
 </ol>
@@ -219,7 +231,7 @@ int main(int argc, const char *argv[])
 }
 </code></pre>
 
-<h3>讨论</h3>
+<h3 id="-8ba8-8bba-">讨论</h3>
 <hr>
 
       
@@ -293,7 +305,7 @@ int main(int argc, const char *argv[])
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -332,7 +344,7 @@ int main(int argc, const char *argv[])
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -358,7 +370,7 @@ int main(int argc, const char *argv[])
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,8 +83,8 @@
     </header>
     <div class="entry">
       
-        <h3>案例</h3>
-<h4>上传本地文件到 HDFS</h4>
+        <h3 id="-6848-4f8b-">案例</h3>
+<h4 id="-4e0a-4f20-672c-5730-6587-4ef6-5230-_HDFS">上传本地文件到 HDFS</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -107,7 +119,7 @@
 
 <a id="more"></a>
 
-<h4>创建 HDFS 文件</h4>
+<h4 id="-521b-5efa-_HDFS_-6587-4ef6-">创建 HDFS 文件</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -136,7 +148,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4>重命名 HDFS 文件</h4>
+<h4 id="-91cd-547d-540d-_HDFS_-6587-4ef6-">重命名 HDFS 文件</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -158,7 +170,7 @@
 </pre></td></tr></table></figure>
 
 
-<h4>删除 HDFS 上的文件</h4>
+<h4 id="-5220-9664-_HDFS_-4e0a-7684-6587-4ef6-">删除 HDFS 上的文件</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -181,7 +193,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4>查看 HDFS 文件的最后修改时间</h4>
+<h4 id="-67e5-770b-_HDFS_-6587-4ef6-7684-6700-540e-4fee-6539-65f6-95f4-">查看 HDFS 文件的最后修改时间</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -202,7 +214,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4>查看某个 HDFS 文件是否存在</h4>
+<h4 id="-67e5-770b-67d0-4e2a-_HDFS_-6587-4ef6-662f-5426-5b58-5728-">查看某个 HDFS 文件是否存在</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -219,7 +231,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4>查找某个文件在 HDFS 集群的位置</h4>
+<h4 id="-67e5-627e-67d0-4e2a-6587-4ef6-5728-_HDFS_-96c6-7fa4-7684-4f4d-7f6e-">查找某个文件在 HDFS 集群的位置</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -252,7 +264,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4>获取 HDFS 集群上所有节点的名称</h4>
+<h4 id="-83b7-53d6-_HDFS_-96c6-7fa4-4e0a-6240-6709-8282-70b9-7684-540d-79f0-">获取 HDFS 集群上所有节点的名称</h4>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -279,20 +291,20 @@
 }
 </pre></td></tr></table></figure>
 
-<h3>问题</h3>
+<h3 id="-95ee-9898-">问题</h3>
 <ol>
-<li>“Wrong FS expected: file:///”</li>
+<li>“Wrong FS expected: file:///“</li>
 </ol>
 <p>这个问题其实严格意义上并不属于API调用方面的问题，具体问题出现的原因不得而知，不过在查阅资料一番后还是得出了问题的解决方法。</p>
 <ul>
-<li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180" target="_blank">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn&#39;t work!&quot; </li>
+<li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180" target="_blank">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn’t work!” </li>
 <li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>conf.addResource(<span class="keyword">new</span> Path(<span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>));
 </pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h3>讨论</h3>
+<h3 id="-8ba8-8bba-">讨论</h3>
 <p><strong><em>附源码如下：</em></strong></p>
 <figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
 2
@@ -442,7 +454,7 @@
 <span class="keyword">import</span> org.apache.hadoop.hdfs.DistributedFileSystem;
 <span class="keyword">import</span> org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span> {</span>
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span> </span>{
 	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> IOException {
 		String src, dst1, config, dst2, oldName, newName;
 		src = <span class="string">"/root/word.txt"</span>;
@@ -570,7 +582,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4>参考书籍：</h4>
+<h4 id="-53c2-8003-4e66-7c4d-ff1a-">参考书籍：</h4>
 <ol>
 <li>《Hadoop实战》—— “Hadoop in Action”</li>
 <li>《实战Hadoop》—— “开启通向云计算的捷径”</li>
@@ -648,7 +660,7 @@
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -687,7 +699,7 @@
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -713,7 +725,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

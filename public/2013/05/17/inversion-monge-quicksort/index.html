@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,8 +83,8 @@
     </header>
     <div class="entry">
       
-        <h2>逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
-<h3>题目</h3>
+        <h2 id="-9006-5e8f-5bf9-ff0c-Monge-77e9-9635-ff0c-5feb-6392-4f18-5316-2014-2014-4e09-6570-53d6-4e2d-5212-5206-5206-6790-">逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
+<h3 id="-9898-76ee-">题目</h3>
 <ol>
 <li>第二章思考题2-4(逆序对)</li>
 <li>第四章思考题4-7(Monge矩阵)</li>
@@ -80,7 +92,7 @@
 </ol>
 <a id="more"></a>
 
-<h3>2-4 逆序对</h3>
+<h3 id="2-4_-9006-5e8f-5bf9-">2-4 逆序对</h3>
 <p>a)</p>
 <script src="https://gist.github.com/5599553.js?file=inversion.c"></script>
 
@@ -111,17 +123,17 @@
 15
 </pre></td><td class="code"><pre>int insert_sort(void)
 {
-	int i, j, key<span class="comment">;</span>
-	for (i = <span class="number">1</span><span class="comment">; i &lt; N; i++) {</span>
-		key = arr[i]<span class="comment">;</span>
-		j = i<span class="comment">;</span>
-		while (j &gt; <span class="number">0</span> && arr[j - <span class="number">1</span>] &gt; key) {
-			arr[j] = arr[j - <span class="number">1</span>]<span class="comment">;</span>
-			j--<span class="comment">;</span>
+	int i, j, key;
+	for (i = 1; i &lt; N; i++) {
+		key = arr[i];
+		j = i;
+		while (j &gt; 0 && arr[j - 1] &gt; key) {
+			arr[j] = arr[j - 1];
+			j--;
 		}
 	}
-	for (i = <span class="number">0</span><span class="comment">; i &lt; N; i++) {</span>
-		printf(<span class="string">"%d "</span>, arr[i])<span class="comment">;</span>
+	for (i = 0; i &lt; N; i++) {
+		printf(<span class="string">"%d "</span>, arr[i]);
 	}
 }
 </pre></td></tr></table></figure>
@@ -132,7 +144,7 @@
 
 
 
-<h3>Monge矩阵</h3>
+<h3 id="Monge-77e9-9635-">Monge矩阵</h3>
 <p>a)证明：当且仅当矩阵中所有2×2的矩阵都为Monge矩阵时，这个矩阵才为Monge矩阵。</p>
 <p>先对行使用归纳法：假设i,k行j，l列矩阵为Monge矩阵，证明i,k+1行，j,l列矩阵为Monge矩阵即可</p>
 <p>(1)已知i,k行j,l列为Monge矩阵即A[i,j]+A[k,l] &lt;= A[i,l] + A[k,j]<br>(2)假设A[k,j] + A[k+1,l] &lt;= A[k+1,j] + A[k,l]<br>(3)只需要证明i,k+1行j,l列的矩阵为Monge矩阵，<br>由(1),(2)得A[i,j] + A[k+1,l] &lt;= A[k,j] + A[k+1,l]                </p>
@@ -157,7 +169,7 @@
 <p>奇数行最左端最小值时间复杂度O(m/2+n)=O(m+n)<br>e)<br>由d)可得递归式：T(m) = T(m/2) + O(m+n)</p>
 <p>递归运算结果：</p>
 <p>T(m) = O(nlgm) + O(m+n)<br>     = O(nlgm + m + n)<br>     = O(nlgm + m)              </p>
-<h3>快排中三数取中划分分析</h3>
+<h3 id="-5feb-6392-4e2d-4e09-6570-53d6-4e2d-5212-5206-5206-6790-">快排中三数取中划分分析</h3>
 <img src="//i.minus.com/i29Ufb20Oolkw.jpg" class="[inversion]">
 
 <p>答案用图片显示，<a href="//i.minus.com/i29Ufb20Oolkw.jpg">图片在这里</a> </p>
@@ -237,7 +249,7 @@
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -276,7 +288,7 @@
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -302,7 +314,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>

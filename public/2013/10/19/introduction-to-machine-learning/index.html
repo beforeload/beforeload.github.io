@@ -57,6 +57,18 @@
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
   
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
   <div class="post-content">
     <header>
       
@@ -71,15 +83,20 @@
     </header>
     <div class="entry">
       
-        <h2>机器学习简介</h2>
-<h3>一、定义</h3>
+        <h2 id="-673a-5668-5b66-4e60-7b80-4ecb-">机器学习简介</h2>
+<h3 id="-4e00-3001-5b9a-4e49-">一、定义</h3>
 <blockquote>
 <p>Arthur Samuel (1959): Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed.<br>Tom Mitchell (1998) : Well-posed Learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
 </blockquote>
 <a id="more"></a>
 
-<p>个人理解，一句话就是不通过明确的编程让机器具有学习能力，以垃圾邮件为例：<br>1. 邮件分为垃圾邮件和非垃圾邮件为任务T；<br>2. 查看哪些邮件被标记为垃圾邮件，以及哪些标记为非垃圾邮件是经验E；<br>3. 正确识别垃圾邮件或非垃圾邮件比例（或数量）为P。</p>
-<h3>二、机器学习算法的类型</h3>
+<p>个人理解，一句话就是不通过明确的编程让机器具有学习能力，以垃圾邮件为例：</p>
+<ol>
+<li>邮件分为垃圾邮件和非垃圾邮件为任务T；</li>
+<li>查看哪些邮件被标记为垃圾邮件，以及哪些标记为非垃圾邮件是经验E；</li>
+<li>正确识别垃圾邮件或非垃圾邮件比例（或数量）为P。</li>
+</ol>
+<h3 id="-4e8c-3001-673a-5668-5b66-4e60-7b97-6cd5-7684-7c7b-578b-">二、机器学习算法的类型</h3>
 <p>(1) 监督学习(Supervised learning)</p>
 <ol>
 <li>概念： 通过生成一个函数将输入映射为一个合适的输出（通常也称为标记，多数情况下训练集都是有人工专家标注生成的）。</li>
@@ -91,7 +108,7 @@
 </li>
 <li>案例：<ul>
 <li>Given genetic (DNA) data from a person, predict the odds of him/her developing diabetes over the next 10 years.</li>
-<li>Given 50 articles written by male authors, and 50 articles written by female authors, learn to predict the gender of a new manuscript&#39;s author (when the identity of this author is unknown).</li>
+<li>Given 50 articles written by male authors, and 50 articles written by female authors, learn to predict the gender of a new manuscript’s author (when the identity of this author is unknown).</li>
 </ul>
 </li>
 </ol>
@@ -101,7 +118,7 @@
 <li>理解： 对输入的训练集没有进行标注，即不告诉你分类情况，让机器自己进行相应的分类，即无监督学习常见算法聚类。</li>
 <li>案例： Google News， 基因序列分析，社会网络分析，市场切分等。</li>
 <li>特别的例子： 鸡尾酒宴会。<ul>
-<li>鸡尾酒问题算法： [W,s,v] = svd((repmat(sum(x.<em>x,1),size(x,1),1).</em>x)*x&#39;);</li>
+<li>鸡尾酒问题算法： [W,s,v] = svd((repmat(sum(x.<em>x,1),size(x,1),1).</em>x)*x’);</li>
 </ul>
 </li>
 </ol>
@@ -183,7 +200,7 @@
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
@@ -222,7 +239,7 @@
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>7</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   
@@ -248,7 +265,7 @@
   </div>
   <footer id="footer" class="inner"><div class="alignleft">
   
-  &copy; 2013 beforeload
+  &copy; 2014 beforeload
   
 </div>
 <div class="clearfix"></div></footer>
