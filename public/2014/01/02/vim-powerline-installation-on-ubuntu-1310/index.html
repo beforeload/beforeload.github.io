@@ -109,8 +109,11 @@
 </ol>
 <p>分两种情况：<br>1) 对于个人用户</p>
 <p>在控制台中运行：</p>
-<pre><code><span class="comment">pip</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">user</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline</span>
-</code></pre><p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">pip</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">user</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline</span>
+</pre></td></tr></table></figure>
+
+<p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -121,32 +124,55 @@
 
 <p>2) 对于系统用户</p>
 <p>在控制台中运行：</p>
-<pre><code><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">install</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline'</span>
-</code></pre><h2 id="-4e8c-3001-5b57-4f53-7684-5b89-88c5-">二、字体的安装</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">install</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline'</span>
+</pre></td></tr></table></figure>
+
+<h2 id="-4e8c-3001-5b57-4f53-7684-5b89-88c5-">二、字体的安装</h2>
 <p>对于Ubuntu的用户来说，安装字体再简单不过了，只需要双击文件，点击Install即可。这里不在赘述。</p>
 <p>不过，我发现从<a href="https://github.com/Lokaltog/powerline-fonts" target="_blank">powerline-fonts</a>上下载的字体不能直接用，还是需要配置，配置过程如下：</p>
 <ol>
-<li><p>Fontconfig：(推荐)</p>
-<p> sudo apt-get install fontforge<br> sudo apt-get install fontforge-python</p>
-</li>
+<li>Fontconfig：(推荐)</li>
 </ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">fontforge</span> <span class="comment">python</span><span class="literal">-</span><span class="comment">fontforge</span>
+</pre></td></tr></table></figure>
+
 <p>1) 对于个人用户</p>
-<pre><code>mkdir -p ~/<span class="preprocessor">.fonts</span>/ &amp;&amp; cd ~/<span class="preprocessor">.fonts</span>/
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>mkdir -p ~/<span class="preprocessor">.fonts</span>/ && cd ~/<span class="preprocessor">.fonts</span>/
 wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span> 
 wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span>
 ~/<span class="preprocessor">.vim</span>/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span>
 mkdir -p ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ cd ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ 
 wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span>
 fc-cache -vf ~/<span class="preprocessor">.fonts</span>
-</code></pre><p>2) 对于系统用户</p>
-<pre><code>wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span>
+</pre></td></tr></table></figure>
+
+<p>2) 对于系统用户</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span>
 wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span>
 wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span>
 /etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span>
 sudo mv *<span class="preprocessor">.otf</span> /usr/share/fonts/
 sudo fc-cache -vf
 sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span> /etc/fonts/conf<span class="preprocessor">.d</span>/
-</code></pre><p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
+</pre></td></tr></table></figure>
+
+<p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
 <h2 id="-4e09-3001-914d-7f6e-vimrc">三、配置.vimrc</h2>
 <ol>
 <li>Vim状态栏的配置</li>
