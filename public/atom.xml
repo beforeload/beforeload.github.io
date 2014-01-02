@@ -4,13 +4,120 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-01-01T12:09:00.981Z</updated>
+  <updated>2014-01-02T06:47:45.180Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Vim Powerline installation on Ubuntu 13.10]]></title>
+    <link href="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/"/>
+    <id>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</id>
+    <published>2014-01-02T04:53:58.000Z</published>
+    <updated>2014-01-02T06:47:22.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="-5728-Ubuntu_13-10-4e0a-5b89-88c5-vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
+<p> 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找<code>vim-powerline</code>的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然<code>let g:Powerline_symbols = &#39;fancy&#39;</code>没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和解决方法。</p>
+<img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal">
+
+<img src="http://i.stack.imgur.com/4R3XS.png" title="Vim Powerline Insert">
+
+<img src="http://i.stack.imgur.com/VTB31.png" title="Vim Powerline Visual">
+
+<img src="http://i.stack.imgur.com/HhgMo.png" title="Vim Powerline Replace">
+
+
+<a id="more"></a>
+
+<h2 id="-4e00-3001-5b89-88c5-Powerline">一、安装Powerline</h2>
+<ol>
+<li>首先安装python-pip和git:</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">python</span><span class="literal">-</span><span class="comment">pip</span> <span class="comment">git</span>
+</pre></td></tr></table></figure>
+
+<ol>
+<li>安装Powerline</li>
+</ol>
+<p>分两种情况：<br>1) 对于个人用户</p>
+<p>在控制台中运行：</p>
+<pre><code><span class="comment">pip</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">user</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline</span>
+</code></pre><p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="string">"<span class="variable">$HOME</span>/.local/bin"</span> ]; <span class="keyword">then</span>
+    PATH=<span class="string">"<span class="variable">$HOME</span>/.local/bin:<span class="variable">$PATH</span>"</span>
+<span class="keyword">fi</span>
+</pre></td></tr></table></figure>
+
+<p>2) 对于系统用户</p>
+<p>在控制台中运行：</p>
+<pre><code><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">install</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline'</span>
+</code></pre><h2 id="-4e8c-3001-5b57-4f53-7684-5b89-88c5-">二、字体的安装</h2>
+<p>对于Ubuntu的用户来说，安装字体再简单不过了，只需要双击文件，点击Install即可。这里不在赘述。</p>
+<p>不过，我发现从<a href="https://github.com/Lokaltog/powerline-fonts" target="_blank">powerline-fonts</a>上下载的字体不能直接用，还是需要配置，配置过程如下：</p>
+<ol>
+<li><p>Fontconfig：(推荐)</p>
+<p> sudo apt-get install fontforge<br> sudo apt-get install fontforge-python</p>
+</li>
+</ol>
+<p>1) 对于个人用户</p>
+<pre><code>mkdir -p ~/<span class="preprocessor">.fonts</span>/ &amp;&amp; cd ~/<span class="preprocessor">.fonts</span>/
+wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span> 
+wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span>
+~/<span class="preprocessor">.vim</span>/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span>
+mkdir -p ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ cd ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ 
+wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span>
+fc-cache -vf ~/<span class="preprocessor">.fonts</span>
+</code></pre><p>2) 对于系统用户</p>
+<pre><code>wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span>
+wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span>
+wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span>
+/etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span>
+sudo mv *<span class="preprocessor">.otf</span> /usr/share/fonts/
+sudo fc-cache -vf
+sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span> /etc/fonts/conf<span class="preprocessor">.d</span>/
+</code></pre><p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
+<h2 id="-4e09-3001-914d-7f6e-vimrc">三、配置.vimrc</h2>
+<ol>
+<li>Vim状态栏的配置</li>
+</ol>
+<p>在<code>~/.vimrc</code>或者<code>/etc/vim/vimrc</code>文件中进行配置：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="built_in">set</span> encoding<span class="subst">=</span>utf<span class="subst">-</span><span class="number">8</span>
+<span class="built_in">set</span> fillchars<span class="subst">+=</span>stl:<span class="subst">\</span> ,stlnc:<span class="subst">\</span>
+<span class="built_in">set</span> laststatus<span class="subst">=</span><span class="number">2</span>
+<span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span><span class="subst">/</span>lib<span class="subst">/</span>python2<span class="number">.7</span><span class="subst">/</span>site<span class="attribute">-packages</span><span class="subst">/</span>powerline<span class="subst">/</span>bindings<span class="subst">/</span>vim<span class="subst">/</span>
+<span class="built_in">set</span> <span class="attribute">-g</span> default<span class="attribute">-terminal</span> <span class="string">"screen-256color"</span>
+<span class="built_in">set</span> t_Co<span class="subst">=</span><span class="number">256</span>
+<span class="keyword">let</span> g:Powerline_symbols <span class="subst">=</span> <span class="string">'fancy'</span>
+</pre></td></tr></table></figure>
+
+<p>后面附上我的vimrc相关配置。</p>
+<h2 id="-56db-3001-5378-8f7d-">四、卸载</h2>
+<p>1) 对于个人用户：</p>
+<pre><code><span class="title">pip</span> uninstall powerline
+</code></pre><p>2) 对于系统用户：</p>
+<pre><code><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">uninstall</span> <span class="comment">powerline'</span>
+</code></pre><h3 id="-9644-4e0a-6211-7684-5b57-4f53-914d-7f6e-6587-4ef6-">附上我的字体配置文件</h3>
+<ol>
+<li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank">字体</a></li>
+<li><a href="https://raw.github.com/beforeload/dotfiles/master/.vimrc" target="_blank">.vimrc</a></li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
+    <category scheme="http://beforeload.github.io/tags/Vim/" term="Vim"/>
+    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Conclusions of 2013]]></title>
     <link href="http://beforeload.github.io/2014/01/01/conclusions-of-2013/"/>
@@ -1109,24 +1216,5 @@ A<span class="matrix">[i]</span> &lt;- key
     <category scheme="http://beforeload.github.io/tags/Translate/" term="Translate"/>
     <category scheme="http://beforeload.github.io/tags/Distributed Computing/" term="Distributed Computing"/>
     <category scheme="http://beforeload.github.io/categories/Distributed Computing/" term="Distributed Computing"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[我的一天]]></title>
-    <link href="http://beforeload.github.io/2013/05/25/my-daily-life/"/>
-    <id>http://beforeload.github.io/2013/05/25/my-daily-life/</id>
-    <published>2013-05-25T12:51:15.000Z</published>
-    <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<p>前两天，和两个还在武汉的老同学，还有一个从北京远道而来的老同学会餐，有感于每个人不同的际遇与成。听到别人打趣的说我越来越像一个程序员，傲娇的技术宅，心里反而感觉挺开心。时至周末，思及每天幸福而快乐的生活，遂记下我的一天，以作留恋。</p>
-<p>从周一到周五，早上8点半之前起来，这绝对不是说起来很早，只是对比之前每天10点之后起来，这绝对是我今年来做到的最伟大的改变之一了。即使是周末，也在9点左右起来了，真的很不容易，一定要坚持下去。</p>
-<a id="more"></a>
-
-<p>最近这段时间，上午都在狂补数据库相关知识，开心的每天练习SQL语句，中午坐在图书馆，恶补数据库相关知识，也许等我研究生毕业，DBA也是一个选择吧。不过周末的时候，我更喜欢泡在实验室，泡杯咖啡，刷刷算法题和ACM题目，或者想一个idea，独自给自己一个hackthon。</p>
-<p>下午的时候一般属于精神亢奋期，我的研究方向是分布式计算集群，下午的时候，一边coding，一边看文档是我的常态。当然，偶然也会因为什么问题，一折腾就是一个下午。希望一年之后在分布式计算上也能有所收获吧。</p>
-<p>晚自习的时间，通常找本书看个一整章的，静下心来看书是一件很有感觉的事情。最近在看一本书是《Node.js in Action》。而由于女朋友考研，晚上跟她打着电话开心的聊聊天，陪她一起背背单词，真的好幸福。</p>
-<p>打过电话睡觉之前，我一般喜欢看看技术博客，刷刷微博，作为一个追求细节的人，每天精读一篇优秀的博文，写点自己的感受。另外把今天学习到的东西做一个总结，这个习惯的养成，主要是有感于最近的两篇blog，<a href="http://blog.jobbole.com/38203/" target="_blank">黄博文：敏捷地写博客</a>和<a href="http://blog.jobbole.com/38258/" target="_blank">《即便没有读者，你也要写博客》</a>。而作为一个技术宅，幸福的在github写着自己的博客。</p>
-<p>以上就是我一天的生活。以优秀的工程师为目标，我为自己代言。</p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
-    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
   </entry>
 </feed>

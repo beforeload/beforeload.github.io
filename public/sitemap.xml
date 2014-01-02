@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://beforeload.github.io/2014/01/01/conclusions-of-2013/</loc>
-    <lastmod>2014-01-01T12:07:28.000Z</lastmod>
+    <loc>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</loc>
+    <lastmod>2014-01-02T06:47:22.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+    <loc>http://beforeload.github.io/2014/01/01/conclusions-of-2013/</loc>
+    <lastmod>2014-01-01T12:07:28.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
@@ -41,7 +41,7 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/08/22/too-young-too-simple/</loc>
+    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -65,11 +65,11 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/10/28/a-trick-in-python/</loc>
+    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
+    <loc>http://beforeload.github.io/2013/10/28/a-trick-in-python/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -126,6 +126,10 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/05/04/three-points-understanding-node.js/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/08/22/too-young-too-simple/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
