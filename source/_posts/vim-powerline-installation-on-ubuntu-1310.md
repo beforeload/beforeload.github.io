@@ -30,7 +30,9 @@ sudo apt-get install python-pip git
 
 在控制台中运行：
 
-    pip install --user git+git://github.com/Lokaltog/powerline
+```
+pip install --user git+git://github.com/Lokaltog/powerline
+```
 
 修改``~/.profile``，将``~/.local/bin``加到``$PATH``中，在末尾加上：
 
@@ -44,7 +46,9 @@ fi
 
 在控制台中运行：
 
-    su -c 'pip install git+git://github.com/Lokaltog/powerline'
+```
+su -c 'pip install git+git://github.com/Lokaltog/powerline'
+```
 
 ## 二、字体的安装
 
@@ -54,28 +58,33 @@ fi
 
 1. Fontconfig：(推荐)
 
-    sudo apt-get install fontforge
-    sudo apt-get install fontforge-python
+```
+sudo apt-get install fontforge python-fontforge
+```
 
 1) 对于个人用户
 
-    mkdir -p ~/.fonts/ && cd ~/.fonts/
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf 
-    wget https://raw.github.com/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%20Code%20Powerline%20Black.otf
-    ~/.vim/bundle/vim-powerline/fontpatcher/fontpatcher *.otf
-    mkdir -p ~/.config/fontconfig/conf.d/ cd ~/.config/fontconfig/conf.d/ 
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-    fc-cache -vf ~/.fonts
+```
+mkdir -p ~/.fonts/ && cd ~/.fonts/
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf 
+wget https://raw.github.com/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%20Code%20Powerline%20Black.otf
+~/.vim/bundle/vim-powerline/fontpatcher/fontpatcher *.otf
+mkdir -p ~/.config/fontconfig/conf.d/ cd ~/.config/fontconfig/conf.d/ 
+wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+fc-cache -vf ~/.fonts
+```
 
 2) 对于系统用户
 
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-    wget https://raw.github.com/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%20Code%20Powerline%20Black.otf
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-    /etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *.otf
-    sudo mv *.otf /usr/share/fonts/
-    sudo fc-cache -vf
-    sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+```
+wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
+wget https://raw.github.com/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%20Code%20Powerline%20Black.otf
+wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+/etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *.otf
+sudo mv *.otf /usr/share/fonts/
+sudo fc-cache -vf
+sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+```
 
 如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。
 
