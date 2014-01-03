@@ -4,13 +4,128 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-01-02T07:41:01.002Z</updated>
+  <updated>2014-01-03T16:09:48.538Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Closure of JavaScript]]></title>
+    <link href="http://beforeload.github.io/2014/01/03/closure-of-javascript/"/>
+    <id>http://beforeload.github.io/2014/01/03/closure-of-javascript/</id>
+    <published>2014-01-03T14:17:17.000Z</published>
+    <updated>2014-01-03T16:09:40.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="JavaScript_-4e2d-7684-95ed-5305-">JavaScript 中的闭包</h1>
+<p>最近被人问到JavaScript中闭包的作用，无意中回忆起很久之前实习面试的时候也被问过类似的问题，想起在写JS中遇到的一些习惯性的问题，写篇博客总结一下。</p>
+<a id="more"></a>
+
+<h2 id="-5148-4e86-89e3-4ec0-4e48-662f-4f5c-7528-57df-">先了解什么是作用域</h2>
+<p>我感觉很多JS开发人员在对作用域的了解上都存在错误，虽然JavaScript是一种类C 的语言，但它并不支持块级作用域，块级作用域是定义在代码块中的变量在代码块执行结束后会被释放掉。</p>
+<p>在JavaScript中，则是通过函数作用域的方式，函数中的参数和变量在函数外不可见，而函数内自由使用，即内部任意位置定义的变量在函数内部任何地方都可见，当然定义变量时，请用var。为了避免块级作用域可能产生的问题，可以在函数体的顶部声明函数可能用到的所有变量。这也是很多前端开发人员的一个很好的习惯。</p>
+<h2 id="-95ed-5305-7684-4ea7-751f-">闭包的产生</h2>
+<p>根据上面对作用域的描述，函数体内部可以访问外部函数的参数和变量（当然不包括this和arguments），这也叫做链式作用域(chain scope)。理解了作用域，闭包就变得很好理解了，我觉得可以这样简单的去理解它：一个定义在函数内部的函数，它可以访问创建时所处的上下文环境。这是最浅显的理解，当然它的作用远不止这些。</p>
+<h2 id="-95ed-5305-7684-4f5c-7528-">闭包的作用</h2>
+<p>一个闭包最重要的作用不仅仅是可以读取函数内部的变量，更让人惊喜的是，<em>只要内部函数需要</em>，这些变量的值在内存中会一直存在。可以在控制台中写个简单的例子来演示它：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="keyword">var</span> add
+<span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span> <span class="comment">{
+    var x = 1
+    add = function () {
+        x += 1
+    }</span>
+
+    <span class="title">function</span> <span class="title">b</span><span class="params">()</span> <span class="comment">{
+        console.log(x)
+    }</span>
+    <span class="title">return</span> <span class="title">b</span>
+}
+
+<span class="title">var</span> <span class="title">result</span> = <span class="title">a</span><span class="params">()</span>
+<span class="title">result</span><span class="params">()</span> // 1
+<span class="title">add</span><span class="params">()</span>
+<span class="title">result</span><span class="params">()</span> // 2</span>
+</pre></td></tr></table></figure>
+
+<p>值得注意的是上面的例子中有两个闭包，add是一个匿名函数，也是一个闭包，它在函数外部定义，却在操作函数内部的变量。result是闭包b的函数，两次运行的值不同表示x值在内存中一直保存着，a调用结束后，x没有被回收。</p>
+<p>如果上面例子理解有困难，那我们来简化它：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> x = <span class="number">1</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">b</span><span class="params">()</span> {</span>
+        x += <span class="number">1</span>
+        console.log(x)
+    }
+    <span class="keyword">return</span> b  <span class="comment">// 注意，这个地方非常重要</span>
+}
+<span class="keyword">var</span> s = a()
+s() <span class="comment">// 2</span>
+s() <span class="comment">// 3</span>
+</pre></td></tr></table></figure>
+
+<p>现在只有一个闭包函数，这下子可以一眼看出来了吧。函数b嵌套在函数a内，函数a返回函数b。当函数b在函数a外部的一个变量引用时，就产生了闭包。</p>
+<p>当然，由于长期保存在内存中不能释放，很多人也会遇到JavaScript内存泄露的问题(IE中)，这需要我们小心的使用闭包。有经验的前端工程师给出的建议是在推出函数之前，删除不使用的局部定义的变量。</p>
+<h2 id="-7406-89e3-95ed-5305-">理解闭包</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">var</span> name = <span class="string">"The Window"</span>
+<span class="keyword">var</span> object = {
+    name: <span class="string">"My Object"</span>,   
+    getNameFunc: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>   
+        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>   
+            <span class="keyword">return</span> <span class="keyword">this</span>.name
+        }   
+    }   
+}
+console.log(object.getNameFunc()())
+</pre></td></tr></table></figure>
+
+<p>猜猜结果会是什么？<br>答案是：”The Window”</p>
+<p>很显然，闭包函数在<code>getNameFunc</code>函数外部被调用，那么<code>this</code>就不指向<code>object</code>对象，而指向了全局的<code>window</code>，所以最后的结果是<code>window.name</code>，也就是”The Window”</p>
+<p>通过闭包，我们可以很显然的观察到函数的<em>定义</em>和<em>执行</em>过程。使用闭包，一方面可以保护函数内变量的安全，实现私有属性和私有方法的作用，另一方面可以在内存中保持一个变量。</p>
+<h2 id="JS-4e2d-7684-GC-673a-5236-">JS中的GC机制</h2>
+<p>这里延伸一点，解释一下为什么产生闭包时，内部函数会比外部函数拥有更长的生命周期。这是由JS中的GC机制决定的。</p>
+<p>在JavaScript中，如果一个对象不再被引用，那么这个对象就被GC回收。如果两个对象相互引用，但不会被第三个对象引用时，这两个对象都会被回收。但是，如果函数a被b引用，b又被函数a外的c引用，这样函数a执行完之后，却不会被回收了。</p>
+<p>写在最后的话：关于闭包的东西远远不止这些，使用方式也复杂多样，但是万变不离其宗，理解它的机制可以帮助我们写出更加高效优雅的代码。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/JavaScript/" term="JavaScript"/>
+    <category scheme="http://beforeload.github.io/categories/JavaScript/" term="JavaScript"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Vim Powerline installation on Ubuntu 13.10]]></title>
     <link href="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/"/>
@@ -1214,33 +1329,5 @@ A<span class="matrix">[i]</span> &lt;- key
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
     <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Common Problems of Recommender Systems]]></title>
-    <link href="http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/"/>
-    <id>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</id>
-    <published>2013-05-27T14:14:53.000Z</published>
-    <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="-63a8-8350-7cfb-7edf-7684-5e38-89c1-95ee-9898-">推荐系统的常见问题</h3>
-<h4 id="-7f3a-5c11-5927-6570-636e-95ee-9898-">缺少大数据问题</h4>
-<p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
-<a id="more"></a>
-
-<h4 id="-51b7-542f-52a8-95ee-9898-">冷启动问题</h4>
-<p>在推荐系统的冷启动问题中，最主要包括两个方面：新用户问题，新资源问题。</p>
-<p>(1) 新用户问题</p>
-<p>这部分用户在系统中没有资源浏览访问记录，系统无法根据该用户行为数据对其浏览行为进行资源访问的预测和推推荐。</p>
-<p>(2) 新资源问题</p>
-<p>该部分资源没有用户的访问记录，使得系统在做数据分析时无法将其纳入待处理数据中，进而无法向用户推荐该资源。</p>
-<h4 id="-53d8-5316-6570-636e-95ee-9898-">变化数据问题</h4>
-<p>推荐系统中的变化数据问题是指推荐系统中常常充斥着老的内容，新的数据资料等很难得到推荐。</p>
-<h4 id="-53d8-5316-559c-597d-95ee-9898-">变化喜好问题</h4>
-<p>在推荐系统中用户也许怀着不同的目的对于文件资源进行搜索浏览，及用户的喜好是变化跳跃的，系统很难对这种跳跃的喜好类别进行资源数据推荐。</p>
-<h4 id="-53c2-8003-">参考</h4>
-<p>(1) <a href="http://readwrite.com/2009/01/28/5_problems_of_recommender_systems" target="_blank">5 Problems of Recommender Systems</a><br>(2) <a href="http://www.resyschina.com/2010/03/five_problems_of_resys.html" target="_blank">推荐系统5大问题</a></p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Translate/" term="Translate"/>
-    <category scheme="http://beforeload.github.io/tags/Distributed Computing/" term="Distributed Computing"/>
-    <category scheme="http://beforeload.github.io/categories/Distributed Computing/" term="Distributed Computing"/>
   </entry>
 </feed>

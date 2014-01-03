@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beforeload.github.io/2014/01/03/closure-of-javascript/</loc>
+    <lastmod>2014-01-03T16:09:40.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</loc>
     <lastmod>2014-01-02T07:38:40.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2014/01/01/conclusions-of-2013/</loc>
     <lastmod>2014-01-01T12:07:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
@@ -130,6 +130,10 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/08/22/too-young-too-simple/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
