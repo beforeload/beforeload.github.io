@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
+    <lastmod>2014-01-12T08:37:52.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2014/01/03/closure-of-javascript/</loc>
     <lastmod>2014-01-03T16:09:40.000Z</lastmod>
   </url>
@@ -11,10 +15,6 @@
   <url>
     <loc>http://beforeload.github.io/2014/01/01/conclusions-of-2013/</loc>
     <lastmod>2014-01-01T12:07:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
@@ -105,7 +105,7 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
+    <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>

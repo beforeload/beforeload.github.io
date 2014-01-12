@@ -1,30 +1,30 @@
-title: My Software Installation and Configuration on Ubuntu 13.04
+title: Common Software Installation and Configuration on Ubuntu 13.04
 date: 2013-06-22 21:23:50
-update: 2013-10-19 11:37:52
+update: 2014-01-12 16:31:52
 categories: Linux
 tags: 
 - Ubuntu
 - Linux
 ---
 
-## 在Ubuntu 13.04上常用软件的安装配置
+# 在Ubuntu 13.04上常用软件的安装配置
 
 安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。
 
-1. 安装zsh和oh-my-zsh
-2. 终端透明化
-3. 安装chrome
-4. 安装git
-5. 安装VLC播放器
-6. 安装fcitx + 搜狗拼音
-7. 安装vim
-8. 安装Node.js
-9. 安装锐捷校园网客户端
-10. 安装配置jdk
+1. [安装zsh和oh-my-zsh](#-5b89-88c5-zsh-548c-oh-my-zsh)
+2. [终端透明化](#Ubuntu_-7ec8-7aef-900f-660e-5316-)
+3. [安装chrome](#-5b89-88c5-_chrome)
+4. [安装git](#-5b89-88c5-git)
+5. [安装VLC播放器](#-5b89-88c5-VLC-89c6-9891-64ad-653e-5668-)
+6. [安装fcitx + 搜狗拼音](#-5b89-88c5-sougou_-2b-_fcitx)
+7. [安装vim](#-5b89-88c5-914d-7f6e-VIM)
+8. [安装Node.js](#-5b89-88c5-Node-js)
+9. [安装锐捷校园网客户端](#-5b89-88c5-9510-6377-6821-56ed-7f51-5ba2-6237-7aef-)
+10. [安装配置jdk](#-5b89-88c5-914d-7f6e-JDK)
 
 <!-- more -->
 
-#### 安装zsh和oh-my-zsh
+## 安装zsh和oh-my-zsh
 
 ___安装 curl:___
 
@@ -44,17 +44,17 @@ ___也可以通过wget：___
 
 [参考文档](https://github.com/robbyrussell/oh-my-zsh)
 
-#### Ubuntu 终端透明化
+## Ubuntu 终端透明化
 
 Ctrl+Alt+T 打开终端，菜单 
 
     Edit->Profile Preference->Background->Transparent background
 
-#### 安装 chrome
+## 安装 chrome
 
 ___安装依赖:___
 
-    sudo apt-get install libudev0
+    sudo apt-get install (依赖包)
 
 然后从google chrome官方网站上下载安装
 
@@ -62,25 +62,25 @@ ___安装依赖:___
 
 终端输入`google-chrome`即可启动。
 
-#### 安装git
+## 安装git
 
     sudo apt-get install git
 
 ___相关配置:___
 
-    git config --global user.name=beforeload
-    git config --global user.email=fe.daniel91@gmail.com
-    git config --global color.diff=auto
-    git config --global color.branch=auto
-    git config --global color.ui=true
-    git config --global color.interactive=auto
-    git config --global color.status=auto
-    git config --global push.default=current
-    git config --global core.editor=vim
-    git config --global core.autocrlf=off
-    git config --global merge.tool=vimdiff
+    git config --global user.name beforeload
+    git config --global user.email fe.daniel91@gmail.com
+    git config --global color.diff auto
+    git config --global color.branch auto
+    git config --global color.ui true
+    git config --global color.interactive auto
+    git config --global color.status auto
+    git config --global push.default current
+    git config --global core.editor vim
+    git config --global core.autocrlf off
+    git config --global merge.tool vimdiff
 
-#####查看配置#####
+###查看配置###
 
 ___查看所有配置:___
 
@@ -94,13 +94,13 @@ ___查看某个配置:___
 
     cat ~/.gitconfig
 
-#### 安装VLC视频播放器
+## 安装VLC视频播放器
 
     sudo apt-get install vlc
 
 终端输入`vlc`启动，在菜单栏
 
-    Tools-> Preference -> Subtitles & OSD 修改Default encoding为Universal(UTF-8)
+    Tools-> Preference -> Subtitles & OSD 修改Default encoding为Universal(UTF-8),或者GBK
     
 还可以设置相关中文字体（中文可选）。
 
@@ -111,7 +111,7 @@ ___查看某个配置:___
 这样打开相关视频文件，可以直接使用VLC播放。
 
 
-#### 安装sougou + fcitx
+## 安装sougou + fcitx
 
     sudo add-apt-repository ppa:fcitx-team/nightly
     sudo apt-get update
@@ -130,7 +130,7 @@ ___[可选]安装皮肤：___
 
 最后注销，重新登录，输入法生效。
 
-#### 安装配置VIM
+## 安装配置VIM
 
     sudo apt-get install vim
 
@@ -147,7 +147,7 @@ ___配置：___
 
 Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。
 
-#### 安装Node.js
+## 安装Node.js
 
 安装依赖
 
@@ -161,7 +161,7 @@ Powerline中下面的箭头可能存在字体问题，解决的办法是给字�
     make 
     make install
 
-#### 安装锐捷校园网客户端
+## 安装锐捷校园网客户端
 
 下载[Linux SU V 1.01](http://ncs.hust.edu.cn/download/soft/Linux\ SU\ V1.01版.rar)
 
@@ -182,6 +182,6 @@ Powerline中下面的箭头可能存在字体问题，解决的办法是给字�
 
     sudo ./rjsupplicant.sh
 
-#### 安装配置JDK
+## 安装配置JDK
 
 相关安装步骤已经在另外[一篇博文](//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/)中做出更新。
