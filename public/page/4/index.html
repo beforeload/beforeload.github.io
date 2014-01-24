@@ -76,6 +76,62 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2013-04-12T18:56:30.000Z"><a href="/2013/04/13/analyze-mapreduce/">4月 13 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/13/analyze-mapreduce/">MapReduce</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
+<h2 id="MapReduce_-7f16-7a0b-6a21-578b-">MapReduce 编程模型</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="attribute">map</span>:<span class="function"><span class="params">(K1, V1)</span> -&gt;</span> list(K2, V2)
+<span class="attribute">reduce</span>: <span class="function"><span class="params">(k2, list(V2))</span> -&gt;</span> list(K2, V2)
+</pre></td></tr></table></figure>
+
+<p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/13/analyze-mapreduce/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2013-04-12T05:11:40.000Z"><a href="/2013/04/12/migrate_jekyll_to_hexo/">4月 12 2013</a></time>
       
       
@@ -388,6 +444,8 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>8</small></li>
   
+    <li><a href="/categories/MongoDB/">MongoDB</a><small>1</small></li>
+  
     <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
   
     <li><a href="/categories/Python/">Python</a><small>2</small></li>
@@ -426,6 +484,8 @@
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
     <li><a href="/tags/Memory/">Memory</a><small>8</small></li>
+  
+    <li><a href="/tags/MongoDB/">MongoDB</a><small>1</small></li>
   
     <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
   

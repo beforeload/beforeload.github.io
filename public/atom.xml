@@ -4,13 +4,29 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-01-15T12:29:08.621Z</updated>
+  <updated>2014-01-24T15:29:27.092Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[MongoDB in Action: Section One]]></title>
+    <link href="http://beforeload.github.io/2014/01/24/mongodb-in-action-section-one/"/>
+    <id>http://beforeload.github.io/2014/01/24/mongodb-in-action-section-one/</id>
+    <published>2014-01-24T15:23:28.000Z</published>
+    <updated>2014-01-24T15:29:13.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="MongoDB-5b9e-6218-">MongoDB实战</h1>
+<blockquote>
+<p>写在前面的话: 最近在学习MongoDB，突然之间对NoSQL非关系型数据库非常有爱，顺便总结一下学习的过程。</p>
+</blockquote>
+<h2 id="-9879-76ee-9a71-52a8-5f00-53d1-">项目驱动开发</h2>
+<p>学习一门技术最快捷有效的方式就是通过项目开发。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/MongoDB/" term="MongoDB"/>
+    <category scheme="http://beforeload.github.io/categories/MongoDB/" term="MongoDB"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[Closure of JavaScript]]></title>
     <link href="http://beforeload.github.io/2014/01/03/closure-of-javascript/"/>
@@ -1266,68 +1282,5 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
     <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Priority Queue]]></title>
-    <link href="http://beforeload.github.io/2013/05/30/priority-queue/"/>
-    <id>http://beforeload.github.io/2013/05/30/priority-queue/</id>
-    <published>2013-05-29T16:40:13.000Z</published>
-    <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<ol>
-<li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
-<li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
-<li>练习6.5-8 </li>
-</ol>
-<a id="more"></a>
-
-<p>6.5-1 HEAP-EXTRACT-MAX</p>
-<pre><code><span class="keyword">if</span> head-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
-    <span class="keyword">then</span> error
-max &lt;-- A<span class="matrix">[<span class="number">1</span>]</span>
-A<span class="matrix">[<span class="number">1</span>]</span> &lt;-- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
-MAX-HEAPIFY(A, <span class="number">1</span>)
-<span class="keyword">return</span> max
-</code></pre><img src="http://i.minus.com/imDBy99LrOzWP.jpg">
-
-
-<p>6.5-3 HEAP-MINIUM(A)</p>
-<p>伪代码书上已经有了</p>
-<pre><code><span class="function">HEAP-MINIMUM(A)</span>
-    return <span class="tag">A</span><span class="attr_selector">[1]</span>
-</code></pre><p>利用HEAP-EXTRACT-MAX(A)容易写出HEAP-EXTRACT-MIN(A)</p>
-<h4 id="HEAP-EXTRACT-MIN-28-A-29-">HEAP-EXTRACT-MIN(A)</h4>
-<pre><code><span class="keyword">if</span> heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
-    <span class="keyword">then</span> error 
-max &lt;- A<span class="matrix">[<span class="number">1</span>]</span>
-A<span class="matrix">[<span class="number">1</span>]</span> &lt;- A<span class="matrix">[heap-size[A]</span>] - <span class="number">1</span>
-heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt;- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
-MIN-HEAPIFY(A, <span class="number">1</span>)
-<span class="keyword">return</span> max
-</code></pre><p>同样，由HEAD-INCREASE-KEY很容易就写出HEAD-DECREASE-KEY过程的伪代码：</p>
-<h4 id="HEAD-DECREASE-KEY">HEAD-DECREASE-KEY</h4>
-<pre><code><span class="keyword">if</span> key &gt; A<span class="matrix">[i]</span>
-    then error
-A<span class="matrix">[i]</span> &lt;- key
-<span class="keyword">while</span> <span class="built_in">i</span> &gt; <span class="number">1</span> and A<span class="matrix">[PARENT(i)]</span> &gt; A<span class="matrix">[i]</span>
-    do exchange A<span class="matrix">[i]</span> &lt;-&gt; A<span class="matrix">[PARENT(i)]</span>
-            <span class="built_in">i</span> &lt;- PARENT(<span class="built_in">i</span>)
-</code></pre><p>同样，由MAX-HEAP-INSERT容易写出MIN-HEAP-INSERT</p>
-<h4 id="MIN-HEAP-INSERT">MIN-HEAP-INSERT</h4>
-<pre><code><span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span> &lt;<span class="literal">-</span> <span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span> <span class="literal">+</span> <span class="comment">1</span>
-<span class="comment">A</span><span class="title">[</span><span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span><span class="title">]</span> &lt;<span class="literal">-</span> <span class="comment">无穷</span>
-<span class="comment">HEAP</span><span class="literal">-</span><span class="comment">INCREASE</span><span class="literal">-</span><span class="comment">KEY(A</span><span class="string">,</span> <span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span><span class="string">,</span> <span class="comment">key)</span>
-</code></pre><p>6.5-8</p>
-<p>每一个链表作为一个节点，链表的第一个元素作为key，然后组成一个堆，这个堆的大小为K(k个链表，k个节点)。</p>
-<p>链表合并过程思路如下：</p>
-<ol>
-<li>通过堆的根节点，获得其链表的第一个元素</li>
-<li>以获取的元素作为目标链表的尾端</li>
-<li>因为根的第一个元素的key发生改变，对其进行MIN-HEAPFIY操作，递归进行下去。</li>
-</ol>
-<p>显然，在每个堆中取一个key组成的堆是实现此过程的一个最小堆。</p>
-<p>具体的实现代码实在没有时间写了。</p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Algorithm/" term="Algorithm"/>
-    <category scheme="http://beforeload.github.io/categories/Algorithm/" term="Algorithm"/>
   </entry>
 </feed>

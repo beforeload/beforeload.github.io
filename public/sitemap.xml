@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beforeload.github.io/2014/01/24/mongodb-in-action-section-one/</loc>
+    <lastmod>2014-01-24T15:29:13.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
     <lastmod>2014-01-12T08:37:52.000Z</lastmod>
   </url>
@@ -17,10 +21,6 @@
     <lastmod>2014-01-01T12:07:28.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
@@ -33,7 +33,7 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
+    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -69,11 +69,11 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/10/28/a-trick-in-python/</loc>
+    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
+    <loc>http://beforeload.github.io/2013/10/28/a-trick-in-python/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -134,6 +134,10 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/08/22/too-young-too-simple/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
