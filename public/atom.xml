@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-02-16T16:09:27.090Z</updated>
+  <updated>2014-02-16T16:15:22.479Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,9 +16,12 @@
     <link href="http://beforeload.github.io/2014/02/16/new-year-new-start/"/>
     <id>http://beforeload.github.io/2014/02/16/new-year-new-start/</id>
     <published>2014-02-16T15:45:11.000Z</published>
-    <updated>2014-02-16T16:09:08.000Z</updated>
+    <updated>2014-02-16T16:15:13.000Z</updated>
     <content type="html"><![CDATA[<h1 id="-65b0-7684-4e00-5e74-ff0c-65b0-7684-5f00-59cb-">新的一年，新的开始</h1>
-<p>过去的一年没有好好的去学习技术，也没有好好的看看书，精通一门技术，2014年，在技术上，我有三个目标：</p>
+<p>过去的一年没有好好的去学习技术，也没有好好的看看书，精通一门技术。</p>
+<a id="more"></a>
+
+<p>2014年，在技术上，我有三个目标：</p>
 <ol>
 <li>Node.js开发，掌握JavaScript，能够使用前端的MV*框架开发web应用。</li>
 <li>在算法上，我的目标是锻炼自己的编程能力，能够在常见问题上给出解决方案。</li>
