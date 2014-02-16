@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-01-24T15:29:27.092Z</updated>
+  <updated>2014-02-16T16:09:27.090Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -12,20 +12,29 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
-    <title type="html"><![CDATA[MongoDB in Action: Section One]]></title>
-    <link href="http://beforeload.github.io/2014/01/24/mongodb-in-action-section-one/"/>
-    <id>http://beforeload.github.io/2014/01/24/mongodb-in-action-section-one/</id>
-    <published>2014-01-24T15:23:28.000Z</published>
-    <updated>2014-01-24T15:29:13.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="MongoDB-5b9e-6218-">MongoDB实战</h1>
-<blockquote>
-<p>写在前面的话: 最近在学习MongoDB，突然之间对NoSQL非关系型数据库非常有爱，顺便总结一下学习的过程。</p>
-</blockquote>
-<h2 id="-9879-76ee-9a71-52a8-5f00-53d1-">项目驱动开发</h2>
-<p>学习一门技术最快捷有效的方式就是通过项目开发。</p>
+    <title type="html"><![CDATA[New Year New Start]]></title>
+    <link href="http://beforeload.github.io/2014/02/16/new-year-new-start/"/>
+    <id>http://beforeload.github.io/2014/02/16/new-year-new-start/</id>
+    <published>2014-02-16T15:45:11.000Z</published>
+    <updated>2014-02-16T16:09:08.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="-65b0-7684-4e00-5e74-ff0c-65b0-7684-5f00-59cb-">新的一年，新的开始</h1>
+<p>过去的一年没有好好的去学习技术，也没有好好的看看书，精通一门技术，2014年，在技术上，我有三个目标：</p>
+<ol>
+<li>Node.js开发，掌握JavaScript，能够使用前端的MV*框架开发web应用。</li>
+<li>在算法上，我的目标是锻炼自己的编程能力，能够在常见问题上给出解决方案。</li>
+<li>在机器学习上，我希望多掌握一点理论，能够解决常见的机器学习上的问题。</li>
+</ol>
+<p>不管以后从事什么方向的开发也好，趁现在年轻还有时间可以多学点。（是不是只有处女座，才有选择困难症啊！）</p>
+<p>为了实现我的目标，制定一下简要的计划：</p>
+<ol>
+<li>Node.js以及前端方面，一边学习，一边尝试着进行一些应用开发，项目是锻炼技术的捷径，最好每天都有项目写，至少每个月完成一个小项目。</li>
+<li>算法上，积极参与一些网上的比赛，例如codeforces,topcode，至少每两周参加一次。</li>
+<li>机器学习上，目前为止还没有去尝试过，希望能够多看看书，多写写博客总结一下吧。</li>
+<li>读书方面，希望能够每天都读一点书，每个月至少精读一本，粗读一本。</li>
+</ol>
 ]]></content>
-    <category scheme="http://beforeload.github.io/tags/MongoDB/" term="MongoDB"/>
-    <category scheme="http://beforeload.github.io/categories/MongoDB/" term="MongoDB"/>
+    <category scheme="http://beforeload.github.io/tags/Memory/" term="Memory"/>
+    <category scheme="http://beforeload.github.io/categories/Memory/" term="Memory"/>
   </entry>
   <entry>
     <title type="html"><![CDATA[Closure of JavaScript]]></title>
