@@ -4,13 +4,64 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-02-16T16:15:22.479Z</updated>
+  <updated>2014-03-11T17:22:45.108Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
     <email><![CDATA[fe.daniel91@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[the Introduction and Structure of Operating System]]></title>
+    <link href="http://beforeload.github.io/2014/03/12/the-introduction-and-structure-of-operating-system/"/>
+    <id>http://beforeload.github.io/2014/03/12/the-introduction-and-structure-of-operating-system/</id>
+    <published>2014-03-11T17:09:47.000Z</published>
+    <updated>2014-03-11T17:21:37.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="-64cd-4f5c-7cfb-7edf-ff08-4e00-ff09-">操作系统（一）</h1>
+<p>最近准备重新构建自己的知识体系，先从操作系统开始,把知识点理一下。</p>
+<a id="more"></a>
+
+<h2 id="-7eea-8bba-">绪论</h2>
+<img src="http://i.imgur.com/WifnF1e.png" class="introduction" title="[title [alt 操作系统绪论]]">
+
+
+<h3 id="-7b14-8bb0-8865-5145-ff1a-">笔记补充：</h3>
+<ol>
+<li>通道: 独立于CPU运行，并行操作</li>
+<li>多道程序设计技术: (批处理系统)主存中存放多道独立程序</li>
+<li>分时技术: 时间片</li>
+</ol>
+<h2 id="-7ec4-7ec7-7ed3-6784-">组织结构</h2>
+<img src="http://i.imgur.com/hMZCcHP.png" class="structure" title="[title [alt 操作系统组织结构]]">
+
+
+<h3 id="-7b14-8bb0-8865-5145-">笔记补充</h3>
+<ol>
+<li>管态(系统态): 管理程序运行状态</li>
+<li>用户态(目态): 禁用特权命令，访问区域受限</li>
+<li>中断概念: 事件发生 系统终止程序运行 引导处理程序处理 处理完返回断点 继续执行</li>
+<li>中断进入: 硬件负责中断进入过程，发现和响应中断请求，引出中断处理程序。软件中断处理程序完成</li>
+<li>中断分析，中断处理，恢复恢复被中断程序的现场等工作。</li>
+<li>程序状态字: 反应运行状态</li>
+<li>中断响应: 交换指令执行地址和处理器状态</li>
+<li>向量中断: 由中断源引导处理机进入中断服务程序的中断过程</li>
+<li>中断向量:<ul>
+<li>中断服务例程入口地址</li>
+<li>服务程序所用的处理器状态字</li>
+</ul>
+</li>
+<li>软件中断处理过程:<ul>
+<li>保护现场和传递参数</li>
+<li>执行相应的中断(自陷)服务例程</li>
+<li>恢复和退出中断</li>
+</ul>
+</li>
+<li>硬件故障中断处理: 人为排除故障</li>
+</ol>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Operating System/" term="Operating System"/>
+    <category scheme="http://beforeload.github.io/categories/Operating System/" term="Operating System"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[New Year New Start]]></title>
     <link href="http://beforeload.github.io/2014/02/16/new-year-new-start/"/>
@@ -1201,98 +1252,5 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
     <category scheme="http://beforeload.github.io/tags/Android/" term="Android"/>
     <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Building Node web Applications]]></title>
-    <link href="http://beforeload.github.io/2013/06/10/building-node-web-applications/"/>
-    <id>http://beforeload.github.io/2013/06/10/building-node-web-applications/</id>
-    <published>2013-06-10T10:10:49.000Z</published>
-    <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Node-js-7f51-7edc-5e94-7528-5f00-53d1-">Node.js网络应用开发</h2>
-<ol>
-<li>Handling HTTP requests with Node’s API</li>
-<li>Building a RESTful web service</li>
-<li>Serving static files</li>
-<li>Accepting user input from forms</li>
-<li>Securing your application with HTTPS</li>
-</ol>
-<a id="more"></a>
-
-<p>Node.js网络应用开发的简单图示如下：</p>
-<img src="http://i.minus.com/iLMAoN6C3pEtN.png">
-
-
-<h3 id="HTTP_server_-7684-57fa-672c-9762-">HTTP server 的基本面</h3>
-<h4 id="HTTP-8bf7-6c42-5728-Node_HTTP_server-4e2d-7684-751f-547d-5468-671f-">HTTP请求在Node HTTP server中的生命周期</h4>
-<ol>
-<li>HTTP 客户端（例如：浏览器）发送HTTP请求</li>
-<li>Node进程接受到连接把请求的数据发送给HTTP server</li>
-<li>Node进程把HTTP请求头完整解析，在’request’的回调事件中处理相应的逻辑</li>
-<li>request的回调函数中体现应用的逻辑，例如产生一个response</li>
-<li>请求通过HTTP server返回，这个过程会格式化成一个标准的HTTP response返回给客户端</li>
-</ol>
-<h3 id="Building_a_RESTful_web_service">Building a RESTful web service</h3>
-<p>CURD: Creat, Update, Read, Delete<br>HTTP: Get, Post, Put, Delete</p>
-<ol>
-<li>使用POST创建资源</li>
-<li>使用GET获取资源</li>
-<li><p>使用DELETE删除资源</p>
-<p> function(req, res){<br>   switch(req.method){<br>   case: ‘GET’: </p>
-<pre><code> // to <span class="keyword">do</span>
- <span class="keyword">break</span>
-</code></pre><p>   case: ‘POST’:</p>
-<pre><code> // <span class="keyword">...</span>
- <span class="keyword">break</span>
-</code></pre><p>   case: ‘DELETE’:</p>
-<pre><code> // <span class="keyword">...</span>
- <span class="keyword">break</span>
-</code></pre><p>   }<br> }</p>
-</li>
-</ol>
-<h3 id="Serving_static_files">Serving static files</h3>
-<ol>
-<li>Get /index.html 用户向服务器请求一个静态文件</li>
-<li>Node 服务器接受请求，应用的逻辑部分去读取这个文件</li>
-<li>文件通过一个读取流的实例传递给服务器</li>
-<li><p>文件的ReadStream通过’piped’拼接方式，以HTTP的response形式返回给客户端</p>
-<p> …<br> var stream = fs.createReadStream(path)<br> // stream.on(‘data’, function(chunk){<br> //   res.write(chunk)<br> // })<br> // stream.on(‘end’, function(){<br> //   res.end()<br> // })<br> stream.pipe(res)<br> …</p>
-</li>
-</ol>
-<p>相关的图片如下：</p>
-<img src="http://i.minus.com/iOZW6WxLIsBNk.png">
-
-
-<p>…<br>stream.pipe(res)<br>stream.on(‘error’,function(err){<br>  res.statusCode = 500<br>  res.end(‘Internal Server Error!’)<br>})<br>…</p>
-<p>文件不存在错误处理”ENOENT, No such file or dictionary”</p>
-<p>根据<code>fs.stat(path, function(err, stat){})</code>的err判断</p>
-<h3 id="-63a5-53d7-7528-6237-8868-5355-63d0-4ea4-6570-636e-">接受用户表单提交数据</h3>
-<ol>
-<li>表单域</li>
-<li>上传文件node-formidable</li>
-<li>实时计算上传进度</li>
-</ol>
-<p>两种类型的表单提交</p>
-<ul>
-<li>“application/x-www-form-urlencoded”: the default for HTML forms</li>
-<li>“multipart/form-data”: used when form contains files, non-ascii, or binary data</li>
-</ul>
-<p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。<br>也可以计算伪实时的文件上传进度，如下所示：</p>
-<pre><code>form.<span class="command"><span class="keyword">on</span>(<span class="string">'process'</span>, <span class="title">function</span>(<span class="title">bytesReceived</span>, <span class="title">bytesExpected</span>){</span>
-    var percent = bytesReceived / bytesExpected * <span class="number">100</span>
-    console.<span class="built_in">log</span>(percent)
-})
-</code></pre><p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload" target="_blank">node-upload</a>中完成它。</p>
-<h3 id="-4f7f-7528-HTTPS_-786e-4fdd-5e94-7528-7684-5b89-5168-6027-">使用HTTPS 确保应用的安全性</h3>
-<p>生成一个私钥(加密)<br>    openssl genrsa 1024 &gt; key.pem</p>
-<p>生成证书(解码)<br>    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
-<p><strong><em>HTTPS server选项</em></strong><br>    var https = require(‘https’)<br>      , fs = require(‘fs’)<br>      , options = {<br>        key: fs.readFileSync(‘./key.pem’),<br>        cert: fs.readFileSync(‘./key-cert.pem’)<br>      }</p>
-<pre><code>https.createServer(options, <span class="function"><span class="keyword">function</span>(<span class="title">req</span>, <span class="title">res</span>){</span>
-  res.writeHead(<span class="number">200</span>)
-  res.<span class="function"><span class="keyword">end</span>('<span class="title">Hello</span> <span class="title">world</span>!')</span>
-}).listen(<span class="number">4000</span>)
-</code></pre><p>证书可以共享，它包括public key和持有者的身份信息。当然如果要发布一个网站，就需要在Certificate Authority(CA)上去注册，获取一个真实的，受信任的SSL证书。</p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
-    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
   </entry>
 </feed>

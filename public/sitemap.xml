@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beforeload.github.io/2014/03/12/the-introduction-and-structure-of-operating-system/</loc>
+    <lastmod>2014-03-11T17:21:37.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2014/02/16/new-year-new-start/</loc>
     <lastmod>2014-02-16T16:15:13.000Z</lastmod>
   </url>
@@ -19,10 +23,6 @@
   <url>
     <loc>http://beforeload.github.io/2014/01/01/conclusions-of-2013/</loc>
     <lastmod>2014-01-01T12:07:28.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
@@ -109,6 +109,10 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
+    <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2013/05/30/priority-queue/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
@@ -125,6 +129,10 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
+    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2013/07/21/the-master-method/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
@@ -134,10 +142,6 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/08/22/too-young-too-simple/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>

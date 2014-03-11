@@ -5,6 +5,6 @@ db.json
 
 .deploy/*
 .deploy
-./public
+public
 
 *.log
