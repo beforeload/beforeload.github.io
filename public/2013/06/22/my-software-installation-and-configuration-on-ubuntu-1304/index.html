@@ -86,7 +86,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="-5728-Ubuntu_13-04-4e0a-5e38-7528-8f6f-4ef6-7684-5b89-88c5-914d-7f6e-">在Ubuntu 13.04上常用软件的安装配置</h1>
+        <h1 id="在Ubuntu_13-04上常用软件的安装配置">在Ubuntu 13.04上常用软件的安装配置</h1>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
 <li><a href="#-5b89-88c5-zsh-548c-oh-my-zsh">安装zsh和oh-my-zsh</a></li>
@@ -102,95 +102,95 @@
 </ol>
 <a id="more"></a>
 
-<h2 id="-5b89-88c5-zsh-548c-oh-my-zsh">安装zsh和oh-my-zsh</h2>
+<h2 id="安装zsh和oh-my-zsh">安装zsh和oh-my-zsh</h2>
 <p><strong><em>安装 curl:</em></strong></p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install curl</span>
+<pre><code><span class="built_in">sudo</span> apt-get install curl
 </code></pre><p>然后:</p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh</span>
+<pre><code><span class="built_in">sudo</span> apt-get install zsh
 </code></pre><p><strong><em>可以通过curl方式安装：</em></strong></p>
-<pre><code><span class="comment">curl</span> <span class="literal">-</span><span class="comment">L</span> <span class="comment">https://github</span><span class="string">.</span><span class="comment">com/robbyrussell/oh</span><span class="literal">-</span><span class="comment">my</span><span class="literal">-</span><span class="comment">zsh/raw/master/tools/install</span><span class="string">.</span><span class="comment">sh</span> <span class="comment">|</span> <span class="comment">sh</span>
+<pre><code>curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span>
 </code></pre><p><strong><em>也可以通过wget：</em></strong></p>
-<pre><code><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span><span class="literal">-</span><span class="comment">check</span><span class="literal">-</span><span class="comment">certificate</span> <span class="comment">https://github</span><span class="string">.</span><span class="comment">com/robbyrussell/oh</span><span class="literal">-</span><span class="comment">my</span><span class="literal">-</span><span class="comment">zsh/raw/master/tools/install</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh</span>
+<pre><code>wget --no-check-certificate <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh -O - | sh</span>
 </code></pre><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">参考文档</a></p>
-<h2 id="Ubuntu_-7ec8-7aef-900f-660e-5316-">Ubuntu 终端透明化</h2>
+<h2 id="Ubuntu_终端透明化">Ubuntu 终端透明化</h2>
 <p>Ctrl+Alt+T 打开终端，菜单 </p>
-<pre><code>Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background
-</code></pre><h2 id="-5b89-88c5-_chrome">安装 chrome</h2>
+<pre><code><span class="type">Edit</span>-&gt;<span class="type">Profile</span> <span class="type">Preference</span>-&gt;<span class="type">Background</span>-&gt;<span class="type">Transparent</span> background
+</code></pre><h2 id="安装_chrome">安装 chrome</h2>
 <p><strong><em>安装依赖:</em></strong></p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install (依赖包)</span>
+<pre><code><span class="built_in">sudo</span> apt-get install (依赖包)
 </code></pre><p>然后从google chrome官方网站上下载安装</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">dpkg</span> <span class="literal">-</span><span class="comment">i</span> <span class="comment">google</span><span class="literal">-</span><span class="comment">chrome</span><span class="literal">-</span><span class="comment">stable_*</span><span class="string">.</span><span class="comment">deb</span>
+<pre><code>sudo dpkg <span class="attribute">-i</span> google<span class="attribute">-chrome</span><span class="attribute">-stable_</span><span class="subst">*</span><span class="built_in">.</span>deb
 </code></pre><p>终端输入<code>google-chrome</code>即可启动。</p>
-<h2 id="-5b89-88c5-git">安装git</h2>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git</span>
+<h2 id="安装git">安装git</h2>
+<pre><code><span class="built_in">sudo</span> apt-get install git
 </code></pre><p><strong><em>相关配置:</em></strong></p>
-<pre><code>git config --<span class="keyword">global</span> <span class="transposed_variable">user.</span>name beforeload
-git config --<span class="keyword">global</span> <span class="transposed_variable">user.</span>email <span class="transposed_variable">fe.</span>daniel91@<span class="transposed_variable">gmail.</span>com
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>diff auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>branch auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>ui true
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>interactive auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>status auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">push.</span>default current
-git config --<span class="keyword">global</span> <span class="transposed_variable">core.</span>editor vim
-git config --<span class="keyword">global</span> <span class="transposed_variable">core.</span>autocrlf off
-git config --<span class="keyword">global</span> <span class="transposed_variable">merge.</span>tool vimdiff
-</code></pre><h3 id="-67e5-770b-914d-7f6e-">查看配置</h3>
+<pre><code>git config --<span class="keyword">global</span> user.name beforeload
+git config --<span class="keyword">global</span> user.email fe.daniel91<span class="variable">@gmail</span>.com
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.diff auto
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.branch auto
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.ui true
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.interactive auto
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.status auto
+git config --<span class="keyword">global</span> push.<span class="keyword">default</span> current
+git config --<span class="keyword">global</span> core.<span class="keyword">editor</span> vim
+git config --<span class="keyword">global</span> core.autocrlf off
+git config --<span class="keyword">global</span> merge.tool vimdiff
+</code></pre><h3 id="查看配置">查看配置</h3>
 <p><strong><em>查看所有配置:</em></strong></p>
 <pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span>
 </code></pre><p><strong><em>查看某个配置:</em></strong></p>
-<pre><code><span class="title">git</span> config user.name
+<pre><code>git config user<span class="preprocessor">.name</span>
 </code></pre><p>或者 </p>
-<pre><code><span class="title">cat</span> ~/.gitconfig
-</code></pre><h2 id="-5b89-88c5-VLC-89c6-9891-64ad-653e-5668-">安装VLC视频播放器</h2>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc</span>
+<pre><code>cat ~/<span class="preprocessor">.gitconfig</span>
+</code></pre><h2 id="安装VLC视频播放器">安装VLC视频播放器</h2>
+<pre><code><span class="built_in">sudo</span> apt-get install vlc
 </code></pre><p>终端输入<code>vlc</code>启动，在菜单栏</p>
-<pre><code><span class="comment">Tools</span><span class="literal">-</span>&gt; <span class="comment">Preference</span> <span class="literal">-</span>&gt; <span class="comment">Subtitles</span> <span class="comment">&amp;</span> <span class="comment">OSD</span> <span class="comment">修改Default</span> <span class="comment">encoding为Universal(UTF</span><span class="literal">-</span><span class="comment">8)</span><span class="string">,</span><span class="comment">或者GBK</span>
+<pre><code><span class="type">Tools</span>-&gt; <span class="type">Preference</span> -&gt; <span class="type">Subtitles</span> &amp; <span class="type">OSD</span> 修改<span class="type">Default</span> encoding为<span class="type">Universal</span>(<span class="type">UTF</span>-<span class="number">8</span>),或者<span class="type">GBK</span>
 </code></pre><p>还可以设置相关中文字体（中文可选）。</p>
 <p>然后在右上角:</p>
-<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Details</span> <span class="literal">-</span>&gt; <span class="comment">Default</span> <span class="comment">Applications</span> <span class="literal">-</span>&gt; <span class="comment">Video选择VLC</span> <span class="comment">media</span> <span class="comment">player</span>
+<pre><code><span class="type">System</span> <span class="type">Settings</span> -&gt; <span class="type">Details</span> -&gt; <span class="type">Default</span> <span class="type">Applications</span> -&gt; <span class="type">Video</span>选择<span class="type">VLC</span> media player
 </code></pre><p>这样打开相关视频文件，可以直接使用VLC播放。</p>
-<h2 id="-5b89-88c5-sougou_-2b-_fcitx">安装sougou + fcitx</h2>
-<pre><code><span class="comment">sudo</span> <span class="comment">add</span><span class="literal">-</span><span class="comment">apt</span><span class="literal">-</span><span class="comment">repository</span> <span class="comment">ppa:fcitx</span><span class="literal">-</span><span class="comment">team/nightly</span>
-<span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">update</span>
-<span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">fcitx</span><span class="literal">-</span><span class="comment">sogoupinyin</span>
+<h2 id="安装sougou_+_fcitx">安装sougou + fcitx</h2>
+<pre><code>sudo add<span class="attribute">-apt</span><span class="attribute">-repository</span> ppa:fcitx<span class="attribute">-team</span>/nightly
+sudo apt<span class="attribute">-get</span> update
+sudo apt<span class="attribute">-get</span> install fcitx<span class="attribute">-sogoupinyin</span>
 </code></pre><p>然后在<code>System Settings -&gt; Language Support -&gt; Keyboard input method system</code> 中选择 fcitx。</p>
 <p><strong><em>[可选]安装皮肤：</em></strong></p>
 <p>下载<a href="http://pan.baidu.com/share/link?shareid=591450&amp;uk=4060302862" target="_blank">fcitx-sougou-skin</a></p>
-<pre><code><span class="comment">sudo</span> <span class="comment">dpkg</span> <span class="literal">-</span><span class="comment">i</span> <span class="comment">fcitx</span><span class="literal">-</span><span class="comment">skin</span><span class="literal">-</span><span class="comment">sogou_0</span><span class="string">.</span><span class="comment">0</span><span class="string">.</span><span class="comment">2_all</span><span class="string">.</span><span class="comment">deb</span>
+<pre><code>sudo dpkg <span class="attribute">-i</span> fcitx<span class="attribute">-skin</span><span class="attribute">-sogou_0</span><span class="number">.0</span><span class="number">.2</span>_all<span class="built_in">.</span>deb
 </code></pre><p>在fcitx外观中选择sougou即可。</p>
 <p>最后注销，重新登录，输入法生效。</p>
-<h2 id="-5b89-88c5-914d-7f6e-VIM">安装配置VIM</h2>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vim</span>
+<h2 id="安装配置VIM">安装配置VIM</h2>
+<pre><code><span class="built_in">sudo</span> apt-get install vim
 </code></pre><p><strong><em>配置：</em></strong></p>
 <p>安装vundle</p>
 <pre><code>git clone https://github<span class="preprocessor">.com</span>/gmarik/vundle<span class="preprocessor">.git</span> ~/<span class="preprocessor">.vim</span>/bundle/vundle
 </code></pre><p>用<a href="https://github.com/beforeload/myconf/blob/master/.vimrc" target="_blank">我的.vimrc配置文件</a><br>覆盖<code>~/.vimrc</code>文件即可</p>
 <p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
 <p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
-<h2 id="-5b89-88c5-Node-js">安装Node.js</h2>
+<h2 id="安装Node-js">安装Node.js</h2>
 <p>安装依赖</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">build</span><span class="literal">-</span><span class="comment">essential</span> <span class="comment">libssl</span><span class="literal">-</span><span class="comment">dev</span>
+<pre><code>sudo apt<span class="attribute">-get</span> install build<span class="attribute">-essential</span> libssl<span class="attribute">-dev</span>
 </code></pre><p>编译安装</p>
-<pre><code><span class="title">mkdir</span> node &amp;&amp; cd node
-<span class="title">git</span> clone https://github.com/joyent/node.git
+<pre><code>mkdir node &amp;&amp; cd node
+git clone https:<span class="comment">//github.com/joyent/node.git</span>
 ./configure
-<span class="title">make</span> 
-<span class="title">make</span> install
-</code></pre><h2 id="-5b89-88c5-9510-6377-6821-56ed-7f51-5ba2-6237-7aef-">安装锐捷校园网客户端</h2>
+<span class="built_in">make</span> 
+<span class="built_in">make</span> install
+</code></pre><h2 id="安装锐捷校园网客户端">安装锐捷校园网客户端</h2>
 <p>下载<a href="http://ncs.hust.edu.cn/download/soft/Linux\ SU\ V1.01版.rar" target="_blank">Linux SU V 1.01</a></p>
 <p>安装unrar</p>
-<pre><code><span class="title">sudo</span> apt-get install unrar
+<pre><code>sudo apt-get install unrar
 
-<span class="title">unrar</span> ***.rar
-<span class="title">tar</span> -zxvf ***.tar.gz
+unrar ***<span class="preprocessor">.rar</span>
+tar -zxvf ***<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
 
-<span class="title">cd</span> rjsupplicant/
+cd rjsupplicant/
 </code></pre><p>查看设置</p>
 <pre><code><span class="built_in">sudo</span> ./rjsupplicant.sh -h
 </code></pre><p>设置好后启动</p>
 <pre><code><span class="built_in">sudo</span> ./rjsupplicant.sh
-</code></pre><h2 id="-5b89-88c5-914d-7f6e-JDK">安装配置JDK</h2>
+</code></pre><h2 id="安装配置JDK">安装配置JDK</h2>
 <p>相关安装步骤已经在另外<a href="//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a>中做出更新。</p>
 
       
@@ -252,7 +252,7 @@ git config --<span class="keyword">global</span> <span class="transposed_variabl
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -293,7 +293,7 @@ git config --<span class="keyword">global</span> <span class="transposed_variabl
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

@@ -86,21 +86,21 @@
     </header>
     <div class="entry">
       
-        <h3 id="Ubuntu_13-04_Android-5f00-53d1-57fa-672c-73af-5883-914d-7f6e-">Ubuntu 13.04 Android开发基本环境配置</h3>
-<h4 id="-57fa-672c-73af-5883-">基本环境</h4>
+        <h3 id="Ubuntu_13-04_Android开发基本环境配置">Ubuntu 13.04 Android开发基本环境配置</h3>
+<h4 id="基本环境">基本环境</h4>
 <pre><code>sudo apt<span class="attribute">-get</span> install ia32<span class="attribute">-libs</span> <span class="variable">#64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
 sudo apt<span class="attribute">-get</span> install ant
 </code></pre><a id="more"></a>
 
-<h4 id="-5b89-88c5-72ec-7acb-SDK">安装独立SDK</h4>
+<h4 id="安装独立SDK">安装独立SDK</h4>
 <p>下载<a href="http://developer.android.com/sdk/index.html" target="_blank">SDK</a></p>
-<pre><code>tar zxvf path<span class="subst">/</span><span class="keyword">to</span><span class="subst">/</span>android<span class="attribute">-sdk_r21</span><span class="number">.0</span><span class="number">.1</span><span class="attribute">-linux</span><span class="built_in">.</span>tgz <span class="attribute">-C</span> ~<span class="subst">/</span>DevTools
-cd ~<span class="subst">/</span>DevTools<span class="subst">/</span>android<span class="attribute">-sdk</span><span class="attribute">-linux</span><span class="subst">/</span>tools<span class="subst">/</span>
-<span class="built_in">.</span><span class="subst">/</span>android sdk
-</code></pre><h4 id="-914d-7f6e-73af-5883-53d8-91cf-">配置环境变量</h4>
+<pre><code>tar zxvf path/<span class="keyword">to</span>/android<span class="attribute">-sdk_r21</span><span class="number">.0</span><span class="number">.1</span><span class="attribute">-linux</span><span class="built_in">.</span>tgz <span class="attribute">-C</span> ~/DevTools
+cd ~/DevTools/android<span class="attribute">-sdk</span><span class="attribute">-linux</span>/tools<span class="subst">/</span>
+<span class="built_in">.</span>/android sdk
+</code></pre><h4 id="配置环境变量">配置环境变量</h4>
 <p>在~/.bashrc或者/etc/environemnt</p>
 <pre><code>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</code></pre><h4 id="-6d4b-8bd5-">测试</h4>
+</code></pre><h4 id="测试">测试</h4>
 <pre><code>android list targets    <span class="comment">#查看可用平台</span>
 android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
 android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
@@ -168,7 +168,7 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -209,7 +209,7 @@ adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

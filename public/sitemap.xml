@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://beforeload.github.io/2014/04/06/tutorial-on-building-single-page-application-with-angularjs-and-nodejs/</loc>
+    <lastmod>2014-04-05T17:45:47.000Z</lastmod>
+  </url>
+  <url>
     <loc>http://beforeload.github.io/2014/03/12/the-introduction-and-structure-of-operating-system/</loc>
     <lastmod>2014-03-11T17:21:37.000Z</lastmod>
   </url>
@@ -25,15 +29,11 @@
     <lastmod>2014-01-01T12:07:28.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
+    <loc>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -73,11 +73,11 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/10/28/a-trick-in-python/</loc>
+    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</loc>
+    <loc>http://beforeload.github.io/2013/10/28/a-trick-in-python/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -142,6 +142,10 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/08/22/too-young-too-simple/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>

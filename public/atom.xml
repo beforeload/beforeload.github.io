@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-03-15T12:16:41.561Z</updated>
+  <updated>2014-04-05T17:45:58.499Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -12,30 +12,139 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
+    <title type="html"><![CDATA[Tutorial on Building Single Page Application with AngularJS and Node.js]]></title>
+    <link href="http://beforeload.github.io/2014/04/06/tutorial-on-building-single-page-application-with-angularjs-and-nodejs/"/>
+    <id>http://beforeload.github.io/2014/04/06/tutorial-on-building-single-page-application-with-angularjs-and-nodejs/</id>
+    <published>2014-04-05T17:08:48.000Z</published>
+    <updated>2014-04-05T17:45:47.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="用Node-js和AngularJS构建单页面应用">用Node.js和AngularJS构建单页面应用</h1>
+<p>清明节放三天假，想来想去，还是把很早之前写的一个应用重构一下，用博客记录一下自己的开发过程，由于个人经验有限，不足之处请尽情吐槽。</p>
+<a id="more"></a>
+
+<h3 id="准备工作">准备工作</h3>
+<p>这三天主要完成三个模块：</p>
+<ol>
+<li>注册登录</li>
+<li>图书列表的增删查改</li>
+<li>个人书籍的增删查改</li>
+</ol>
+<h3 id="第一步：原型设计">第一步：原型设计</h3>
+<p>也没有什么原型设计，也就注册登录几个简单页面。外加读书列表的增删查改，至于评论功能有时间再去完成它。</p>
+<p>以前设计的原型图的初稿也可以参考一下，<a href="https://github.com/beforeload/navi/tree/master/doc/design" target="_blank">戳这里</a>。</p>
+<h3 id="第二步：_数据库设计">第二步： 数据库设计</h3>
+<p>详细文档<a href="https://github.com/beforeload/navi/blob/master/doc/db.md" target="_blank">戳这里</a></p>
+<p>user表:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>{
+  _id: ObjectId,
+  name: <span class="built_in">String</span>(unique),
+  email: <span class="built_in">String</span>(unique),
+  password: <span class="built_in">String</span>,
+  createTime: <span class="built_in">Date</span>(<span class="built_in">Date</span>.<span class="built_in">now</span>),
+  updateTime: <span class="built_in">Date</span>(<span class="built_in">Date</span>.<span class="built_in">now</span>)
+}
+</pre></td></tr></table></figure>
+
+<p>user_books表: (user,book关联表)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="rules">{
+  <span class="rule"><span class="attribute">_id</span>:<span class="value"> ObjectId,
+  userId: ObjectId,
+  books: [{
+    bookId: ObjectId,
+    addTime: <span class="function">Date(Date.now)</span>
+  </span></span></span>}]
+}
+</pre></td></tr></table></figure>
+
+<p>book表:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>{
+  _id: ObjectId,
+  title: <span class="built_in">String</span>,
+  desc: <span class="built_in">String</span>,
+  author: <span class="built_in">String</span>,
+  press: <span class="built_in">String</span>,
+  releaseDate: <span class="built_in">Date</span>,
+  addTime: <span class="built_in">Date</span>(<span class="built_in">Date</span>.<span class="built_in">now</span>),
+  updateTime: <span class="built_in">Date</span>(<span class="built_in">Date</span>.<span class="built_in">now</span>)
+}
+</pre></td></tr></table></figure>
+
+<h3 id="第三步：接口设计">第三步：接口设计</h3>
+<p>设计RESTFul API接口, 详细文档<a href="https://github.com/beforeload/navi/blob/master/doc/api.md" target="_blank">戳这里</a></p>
+<pre><code>/api/index (<span class="constant">GET</span>)               <span class="comment"># 获取网站全局的配置，站点参数等</span>
+/api/user/<span class="symbol">:userId</span> (<span class="constant">GET</span>)     <span class="comment"># 已登录用户的个人信息，阅读过的书籍</span>
+/api/user/<span class="symbol">:userId</span> (<span class="constant">PUT</span>)      <span class="comment"># 修改个人信息</span>
+/api/user/register  (<span class="constant">POST</span>)    <span class="comment"># 用户注册</span>
+/api/user/login (<span class="constant">POST</span>)        <span class="comment"># 用户登录</span>
+/api/user/logout (<span class="constant">GET</span>)        <span class="comment"># 退出登录</span>
+/api/account/active (<span class="constant">GET</span>)    <span class="comment"># 账号激活</span>
+/api/<span class="symbol">:userid/books</span> (<span class="constant">GET</span>)    <span class="comment"># 用户阅读书籍信息</span>
+/api/<span class="symbol">:userid/books</span> (<span class="constant">POST</span>)    <span class="comment"># 用户增加阅读书籍</span>
+/api/<span class="symbol">:userid/books</span> (<span class="constant">PUT</span>)    <span class="comment"># 用户修改阅读书籍</span>
+/api/<span class="symbol">:userid/</span><span class="symbol">:bookId</span> (<span class="constant">DELETE</span>)    <span class="comment"># 用户删除阅读书籍</span>
+/api/books      (<span class="constant">GET</span>)        <span class="comment"># 获取图书列表</span>
+/api/books/list (<span class="constant">GET</span>)        <span class="comment"># 获取图书列表</span>
+/api/books/<span class="symbol">:bookId</span> (<span class="constant">GET</span>)    <span class="comment"># 获取图书信息</span>
+/api/books   (<span class="constant">POST</span>)            <span class="comment"># 添加图书</span>
+/api/book/<span class="symbol">:bookId</span> (<span class="constant">PUT</span>)        <span class="comment"># 修改图书</span>
+/api/book/<span class="symbol">:bookId</span> (<span class="constant">DELETE</span>)    <span class="comment"># 删除图书</span>
+</code></pre><h3 id="前后端数据接口">前后端数据接口</h3>
+<p>具体每个接口传输和接受的数据在每个模块开发中单独定义，这里先不列举出来了。</p>
+<p>准备工作到这里结束了，明天完成注册登录模块。</p>
+]]></content>
+    <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
+    <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[the Introduction and Structure of Operating System]]></title>
     <link href="http://beforeload.github.io/2014/03/12/the-introduction-and-structure-of-operating-system/"/>
     <id>http://beforeload.github.io/2014/03/12/the-introduction-and-structure-of-operating-system/</id>
     <published>2014-03-11T17:09:47.000Z</published>
     <updated>2014-03-11T17:21:37.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="-64cd-4f5c-7cfb-7edf-ff08-4e00-ff09-">操作系统（一）</h1>
+    <content type="html"><![CDATA[<h1 id="操作系统（一）">操作系统（一）</h1>
 <p>最近准备重新构建自己的知识体系，先从操作系统开始,把知识点理一下。</p>
 <a id="more"></a>
 
-<h2 id="-7eea-8bba-">绪论</h2>
+<h2 id="绪论">绪论</h2>
 <img src="http://i.imgur.com/WifnF1e.png" class="introduction" title="[title [alt 操作系统绪论]]">
 
 
-<h3 id="-7b14-8bb0-8865-5145-ff1a-">笔记补充：</h3>
+<h3 id="笔记补充：">笔记补充：</h3>
 <ol>
 <li>通道: 独立于CPU运行，并行操作</li>
 <li>多道程序设计技术: (批处理系统)主存中存放多道独立程序</li>
 <li>分时技术: 时间片</li>
 </ol>
-<h2 id="-7ec4-7ec7-7ed3-6784-">组织结构</h2>
+<h2 id="组织结构">组织结构</h2>
 <img src="http://i.imgur.com/hMZCcHP.png" class="structure" title="[title [alt 操作系统组织结构]]">
 
 
-<h3 id="-7b14-8bb0-8865-5145-">笔记补充</h3>
+<h3 id="笔记补充">笔记补充</h3>
 <ol>
 <li>管态(系统态): 管理程序运行状态</li>
 <li>用户态(目态): 禁用特权命令，访问区域受限</li>
@@ -68,7 +177,7 @@
     <id>http://beforeload.github.io/2014/02/16/new-year-new-start/</id>
     <published>2014-02-16T15:45:11.000Z</published>
     <updated>2014-02-16T16:15:13.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="-65b0-7684-4e00-5e74-ff0c-65b0-7684-5f00-59cb-">新的一年，新的开始</h1>
+    <content type="html"><![CDATA[<h1 id="新的一年，新的开始">新的一年，新的开始</h1>
 <p>过去的一年没有好好的去学习技术，也没有好好的看看书，精通一门技术。</p>
 <a id="more"></a>
 
@@ -96,16 +205,16 @@
     <id>http://beforeload.github.io/2014/01/03/closure-of-javascript/</id>
     <published>2014-01-03T14:17:17.000Z</published>
     <updated>2014-01-03T16:09:40.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="JavaScript_-4e2d-7684-95ed-5305-">JavaScript 中的闭包</h1>
+    <content type="html"><![CDATA[<h1 id="JavaScript_中的闭包">JavaScript 中的闭包</h1>
 <p>最近被人问到JavaScript中闭包的作用，无意中回忆起很久之前实习面试的时候也被问过类似的问题，想起在写JS中遇到的一些习惯性的问题，写篇博客总结一下。</p>
 <a id="more"></a>
 
-<h2 id="-5148-4e86-89e3-4ec0-4e48-662f-4f5c-7528-57df-">先了解什么是作用域</h2>
+<h2 id="先了解什么是作用域">先了解什么是作用域</h2>
 <p>我感觉很多JS开发人员在对作用域的了解上都存在错误，虽然JavaScript是一种类C 的语言，但它并不支持块级作用域，块级作用域是定义在代码块中的变量在代码块执行结束后会被释放掉。</p>
 <p>在JavaScript中，则是通过函数作用域的方式，函数中的参数和变量在函数外不可见，而函数内自由使用，即内部任意位置定义的变量在函数内部任何地方都可见，当然定义变量时，请用var。为了避免块级作用域可能产生的问题，可以在函数体的顶部声明函数可能用到的所有变量。这也是很多前端开发人员的一个很好的习惯。</p>
-<h2 id="-95ed-5305-7684-4ea7-751f-">闭包的产生</h2>
+<h2 id="闭包的产生">闭包的产生</h2>
 <p>根据上面对作用域的描述，函数体内部可以访问外部函数的参数和变量（当然不包括this和arguments），这也叫做链式作用域(chain scope)。理解了作用域，闭包就变得很好理解了，我觉得可以这样简单的去理解它：一个定义在函数内部的函数，它可以访问创建时所处的上下文环境。这是最浅显的理解，当然它的作用远不止这些。</p>
-<h2 id="-95ed-5305-7684-4f5c-7528-">闭包的作用</h2>
+<h2 id="闭包的作用">闭包的作用</h2>
 <p>一个闭包最重要的作用不仅仅是可以读取函数内部的变量，更让人惊喜的是，<em>只要内部函数需要</em>，这些变量的值在内存中会一直存在。可以在控制台中写个简单的例子来演示它：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -124,23 +233,23 @@
 15
 16
 17
-</pre></td><td class="code"><pre><span class="keyword">var</span> add
-<span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span> <span class="comment">{
-    var x = 1
-    add = function () {
-        x += 1
-    }</span>
+</pre></td><td class="code"><pre>var <span class="built_in">add</span>
+<span class="function"><span class="keyword">function</span> <span class="title">a</span>() {</span>
+    var x = <span class="number">1</span>
+    <span class="built_in">add</span> = <span class="function"><span class="keyword">function</span> () {</span>
+        x += <span class="number">1</span>
+    }
 
-    <span class="title">function</span> <span class="title">b</span><span class="params">()</span> <span class="comment">{
-        console.log(x)
-    }</span>
-    <span class="title">return</span> <span class="title">b</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">b</span>() {</span>
+        console.<span class="built_in">log</span>(x)
+    }
+    <span class="constant">return</span> b
 }
 
-<span class="title">var</span> <span class="title">result</span> = <span class="title">a</span><span class="params">()</span>
-<span class="title">result</span><span class="params">()</span> // 1
-<span class="title">add</span><span class="params">()</span>
-<span class="title">result</span><span class="params">()</span> // 2</span>
+var <span class="built_in">result</span> = <span class="operator">a</span>()
+<span class="built_in">result</span>()<span class="comment"> // 1</span>
+<span class="built_in">add</span>()
+<span class="built_in">result</span>()<span class="comment"> // 2</span>
 </pre></td></tr></table></figure>
 
 <p>值得注意的是上面的例子中有两个闭包，add是一个匿名函数，也是一个闭包，它在函数外部定义，却在操作函数内部的变量。result是闭包b的函数，两次运行的值不同表示x值在内存中一直保存着，a调用结束后，x没有被回收。</p>
@@ -171,7 +280,7 @@ s() <span class="comment">// 3</span>
 
 <p>现在只有一个闭包函数，这下子可以一眼看出来了吧。函数b嵌套在函数a内，函数a返回函数b。当函数b在函数a外部的一个变量引用时，就产生了闭包。</p>
 <p>当然，由于长期保存在内存中不能释放，很多人也会遇到JavaScript内存泄露的问题(IE中)，这需要我们小心的使用闭包。有经验的前端工程师给出的建议是在推出函数之前，删除不使用的局部定义的变量。</p>
-<h2 id="-7406-89e3-95ed-5305-">理解闭包</h2>
+<h2 id="理解闭包">理解闭包</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -197,7 +306,7 @@ console.log(object.getNameFunc()())
 <p>猜猜结果会是什么？<br>答案是：”The Window”</p>
 <p>很显然，闭包函数在<code>getNameFunc</code>函数外部被调用，那么<code>this</code>就不指向<code>object</code>对象，而指向了全局的<code>window</code>，所以最后的结果是<code>window.name</code>，也就是”The Window”</p>
 <p>通过闭包，我们可以很显然的观察到函数的<em>定义</em>和<em>执行</em>过程。使用闭包，一方面可以保护函数内变量的安全，实现私有属性和私有方法的作用，另一方面可以在内存中保持一个变量。</p>
-<h2 id="JS-4e2d-7684-GC-673a-5236-">JS中的GC机制</h2>
+<h2 id="JS中的GC机制">JS中的GC机制</h2>
 <p>这里延伸一点，解释一下为什么产生闭包时，内部函数会比外部函数拥有更长的生命周期。这是由JS中的GC机制决定的。</p>
 <p>在JavaScript中，如果一个对象不再被引用，那么这个对象就被GC回收。如果两个对象相互引用，但不会被第三个对象引用时，这两个对象都会被回收。但是，如果函数a被b引用，b又被函数a外的c引用，这样函数a执行完之后，却不会被回收了。</p>
 <p>写在最后的话：关于闭包的东西远远不止这些，使用方式也复杂多样，但是万变不离其宗，理解它的机制可以帮助我们写出更加高效优雅的代码。</p>
@@ -211,7 +320,7 @@ console.log(object.getNameFunc()())
     <id>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</id>
     <published>2014-01-02T04:53:58.000Z</published>
     <updated>2014-01-02T07:38:40.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="-5728-Ubuntu_13-10-4e0a-5b89-88c5-vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
+    <content type="html"><![CDATA[<h1 id="在Ubuntu_13-10上安装vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
 <p> 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找<code>vim-powerline</code>的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然<code>let g:Powerline_symbols = &#39;fancy&#39;</code>没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和解决方法。</p>
 <img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal">
 
@@ -224,12 +333,12 @@ console.log(object.getNameFunc()())
 
 <a id="more"></a>
 
-<h2 id="-4e00-3001-5b89-88c5-Powerline">一、安装Powerline</h2>
+<h2 id="一、安装Powerline">一、安装Powerline</h2>
 <ol>
 <li>首先安装python-pip和git:</li>
 </ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">python</span><span class="literal">-</span><span class="comment">pip</span> <span class="comment">git</span>
+</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install python<span class="attribute">-pip</span> git
 </pre></td></tr></table></figure>
 
 <ol>
@@ -238,7 +347,7 @@ console.log(object.getNameFunc()())
 <p>分两种情况：<br>1) 对于个人用户</p>
 <p>在控制台中运行：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">pip</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">user</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline</span>
+</pre></td><td class="code"><pre>pip install --user git+git:<span class="comment">//github.com/Lokaltog/powerline</span>
 </pre></td></tr></table></figure>
 
 <p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
@@ -253,17 +362,17 @@ console.log(object.getNameFunc()())
 <p>2) 对于系统用户</p>
 <p>在控制台中运行：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">install</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline'</span>
+</pre></td><td class="code"><pre>su <span class="attribute">-c</span> <span class="string">'pip install git+git://github.com/Lokaltog/powerline'</span>
 </pre></td></tr></table></figure>
 
-<h2 id="-4e8c-3001-5b57-4f53-7684-5b89-88c5-">二、字体的安装</h2>
+<h2 id="二、字体的安装">二、字体的安装</h2>
 <p>对于Ubuntu的用户来说，安装字体再简单不过了，只需要双击文件，点击Install即可。这里不在赘述。</p>
 <p>不过，我发现从<a href="https://github.com/Lokaltog/powerline-fonts" target="_blank">powerline-fonts</a>上下载的字体不能直接用，还是需要配置，配置过程如下：</p>
 <ol>
 <li>Fontconfig：(推荐)</li>
 </ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">fontforge</span> <span class="comment">python</span><span class="literal">-</span><span class="comment">fontforge</span>
+</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install fontforge python<span class="attribute">-fontforge</span>
 </pre></td></tr></table></figure>
 
 <p>1) 对于个人用户</p>
@@ -301,7 +410,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 </pre></td></tr></table></figure>
 
 <p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
-<h2 id="-4e09-3001-914d-7f6e-vimrc">三、配置.vimrc</h2>
+<h2 id="三、配置-vimrc">三、配置.vimrc</h2>
 <ol>
 <li>Vim状态栏的配置</li>
 </ol>
@@ -316,19 +425,19 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 </pre></td><td class="code"><pre><span class="built_in">set</span> encoding<span class="subst">=</span>utf<span class="subst">-</span><span class="number">8</span>
 <span class="built_in">set</span> fillchars<span class="subst">+=</span>stl:<span class="subst">\</span> ,stlnc:<span class="subst">\</span>
 <span class="built_in">set</span> laststatus<span class="subst">=</span><span class="number">2</span>
-<span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span><span class="subst">/</span>lib<span class="subst">/</span>python2<span class="number">.7</span><span class="subst">/</span>site<span class="attribute">-packages</span><span class="subst">/</span>powerline<span class="subst">/</span>bindings<span class="subst">/</span>vim<span class="subst">/</span>
+<span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span>/lib/python2<span class="number">.7</span>/site<span class="attribute">-packages</span>/powerline/bindings/vim<span class="subst">/</span>
 <span class="built_in">set</span> <span class="attribute">-g</span> default<span class="attribute">-terminal</span> <span class="string">"screen-256color"</span>
 <span class="built_in">set</span> t_Co<span class="subst">=</span><span class="number">256</span>
 <span class="keyword">let</span> g:Powerline_symbols <span class="subst">=</span> <span class="string">'fancy'</span>
 </pre></td></tr></table></figure>
 
 <p>后面附上我的vimrc相关配置。</p>
-<h2 id="-56db-3001-5378-8f7d-">四、卸载</h2>
+<h2 id="四、卸载">四、卸载</h2>
 <p>1) 对于个人用户：</p>
-<pre><code><span class="title">pip</span> uninstall powerline
+<pre><code>pip uninstall powerline
 </code></pre><p>2) 对于系统用户：</p>
-<pre><code><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">uninstall</span> <span class="comment">powerline'</span>
-</code></pre><h3 id="-9644-4e0a-6211-7684-5b57-4f53-914d-7f6e-6587-4ef6-">附上我的字体配置文件</h3>
+<pre><code>su <span class="attribute">-c</span> <span class="string">'pip uninstall powerline'</span>
+</code></pre><h3 id="附上我的字体配置文件">附上我的字体配置文件</h3>
 <ol>
 <li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank">字体</a></li>
 <li><a href="https://raw.github.com/beforeload/dotfiles/master/.vimrc" target="_blank">.vimrc</a></li>
@@ -344,23 +453,23 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2014/01/01/conclusions-of-2013/</id>
     <published>2014-01-01T09:25:37.000Z</published>
     <updated>2014-01-01T12:07:28.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="-5e74-7ec8-603b-7ed3-_-2014-2014-_-81f4-901d-53bb-7684-9752-6625-">年终总结 —— 致逝去的青春</h1>
+    <content type="html"><![CDATA[<h1 id="年终总结_——_致逝去的青春">年终总结 —— 致逝去的青春</h1>
 <p>去年没有好好做过总结，今年自我感觉算是失败吧，那就写出来算是自我反省吧。</p>
 <a id="more"></a>
 
-<h2 id="-8ff7-832b-7684-5f00-7aef-">迷茫的开端</h2>
+<h2 id="迷茫的开端">迷茫的开端</h2>
 <p>年初，因为实验室项目的缘故，离开了点评实习的时光，脱离了熟悉的技术氛围，重新回到大学校园，各种迷茫，困惑的情绪历历在目。</p>
 <p>自以为读研是在逃避社会，其实心里清楚逃避的不仅仅是社会，也是一种自我否定吧。没有直观的认知，现在想起来，每一步的选择，都付出了太多。不禁让我想起钱钟书《围城》。大学仿佛是一个笼子，笼子里的人是安逸的，舒适的，开学之前，可能希望回到学校，多点时间充充电，可惜回来之后却更向往忙碌而紧张的技术氛围。可能骨子里对编程技术，还是有点疯狂的追求吧。回到大学的我，开始排斥这样的生活，对于技术的爱好，以及安逸生活之间的矛盾，就这样一发不可收拾，13年的开头是失败的，我没有做好准备。</p>
 <p>这样的情绪是消极的，我认识到这一点却没有想办法去改变它，我不应该去抱怨，不应该让消极的情绪影响到别人，2014年，我希望能够自信，积极的去做好每一件事情。</p>
-<h2 id="-65e0-77e5-ff0c-53ef-601c-53ef-6068-">无知，可怜可恨</h2>
+<h2 id="无知，可怜可恨">无知，可怜可恨</h2>
 <p>知道的越多对未来越充满恐惧，而无知让我迷茫，每当自我感觉成熟一点，都会产生一种迷茫。回顾2013，竟然一本完整的技术书籍都没有仔细读完，而书桌上的新书，仿佛是一种嘲笑，心烦气躁却无奈叹息。希望2014年的愿景是多读点书，一切从头开始。</p>
 <p>要去学习的东西总会很多，不能因为无知而不自知，无知的人是可怜的，但一定也是可恨的，要勇敢的迈出这一步，很多时候，都需要全身心的投入进去，只有这样收获才会和产出成正比。</p>
 <p>不愿意再做一个无知的人，每天都期待有所收获。2014年，我希望每周都能读完一本技术类的书籍，看了很多小说，看了很多电影，也浪费了很多宝贵的时间，也许生活需要娱乐，但是绝对不能让娱乐占据生活。</p>
-<h2 id="-4eba-751f-9700-8981-76ee-6807-">人生需要目标</h2>
+<h2 id="人生需要目标">人生需要目标</h2>
 <p>以前不理解这句话，感觉空的目标，虽然远大却毫无意义，大学的成长，伴随着很多驱动因素的消失，很多事情都取决于个人，由自己去做出选择。过去的一年我害怕选择，很多东西失去的便不会再来，而选错了那就一定要承担后果。这一年里，我参与过CoffeeScript书籍的翻译，学过Hadoop，做过并行程序开发，写过前端和Nodejs，在Coursera上学过一些课程，包括算法和Machine Learning，也和同学在Codeforces上刷过题。</p>
 <p>在Coursera上每周跟进课程应该算2013年做过最有意义的事情，每当收获一张结课证书，都感到无比的兴奋。但是我只是在学习，没有过目标，没有思考过未来。进步可想而知是缓慢的。显而易见，在最后的两个月里，我几乎被实验室的项目缠的分不开心，github很长时间没有提交过代码，Coursera上也很长时间没有上过，最让我恶心的是每次看到复杂的Java代码，我都觉得深深的无力。</p>
 <p>也许曾经有过目标，但是这一年里，目标早就不知抛到哪里去了。没有过迫切想去实现的目标，这也是我失败的缘由。2014，我希望能够实现我的每一个目标。</p>
-<h2 id="-751f-6d3b-9700-8981-601d-8003-">生活需要思考</h2>
+<h2 id="生活需要思考">生活需要思考</h2>
 <p>总结过去的一年，我没有真正的去思考过。这也是每次都觉得绞尽脑汁的去思考业务，让我感到无比累的原因吧。不愿意去思考失败，便永远不会成功。<br>路就在脚下，关键是迈出这一步的勇气。2014年，我希望能够走的更远。</p>
 <p>2013年，我用我的失败，与君共勉！<br>2014年，勇敢的面对，我决定不再逃避！</p>
 ]]></content>
@@ -373,7 +482,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/10/28/a-trick-in-python/</id>
     <published>2013-10-28T12:46:09.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-4e00-4e2a-8ba9-6211-60ca-8bb6-7684-8f6c-6362-">一个让我惊讶的转换</h2>
+    <content type="html"><![CDATA[<h2 id="一个让我惊讶的转换">一个让我惊讶的转换</h2>
 <p>今天写python，无意中发现一次打印的结果让我甚是惊讶！</p>
 <p>废话不多说，见源码：</p>
 <script src="https://gist.github.com/7196281.js?file=amazing_convert.py"></script>
@@ -386,10 +495,10 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 2
 3
 4
-</pre></td><td class="code"><pre><span class="literal">-</span><span class="comment">40</span><span class="string">.</span><span class="comment">0</span> <span class="literal">-</span><span class="comment">39</span>
-<span class="literal">-</span><span class="comment">40</span> <span class="literal">-</span><span class="comment">40</span>
-<span class="literal">-</span><span class="comment">1</span> <span class="literal">-</span><span class="comment">39</span> <span class="literal">-</span><span class="comment">39</span>
-<span class="literal">-</span><span class="comment">1</span> <span class="comment">dollars</span> <span class="comment">and</span> <span class="literal">-</span><span class="comment">39</span> <span class="comment">cents</span>
+</pre></td><td class="code"><pre>-<span class="ruby"><span class="number">40.0</span> -<span class="number">39</span>
+</span>-<span class="ruby"><span class="number">40</span> -<span class="number">40</span>
+</span>-<span class="ruby"><span class="number">1</span> -<span class="number">39</span> -<span class="number">39</span>
+</span>-<span class="ruby"><span class="number">1</span> dollars <span class="keyword">and</span> -<span class="number">39</span> cents</span>
 </pre></td></tr></table></figure>
 
 <p>惊讶的发现<code>cents</code>打印出来是-39,竟然不是-40！<br>而<code>int(-40.0)</code>结果是-40</p>
@@ -403,8 +512,8 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</id>
     <published>2013-10-19T12:25:13.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-673a-5668-5b66-4e60-7b80-4ecb-">机器学习简介</h2>
-<h3 id="-4e00-3001-5b9a-4e49-">一、定义</h3>
+    <content type="html"><![CDATA[<h2 id="机器学习简介">机器学习简介</h2>
+<h3 id="一、定义">一、定义</h3>
 <blockquote>
 <p>Arthur Samuel (1959): Machine Learning: Field of study that gives computers the ability to learn without being explicitly programmed.<br>Tom Mitchell (1998) : Well-posed Learning Problem: A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</p>
 </blockquote>
@@ -416,7 +525,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <li>查看哪些邮件被标记为垃圾邮件，以及哪些标记为非垃圾邮件是经验E；</li>
 <li>正确识别垃圾邮件或非垃圾邮件比例（或数量）为P。</li>
 </ol>
-<h3 id="-4e8c-3001-673a-5668-5b66-4e60-7b97-6cd5-7684-7c7b-578b-">二、机器学习算法的类型</h3>
+<h3 id="二、机器学习算法的类型">二、机器学习算法的类型</h3>
 <p>(1) 监督学习(Supervised learning)</p>
 <ol>
 <li>概念： 通过生成一个函数将输入映射为一个合适的输出（通常也称为标记，多数情况下训练集都是有人工专家标注生成的）。</li>
@@ -458,17 +567,17 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/10/08/know-your-pc/</id>
     <published>2013-10-08T04:00:39.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="-4f60-7684-7535-8111-ff0c-4f60-4e86-89e3-591a-5c11-ff1f-">你的电脑，你了解多少？</h1>
+    <content type="html"><![CDATA[<h1 id="你的电脑，你了解多少？">你的电脑，你了解多少？</h1>
 <p>写这篇博客的原因是，我在使用Linux到现在位置还不知道怎么样去查找电脑相关信息，受到Coursera上<a href="https://class.coursera.org/pkuic-001" target="_blank">Introduction to Computing 计算概论A</a>课程启发，学习同时分享一下自己查看电脑信息的相关命令和过程。</p>
 <a id="more"></a>
 
-<h3 id="Q1-3a-_-5173-4e8e-CPU">Q1: 关于CPU</h3>
-<figure class="highlight lang-shell"><table><tr><td class="gutter"><pre>1
+<h3 id="Q1:_关于CPU">Q1: 关于CPU</h3>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="title">cat</span> /<span class="keyword">proc</span>/cpuinfo   # 指令 <span class="number">1</span>
+</pre></td><td class="code"><pre>cat /proc/cpuinfo   <span class="comment"># 指令 1</span>
 
-<span class="title">lscpu</span>               # 指令 <span class="number">2</span>
+lscpu               <span class="comment"># 指令 2</span>
 </pre></td></tr></table></figure>
 
 <ol>
@@ -480,7 +589,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <li>三级缓存大小 cat /sys/devices/system/cpu/cpu0/cache/index3/size</li>
 <li>支持的指令集 flags</li>
 </ol>
-<h3 id="Q2-3a-_-5173-4e8e-5185-5b58-">Q2: 关于内存</h3>
+<h3 id="Q2:_关于内存">Q2: 关于内存</h3>
 <ol>
 <li>内存品牌</li>
 <li>内存类型</li>
@@ -490,7 +599,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <li>工作电压</li>
 <li>内存延迟</li>
 </ol>
-<h3 id="Q3-3a-_-5173-4e8e-663e-793a-5668-">Q3: 关于显示器</h3>
+<h3 id="Q3:_关于显示器">Q3: 关于显示器</h3>
 <ol>
 <li>显示器类型(CRT/LCD?)</li>
 <li>色彩数</li>
@@ -499,7 +608,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <li>响应时间(ms)</li>
 <li>点距(mm)</li>
 </ol>
-<h3 id="Q4-3a-_-5173-4e8e-786c-76d8-">Q4: 关于硬盘</h3>
+<h3 id="Q4:_关于硬盘">Q4: 关于硬盘</h3>
 <ol>
 <li>硬盘品牌</li>
 <li>硬盘大小</li>
@@ -519,7 +628,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/10/07/my-pale-national-day-holidays/</id>
     <published>2013-10-07T14:11:51.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-60e8-6de1-7684-56fd-5e86-8282-">惨淡的国庆节</h2>
+    <content type="html"><![CDATA[<h2 id="惨淡的国庆节">惨淡的国庆节</h2>
 <p>真是惨不忍睹！</p>
 <p>我容易吗我？打了几百字结果由于更新了一些hexo版本，结果报错给我回归了版本，最后才发现原来是theme没有更新，这个国庆在最后一天也不让我好过！第一次在自己的博客里吐槽，实在是忘不了jBPM5在这个国庆假日给我带来的痛。</p>
 ]]></content>
@@ -532,8 +641,8 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/09/03/install-jbpm54/</id>
     <published>2013-09-03T14:49:38.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="JBPM5-4-73af-5883-642d-5efa-">JBPM5.4环境搭建</h2>
-<h3 id="Step_1-3a-_-51c6-5907-5de5-4f5c-">Step 1: 准备工作</h3>
+    <content type="html"><![CDATA[<h2 id="JBPM5-4环境搭建">JBPM5.4环境搭建</h2>
+<h3 id="Step_1:_准备工作">Step 1: 准备工作</h3>
 <ol>
 <li>下载JDK，安装配置Java环境</li>
 <li>下载Ant，配置Java自动化脚本引擎</li>
@@ -545,7 +654,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <li>Linux的JDK安装可以参考我的另外<a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a></li>
 <li>Windows的安装可以参考<a href="http://www.cnitblog.com/intrl/archive/2009/04/11/56254.aspx" target="_blank">这里</a></li>
 </ol>
-<h3 id="Step_2-3a-_-4e0b-8f7d-JBPM_5-4-5b89-88c5-76f8-5173-5f00-53d1-5de5-5177-">Step 2: 下载JBPM 5.4安装相关开发工具</h3>
+<h3 id="Step_2:_下载JBPM_5-4安装相关开发工具">Step 2: 下载JBPM 5.4安装相关开发工具</h3>
 <ol>
 <li>下载<a href="http://softlayer-dal.dl.sourceforge.net/project/jbpm/jBPM%205/jbpm-5.4.0.Final/jbpm-5.4.0.Final-installer-full.zip" target="_blank">jbpm-5.4.0.Final-installer-full.zip</a></li>
 <li><p>解压缩，从控制台(Windows用户是command)进入相应文件夹下，然后输入命令</p>
@@ -554,7 +663,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 </ol>
 <p>这个过程是下载Eclipse, Jboss等工具，自动化构建开发环境。</p>
 <p>备注： 之所以选择这样的构建方式，是因为不想在环境搭建上浪费太多时间，以便拥有更多的时间投入JBPM5的学习开发过程中。</p>
-<h3 id="Step_3-3a-_-6d4b-8bd5-73af-5883-662f-5426-642d-5efa-6210-529f-">Step 3: 测试环境是否搭建成功</h3>
+<h3 id="Step_3:_测试环境是否搭建成功">Step 3: 测试环境是否搭建成功</h3>
 <ol>
 <li><p>启动JBPM</p>
 <p> ant start.demo</p>
@@ -579,7 +688,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <p>输入如下地址可以进入</p>
 <p><a href="http://localhost:8080/drools-guvnor" target="_blank">http://localhost:8080/drools-guvnor</a></p>
 <p>最后，视频演示请戳<a href="http://people.redhat.com/kverlaen/install-gwt-console-jbpm.swf" target="_blank">这里</a></p>
-<h3 id="-53c2-8003-535a-6587-ff1a-">参考博文：</h3>
+<h3 id="参考博文：">参考博文：</h3>
 <ol>
 <li><a href="http://wanglu271991027.iteye.com/blog/1495799" target="_blank">jbpm5.2学习———安装与配置</a></li>
 <li><a href="http://www.cnblogs.com/skyme/archive/2011/11/07/2238782.html" target="_blank">JBPM5.1的介绍</a></li>
@@ -598,11 +707,11 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/09/01/i-am-always-so-busy/</id>
     <published>2013-09-01T14:39:13.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-4ec0-4e48-90fd-4e0d-60f3-653e-5f03-">什么都不想放弃</h2>
+    <content type="html"><![CDATA[<h2 id="什么都不想放弃">什么都不想放弃</h2>
 <p>还是放不下太多，想多学点，再多学点，努力，再努力点。就是这样！</p>
 <a id="more"></a>
 
-<h2 id="-6211-4e0d-5e94-8be5-5410-69fd-">我不应该吐槽</h2>
+<h2 id="我不应该吐槽">我不应该吐槽</h2>
 <p>之前焦虑的生活，让我总在一些不论合不合适的场合下吐槽，我知道这样不好，但是习惯了这样排解压力，所以不可避免的会产生一些不好的影响。不过Java还是不可避免的给我带来了极大的痛苦。</p>
 <h2 id="Just_Code_your_life">Just Code your life</h2>
 <p>我觉得做一个程序员，就一直写下去就好，不要思考太多无法解决的问题，把有限的精力放在优先级更高的事情上，生活过的会更加积极主动！</p>
@@ -617,23 +726,23 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/08/22/too-young-too-simple/</id>
     <published>2013-08-22T15:57:37.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-4e00-4e2a-83dc-9e1f-7a0b-5e8f-5458-7684-603b-7ed3-4e0e-5c55-671b-">一个菜鸟程序员的总结与展望</h2>
+    <content type="html"><![CDATA[<h2 id="一个菜鸟程序员的总结与展望">一个菜鸟程序员的总结与展望</h2>
 <p><strong><em>写在前面的话：虽然还是一名学生，但我以一名优秀的程序员为目标要求自己。</em></strong></p>
 <a id="more"></a>
 
-<h3 id="-6211-8fd8-662f-592a-5e74-8f7b-4e86-">我还是太年轻了</h3>
+<h3 id="我还是太年轻了">我还是太年轻了</h3>
 <p>决定写这篇博客的时候，才深深意识到自己还是太年轻了。大学四年都没有真正明白自己真的想要什么样的生活，或者说想过目标却没想过去实现它。这是悲剧的，非常悲剧的。曾经虚度那么多时间，得到的除了一时的安逸之外，就是深深的愧疚。大学四年染上了不少的坏习惯，有过通宵看过小说，上课也看，逃课玩游戏，也挂过科。很多门课都不知道哪个老师讲的，更不知道讲了什么东西。现在才意识到这是多么残忍而可怕呀！很多时候都感觉，曾经的我给我留下的只有不堪和悔恨！</p>
-<h3 id="-505a-70b9-6709-6210-5c31-611f-7684-4e8b-60c5-">做点有成就感的事情</h3>
+<h3 id="做点有成就感的事情">做点有成就感的事情</h3>
 <p>有想过希望什么样的生活，也非常希望能够得到很多人的关注与承认。但是应该怎么做，对人生对自己迷茫，非常迷茫。也在zhihu上问过这样的问题:<a href="http://www.zhihu.com/question/20760217" target="_blank">怎样戒骄戒躁，明确学习目标，提高自己的积极性，保证良好的执行力？</a>现在想想，不管别人怎么说，怎么做，关键还是在于自己应该怎么行动。所以我开始每天让自己过的稍微充实一点，至少搞点有成就感的事情。慢慢的我发现这个方法很管用，就这样我找到了第一份实习工作，在大众点评网的前端开发。</p>
 <p>刚学HTML+CSS的时候，我感觉这玩意太easy了。就这么有成就感的学了一点前端知识，竟然让我有幸进入公司实习，不得不说这是一点点小幸运。于是我开始学习，心里只有一个念头，就是想得到他们的认可。</p>
 <p>我发现一个很重要的事实，当一个人在某个领域，或者说某个方面感觉很有成就感的时候，他会非常希望和迫切的去获得更大的成就感，就好比人总是贪婪和不容易满足的。不过我就是这样的人，在实习阶段，真的让我有种迫切学习的欲望。很有压力也很开心的那段日子。</p>
-<h3 id="-627e-5230-5b66-4e60-7684-4f19-4f34-">找到学习的伙伴</h3>
+<h3 id="找到学习的伙伴">找到学习的伙伴</h3>
 <p>对自己的女朋友，我鼓励她去完成她没有自信去完成的目标，但是对自己，想要实现一些目标，但我却一点自信都没有。可笑的是我还自以为是。学习这种东西，一个人学习的时候，总是孤独而胆怯的。窃以为，如果身边有志同道合的朋友，那对自己的帮助真的太大了。三人行必有我师焉！古人诚不欺我！</p>
 <p>很一些同学交流之后才发现，原来很多同学也想找到伙伴。组队刷题什么的最有爱了不是吗？于是我在github上建了一个Bantor的Team，想和别人一起刷题。也参加了一些Coursera的课程，收获颇多。更开心的是，时刻有来自全球的伙伴和你同台竞技，交流经验，幸福感油然而生！</p>
-<h3 id="-5fc3-7684-5f3a-5927-624d-662f-771f-7684-5f3a-5927-">心的强大才是真的强大</h3>
+<h3 id="心的强大才是真的强大">心的强大才是真的强大</h3>
 <p>现在该操心的不是该看什么小说，不是该玩什么游戏，也不是该怎么计划生活，而是在你的伙伴身边行动起来，获得别人的尊重就要收获比别人更多的东西。</p>
 <p>一个人不能脆弱，身边有为同样目标奋斗的伙伴时，人便不会再迷茫，不会再浮躁。安静而强大的内心凝聚的是你生命的力量，每个人都可以用它来实现任何目标和理想。</p>
-<h3 id="-672a-6765-4f55-53bb-4f55-4ece-">未来何去何从</h3>
+<h3 id="未来何去何从">未来何去何从</h3>
 <p>现在的自己迫切的需要磨练自己的技艺。未来的自己呢？</p>
 <p>把自己的目光放的长远些，当你感到压力与迫不及待想去实现的动力的时候，还会缺乏执行力吗？</p>
 <p>我的目标是：明年，我想找到自己理想的实习工作。</p>
@@ -648,7 +757,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
     <id>http://beforeload.github.io/2013/08/20/the-fundamentals-knowledge-of-python/</id>
     <published>2013-08-19T18:19:22.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Python_-57fa-7840-77e5-8bc6-">Python 基础知识</h2>
+    <content type="html"><![CDATA[<h2 id="Python_基础知识">Python 基础知识</h2>
 <p>简介：这是对Coursera上的<a href="https://class.coursera.org/programming1-002/class" target="_blank">Learn to Program: The Fundamentals</a>第一周课程的一次总结。 </p>
 <p><a id="more"></a></p>
 <blockquote>
@@ -696,7 +805,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <blockquote>
 <p>第三点： 变量</p>
 </blockquote>
-<pre><code><span class="title">variable</span> = expression
+<pre><code><span class="attribute">variable </span>=<span class="string"> expression</span>
 </code></pre><p><strong>赋值语句：</strong></p>
 <p>执行赋值语句的规则是：</p>
 <ol>
@@ -727,21 +836,21 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <p><strong>Function help</strong></p>
 <p>为了得到某个函数的具体信息，可以调用help方法，将函数名作为参数，如下：</p>
 <pre><code>&gt;&gt;&gt; help(abs)
-Help on built-<span class="keyword">in</span> <span class="function"><span class="keyword">function</span> <span class="title">abs</span> <span class="title">in</span> <span class="title">module</span> <span class="title">builtins</span>:
-<span class="title">abs</span><span class="params">(...)</span>
-    <span class="title">abs</span><span class="params">(number)</span> -&gt; <span class="title">number</span>
+Help on built-<span class="keyword">in</span> <span class="keyword">function</span> abs <span class="keyword">in</span> module builtins:
+abs(<span class="keyword">...</span>)
+    abs(number) -&gt; number
 
-        <span class="title">Return</span> <span class="title">the</span> <span class="title">absolute</span> <span class="title">value</span> <span class="title">of</span> <span class="title">the</span> <span class="title">argument</span>.</span>
+        Return the absolute value of the argument.
 </code></pre><p><strong>可选参数</strong></p>
 <p>例如在pow函数中[, z]表示z参数可选。</p>
 <pre><code>&gt;&gt;&gt; help(pow)
-<span class="type">Help</span> on built-<span class="keyword">in</span> function pow <span class="keyword">in</span> <span class="module"><span class="keyword">module</span> builtins:
+Help on built-<span class="keyword">in</span> <span class="keyword">function</span> pow <span class="keyword">in</span> module builtins:
 
-pow<span class="container">(...)</span>
-    pow<span class="container">(<span class="title">x</span>, <span class="title">y</span>[, <span class="title">z</span>])</span> -&gt; number
+pow(<span class="keyword">...</span>)
+    pow(x, y[, z]) -&gt; number
 
         With two arguments, equivalent to x**y.  With three arguments,
-            equivalent to <span class="container">(<span class="title">x</span>**<span class="title">y</span>)</span> % z, but may be more efficient <span class="container">(<span class="title">e</span>.<span class="title">g</span>. <span class="title">for</span> <span class="title">longs</span>)</span>.</span>
+            equivalent to (x**y) % z, but may be more efficient (e.g. <span class="keyword">for</span> longs).
 </code></pre><blockquote>
 <p>第五点：函数</p>
 </blockquote>
@@ -786,15 +895,15 @@ pow<span class="container">(...)</span>
     <id>http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/</id>
     <published>2013-07-11T13:01:59.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-5206-5e03-5f0f-8ba1-7b97-76f8-5173-8d44-6e90-603b-7ed3-">分布式计算相关资源总结</h2>
-<h3 id="-8bba-6587-">论文</h3>
+    <content type="html"><![CDATA[<h2 id="分布式计算相关资源总结">分布式计算相关资源总结</h2>
+<h3 id="论文">论文</h3>
 <p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
 <blockquote>
 <p>Google出品，必属精品！</p>
 </blockquote>
 <a id="more"></a>
 
-<h4 id="-56db-5927-7ecf-5178-8bba-6587-28-5fc5-770b-29-">四大经典论文(必看)</h4>
+<h4 id="四大经典论文(必看)">四大经典论文(必看)</h4>
 <ol>
 <li><p>The Anatomy of a Large-Scale Hypertextual Web Search Engine</p>
 <p>分布式计算的奠基制作，介绍了Google搜索引擎的原型，讲解了一个基于超文本的大型系统建立过程。</p>
@@ -809,7 +918,7 @@ pow<span class="container">(...)</span>
 <p>这篇论文主要实现了分布式存储数据的结构化，Google Earth和网页索引都是基于BigTable实现。论文很清晰的讲解了BigTable的设计实现思路和方法。</p>
 </li>
 </ol>
-<h4 id="-4e09-7bc7-8865-5145-8bba-6587-28-63a8-8350-770b-29-">三篇补充论文(推荐看)</h4>
+<h4 id="三篇补充论文(推荐看)">三篇补充论文(推荐看)</h4>
 <ol>
 <li><p>Dynamo</p>
 <p>Google原始之作！</p>
@@ -824,12 +933,12 @@ pow<span class="container">(...)</span>
 </li>
 </ol>
 <p>第一个全球意义上的分布式数据库，推荐它的其中一个原因是，我完全看不懂！！！</p>
-<h4 id="-5176-4ed6-8bba-6587-">其他论文</h4>
+<h4 id="其他论文">其他论文</h4>
 <p>这里还有一份别人总结的<a href="http://duanple.blog.163.com/blog/static/709717672011330101333271/" target="_blank">分布式系统领域经典论文翻译集</a>。</p>
 <p><strong><em>论文来源和下载：</em></strong></p>
 <p>大多数论文来源于OSDI上。可以直接去会议网站上下载。直接google scholar一下，也可以下载。</p>
-<h3 id="-4e66-7c4d-">书籍</h3>
-<h4 id="-5206-5e03-5f0f-8ba1-7b97-">分布式计算</h4>
+<h3 id="书籍">书籍</h3>
+<h4 id="分布式计算">分布式计算</h4>
 <ol>
 <li><a href="http://book.douban.com/subject/3108801/" target="_blank">分布式系统原理与范型</a></li>
 <li><a href="http://book.douban.com/subject/2698938/" target="_blank">分布式系统概念与设计</a></li>
@@ -846,18 +955,18 @@ pow<span class="container">(...)</span>
 </li>
 </ol>
 <p>这本书同样适合初学者，书里面有基础的实例实现。属于分布式计算方面少数可以看的中文书。<br>翻译的比较成功的两本书！当然看原版更好！</p>
-<h4 id="-5176-4ed6-4e66-7c4d-">其他书籍</h4>
+<h4 id="其他书籍">其他书籍</h4>
 <ol>
 <li>《推荐系统实践》</li>
 <li>《集体智慧编程》</li>
 </ol>
-<h3 id="-5176-4ed6-Hadoop-6559-7a0b-">其他Hadoop教程</h3>
+<h3 id="其他Hadoop教程">其他Hadoop教程</h3>
 <ol>
 <li>《深入浅出Hadoop实战开发30讲》</li>
 <li>《Hadoop应用开发实战 28讲》</li>
 <li>《Cloudera Hadoop 4系列实战课程40讲》</li>
 </ol>
-<h3 id="-603b-7ed3-">总结</h3>
+<h3 id="总结">总结</h3>
 <p>学习分布式计算，建议先去研究一下分布式计算的理论知识，然后学习一种框架，以Hadoop为例，从入门到精通！</p>
 <ol>
 <li><p>环境搭建</p>
@@ -891,7 +1000,7 @@ pow<span class="container">(...)</span>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-28T17:13:47.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-57fa-4e8e-Hadoop-7684-5206-5e03-5f0f-7cfb-7edf-5f00-53d1-73af-5883-5728-Ubuntu_13-04-4e2d-7684-642d-5efa-">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
+    <content type="html"><![CDATA[<h2 id="基于Hadoop的分布式系统开发环境在Ubuntu_13-04中的搭建">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
 <ol>
@@ -901,14 +1010,14 @@ pow<span class="container">(...)</span>
 </ol>
 <a id="more"></a>
 
-<h3 id="-5b89-88c5-jdk">安装jdk</h3>
+<h3 id="安装jdk">安装jdk</h3>
 <p><strong>(1) 下载JDK</strong></p>
 <p>Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
-<pre><code><span class="attribute">gzip</span>: <span class="attribute">stdin</span>: invalid compressed data--format <span class="attribute">violatedtar</span>: Unexpected EOF <span class="keyword">in</span> <span class="attribute">archivetar</span>: Unexpected EOF <span class="keyword">in</span> <span class="attribute">archivetar</span>: Error <span class="keyword">is</span> <span class="keyword">not</span> <span class="attribute">recoverable</span>: exiting now
+<pre><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF <span class="keyword">in</span> archivetar: Unexpected EOF <span class="keyword">in</span> archivetar: <span class="keyword">Error</span> <span class="keyword">is</span> <span class="keyword">not</span> recoverable: exiting <span class="built_in">now</span>
 </code></pre><p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">官网</a>上根据自己的系统下载相应的JDK。</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">mkdir</span> <span class="comment">/usr/java</span>
-<span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">jdk</span><span class="literal">-</span><span class="comment">7u25</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">x64</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span>
-<span class="comment">sudo</span> <span class="comment">mv</span> <span class="comment">jdk</span><span class="literal">-</span><span class="comment">7u25</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">x64</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span> <span class="comment">/usr/java/</span>
+<pre><code>sudo mkdir /usr/java
+tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
+sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> /usr/java/
 </code></pre><p><strong>(2) 然后修改配置文件</strong></p>
 <pre><code><span class="built_in">sudo</span> vi /etc/profile
 </code></pre><p>按G可以直接到文件尾端，填写下面内容:</p>
@@ -918,35 +1027,35 @@ pow<span class="container">(...)</span>
 <span class="keyword">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
 </code></pre><p>保存退出。</p>
 <p><strong>(3) 检测是否成功</strong> </p>
-<pre><code><span class="title">source</span> /etc/profile
-<span class="title">java</span> -version
+<pre><code><span class="built_in">source</span> /etc/profile
+java -version
 </code></pre><p>如果显示下面结果，表示安装成功。</p>
-<pre><code><span class="comment">java</span> <span class="comment">version</span> <span class="comment">"1</span><span class="string">.</span><span class="comment">7</span><span class="string">.</span><span class="comment">0_25"</span>
-<span class="comment">Java(TM)</span> <span class="comment">SE</span> <span class="comment">Runtime</span> <span class="comment">Environment</span> <span class="comment">(build</span> <span class="comment">1</span><span class="string">.</span><span class="comment">7</span><span class="string">.</span><span class="comment">0_25</span><span class="literal">-</span><span class="comment">b15)</span>
-<span class="comment">Java</span> <span class="comment">HotSpot(TM)</span> <span class="comment">64</span><span class="literal">-</span><span class="comment">Bit</span> <span class="comment">Server</span> <span class="comment">VM</span> <span class="comment">(build</span> <span class="comment">23</span><span class="string">.</span><span class="comment">25</span><span class="literal">-</span><span class="comment">b01</span><span class="string">,</span> <span class="comment">mixed</span> <span class="comment">mode)</span>
-</code></pre><h3 id="-5b89-88c5-eclipse">安装eclipse</h3>
+<pre><code>java version <span class="string">"1.7.0_25"</span>
+Java(TM) SE Runtime Environment (build <span class="number">1.7</span><span class="number">.0</span>_25<span class="attribute">-b15</span>)
+Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</span> Server VM (build <span class="number">23.25</span><span class="attribute">-b01</span>, mixed mode)
+</code></pre><h3 id="安装eclipse">安装eclipse</h3>
 <p><strong>(1) 下载eclipse<em>*</em>.tar.gz</strong></p>
-<pre><code><span class="comment">tar</span> <span class="comment">zxvf</span> <span class="comment">eclipse</span><span class="literal">-</span><span class="comment">standard</span><span class="literal">-</span><span class="comment">kepler</span><span class="literal">-</span><span class="comment">R</span><span class="literal">-</span><span class="comment">linux</span><span class="literal">-</span><span class="comment">gtk</span><span class="literal">-</span><span class="comment">x86_64</span><span class="string">.</span><span class="comment">tar</span><span class="string">.</span><span class="comment">gz</span>
-<span class="comment">mv</span> <span class="comment">eclipse</span> <span class="comment">/usr/local</span>
-<span class="comment">/usr/local/eclipse/eclipse</span>    <span class="comment">#启动eclipse</span>
+<pre><code>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
+mv eclipse /usr/<span class="built_in">local</span>
+/usr/<span class="built_in">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span>
 </code></pre><p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
-<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Keyboard</span> <span class="literal">-</span>&gt; <span class="comment">Shortcuts</span> <span class="literal">-</span>&gt; <span class="comment">Custom</span> <span class="comment">Shortcuts</span>
+<pre><code><span class="type">System</span> <span class="type">Settings</span> -&gt; <span class="type">Keyboard</span> -&gt; <span class="type">Shortcuts</span> -&gt; <span class="type">Custom</span> <span class="type">Shortcuts</span>
 </code></pre><p><strong><em>在弹窗中输入：</em></strong></p>
 <pre><code><span class="attribute">Name</span>: <span class="string">eclipse</span>
 <span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span>
 </code></pre><p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
-<h4 id="ssh_-65e0-5bc6-7801-767b-5f55-">ssh 无密码登录</h4>
+<h4 id="ssh_无密码登录">ssh 无密码登录</h4>
 <p><strong>(1) 安装SSH</strong></p>
-<pre><code><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">openssh</span><span class="literal">-</span><span class="comment">server</span>
+<pre><code>sudo apt-<span class="keyword">get</span> install openssh-<span class="built_in">server</span>
 </code></pre><p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
 <p><strong>(2) 生成密钥的步骤也很简单：</strong></p>
-<pre><code><span class="comment">ssh</span><span class="literal">-</span><span class="comment">keygen</span> <span class="literal">-</span><span class="comment">t</span> <span class="comment">rsa</span> <span class="literal">-</span><span class="comment">C</span> <span class="comment">"your_email@example</span><span class="string">.</span><span class="comment">com"</span>
+<pre><code>ssh<span class="attribute">-keygen</span> <span class="attribute">-t</span> rsa <span class="attribute">-C</span> <span class="string">"your_email@example.com"</span>
 </code></pre><p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
 <pre><code><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys
 </code></pre><p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
-<pre><code><span class="title">ssh</span> localhost
+<pre><code>ssh localhost
 </code></pre><p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，<br>然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
-<h4 id="-5b89-88c5-Hadoop">安装Hadoop</h4>
+<h4 id="安装Hadoop">安装Hadoop</h4>
 <p><strong>(1) 下载解压hadoop</strong></p>
 <pre><code>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>    <span class="preprocessor">#解压</span>
 </code></pre><p><strong>(2) 配置四个文件</strong></p>
@@ -974,14 +1083,14 @@ pow<span class="container">(...)</span>
   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span>
 </code></pre><p><strong>(3) 修改～/.bashrc</strong></p>
-<pre><code><span class="title">echo</span> '<span class="keyword">export</span> <span class="type">HADOOP_HOME</span>=/home/beforeload/hadoop-<span class="number">0.20</span><span class="number">.2</span>' &gt;&gt; ~/.bashrc
-<span class="title">echo</span> '<span class="keyword">export</span> <span class="type">PATH</span>=$<span class="type">PATH</span>:$<span class="type">HADOOP_HOME</span>/bin' &gt;&gt; ~/.bashrc
-<span class="title">source</span> ~/.bashrc
+<pre><code><span class="built_in">echo</span> <span class="string">'export HADOOP_HOME=/home/beforeload/hadoop-0.20.2'</span> &gt;&gt; ~/.bashrc
+<span class="built_in">echo</span> <span class="string">'export PATH=$PATH:$HADOOP_HOME/bin'</span> &gt;&gt; ~/.bashrc
+<span class="built_in">source</span> ~/.bashrc
 </code></pre><p>现在在任何目录下，都可以输入hadoop命令了。</p>
 <p><strong>(4) 格式化HDFS并启动hadoop</strong></p>
-<pre><code><span class="title">hadoop</span> namenode -format
-<span class="title">start</span>-all.sh
-<span class="title">jps</span>   #查看运行的进程
+<pre><code>hadoop namenode -format
+start-<span class="built_in">all</span>.sh
+jps   <span class="preprocessor">#查看运行的进程</span>
 </code></pre><p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
 <ol>
 <li>NameNode <a href="http://localhost:50070/dfshealth.jsp" target="_blank">http://localhost:50070/dfshealth.jsp</a></li>
@@ -1002,8 +1111,8 @@ pow<span class="container">(...)</span>
     <id>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</id>
     <published>2013-06-28T14:11:40.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-4f7f-7528-Yeoman_-5feb-901f-6784-5efa-Web-5e94-7528-">使用Yeoman 快速构建Web应用</h2>
-<h4 id="-7b80-4ecb-">简介</h4>
+    <content type="html"><![CDATA[<h2 id="使用Yeoman_快速构建Web应用">使用Yeoman 快速构建Web应用</h2>
+<h4 id="简介">简介</h4>
 <p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
 <p>相关介绍参见<a href="http://yeoman.io/" target="_blank">官网文档</a>。</p>
 <a id="more"></a>
@@ -1032,31 +1141,31 @@ pow<span class="container">(...)</span>
 </ol>
 <p>这些问题不能很好的解决，项目开发中都会存在或多或少的效率问题。</p>
 <p>其实，解决他们很简单，yeoman提供方便快捷的解决方法，下面简单介绍一下如何构建一个项目。</p>
-<h3 id="-5b89-88c5-5b83-">安装它</h3>
+<h3 id="安装它">安装它</h3>
 <p>第一步：首先确认拥有Node.js, Ruby的环境。</p>
 <p>最好安装一下 Compass(Sass的工具库)</p>
 <pre><code><span class="built_in">sudo</span> gem install compass
 </code></pre><p>如果想了解一下Compass，推荐阮一峰的一篇<a href="http://www.ruanyifeng.com/blog/2012/11/compass.html" target="_blank">博文</a>。</p>
 <p>第二步：然后安装三个组件</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="literal">-</span><span class="comment">g</span> <span class="comment">yo</span> <span class="comment">grunt</span><span class="literal">-</span><span class="comment">cli</span> <span class="comment">bower</span>
+<pre><code>sudo npm install <span class="attribute">-g</span> yo grunt<span class="attribute">-cli</span> bower
 </code></pre><p>第三步：安装网络应用生成器</p>
 <p>选择web app生成器：</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">npm</span> <span class="comment">install</span> <span class="literal">-</span><span class="comment">g</span> <span class="comment">generator</span><span class="literal">-</span><span class="comment">webapp</span>
+<pre><code>sudo npm install <span class="attribute">-g</span> generator<span class="attribute">-webapp</span>
 </code></pre><p>也可以选择安装AngularJS生成器：</p>
 <pre><code><span class="built_in">sudo</span> npm install -g generator-angular  <span class="comment"># install generator</span>
-</code></pre><h3 id="-5feb-901f-6784-5efa-">快速构建</h3>
+</code></pre><h3 id="快速构建">快速构建</h3>
 <p>由于上面web应用生成器有两种，所以可以通过两种不同的方式构建我们的项目：</p>
 <p>第一种：使用<code>yo webapp</code>方式</p>
 <pre><code>yo webapp                     <span class="comment"># 搭建项目骨架</span>
 bower <span class="keyword">install</span> underscore      <span class="comment"># 依赖通过bower安装</span>
 grunt                         <span class="comment"># 构建测试发布环境</span>
 </code></pre><p>第二种：使用<code>yo angular</code>方式</p>
-<pre><code><span class="title">yo</span> angular                    # 搭建项目骨架
-<span class="title">bower</span> install angular-ui      # 依赖通过bower安装
-<span class="title">grunt</span> test                    # 测试
-<span class="title">grunt</span> server                  # 预览
-<span class="title">grunt</span>  
-</code></pre><h3 id="-603b-7ed3-">总结</h3>
+<pre><code>yo angular                    <span class="preprocessor"># 搭建项目骨架</span>
+bower install angular-ui      <span class="preprocessor"># 依赖通过bower安装</span>
+grunt test                    <span class="preprocessor"># 测试</span>
+grunt <span class="keyword">server</span>                  <span class="preprocessor"># 预览</span>
+grunt  
+</code></pre><h3 id="总结">总结</h3>
 <p>通过以上的步骤，我们很容易的构建出了一个简易的web项目。yeoman有很多特性，例如可以自定义模板（如HTML5, Boilerplate, Twitter Bootstrap等），AMD（通过RequireJS）等其他工具。</p>
 <p>自动编译CoffeeScript和Compass也是一大亮点，值得一提的是，yeoman提供了live reload功能，在对项目文件修改保存后，前端页面回自动刷新。</p>
 <p>还有太多太多特性了，如jslint完善脚本，内置HTTP服务器，集成包管理，ES6的语法支持，PhantomJS单元测试等等。希望大家使用愉快。</p>
@@ -1070,7 +1179,7 @@ grunt                         <span class="comment"># 构建测试发布环境</
     <id>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</id>
     <published>2013-06-22T13:23:50.000Z</published>
     <updated>2014-01-12T08:37:52.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="-5728-Ubuntu_13-04-4e0a-5e38-7528-8f6f-4ef6-7684-5b89-88c5-914d-7f6e-">在Ubuntu 13.04上常用软件的安装配置</h1>
+    <content type="html"><![CDATA[<h1 id="在Ubuntu_13-04上常用软件的安装配置">在Ubuntu 13.04上常用软件的安装配置</h1>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
 <li><a href="#-5b89-88c5-zsh-548c-oh-my-zsh">安装zsh和oh-my-zsh</a></li>
@@ -1086,95 +1195,95 @@ grunt                         <span class="comment"># 构建测试发布环境</
 </ol>
 <a id="more"></a>
 
-<h2 id="-5b89-88c5-zsh-548c-oh-my-zsh">安装zsh和oh-my-zsh</h2>
+<h2 id="安装zsh和oh-my-zsh">安装zsh和oh-my-zsh</h2>
 <p><strong><em>安装 curl:</em></strong></p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install curl</span>
+<pre><code><span class="built_in">sudo</span> apt-get install curl
 </code></pre><p>然后:</p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install zsh</span>
+<pre><code><span class="built_in">sudo</span> apt-get install zsh
 </code></pre><p><strong><em>可以通过curl方式安装：</em></strong></p>
-<pre><code><span class="comment">curl</span> <span class="literal">-</span><span class="comment">L</span> <span class="comment">https://github</span><span class="string">.</span><span class="comment">com/robbyrussell/oh</span><span class="literal">-</span><span class="comment">my</span><span class="literal">-</span><span class="comment">zsh/raw/master/tools/install</span><span class="string">.</span><span class="comment">sh</span> <span class="comment">|</span> <span class="comment">sh</span>
+<pre><code>curl -<span class="constant">L</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh | sh</span>
 </code></pre><p><strong><em>也可以通过wget：</em></strong></p>
-<pre><code><span class="comment">wget</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">no</span><span class="literal">-</span><span class="comment">check</span><span class="literal">-</span><span class="comment">certificate</span> <span class="comment">https://github</span><span class="string">.</span><span class="comment">com/robbyrussell/oh</span><span class="literal">-</span><span class="comment">my</span><span class="literal">-</span><span class="comment">zsh/raw/master/tools/install</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">-</span><span class="comment">O</span> <span class="literal">-</span> <span class="comment">|</span> <span class="comment">sh</span>
+<pre><code>wget --no-check-certificate <span class="symbol">https:</span>/<span class="regexp">/github.com/robbyrussell</span><span class="regexp">/oh-my-zsh/raw</span><span class="regexp">/master/tools</span><span class="regexp">/install.sh -O - | sh</span>
 </code></pre><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">参考文档</a></p>
-<h2 id="Ubuntu_-7ec8-7aef-900f-660e-5316-">Ubuntu 终端透明化</h2>
+<h2 id="Ubuntu_终端透明化">Ubuntu 终端透明化</h2>
 <p>Ctrl+Alt+T 打开终端，菜单 </p>
-<pre><code>Edit-&gt;Profile Preference-&gt;Background-&gt;Transparent background
-</code></pre><h2 id="-5b89-88c5-_chrome">安装 chrome</h2>
+<pre><code><span class="type">Edit</span>-&gt;<span class="type">Profile</span> <span class="type">Preference</span>-&gt;<span class="type">Background</span>-&gt;<span class="type">Transparent</span> background
+</code></pre><h2 id="安装_chrome">安装 chrome</h2>
 <p><strong><em>安装依赖:</em></strong></p>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install (依赖包)</span>
+<pre><code><span class="built_in">sudo</span> apt-get install (依赖包)
 </code></pre><p>然后从google chrome官方网站上下载安装</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">dpkg</span> <span class="literal">-</span><span class="comment">i</span> <span class="comment">google</span><span class="literal">-</span><span class="comment">chrome</span><span class="literal">-</span><span class="comment">stable_*</span><span class="string">.</span><span class="comment">deb</span>
+<pre><code>sudo dpkg <span class="attribute">-i</span> google<span class="attribute">-chrome</span><span class="attribute">-stable_</span><span class="subst">*</span><span class="built_in">.</span>deb
 </code></pre><p>终端输入<code>google-chrome</code>即可启动。</p>
-<h2 id="-5b89-88c5-git">安装git</h2>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install git</span>
+<h2 id="安装git">安装git</h2>
+<pre><code><span class="built_in">sudo</span> apt-get install git
 </code></pre><p><strong><em>相关配置:</em></strong></p>
-<pre><code>git config --<span class="keyword">global</span> <span class="transposed_variable">user.</span>name beforeload
-git config --<span class="keyword">global</span> <span class="transposed_variable">user.</span>email <span class="transposed_variable">fe.</span>daniel91@<span class="transposed_variable">gmail.</span>com
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>diff auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>branch auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>ui true
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>interactive auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">color.</span>status auto
-git config --<span class="keyword">global</span> <span class="transposed_variable">push.</span>default current
-git config --<span class="keyword">global</span> <span class="transposed_variable">core.</span>editor vim
-git config --<span class="keyword">global</span> <span class="transposed_variable">core.</span>autocrlf off
-git config --<span class="keyword">global</span> <span class="transposed_variable">merge.</span>tool vimdiff
-</code></pre><h3 id="-67e5-770b-914d-7f6e-">查看配置</h3>
+<pre><code>git config --<span class="keyword">global</span> user.name beforeload
+git config --<span class="keyword">global</span> user.email fe.daniel91<span class="variable">@gmail</span>.com
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.diff auto
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.branch auto
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.ui true
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.interactive auto
+git config --<span class="keyword">global</span> <span class="keyword">color</span>.status auto
+git config --<span class="keyword">global</span> push.<span class="keyword">default</span> current
+git config --<span class="keyword">global</span> core.<span class="keyword">editor</span> vim
+git config --<span class="keyword">global</span> core.autocrlf off
+git config --<span class="keyword">global</span> merge.tool vimdiff
+</code></pre><h3 id="查看配置">查看配置</h3>
 <p><strong><em>查看所有配置:</em></strong></p>
 <pre><code><span class="comment">git</span> <span class="comment">config</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">list</span>
 </code></pre><p><strong><em>查看某个配置:</em></strong></p>
-<pre><code><span class="title">git</span> config user.name
+<pre><code>git config user<span class="preprocessor">.name</span>
 </code></pre><p>或者 </p>
-<pre><code><span class="title">cat</span> ~/.gitconfig
-</code></pre><h2 id="-5b89-88c5-VLC-89c6-9891-64ad-653e-5668-">安装VLC视频播放器</h2>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vlc</span>
+<pre><code>cat ~/<span class="preprocessor">.gitconfig</span>
+</code></pre><h2 id="安装VLC视频播放器">安装VLC视频播放器</h2>
+<pre><code><span class="built_in">sudo</span> apt-get install vlc
 </code></pre><p>终端输入<code>vlc</code>启动，在菜单栏</p>
-<pre><code><span class="comment">Tools</span><span class="literal">-</span>&gt; <span class="comment">Preference</span> <span class="literal">-</span>&gt; <span class="comment">Subtitles</span> <span class="comment">&amp;</span> <span class="comment">OSD</span> <span class="comment">修改Default</span> <span class="comment">encoding为Universal(UTF</span><span class="literal">-</span><span class="comment">8)</span><span class="string">,</span><span class="comment">或者GBK</span>
+<pre><code><span class="type">Tools</span>-&gt; <span class="type">Preference</span> -&gt; <span class="type">Subtitles</span> &amp; <span class="type">OSD</span> 修改<span class="type">Default</span> encoding为<span class="type">Universal</span>(<span class="type">UTF</span>-<span class="number">8</span>),或者<span class="type">GBK</span>
 </code></pre><p>还可以设置相关中文字体（中文可选）。</p>
 <p>然后在右上角:</p>
-<pre><code><span class="comment">System</span> <span class="comment">Settings</span> <span class="literal">-</span>&gt; <span class="comment">Details</span> <span class="literal">-</span>&gt; <span class="comment">Default</span> <span class="comment">Applications</span> <span class="literal">-</span>&gt; <span class="comment">Video选择VLC</span> <span class="comment">media</span> <span class="comment">player</span>
+<pre><code><span class="type">System</span> <span class="type">Settings</span> -&gt; <span class="type">Details</span> -&gt; <span class="type">Default</span> <span class="type">Applications</span> -&gt; <span class="type">Video</span>选择<span class="type">VLC</span> media player
 </code></pre><p>这样打开相关视频文件，可以直接使用VLC播放。</p>
-<h2 id="-5b89-88c5-sougou_-2b-_fcitx">安装sougou + fcitx</h2>
-<pre><code><span class="comment">sudo</span> <span class="comment">add</span><span class="literal">-</span><span class="comment">apt</span><span class="literal">-</span><span class="comment">repository</span> <span class="comment">ppa:fcitx</span><span class="literal">-</span><span class="comment">team/nightly</span>
-<span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">update</span>
-<span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">fcitx</span><span class="literal">-</span><span class="comment">sogoupinyin</span>
+<h2 id="安装sougou_+_fcitx">安装sougou + fcitx</h2>
+<pre><code>sudo add<span class="attribute">-apt</span><span class="attribute">-repository</span> ppa:fcitx<span class="attribute">-team</span>/nightly
+sudo apt<span class="attribute">-get</span> update
+sudo apt<span class="attribute">-get</span> install fcitx<span class="attribute">-sogoupinyin</span>
 </code></pre><p>然后在<code>System Settings -&gt; Language Support -&gt; Keyboard input method system</code> 中选择 fcitx。</p>
 <p><strong><em>[可选]安装皮肤：</em></strong></p>
 <p>下载<a href="http://pan.baidu.com/share/link?shareid=591450&amp;uk=4060302862" target="_blank">fcitx-sougou-skin</a></p>
-<pre><code><span class="comment">sudo</span> <span class="comment">dpkg</span> <span class="literal">-</span><span class="comment">i</span> <span class="comment">fcitx</span><span class="literal">-</span><span class="comment">skin</span><span class="literal">-</span><span class="comment">sogou_0</span><span class="string">.</span><span class="comment">0</span><span class="string">.</span><span class="comment">2_all</span><span class="string">.</span><span class="comment">deb</span>
+<pre><code>sudo dpkg <span class="attribute">-i</span> fcitx<span class="attribute">-skin</span><span class="attribute">-sogou_0</span><span class="number">.0</span><span class="number">.2</span>_all<span class="built_in">.</span>deb
 </code></pre><p>在fcitx外观中选择sougou即可。</p>
 <p>最后注销，重新登录，输入法生效。</p>
-<h2 id="-5b89-88c5-914d-7f6e-VIM">安装配置VIM</h2>
-<pre><code>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install vim</span>
+<h2 id="安装配置VIM">安装配置VIM</h2>
+<pre><code><span class="built_in">sudo</span> apt-get install vim
 </code></pre><p><strong><em>配置：</em></strong></p>
 <p>安装vundle</p>
 <pre><code>git clone https://github<span class="preprocessor">.com</span>/gmarik/vundle<span class="preprocessor">.git</span> ~/<span class="preprocessor">.vim</span>/bundle/vundle
 </code></pre><p>用<a href="https://github.com/beforeload/myconf/blob/master/.vimrc" target="_blank">我的.vimrc配置文件</a><br>覆盖<code>~/.vimrc</code>文件即可</p>
 <p>在vim中执行<code>:BundleInstall</code>,自动安装vim插件。</p>
 <p>Powerline中下面的箭头可能存在字体问题，解决的办法是给字体打补丁。</p>
-<h2 id="-5b89-88c5-Node-js">安装Node.js</h2>
+<h2 id="安装Node-js">安装Node.js</h2>
 <p>安装依赖</p>
-<pre><code><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">build</span><span class="literal">-</span><span class="comment">essential</span> <span class="comment">libssl</span><span class="literal">-</span><span class="comment">dev</span>
+<pre><code>sudo apt<span class="attribute">-get</span> install build<span class="attribute">-essential</span> libssl<span class="attribute">-dev</span>
 </code></pre><p>编译安装</p>
-<pre><code><span class="title">mkdir</span> node &amp;&amp; cd node
-<span class="title">git</span> clone https://github.com/joyent/node.git
+<pre><code>mkdir node &amp;&amp; cd node
+git clone https:<span class="comment">//github.com/joyent/node.git</span>
 ./configure
-<span class="title">make</span> 
-<span class="title">make</span> install
-</code></pre><h2 id="-5b89-88c5-9510-6377-6821-56ed-7f51-5ba2-6237-7aef-">安装锐捷校园网客户端</h2>
+<span class="built_in">make</span> 
+<span class="built_in">make</span> install
+</code></pre><h2 id="安装锐捷校园网客户端">安装锐捷校园网客户端</h2>
 <p>下载<a href="http://ncs.hust.edu.cn/download/soft/Linux\ SU\ V1.01版.rar" target="_blank">Linux SU V 1.01</a></p>
 <p>安装unrar</p>
-<pre><code><span class="title">sudo</span> apt-get install unrar
+<pre><code>sudo apt-get install unrar
 
-<span class="title">unrar</span> ***.rar
-<span class="title">tar</span> -zxvf ***.tar.gz
+unrar ***<span class="preprocessor">.rar</span>
+tar -zxvf ***<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
 
-<span class="title">cd</span> rjsupplicant/
+cd rjsupplicant/
 </code></pre><p>查看设置</p>
 <pre><code><span class="built_in">sudo</span> ./rjsupplicant.sh -h
 </code></pre><p>设置好后启动</p>
 <pre><code><span class="built_in">sudo</span> ./rjsupplicant.sh
-</code></pre><h2 id="-5b89-88c5-914d-7f6e-JDK">安装配置JDK</h2>
+</code></pre><h2 id="安装配置JDK">安装配置JDK</h2>
 <p>相关安装步骤已经在另外<a href="//beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/">一篇博文</a>中做出更新。</p>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
@@ -1187,7 +1296,7 @@ git config --<span class="keyword">global</span> <span class="transposed_variabl
     <id>http://beforeload.github.io/2013/06/15/storing-node-application-data/</id>
     <published>2013-06-15T12:52:00.000Z</published>
     <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="-6d45-6790-Node-js-5e94-7528-7684-6570-636e-5b58-50a8-">浅析Node.js应用的数据存储</h2>
+    <content type="html"><![CDATA[<h2 id="浅析Node-js应用的数据存储">浅析Node.js应用的数据存储</h2>
 <p>主要从以下三点简要分析</p>
 <ol>
 <li>内存和文件系统数据存储</li>
@@ -1218,39 +1327,5 @@ git config --<span class="keyword">global</span> <span class="transposed_variabl
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/Node.js/" term="Node.js"/>
     <category scheme="http://beforeload.github.io/categories/Node.js/" term="Node.js"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[building PhoneGap development environment]]></title>
-    <link href="http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/"/>
-    <id>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</id>
-    <published>2013-06-11T18:29:06.000Z</published>
-    <updated>2014-01-01T08:26:38.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="Ubuntu_13-04_Android-5f00-53d1-57fa-672c-73af-5883-914d-7f6e-">Ubuntu 13.04 Android开发基本环境配置</h3>
-<h4 id="-57fa-672c-73af-5883-">基本环境</h4>
-<pre><code>sudo apt<span class="attribute">-get</span> install ia32<span class="attribute">-libs</span> <span class="variable">#64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
-sudo apt<span class="attribute">-get</span> install ant
-</code></pre><a id="more"></a>
-
-<h4 id="-5b89-88c5-72ec-7acb-SDK">安装独立SDK</h4>
-<p>下载<a href="http://developer.android.com/sdk/index.html" target="_blank">SDK</a></p>
-<pre><code>tar zxvf path<span class="subst">/</span><span class="keyword">to</span><span class="subst">/</span>android<span class="attribute">-sdk_r21</span><span class="number">.0</span><span class="number">.1</span><span class="attribute">-linux</span><span class="built_in">.</span>tgz <span class="attribute">-C</span> ~<span class="subst">/</span>DevTools
-cd ~<span class="subst">/</span>DevTools<span class="subst">/</span>android<span class="attribute">-sdk</span><span class="attribute">-linux</span><span class="subst">/</span>tools<span class="subst">/</span>
-<span class="built_in">.</span><span class="subst">/</span>android sdk
-</code></pre><h4 id="-914d-7f6e-73af-5883-53d8-91cf-">配置环境变量</h4>
-<p>在~/.bashrc或者/etc/environemnt</p>
-<pre><code>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</code></pre><h4 id="-6d4b-8bd5-">测试</h4>
-<pre><code>android list targets    <span class="comment">#查看可用平台</span>
-android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
-android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
-cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
-ant debug   <span class="comment">#debug模式打包</span>
-adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span>
-</code></pre><p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html" target="_blank">Building Your First App</a></p>
-]]></content>
-    <category scheme="http://beforeload.github.io/tags/Linux/" term="Linux"/>
-    <category scheme="http://beforeload.github.io/tags/Ubuntu/" term="Ubuntu"/>
-    <category scheme="http://beforeload.github.io/tags/Android/" term="Android"/>
-    <category scheme="http://beforeload.github.io/categories/Linux/" term="Linux"/>
   </entry>
 </feed>

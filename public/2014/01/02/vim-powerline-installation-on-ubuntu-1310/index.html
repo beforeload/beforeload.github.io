@@ -86,7 +86,7 @@
     </header>
     <div class="entry">
       
-        <h1 id="-5728-Ubuntu_13-10-4e0a-5b89-88c5-vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
+        <h1 id="在Ubuntu_13-10上安装vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
 <p> 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找<code>vim-powerline</code>的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然<code>let g:Powerline_symbols = &#39;fancy&#39;</code>没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和解决方法。</p>
 <img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal">
 
@@ -99,12 +99,12 @@
 
 <a id="more"></a>
 
-<h2 id="-4e00-3001-5b89-88c5-Powerline">一、安装Powerline</h2>
+<h2 id="一、安装Powerline">一、安装Powerline</h2>
 <ol>
 <li>首先安装python-pip和git:</li>
 </ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">python</span><span class="literal">-</span><span class="comment">pip</span> <span class="comment">git</span>
+</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install python<span class="attribute">-pip</span> git
 </pre></td></tr></table></figure>
 
 <ol>
@@ -113,7 +113,7 @@
 <p>分两种情况：<br>1) 对于个人用户</p>
 <p>在控制台中运行：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">pip</span> <span class="comment">install</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">user</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline</span>
+</pre></td><td class="code"><pre>pip install --user git+git:<span class="comment">//github.com/Lokaltog/powerline</span>
 </pre></td></tr></table></figure>
 
 <p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
@@ -128,17 +128,17 @@
 <p>2) 对于系统用户</p>
 <p>在控制台中运行：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">install</span> <span class="comment">git</span><span class="literal">+</span><span class="comment">git://github</span><span class="string">.</span><span class="comment">com/Lokaltog/powerline'</span>
+</pre></td><td class="code"><pre>su <span class="attribute">-c</span> <span class="string">'pip install git+git://github.com/Lokaltog/powerline'</span>
 </pre></td></tr></table></figure>
 
-<h2 id="-4e8c-3001-5b57-4f53-7684-5b89-88c5-">二、字体的安装</h2>
+<h2 id="二、字体的安装">二、字体的安装</h2>
 <p>对于Ubuntu的用户来说，安装字体再简单不过了，只需要双击文件，点击Install即可。这里不在赘述。</p>
 <p>不过，我发现从<a href="https://github.com/Lokaltog/powerline-fonts" target="_blank">powerline-fonts</a>上下载的字体不能直接用，还是需要配置，配置过程如下：</p>
 <ol>
 <li>Fontconfig：(推荐)</li>
 </ol>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="comment">sudo</span> <span class="comment">apt</span><span class="literal">-</span><span class="comment">get</span> <span class="comment">install</span> <span class="comment">fontforge</span> <span class="comment">python</span><span class="literal">-</span><span class="comment">fontforge</span>
+</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install fontforge python<span class="attribute">-fontforge</span>
 </pre></td></tr></table></figure>
 
 <p>1) 对于个人用户</p>
@@ -176,7 +176,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 </pre></td></tr></table></figure>
 
 <p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
-<h2 id="-4e09-3001-914d-7f6e-vimrc">三、配置.vimrc</h2>
+<h2 id="三、配置-vimrc">三、配置.vimrc</h2>
 <ol>
 <li>Vim状态栏的配置</li>
 </ol>
@@ -191,19 +191,19 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 </pre></td><td class="code"><pre><span class="built_in">set</span> encoding<span class="subst">=</span>utf<span class="subst">-</span><span class="number">8</span>
 <span class="built_in">set</span> fillchars<span class="subst">+=</span>stl:<span class="subst">\</span> ,stlnc:<span class="subst">\</span>
 <span class="built_in">set</span> laststatus<span class="subst">=</span><span class="number">2</span>
-<span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span><span class="subst">/</span>lib<span class="subst">/</span>python2<span class="number">.7</span><span class="subst">/</span>site<span class="attribute">-packages</span><span class="subst">/</span>powerline<span class="subst">/</span>bindings<span class="subst">/</span>vim<span class="subst">/</span>
+<span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span>/lib/python2<span class="number">.7</span>/site<span class="attribute">-packages</span>/powerline/bindings/vim<span class="subst">/</span>
 <span class="built_in">set</span> <span class="attribute">-g</span> default<span class="attribute">-terminal</span> <span class="string">"screen-256color"</span>
 <span class="built_in">set</span> t_Co<span class="subst">=</span><span class="number">256</span>
 <span class="keyword">let</span> g:Powerline_symbols <span class="subst">=</span> <span class="string">'fancy'</span>
 </pre></td></tr></table></figure>
 
 <p>后面附上我的vimrc相关配置。</p>
-<h2 id="-56db-3001-5378-8f7d-">四、卸载</h2>
+<h2 id="四、卸载">四、卸载</h2>
 <p>1) 对于个人用户：</p>
-<pre><code><span class="title">pip</span> uninstall powerline
+<pre><code>pip uninstall powerline
 </code></pre><p>2) 对于系统用户：</p>
-<pre><code><span class="comment">su</span> <span class="literal">-</span><span class="comment">c</span> <span class="comment">'pip</span> <span class="comment">uninstall</span> <span class="comment">powerline'</span>
-</code></pre><h3 id="-9644-4e0a-6211-7684-5b57-4f53-914d-7f6e-6587-4ef6-">附上我的字体配置文件</h3>
+<pre><code>su <span class="attribute">-c</span> <span class="string">'pip uninstall powerline'</span>
+</code></pre><h3 id="附上我的字体配置文件">附上我的字体配置文件</h3>
 <ol>
 <li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank">字体</a></li>
 <li><a href="https://raw.github.com/beforeload/dotfiles/master/.vimrc" target="_blank">.vimrc</a></li>
@@ -268,7 +268,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -309,7 +309,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

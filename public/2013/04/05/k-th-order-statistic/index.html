@@ -86,8 +86,8 @@
     </header>
     <div class="entry">
       
-        <h3 id="-95ee-9898-63cf-8ff0-3a-">问题描述:</h3>
-<h6 id="-95ee-9898-6765-6e90-3a-_-3c-a_href-3d-22-http-3a-2f-2f-learn-akae-cn-2f-media-2f-ch11s05-html-22-3e-7ebf-6027-67e5-627e-3c-2f-a-3e-">问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank">线性查找</a></h6>
+        <h3 id="问题描述:">问题描述:</h3>
+<h6 id="问题来源:_<a_href="http://learn-akae-cn/media/ch11s05-html" target="_blank">线性查找</a>">问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank">线性查找</a></h6>
 <ol>
 <li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
 <li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
@@ -95,16 +95,16 @@
 </ol>
 <a id="more"></a>
 
-<h3 id="-6c42-89e3-53ca-7b97-6cd5-ff1a-">求解及算法：</h3>
+<h3 id="求解及算法：">求解及算法：</h3>
 <p>求一组数中最小值，对于数组而言是一个很easy且常见的问题。<br>解决算法也很容易:</p>
-<pre><code>int minimum(int arr<span class="matrix">[]</span>)
+<pre><code><span class="keyword">int</span> minimum(<span class="keyword">int</span> arr[])
 {
-    int j,temp;
-    temp = arr<span class="matrix">[<span class="number">0</span>]</span>;
+    <span class="keyword">int</span> j,temp;
+    temp = arr[<span class="number">0</span>];
 
     <span class="keyword">for</span> (j = <span class="number">1</span>; j &lt; N; j++) {
-        <span class="keyword">if</span>(temp &gt; arr<span class="matrix">[j]</span>){
-            swap(&amp;temp,&amp;arr<span class="matrix">[j]</span>);
+        <span class="keyword">if</span>(temp &gt; arr[j]){
+            swap(&amp;temp,&amp;arr[j]);
         }
     }
     <span class="keyword">return</span> temp;
@@ -234,7 +234,7 @@ int main(int argc, const char *argv[])
 }
 </code></pre>
 
-<h3 id="-8ba8-8bba-">讨论</h3>
+<h3 id="讨论">讨论</h3>
 <hr>
 
       
@@ -296,7 +296,7 @@ int main(int argc, const char *argv[])
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -337,7 +337,7 @@ int main(int argc, const char *argv[])
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

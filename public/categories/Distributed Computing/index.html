@@ -91,8 +91,8 @@
     </header>
     <div class="entry">
       
-        <h2 id="-5206-5e03-5f0f-8ba1-7b97-76f8-5173-8d44-6e90-603b-7ed3-">分布式计算相关资源总结</h2>
-<h3 id="-8bba-6587-">论文</h3>
+        <h2 id="分布式计算相关资源总结">分布式计算相关资源总结</h2>
+<h3 id="论文">论文</h3>
 <p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
 <blockquote>
 <p>Google出品，必属精品！</p>
@@ -144,8 +144,8 @@
     </header>
     <div class="entry">
       
-        <h3 id="-63a8-8350-7cfb-7edf-7684-5e38-89c1-95ee-9898-">推荐系统的常见问题</h3>
-<h4 id="-7f3a-5c11-5927-6570-636e-95ee-9898-">缺少大数据问题</h4>
+        <h3 id="推荐系统的常见问题">推荐系统的常见问题</h3>
+<h4 id="缺少大数据问题">缺少大数据问题</h4>
 <p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
 
       
@@ -194,8 +194,8 @@
     </header>
     <div class="entry">
       
-        <h2 id="-5012-6392-7d22-5f15-">倒排索引</h2>
-<h3 id="-7b80-4ecb-3a-">简介:</h3>
+        <h2 id="倒排索引">倒排索引</h2>
+<h3 id="简介:">简介:</h3>
 <p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
 
       
@@ -245,7 +245,7 @@
     <div class="entry">
       
         <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
-<h2 id="MapReduce_-7f16-7a0b-6a21-578b-">MapReduce 编程模型</h2>
+<h2 id="MapReduce_编程模型">MapReduce 编程模型</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="attribute">map</span>:<span class="function"><span class="params">(K1, V1)</span> -&gt;</span> list(K2, V2)
@@ -300,9 +300,9 @@
     </header>
     <div class="entry">
       
-        <h3 id="-6848-4f8b-">案例</h3>
-<h4 id="-4e0a-4f20-672c-5730-6587-4ef6-5230-_HDFS">上传本地文件到 HDFS</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+        <h3 id="案例">案例</h3>
+<h4 id="上传本地文件到_HDFS">上传本地文件到 HDFS</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -317,7 +317,7 @@
 13
 14
 15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span>(String src, String dst, String config) <span class="keyword">throws</span> IOException{
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     FileSystem hdfs = FileSystem.get(conf);
@@ -388,7 +388,7 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -429,7 +429,7 @@
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

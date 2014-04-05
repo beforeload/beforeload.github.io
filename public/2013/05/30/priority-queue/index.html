@@ -94,41 +94,41 @@
 <a id="more"></a>
 
 <p>6.5-1 HEAP-EXTRACT-MAX</p>
-<pre><code><span class="keyword">if</span> head-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
+<pre><code><span class="keyword">if</span> head-size[A] &lt; <span class="number">1</span>
     <span class="keyword">then</span> error
-max &lt;-- A<span class="matrix">[<span class="number">1</span>]</span>
-A<span class="matrix">[<span class="number">1</span>]</span> &lt;-- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
+<span class="built_in">max</span> &lt;<span class="comment">-- A[1]</span>
+A[<span class="number">1</span>] &lt;<span class="comment">-- heap-size[A] - 1</span>
 MAX-HEAPIFY(A, <span class="number">1</span>)
-<span class="keyword">return</span> max
+<span class="constant">return</span> <span class="built_in">max</span>
 </code></pre><img src="http://i.minus.com/imDBy99LrOzWP.jpg">
 
 
 <p>6.5-3 HEAP-MINIUM(A)</p>
 <p>伪代码书上已经有了</p>
-<pre><code><span class="function">HEAP-MINIMUM(A)</span>
-    return <span class="tag">A</span><span class="attr_selector">[1]</span>
+<pre><code>HEAP-MINIMUM(<span class="literal">A</span>)
+    <span class="keyword">return</span> <span class="literal">A</span>[<span class="number">1</span>]
 </code></pre><p>利用HEAP-EXTRACT-MAX(A)容易写出HEAP-EXTRACT-MIN(A)</p>
-<h4 id="HEAP-EXTRACT-MIN-28-A-29-">HEAP-EXTRACT-MIN(A)</h4>
-<pre><code><span class="keyword">if</span> heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt; <span class="number">1</span>
-    <span class="keyword">then</span> error 
-max &lt;- A<span class="matrix">[<span class="number">1</span>]</span>
-A<span class="matrix">[<span class="number">1</span>]</span> &lt;- A<span class="matrix">[heap-size[A]</span>] - <span class="number">1</span>
-heap-<span class="built_in">size</span><span class="matrix">[A]</span> &lt;- heap-<span class="built_in">size</span><span class="matrix">[A]</span> - <span class="number">1</span>
-MIN-HEAPIFY(A, <span class="number">1</span>)
+<h4 id="HEAP-EXTRACT-MIN(A)">HEAP-EXTRACT-MIN(A)</h4>
+<pre><code><span class="keyword">if</span> heap-size[<span class="literal">A</span>] &lt; <span class="number">1</span>
+    then error 
+max &lt;- <span class="literal">A</span>[<span class="number">1</span>]
+<span class="literal">A</span>[<span class="number">1</span>] &lt;- <span class="literal">A</span>[heap-size[<span class="literal">A</span>]] - <span class="number">1</span>
+heap-size[<span class="literal">A</span>] &lt;- heap-size[<span class="literal">A</span>] - <span class="number">1</span>
+MIN-HEAPIFY(<span class="literal">A</span>, <span class="number">1</span>)
 <span class="keyword">return</span> max
 </code></pre><p>同样，由HEAD-INCREASE-KEY很容易就写出HEAD-DECREASE-KEY过程的伪代码：</p>
 <h4 id="HEAD-DECREASE-KEY">HEAD-DECREASE-KEY</h4>
-<pre><code><span class="keyword">if</span> key &gt; A<span class="matrix">[i]</span>
+<pre><code><span class="keyword">if</span> key &gt; <span class="literal">A</span>[i]
     then error
-A<span class="matrix">[i]</span> &lt;- key
-<span class="keyword">while</span> <span class="built_in">i</span> &gt; <span class="number">1</span> and A<span class="matrix">[PARENT(i)]</span> &gt; A<span class="matrix">[i]</span>
-    do exchange A<span class="matrix">[i]</span> &lt;-&gt; A<span class="matrix">[PARENT(i)]</span>
-            <span class="built_in">i</span> &lt;- PARENT(<span class="built_in">i</span>)
+<span class="literal">A</span>[i] &lt;- key
+<span class="keyword">while</span> i &gt; <span class="number">1</span> <span class="literal">and</span> <span class="literal">A</span>[PARENT(i)] &gt; <span class="literal">A</span>[i]
+    do exchange <span class="literal">A</span>[i] &lt;-&gt; <span class="literal">A</span>[PARENT(i)]
+            i &lt;- PARENT(i)
 </code></pre><p>同样，由MAX-HEAP-INSERT容易写出MIN-HEAP-INSERT</p>
 <h4 id="MIN-HEAP-INSERT">MIN-HEAP-INSERT</h4>
-<pre><code><span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span> &lt;<span class="literal">-</span> <span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span> <span class="literal">+</span> <span class="comment">1</span>
-<span class="comment">A</span><span class="title">[</span><span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span><span class="title">]</span> &lt;<span class="literal">-</span> <span class="comment">无穷</span>
-<span class="comment">HEAP</span><span class="literal">-</span><span class="comment">INCREASE</span><span class="literal">-</span><span class="comment">KEY(A</span><span class="string">,</span> <span class="comment">heap</span><span class="literal">-</span><span class="comment">size</span><span class="title">[</span><span class="comment">A</span><span class="title">]</span><span class="string">,</span> <span class="comment">key)</span>
+<pre><code>heap-size[<span class="literal">A</span>] &lt;- heap-size[<span class="literal">A</span>] + <span class="number">1</span>
+<span class="literal">A</span>[heap-size[<span class="literal">A</span>]] &lt;- 无穷
+HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal">A</span>], key)
 </code></pre><p>6.5-8</p>
 <p>每一个链表作为一个节点，链表的第一个元素作为key，然后组成一个堆，这个堆的大小为K(k个链表，k个节点)。</p>
 <p>链表合并过程思路如下：</p>
@@ -199,7 +199,7 @@ A<span class="matrix">[i]</span> &lt;- key
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -240,7 +240,7 @@ A<span class="matrix">[i]</span> &lt;- key
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

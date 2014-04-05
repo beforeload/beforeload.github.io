@@ -86,7 +86,7 @@
     </header>
     <div class="entry">
       
-        <h2 id="Node-js-7f51-7edc-5e94-7528-5f00-53d1-">Node.js网络应用开发</h2>
+        <h2 id="Node-js网络应用开发">Node.js网络应用开发</h2>
 <ol>
 <li>Handling HTTP requests with Node’s API</li>
 <li>Building a RESTful web service</li>
@@ -100,8 +100,8 @@
 <img src="http://i.minus.com/iLMAoN6C3pEtN.png">
 
 
-<h3 id="HTTP_server_-7684-57fa-672c-9762-">HTTP server 的基本面</h3>
-<h4 id="HTTP-8bf7-6c42-5728-Node_HTTP_server-4e2d-7684-751f-547d-5468-671f-">HTTP请求在Node HTTP server中的生命周期</h4>
+<h3 id="HTTP_server_的基本面">HTTP server 的基本面</h3>
+<h4 id="HTTP请求在Node_HTTP_server中的生命周期">HTTP请求在Node HTTP server中的生命周期</h4>
 <ol>
 <li>HTTP 客户端（例如：浏览器）发送HTTP请求</li>
 <li>Node进程接受到连接把请求的数据发送给HTTP server</li>
@@ -143,7 +143,7 @@
 <p>…<br>stream.pipe(res)<br>stream.on(‘error’,function(err){<br>  res.statusCode = 500<br>  res.end(‘Internal Server Error!’)<br>})<br>…</p>
 <p>文件不存在错误处理”ENOENT, No such file or dictionary”</p>
 <p>根据<code>fs.stat(path, function(err, stat){})</code>的err判断</p>
-<h3 id="-63a5-53d7-7528-6237-8868-5355-63d0-4ea4-6570-636e-">接受用户表单提交数据</h3>
+<h3 id="接受用户表单提交数据">接受用户表单提交数据</h3>
 <ol>
 <li>表单域</li>
 <li>上传文件node-formidable</li>
@@ -155,18 +155,18 @@
 <li>“multipart/form-data”: used when form contains files, non-ascii, or binary data</li>
 </ul>
 <p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。<br>也可以计算伪实时的文件上传进度，如下所示：</p>
-<pre><code>form.<span class="command"><span class="keyword">on</span>(<span class="string">'process'</span>, <span class="title">function</span>(<span class="title">bytesReceived</span>, <span class="title">bytesExpected</span>){</span>
-    var percent = bytesReceived / bytesExpected * <span class="number">100</span>
-    console.<span class="built_in">log</span>(percent)
+<pre><code>form.on(<span class="string">'process'</span>, <span class="function"><span class="keyword">function</span><span class="params">(bytesReceived, bytesExpected)</span>{</span>
+    <span class="keyword">var</span> percent = bytesReceived / bytesExpected * <span class="number">100</span>
+    console.log(percent)
 })
 </code></pre><p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload" target="_blank">node-upload</a>中完成它。</p>
-<h3 id="-4f7f-7528-HTTPS_-786e-4fdd-5e94-7528-7684-5b89-5168-6027-">使用HTTPS 确保应用的安全性</h3>
+<h3 id="使用HTTPS_确保应用的安全性">使用HTTPS 确保应用的安全性</h3>
 <p>生成一个私钥(加密)<br>    openssl genrsa 1024 &gt; key.pem</p>
 <p>生成证书(解码)<br>    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
 <p><strong><em>HTTPS server选项</em></strong><br>    var https = require(‘https’)<br>      , fs = require(‘fs’)<br>      , options = {<br>        key: fs.readFileSync(‘./key.pem’),<br>        cert: fs.readFileSync(‘./key-cert.pem’)<br>      }</p>
-<pre><code>https.createServer(options, <span class="function"><span class="keyword">function</span>(<span class="title">req</span>, <span class="title">res</span>){</span>
+<pre><code>https.createServer(options, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
   res.writeHead(<span class="number">200</span>)
-  res.<span class="function"><span class="keyword">end</span>('<span class="title">Hello</span> <span class="title">world</span>!')</span>
+  res.<span class="keyword">end</span>(<span class="string">'Hello world!'</span>)
 }).listen(<span class="number">4000</span>)
 </code></pre><p>证书可以共享，它包括public key和持有者的身份信息。当然如果要发布一个网站，就需要在Certificate Authority(CA)上去注册，获取一个真实的，受信任的SSL证书。</p>
 
@@ -229,7 +229,7 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -270,7 +270,7 @@
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

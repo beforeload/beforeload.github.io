@@ -86,9 +86,9 @@
     </header>
     <div class="entry">
       
-        <h3 id="-6848-4f8b-">案例</h3>
-<h4 id="-4e0a-4f20-672c-5730-6587-4ef6-5230-_HDFS">上传本地文件到 HDFS</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+        <h3 id="案例">案例</h3>
+<h4 id="上传本地文件到_HDFS">上传本地文件到 HDFS</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -103,7 +103,7 @@
 13
 14
 15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config) <span class="keyword">throws</span> IOException{
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span>(String src, String dst, String config) <span class="keyword">throws</span> IOException{
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     FileSystem hdfs = FileSystem.get(conf);
@@ -122,8 +122,8 @@
 
 <a id="more"></a>
 
-<h4 id="-521b-5efa-_HDFS_-6587-4ef6-">创建 HDFS 文件</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="创建_HDFS_文件">创建 HDFS 文件</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -136,7 +136,7 @@
 11
 12
 13
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createFile(String dst, String config) <span class="keyword">throws</span> IOException{
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createFile</span>(String dst, String config) <span class="keyword">throws</span> IOException{
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     String content = <span class="string">"Hello World,beforeload"</span>;
@@ -151,8 +151,8 @@
 }
 </pre></td></tr></table></figure>
 
-<h4 id="-91cd-547d-540d-_HDFS_-6587-4ef6-">重命名 HDFS 文件</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="重命名_HDFS_文件">重命名 HDFS 文件</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -161,7 +161,7 @@
 7
 8
 9
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rename(String oldName, String newName, String config)
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">rename</span>(String oldName, String newName, String config)
         <span class="keyword">throws</span> IOException {
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
@@ -173,8 +173,8 @@
 </pre></td></tr></table></figure>
 
 
-<h4 id="-5220-9664-_HDFS_-4e0a-7684-6587-4ef6-">删除 HDFS 上的文件</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="删除_HDFS_上的文件">删除 HDFS 上的文件</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -184,7 +184,7 @@
 8
 9
 10
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> deleteFile(String path, String config) <span class="keyword">throws</span> IOException {
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deleteFile</span>(String path, String config) <span class="keyword">throws</span> IOException {
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     FileSystem hdfs = FileSystem.get(conf);
@@ -196,8 +196,8 @@
 }
 </pre></td></tr></table></figure>
 
-<h4 id="-67e5-770b-_HDFS_-6587-4ef6-7684-6700-540e-4fee-6539-65f6-95f4-">查看 HDFS 文件的最后修改时间</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="查看_HDFS_文件的最后修改时间">查看 HDFS 文件的最后修改时间</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -206,7 +206,7 @@
 7
 8
 9
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getTime(String path, String config) <span class="keyword">throws</span> IOException{
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getTime</span>(String path, String config) <span class="keyword">throws</span> IOException{
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     FileSystem hdfs = FileSystem.get(conf);
@@ -217,15 +217,15 @@
 }
 </pre></td></tr></table></figure>
 
-<h4 id="-67e5-770b-67d0-4e2a-_HDFS_-6587-4ef6-662f-5426-5b58-5728-">查看某个 HDFS 文件是否存在</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="查看某个_HDFS_文件是否存在">查看某个 HDFS 文件是否存在</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> isExist(String path, String config) <span class="keyword">throws</span> IOException {
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">isExist</span>(String path, String config) <span class="keyword">throws</span> IOException {
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     FileSystem hdfs = FileSystem.get(conf);
@@ -234,8 +234,8 @@
 }
 </pre></td></tr></table></figure>
 
-<h4 id="-67e5-627e-67d0-4e2a-6587-4ef6-5728-_HDFS_-96c6-7fa4-7684-4f4d-7f6e-">查找某个文件在 HDFS 集群的位置</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="查找某个文件在_HDFS_集群的位置">查找某个文件在 HDFS 集群的位置</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -250,7 +250,7 @@
 13
 14
 15
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getFileBlockLocation(String path, String config)
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFileBlockLocation</span>(String path, String config)
         <span class="keyword">throws</span> IOException {
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
@@ -267,8 +267,8 @@
 }
 </pre></td></tr></table></figure>
 
-<h4 id="-83b7-53d6-_HDFS_-96c6-7fa4-4e0a-6240-6709-8282-70b9-7684-540d-79f0-">获取 HDFS 集群上所有节点的名称</h4>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<h4 id="获取_HDFS_集群上所有节点的名称">获取 HDFS 集群上所有节点的名称</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -280,7 +280,7 @@
 10
 11
 12
-</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getHostName(String config) <span class="keyword">throws</span> IOException {
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getHostName</span>(String config) <span class="keyword">throws</span> IOException {
     Configuration conf = <span class="keyword">new</span> Configuration();
     conf.addResource(<span class="keyword">new</span> Path(config));
     FileSystem fs = FileSystem.get(conf);
@@ -294,22 +294,22 @@
 }
 </pre></td></tr></table></figure>
 
-<h3 id="-95ee-9898-">问题</h3>
+<h3 id="问题">问题</h3>
 <ol>
 <li>“Wrong FS expected: file:///“</li>
 </ol>
 <p>这个问题其实严格意义上并不属于API调用方面的问题，具体问题出现的原因不得而知，不过在查阅资料一番后还是得出了问题的解决方法。</p>
 <ul>
 <li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180" target="_blank">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn’t work!” </li>
-<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>conf.addResource(<span class="keyword">new</span> Path(<span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>));
 </pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h3 id="-8ba8-8bba-">讨论</h3>
+<h3 id="讨论">讨论</h3>
 <p><strong><em>附源码如下：</em></strong></p>
-<figure class="highlight lang-Java"><table><tr><td class="gutter"><pre>1
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -457,8 +457,8 @@
 <span class="keyword">import</span> org.apache.hadoop.hdfs.DistributedFileSystem;
 <span class="keyword">import</span> org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 
-<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span> </span>{
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> IOException {
+<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Utils</span> {</span>
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args) <span class="keyword">throws</span> IOException {
 		String src, dst1, config, dst2, oldName, newName;
 		src = <span class="string">"/root/word.txt"</span>;
 		dst1 = <span class="string">"/"</span>;
@@ -483,7 +483,7 @@
 		getHostName(config);
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> copyFile(String src, String dst, String config)
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span>(String src, String dst, String config)
 			<span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
@@ -500,7 +500,7 @@
 		hdfs.close();
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> createFile(String dst, String config) <span class="keyword">throws</span> IOException {
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createFile</span>(String dst, String config) <span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
 		String content = <span class="string">"Hello World,beforeload"</span>;
@@ -514,7 +514,7 @@
 		hdfs.close();
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> rename(String oldName, String newName, String config)
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">rename</span>(String oldName, String newName, String config)
 			<span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
@@ -524,7 +524,7 @@
 		<span class="keyword">boolean</span> isRename = hdfs.rename(oldPath, newPath);
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> deleteFile(String path, String config)
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">deleteFile</span>(String path, String config)
 			<span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
@@ -536,7 +536,7 @@
 		System.out.println(<span class="string">"delete? "</span> + isDeleted);
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getTime(String path, String config) <span class="keyword">throws</span> IOException {
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getTime</span>(String path, String config) <span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
 		FileSystem hdfs = FileSystem.get(conf);
@@ -546,7 +546,7 @@
 		System.out.println(<span class="string">"Modification time is:"</span> + modifyTime);
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> isExist(String path, String config) <span class="keyword">throws</span> IOException {
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">isExist</span>(String path, String config) <span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
 		FileSystem hdfs = FileSystem.get(conf);
@@ -554,7 +554,7 @@
 		System.out.println(<span class="string">"Exist?"</span> + isExist);
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getFileBlockLocation(String path, String config)
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getFileBlockLocation</span>(String path, String config)
 			<span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
@@ -570,7 +570,7 @@
 		}
 	}
 
-	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> getHostName(String config) <span class="keyword">throws</span> IOException {
+	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getHostName</span>(String config) <span class="keyword">throws</span> IOException {
 		Configuration conf = <span class="keyword">new</span> Configuration();
 		conf.addResource(<span class="keyword">new</span> Path(config));
 		FileSystem fs = FileSystem.get(conf);
@@ -585,7 +585,7 @@
 }
 </pre></td></tr></table></figure>
 
-<h4 id="-53c2-8003-4e66-7c4d-ff1a-">参考书籍：</h4>
+<h4 id="参考书籍：">参考书籍：</h4>
 <ol>
 <li>《Hadoop实战》—— “Hadoop in Action”</li>
 <li>《实战Hadoop》—— “开启通向云计算的捷径”</li>
@@ -651,7 +651,7 @@
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -692,7 +692,7 @@
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   

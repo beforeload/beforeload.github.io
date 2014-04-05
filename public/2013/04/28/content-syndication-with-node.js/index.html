@@ -86,19 +86,19 @@
     </header>
     <div class="entry">
       
-        <h3 id="-5b-7ffb-8bd1-5d-Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
+        <h3 id="[翻译]Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
 <hr>
 <p>原文链接 <a href="http://howtonode.org/content-syndication-with-node" target="_blank">Content Syndication with Node.js</a></p>
 <p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/" target="_blank">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
 <a id="more"></a>
 
-<h4 id="-5b89-88c5-feed-5305-">安装feed包</h4>
+<h4 id="安装feed包">安装feed包</h4>
 <p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="variable">$npm</span> install feed
 </pre></td></tr></table></figure>
 
-<h4 id="-5efa-7acb-8ba2-9605-">建立订阅</h4>
+<h4 id="建立订阅">建立订阅</h4>
 <p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -117,21 +117,21 @@
 15
 16
 17
-</pre></td><td class="code"><pre><span class="regexp">//</span> 需求的包
-varFeed=<span class="built_in">require</span>(<span class="string">'feed'</span>);
+</pre></td><td class="code"><pre><span class="comment">// 需求的包</span>
+varFeed<span class="subst">=</span><span class="keyword">require</span>(<span class="string">'feed'</span>);
 
-<span class="regexp">//</span> 初始化feed对象
-<span class="reserved">var</span> feed =newFeed({
-  <span class="attribute">title</span>:          <span class="string">'My Feed Title'</span>,
-  <span class="attribute">description</span>:    <span class="string">'This is my personnal feed!'</span>,
-  <span class="attribute">link</span>:           <span class="string">'http://example.com/'</span>,
-  <span class="attribute">image</span>:          <span class="string">'http://example.com/logo.png'</span>,
-  <span class="attribute">copyright</span>:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
+<span class="comment">// 初始化feed对象</span>
+<span class="built_in">var</span> feed <span class="subst">=</span>newFeed({
+  title:          <span class="string">'My Feed Title'</span>,
+  description:    <span class="string">'This is my personnal feed!'</span>,
+  <span class="keyword">link</span>:           <span class="string">'http://example.com/'</span>,
+  image:          <span class="string">'http://example.com/logo.png'</span>,
+  copyright:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,
 
-  <span class="attribute">author</span>:{
-    <span class="attribute">name</span>:       <span class="string">'John Doe'</span>,
-    <span class="attribute">email</span>:      <span class="string">'john.doe@example.com'</span>,
-    <span class="attribute">link</span>:       <span class="string">'https://example.com/john-doe'</span>
+  author:{
+    name:       <span class="string">'John Doe'</span>,
+    email:      <span class="string">'john.doe@example.com'</span>,
+    <span class="keyword">link</span>:       <span class="string">'https://example.com/john-doe'</span>
   }
 });
 </pre></td></tr></table></figure>
@@ -148,12 +148,12 @@ feed.category(&#39;JavaScript&#39;);</code></p>
 6
 7
 8
-</pre></td><td class="code"><pre><span class="keyword">for</span>(<span class="reserved">var</span> key <span class="keyword">in</span> posts){
-  feed.item({
-    <span class="attribute">title</span>:  posts[key].title,
-    <span class="attribute">link</span>:  posts[key].link,
-    <span class="attribute">description</span>: posts[key].description,
-    <span class="attribute">date</span>: posts[key].date
+</pre></td><td class="code"><pre>for(var key <span class="keyword">in</span> posts){
+  feed<span class="preprocessor">.item</span>({
+    title:  posts[key]<span class="preprocessor">.title</span>,
+    link:  posts[key]<span class="preprocessor">.link</span>,
+    description: posts[key]<span class="preprocessor">.description</span>,
+    date: posts[key]<span class="preprocessor">.date</span>
   }
 }
 </pre></td></tr></table></figure>
@@ -175,7 +175,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
 
 <p>是的，就是这么简单！</p>
 <p>feed结合 Express.js 一起会变得超级简单。告诉你一个使用app.get()方法去路由/rss路径。为了推送你的订阅，像我们之前提到的那样渲染我们的订阅。然后，把Content-type 设置成 text/xml：</p>
-<figure class="highlight lang-JavaScript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -254,7 +254,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
 </pre></td></tr></table></figure>
 
 
-<h3 id="-603b-7ed3-ff1a-">总结：</h3>
+<h3 id="总结：">总结：</h3>
 <p>就这样了，现在人们终于可以从你的nodejs应用中读取订阅你的项目。</p>
 <p>译者：其实到这个地方还没有结束，本人在处理这个问题时感觉远远不想大神说的那么easy。有兴趣的最好自己尝试一下。</p>
 <p>wrapper —— 包<br>feed —— 订阅<br>Feed —— 用来接收该信息来源更新的接口</p>
@@ -318,7 +318,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
   
     <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
@@ -359,7 +359,7 @@ feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>)
   
     <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>5</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   
