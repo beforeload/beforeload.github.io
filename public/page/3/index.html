@@ -53,9 +53,16 @@
       <li><a href="/atom.xml">RSS</a></li>
     
   </ul>
+<div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:beforeload.github.io">
+  </form>
+</div>
   <div class="clearfix"></div>
 </nav>
-<div class="clearfix"></div></header>
+<div class="clearfix"></div>
+</header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft">
         <div id="wrapper">
@@ -77,28 +84,28 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-06-11T18:29:06.000Z"><a href="/2013/06/12/building-phonegap-development-environment/">2013-06-12</a></time>
+        <time datetime="2013-04-22T13:23:27.000Z"><a href="/2013/04/22/collaborative-markov-chain-model/">2013-04-22</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/06/12/building-phonegap-development-environment/">building PhoneGap development environment</a></h1>
+    <h1 class="title"><a href="/2013/04/22/collaborative-markov-chain-model/">Collaborative Markov Chain Model</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h3 id="Ubuntu_13-04_Android开发基本环境配置">Ubuntu 13.04 Android开发基本环境配置</h3>
-<h4 id="基本环境">基本环境</h4>
-<pre><code>sudo apt<span class="attribute">-get</span> install ia32<span class="attribute">-libs</span> <span class="variable">#64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
-sudo apt<span class="attribute">-get</span> install ant
-</code></pre>
+        <h2 id="理论">理论</h2>
+<h3 id="马尔可夫过程(Markov_Process)">马尔可夫过程(Markov Process)</h3>
+<p>Markov过程是一个满足Markov性(无后效性)的随机过程。<br>具有马尔可夫性质的随机过程称为<strong>马尔可夫</strong>过程。[1]</p>
+<p>最有名的Markov过程是Markov链，但还有其他的过程，如布朗运动，也是Markov过程。</p>
+
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2013/06/12/building-phonegap-development-environment/#more" class="more-link">Read More</a>
+            <a href="/2013/04/22/collaborative-markov-chain-model/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -128,23 +135,272 @@ sudo apt<span class="attribute">-get</span> install ant
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-06-10T10:10:49.000Z"><a href="/2013/06/10/building-node-web-applications/">2013-06-10</a></time>
+        <time datetime="2013-04-18T04:26:32.000Z"><a href="/2013/04/18/invertedindex-in-hadoop/">2013-04-18</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/06/10/building-node-web-applications/">Building Node web Applications</a></h1>
+    <h1 class="title"><a href="/2013/04/18/invertedindex-in-hadoop/">Inverted Index in Hadoop</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h2 id="Node-js网络应用开发">Node.js网络应用开发</h2>
+        <h2 id="倒排索引">倒排索引</h2>
+<h3 id="简介:">简介:</h3>
+<p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/18/invertedindex-in-hadoop/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-12T18:56:30.000Z"><a href="/2013/04/13/analyze-mapreduce/">2013-04-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/13/analyze-mapreduce/">MapReduce</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
+<h2 id="MapReduce_编程模型">MapReduce 编程模型</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="attribute">map</span>:<span class="function"><span class="params">(K1, V1)</span> -&gt;</span> list(K2, V2)
+<span class="attribute">reduce</span>: <span class="function"><span class="params">(k2, list(V2))</span> -&gt;</span> list(K2, V2)
+</pre></td></tr></table></figure>
+
+<p>简而言之就是 <strong><em> 输入-&gt; Mappers -&gt; 中间数据 -&gt; Reducer -&gt; 输出 </em></strong> 这样的一个过程，把输入<code>(key, value)</code>经过map和reduce函数转换成另一个或一批<code>(key, value)</code>对输出即可。</p>
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/13/analyze-mapreduce/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-09T05:14:20.000Z"><a href="/2013/04/09/DFS-and-BFS/">2013-04-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/09/DFS-and-BFS/">理解深度优先和广度优先</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h4 id="问题：">问题：</h4>
+<p>迷宫, 1为墙壁， 0为可以走的路， 只能横着走和竖着走，求解左上角到右下角的路线。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>int maze[<span class="link_label">5</span>][<span class="link_reference">5</span>] = {
+<span class="code">    0, 1, 0, 0, 0,</span>
+<span class="code">    0, 1, 0, 1, 0,</span>
+<span class="code">    0, 0, 0, 0, 0,</span>
+<span class="code">    0, 0, 0, 1, 0,</span>
+};
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/09/DFS-and-BFS/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-06T07:14:42.000Z"><a href="/2013/04/06/hdfs-java-api/">2013-04-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/06/hdfs-java-api/">理解 Hadoop 的 Java API</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="案例">案例</h3>
+<h4 id="上传本地文件到_HDFS">上传本地文件到 HDFS</h4>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span>(String src, String dst, String config) <span class="keyword">throws</span> IOException{
+    Configuration conf = <span class="keyword">new</span> Configuration();
+    conf.addResource(<span class="keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path srcPath = <span class="keyword">new</span> Path(src);
+    Path dstPath = <span class="keyword">new</span> Path(dst);
+    hdfs.copyFromLocalFile(srcPath, dstPath);
+    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));
+    
+    FileStatus files[] = hdfs.listStatus(dstPath);
+    <span class="keyword">for</span> (FileStatus file : files) {
+        System.out.println(file.getPath());
+    }
+    hdfs.close();
+}
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2013/04/06/hdfs-java-api/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-04-05T12:12:32.000Z"><a href="/2013/04/05/k-th-order-statistic/">2013-04-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2013/04/05/k-th-order-statistic/">k-th Order Statistic</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="问题描述:">问题描述:</h3>
+<h6 id="问题来源:_<a_href="http://learn-akae-cn/media/ch11s05-html" target="_blank">线性查找</a>">问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank">线性查找</a></h6>
 <ol>
-<li>Handling HTTP requests with Node’s API</li>
-<li>Building a RESTful web service</li>
-<li>Serving static files</li>
-<li>Accepting user input from forms</li>
-<li>Securing your application with HTTPS</li>
+<li>实现一个算法，在一组随机排列的数中找出最小的一个。你能想到的最直观的算法一定是Θ(n)的，想想有没有比Θ(n)更快的算法？</li>
+<li>在一组随机排列的数中找出第二小的，这个问题比上一个稍复杂，你能不能想出Θ(n)的算法？</li>
+<li>进一步泛化，在一组随机排列的数中找出第k小的，这个元素称为<code>k-th Order Statistic</code>。能想到的最直观的算法肯定是先把这些数排序然后取第k个，时间复杂度和排序算法相同，可以是Θ(nlgn)。这个问题虽然比前两个问题复杂，但它也有平均情况下时间复杂度是Θ(n)的算法</li>
 </ol>
 
       
@@ -153,7 +409,7 @@ sudo apt<span class="attribute">-get</span> install ant
       
         
           <div class="alignleft">
-            <a href="/2013/06/10/building-node-web-applications/#more" class="more-link">Read More</a>
+            <a href="/2013/04/05/k-th-order-statistic/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -183,391 +439,23 @@ sudo apt<span class="attribute">-get</span> install ant
     <header>
       
         <div class="icon"></div>
-        <time datetime="2013-05-29T16:40:13.000Z"><a href="/2013/05/30/priority-queue/">2013-05-30</a></time>
+        <time datetime="2013-04-03T15:11:12.000Z"><a href="/2013/04/03/blog-establish/">2013-04-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2013/05/30/priority-queue/">Priority Queue</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ol>
-<li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
-<li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
-<li>练习6.5-8 </li>
-</ol>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/05/30/priority-queue/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-05-27T14:14:53.000Z"><a href="/2013/05/27/common-problems-of-recommendation-systems/">2013-05-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/27/common-problems-of-recommendation-systems/">Common Problems of Recommender Systems</a></h1>
+    <h1 class="title"><a href="/2013/04/03/blog-establish/">blog establish</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h3 id="推荐系统的常见问题">推荐系统的常见问题</h3>
-<h4 id="缺少大数据问题">缺少大数据问题</h4>
-<p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
+        <p>新建第一篇博文，以纪念今天博客建立</p>
+<p>一直在犹豫使用Jekyll还是Octopress搭建自己的博客,虽然后者基于前者做了一些优化之类的东西,但最终犹豫再三还是使用了Jekyll。没有使用过Octopress，不知道两者之间的区别在什么地方，不过相对于初学者，使用Jekyll还是非常容易上手的，具体的步骤参看<a href="http://jekyllbootstrap.com" target="_blank">Jekyll Bootstrap</a>。</p>
 
       
     </div>
     <footer>
       
-        
-          <div class="alignleft">
-            <a href="/2013/05/27/common-problems-of-recommendation-systems/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-05-25T12:51:15.000Z"><a href="/2013/05/25/my-daily-life/">2013-05-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/25/my-daily-life/">我的一天</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>前两天，和两个还在武汉的老同学，还有一个从北京远道而来的老同学会餐，有感于每个人不同的际遇与成。听到别人打趣的说我越来越像一个程序员，傲娇的技术宅，心里反而感觉挺开心。时至周末，思及每天幸福而快乐的生活，遂记下我的一天，以作留恋。</p>
-<p>从周一到周五，早上8点半之前起来，这绝对不是说起来很早，只是对比之前每天10点之后起来，这绝对是我今年来做到的最伟大的改变之一了。即使是周末，也在9点左右起来了，真的很不容易，一定要坚持下去。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/05/25/my-daily-life/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-05-20T14:10:58.000Z"><a href="/2013/05/20/fix-some-problems/">2013-05-20</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/20/fix-some-problems/">Fix Some Ubuntu Problems</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="解决_Ubuntu_13-04的视频音频相关问题">解决 Ubuntu 13.04的视频音频相关问题</h2>
-<ol>
-<li>Fix ASUS Webcam Problem:vertically flip my webcam’s image</li>
-</ol>
-<p><strong><em>问题描述</em></strong>：华硕电脑摄像头视频图像倒立</p>
-<p>解决方法： 在google上搜索了一下 ubuntu camera invert找到几篇解决的博文，步骤如下：</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/05/20/fix-some-problems/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-05-17T14:44:25.000Z"><a href="/2013/05/17/inversion-monge-quicksort/">2013-05-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/17/inversion-monge-quicksort/">inversion monge quicksort</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="逆序对，Monge矩阵，快排优化——三数取中划分分析">逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
-<h3 id="题目">题目</h3>
-<ol>
-<li>第二章思考题2-4(逆序对)</li>
-<li>第四章思考题4-7(Monge矩阵)</li>
-<li>第七章思考题7-5(快排的三数取中划分分析)</li>
-</ol>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/05/17/inversion-monge-quicksort/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-05-03T18:24:52.000Z"><a href="/2013/05/04/three-points-understanding-node.js/">2013-05-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/05/04/three-points-understanding-node.js/">Three-points to Understanding Node.js</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="从三点去理解Node-js">从三点去理解Node.js</h2>
-<p>Node is:  </p>
-<ul>
-<li>基于JavaScript(Built on JavaScript)</li>
-<li>事件驱动和异步(Evented and Asynchronous)</li>
-<li>对于数据密集型实时应用(For Data-Intensive Real-Time Applications)</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/05/04/three-points-understanding-node.js/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-29T09:19:09.000Z"><a href="/2013/04/29/graduation-summary/">2013-04-29</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/29/graduation-summary/">Graduation Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h2 id="毕业总结">毕业总结</h2>
-<h5 id="写在前面的话">写在前面的话</h5>
-<p>一直觉得自己很忙，但又说不出来自己忙在哪里，很大程度上都是各种酱油的生活，也许我应该过忙碌的生活，这样就不会想得太纠结，思考得太无聊。幸运的是受到别人总结的启发，自我感觉也算有点经历的人，写下这样的一篇自我总结，就从2012年到现在做一个总结吧。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/29/graduation-summary/#more" class="more-link">Read More</a>
-          </div>
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2013-04-28T02:16:15.000Z"><a href="/2013/04/28/content-syndication-with-node.js/">2013-04-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2013/04/28/content-syndication-with-node.js/">内容聚合Nodejs的实现</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="[翻译]Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
-<hr>
-<p>原文链接 <a href="http://howtonode.org/content-syndication-with-node" target="_blank">Content Syndication with Node.js</a></p>
-<p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/" target="_blank">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
-
-      
-    </div>
-    <footer>
-      
-        
-          <div class="alignleft">
-            <a href="/2013/04/28/content-syndication-with-node.js/#more" class="more-link">Read More</a>
-          </div>
         
         
       
@@ -584,18 +472,21 @@ sudo apt<span class="attribute">-get</span> install ant
     <a href="/page/2/" class="alignleft prev">上一页</a>
   
   
-    <a href="/page/4/" class="alignright next">下一页</a>
-  
   <div class="clearfix"></div>
 </nav></div>
     </div>
     <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:beforeload.github.io">
-  </form>
+  
+<div class="widget tag">
+  <script
+    data-name="beforeload"
+    data-modules="base,details,stats,repos,orgs"
+    data-reposNum="4"
+    src="http://nodejs.in/octocard/bin/octocard.js">
+  </script>
 </div>
+
+
 
   
 <div class="widget tag">
@@ -608,19 +499,19 @@ sudo apt<span class="attribute">-get</span> install ant
   
     <li><a href="/categories/JavaScript/">JavaScript</a><small>1</small></li>
   
-    <li><a href="/categories/Linux/">Linux</a><small>7</small></li>
+    <li><a href="/categories/Linux/">Linux</a><small>6</small></li>
   
     <li><a href="/categories/Machine Learning/">Machine Learning</a><small>1</small></li>
   
     <li><a href="/categories/Math/">Math</a><small>1</small></li>
   
-    <li><a href="/categories/Memory/">Memory</a><small>9</small></li>
+    <li><a href="/categories/Memory/">Memory</a><small>2</small></li>
   
-    <li><a href="/categories/Node.js/">Node.js</a><small>6</small></li>
+    <li><a href="/categories/Node.js/">Node.js</a><small>4</small></li>
   
     <li><a href="/categories/Operating System/">Operating System</a><small>1</small></li>
   
-    <li><a href="/categories/Python/">Python</a><small>2</small></li>
+    <li><a href="/categories/Python/">Python</a><small>1</small></li>
   
   </ul>
 </div>
@@ -645,9 +536,9 @@ sudo apt<span class="attribute">-get</span> install ant
   
     <li><a href="/tags/Java/">Java</a><small>3</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>2</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>8</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>7</small></li>
   
     <li><a href="/tags/Machine Learning/">Machine Learning</a><small>1</small></li>
   
@@ -655,13 +546,13 @@ sudo apt<span class="attribute">-get</span> install ant
   
     <li><a href="/tags/Math/">Math</a><small>2</small></li>
   
-    <li><a href="/tags/Memory/">Memory</a><small>9</small></li>
+    <li><a href="/tags/Memory/">Memory</a><small>2</small></li>
   
-    <li><a href="/tags/Node.js/">Node.js</a><small>6</small></li>
+    <li><a href="/tags/Node.js/">Node.js</a><small>4</small></li>
   
     <li><a href="/tags/Operating System/">Operating System</a><small>1</small></li>
   
-    <li><a href="/tags/Python/">Python</a><small>2</small></li>
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
     <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
   
@@ -673,13 +564,18 @@ sudo apt<span class="attribute">-get</span> install ant
 </div>
 
 
-  <div class="widget">
+  
+<div class="widget tag">
   <h3 class="title">友情链接</h3>
   <ul class="entry">
-    <li><a href="http://www.likewhat.tk/blog" target="blank">Li Ke</a></li>
-    <li><a href="http://mikiyonney.github.io/" target="blank">Yonney</a></li>
+    
+      <li><a href="//www.likewhat.tk/blog" target="blank">LiKe</a></li>
+    
+      <li><a href="//mikiyonney.github.io/" target="blank">Yonney</a></li>
+    
   </ul>
 </div>
+
 
 </aside>
     <div class="clearfix"></div>
@@ -716,6 +612,7 @@ var disqus_shortname = 'beforeload';
   $('.fancybox').fancybox();
 })(jQuery);
 </script>
+
 
 </body>
 </html>
