@@ -10,7 +10,7 @@
   padding: 0;
 }
 body {
-  background: #eee;
+  background: #f1f1f1;
   color: #444;
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 14px;
@@ -46,6 +46,7 @@ h3 {
 a {
   text-decoration: none;
   color: #258fb8;
+  text-shadow: rgba(50,50,50,0.2) 1px 1px 3px;
 }
 a:hover {
   text-decoration: underline;
@@ -102,30 +103,31 @@ a:hover {
   }
 }
 #header {
-  text-shadow: 0 0 1px #fff;
-  margin: 50px auto;
+  text-shadow: 0 0 2px #fff;
+  margin: 30px auto;
 }
 #header a {
-  color: #999;
+  color: #444;
 }
 #header a:hover {
   color: #258fb8;
   text-decoration: none;
 }
 #header h1 {
-  font-weight: normal;
+  font-weight: bold;
   font-size: 2.5em;
   line-height: 1;
 }
 #header h2 {
   font-weight: normal;
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 1;
   margin-top: 10px;
 }
 #header #main-nav {
+  margin-left: 50px;
   font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: 2.5em;
+  line-height: 4.5em;
 }
 #header #main-nav ul {
   list-style: none;
@@ -133,6 +135,26 @@ a:hover {
 #header #main-nav ul li {
   float: left;
   margin-left: 30px;
+  font-size: 18px;
+}
+#header .search {
+  margin-bottom: 30px;
+}
+#header .search input {
+  background: #fff;
+  font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-style: italic;
+  font-size: 1em;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  width: 270px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #999;
+}
+#header .search input:focus {
+  color: #444;
 }
 article {
   -webkit-box-shadow: 1px 2px 3px #ddd;
@@ -587,25 +609,6 @@ article footer .addthis iframe {
 #sidebar .widget dl dl {
   list-style: disc;
   margin-left: 20px;
-}
-#sidebar .search {
-  margin-bottom: 30px;
-}
-#sidebar .search input {
-  background: #fff;
-  font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-style: italic;
-  font-size: 1em;
-  padding: 10px 15px;
-  border: 1px solid #ddd;
-  width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  color: #999;
-}
-#sidebar .search input:focus {
-  color: #444;
 }
 #sidebar .tag small {
   margin-left: 15px;

@@ -43,24 +43,24 @@
   <h1><a href="/">beforeload</a></h1>
   <h2><a href="/">对编程世界充满激情的少年</a></h2>
 </div>
-<nav id="main-nav" class="alignright">
-  <ul>
+<nav id="main-nav" class="alignleft">
+  <ul class="alignleft">
     
-      <li><a href="/">Home</a></li>
+      <li><a href="/">主页</a></li>
     
-      <li><a href="/archives">Archives</a></li>
+      <li><a href="/archives">归档</a></li>
     
-      <li><a href="/atom.xml">RSS</a></li>
+      <li><a href="/atom.xml">RSS订阅</a></li>
     
   </ul>
-<div class="search">
+</nav>
+<div class="search alignright">
   <form action="//google.com/search" method="get" accept-charset="utf-8">
     <input type="search" name="q" results="0" placeholder="搜索">
     <input type="hidden" name="q" value="site:beforeload.github.io">
   </form>
-</div>
   <div class="clearfix"></div>
-</nav>
+</div>
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
@@ -94,9 +94,10 @@
     <div class="entry">
       
         <h1 id="JavaScript_中的闭包">JavaScript 中的闭包</h1>
-<p>最近被人问到JavaScript中闭包的作用，无意中回忆起很久之前实习面试的时候也被问过类似的问题，想起在写JS中遇到的一些习惯性的问题，写篇博客总结一下。</p>
+<p>这篇文章写的较早，而且内容太水，建议不要浪费时间去阅读它。有时间我会重写一下。</p>
 <a id="more"></a>
 
+<p>最近被人问到JavaScript中闭包的作用，无意中回忆起很久之前实习面试的时候也被问过类似的问题，想起在写JS中遇到的一些习惯性的问题，写篇博客总结一下。</p>
 <h2 id="先了解什么是作用域">先了解什么是作用域</h2>
 <p>我感觉很多JS开发人员在对作用域的了解上都存在错误，虽然JavaScript是一种类C 的语言，但它并不支持块级作用域，块级作用域是定义在代码块中的变量在代码块执行结束后会被释放掉。</p>
 <p>在JavaScript中，则是通过函数作用域的方式，函数中的参数和变量在函数外不可见，而函数内自由使用，即内部任意位置定义的变量在函数内部任何地方都可见，当然定义变量时，请用var。为了避免块级作用域可能产生的问题，可以在函数体的顶部声明函数可能用到的所有变量。这也是很多前端开发人员的一个很好的习惯。</p>
@@ -253,7 +254,7 @@ console.log(object.getNameFunc()())
   
     <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>5</small></li>
   
-    <li><a href="/categories/JavaScript/">JavaScript</a><small>1</small></li>
+    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
   
     <li><a href="/categories/Linux/">Linux</a><small>6</small></li>
   
@@ -288,7 +289,7 @@ console.log(object.getNameFunc()())
   
     <li><a href="/tags/Java/">Java</a><small>3</small></li>
   
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>1</small></li>
+    <li><a href="/tags/JavaScript/">JavaScript</a><small>2</small></li>
   
     <li><a href="/tags/Linux/">Linux</a><small>7</small></li>
   
