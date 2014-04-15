@@ -5,7 +5,7 @@
 # Site
 title: beforeload
 subtitle: 对编程世界充满激情的少年
-description: 熟悉javascript，能写nodejs，看过Ruby，学过Java，对python也有兴趣，目前专注于C，搞搞Hadoop
+description: 关注前端开发
 author: beforeload
 email: fe.daniel91@gmail.com
 language: zh-CN
@@ -67,6 +67,10 @@ pagination_dir: page
 
 # Disqus
 disqus_shortname: beforeload
+
+# LiveReload
+livereload:
+  port: 35729
 
 # Extensions
 ## Plugins: https://github.com/tommy351/hexo/wiki/Plugins

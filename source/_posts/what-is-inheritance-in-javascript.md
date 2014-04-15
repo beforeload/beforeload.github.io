@@ -14,6 +14,9 @@ tags: JavaScript
 1. 类，对象和原型
 2. 类的定义
 3. 原型继承
+4. 构造函数继承
+5. 封装构造函数继承
+6. 复制继承
 
 <!-- more -->
 
@@ -67,7 +70,7 @@ alert(s1.x);  // 10
 
 在JavaScript每个object都会有prototype属性，prototype指向另外的一个object对象。
 通过上面的例子，我们可以知道，当我们需要读取一个object中某个属性x的时候，JavaScript引擎先查找这个object本身是否存在属性x。
-如果不存在，才会查找这个object的prototype中是否存在属性p。
+如果不存在，才会查找这个object的prototype中是否存在属性x。
 
 当我们new一个对象时，会给这个对象设置prototype属性，这个属性值来自它的构造函数的prototype属性值。
 所有函数在定义时，就自动创建和初始化了prototype属性。这个prototype属性指向只包含constructor属性的对象，而constructor属性指向function本身。
@@ -84,7 +87,7 @@ alert(s1.x);  // 10
 ```JavaScript
 /* 减少重复创建函数的开销 */
 var method = function() {
-        alert(this.name + ':' + this.age);
+    alert(this.name + ':' + this.age);
 }
 function Person(name, age) {
     var p = new Object();
@@ -203,13 +206,225 @@ alert(c.add()); // 4
 原型继承是直接复制已经存在的原型对象实现继承关系，基于原型而没有类的概念。不能很好的支持多参数和动态参数的父类。
 结构简单，不支持多重继承，不够灵活，原型声明的同时需要实例化父类对象，限制了父类实例化的灵活性。
 
-## 类继承
+## 构造函数继承
 
+众所周知，构造函数也是函数的一种，只是比普通函数特殊一点而已。
+当我们把构造函数A的方法赋值给构造函数B，然后调用该方法，构造函数A在B的内部执行，这时，B的内部就拥有了构造函数A中定义的属性和方法。
+这种B继承A的实现过程跟传统的类继承还是非常相似的。所以在一些书籍中，这样的继承也成为类继承。
 
-## 封装类继承
+请看下面的例子：
 
-## 实例继承
+```
+/* 构造函数A */
+function A(x) {
+    this.x = x;
+    this.say = function(){
+        alert(this.x);
+    }
+}
+
+/* 构造函数B */
+function B(x, y) {
+    this.m = A;
+    this.m(x);
+    delete this.m;
+    this.y = y;
+    this.call = function(){
+        alert(this.y);
+    }
+}
+
+/* Tester */
+var a = new A(1);
+var b = new B(2, 3);
+a.say();    // 1
+b.say();    // 2 这里说明继承成功
+b.call();   // 3
+```
+
+上面的写法是不是感觉很难受，需要定义一个临时的方法``m()``，构造函数参数x传递给构造函数A，执行后又把临时方法删除，实在是有种卸磨杀驴的味道。
+将父类的构造函数绑定在子类的构造函数上，可以使用call或者apply方法，推荐下面的写法：
+
+```
+function B(x, y) {
+    A.apply(this, arguments);
+    this.x = x;
+    this.y = y;
+    this.call = function() {
+        alert(this.y);
+    }
+}
+
+```
+
+即使这样优化后，还是欠妥，因为这样的构造函数继承中相互耦合性太高，不能适用复杂的编程中。
+
+所以在构造函数继承中，引入prototype是很有必要的，请看下面的例子：
+
+```
+function A(x){
+    this.x = x;
+}
+
+A.prototype.getx = function(){
+    return this.x;
+}
+
+function B(x, y) {
+    this.y = y;
+    A.call(this, x);
+}
+
+B.prototype = new A();  // 这个时候 B.prototype.constructor指向了A
+B.prototype.constructor = B;
+B.prototype.gety = function() {
+    return this.y;
+}
+
+var b = new B(2, 3);
+alert(b.getx());
+alert(b.gety());
+```
+
+在原型继承中，在为B类的原型赋值为A类的实例前，所以定义的任何属性和方法都将会被覆盖。
+扩展B类的原型方法，要在原型绑定之后，再定义扩展方法。
+
+## 封装构造函数继承
+
+了解上面的构造函数继承后，我们可以定义一个形式如下的封装函数，帮助我们处理子类和超类的继承模式。
+
+```JavaScript
+function extend(Sub, Sup) { // Sub 子类，Sup 超类
+    var F = function(){};    // 这是一个空函数
+    F.prototype = Sup.prototype;
+    Sub.prototype = new F();
+    Sub.prototype.constructor = Sub;
+    Sub.sup = Sup.prototype;
+    /* 检测超类的原型构造器是否与Object的原型构造器发生耦合 */
+    if(Sup.prototype.constructor == Object.prototype.constructor) {
+        Sup.prototype.constructor = Sup;
+    }
+}
+```
+
+值得注意的是上面的函数输入是子类和超类对象，没有输出。空函数F的作用是中转作用，F的原型为超类的原型，F的实例作为子类的原型。
+这样做的好处是如果超类自身规模较大，直接实例化超类占用内存较大，对系统负荷较大。
+
+对于上面封装函数的实现，我们可以用下面的例子来测试一下：
+
+```JavaScript
+function A(x) {
+    this.x = x;
+    this.get = function() {
+        return this.x;
+    }
+}
+
+A.prototype.double = function(){
+    return this.x * 2;
+}
+A.prototype.mul = function() {
+    return this.x * this.x;
+}
+
+function B(x) {
+    A.call(this, x);    // 内部数据绑定
+}
+
+extend(B, A);
+var b = new B(2);
+alert(b.get());     // 2
+alert(b.double());  // 4
+alert(b.mul());     // 4
+B.prototype.double = function() {
+    return this.x + '' + this.x;
+}
+alert(b.double());     // '22' 字符串
+```
+
+B类新定义的add方法会覆盖A类的同名方法。在B类的原型方法double()中可以调用A类的原型方法double()，从而避免代码耦合。
+
+```
+B.prototype.double = function(){
+    return B.sup.double.call(this);     // 内部调用
+}
+```
 
 ## 复制继承
 
-## 克隆继承
+之所以提一下复制继承，是因为这是继承的最原始的方法，它的思路也非常清晰：利用for in去遍历对象属性赋值给新的对象，
+这种思路常常让我想起作业抄袭答案的场景。下面封装一个复制继承的函数：
+
+```JavaScript
+function extend(p, copy) {
+    var copy = copy || {};
+    for(var i in p) {
+        if((typeof p[i]).toString().toLowerCase() === 'object') {
+            copy[i] = (p[i].constructor === Array) ? []: {};
+            extend(p[i], copy[i]);
+        } else {
+            copy[i] = p[i];
+        }
+    }
+    return copy;
+}
+```
+
+也有人说这样的拷贝思路是深拷贝，因为他对数组和对象进行了递归处理。
+jQuery貌似也是用这种方式实现继承方法的。
+
+针对上面的继承函数，下面简单测试一下：
+
+```
+var A = {
+    name: 'A'
+}
+
+A.arr = [1, 2]; // 这个要写在extend()前面
+var B = extend(A);
+B.arr.push(3)
+alert(A.arr);   // 1,2
+alert(B.arr);   // 1,2,3
+```
+
+在另外一本书上我看到了这样的封装方法，仅供参考：
+
+```JavaScript
+FUnction.prototype.extend = function(o){
+    for(var i in o) {
+        this.constructor.prototype[i] = o[i];
+    }
+}
+
+/* Test */
+function F(x, y) {
+    this.x = x;
+    this.y = y;
+    this.add = function() {
+        return this.x + this.y;
+    }
+}
+F.prototype.mul = function() {
+    return this.x * this.y;
+}
+
+var f = new F(2, 3);
+var o = function(){};
+o.extend(new F(2, 3));
+```
+
+这段代码其实是通过反射机制，复制类对象的所有可枚举的属性和方法来模拟继承。对这段代码可以进行优化如下：
+
+```JavaScript
+Function.prototype.clone = function(o) {
+    function Temp() {};
+    Temp.prototype = o;
+    return new Temp();
+}
+
+var o = Function.clone(new F(2, 3));
+alert(o.x);         // 2
+alert(o.y);         // 3
+alert(o.add());     // 5
+alert(o.mul());     // 6
+```
