@@ -4,7 +4,7 @@
   <subtitle><![CDATA[对编程世界充满激情的少年]]></subtitle>
   <link href="http://beforeload.github.io/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io"/>
-  <updated>2014-04-15T13:50:58.457Z</updated>
+  <updated>2014-04-15T16:50:02.677Z</updated>
   <id>http://beforeload.github.io/</id>
   <author>
     <name><![CDATA[beforeload]]></name>
@@ -16,7 +16,7 @@
     <link href="http://beforeload.github.io/2014/04/13/what-is-inheritance-in-javascript/"/>
     <id>http://beforeload.github.io/2014/04/13/what-is-inheritance-in-javascript/</id>
     <published>2014-04-13T10:20:55.000Z</published>
-    <updated>2014-04-15T13:50:38.000Z</updated>
+    <updated>2014-04-15T16:49:39.000Z</updated>
     <content type="html"><![CDATA[<h1 id="理解JavaScript中的继承">理解JavaScript中的继承</h1>
 <p>什么是继承？简而言之，父亲和儿子，儿子对父亲有继承关系。一句话能说明的关系在JavaScript中，使用起来并不容易。</p>
 <p>从以下几个方面理解JavaScript的继承：</p>
@@ -600,6 +600,14 @@ alert(o.add());     <span class="comment">// 5</span>
 alert(o.mul());     <span class="comment">// 6</span>
 </pre></td></tr></table></figure>
 
+<h2 id="小结">小结</h2>
+<p>对JavaScript的语言来说，要了解的东西还是很多，继承只是其中冰山一角。<br>JavaScript的继承尽管多样化，相比较Java而言还是优雅而简洁的（不忘记黑一下Java）。<br>希望这篇文章能够对你有所帮助，写了很多废话，如果有什么不当的地方，请务必告诉我，非常感谢！</p>
+<h2 id="参考资料">参考资料</h2>
+<ol>
+<li><a href="http://book.douban.com/subject/20366358/" target="_blank">编写高质量代码</a></li>
+<li><a href="http://www.crockford.com/javascript/inheritance.html" target="_blank">Classical Inheritance in JavaScript</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank">阮一峰的网络日志</a></li>
+</ol>
 ]]></content>
     <category scheme="http://beforeload.github.io/tags/JavaScript/" term="JavaScript"/>
     <category scheme="http://beforeload.github.io/categories/JavaScript/" term="JavaScript"/>
@@ -609,13 +617,13 @@ alert(o.mul());     <span class="comment">// 6</span>
     <link href="http://beforeload.github.io/2014/01/03/closure-of-javascript/"/>
     <id>http://beforeload.github.io/2014/01/03/closure-of-javascript/</id>
     <published>2014-01-03T14:17:17.000Z</published>
-    <updated>2014-04-13T10:28:27.000Z</updated>
+    <updated>2014-04-15T16:39:50.000Z</updated>
     <content type="html"><![CDATA[<h1 id="JavaScript_中的闭包">JavaScript 中的闭包</h1>
 <p>这篇文章写的较早，而且内容太水，建议不要浪费时间去阅读它。有时间我会重写一下。</p>
 <a id="more"></a>
 
 <p>最近被人问到JavaScript中闭包的作用，无意中回忆起很久之前实习面试的时候也被问过类似的问题，想起在写JS中遇到的一些习惯性的问题，写篇博客总结一下。</p>
-<h2 id="先了解什么是作用域">先了解什么是作用域</h2>
+<h2 id="作用域">作用域</h2>
 <p>我感觉很多JS开发人员在对作用域的了解上都存在错误，虽然JavaScript是一种类C 的语言，但它并不支持块级作用域，块级作用域是定义在代码块中的变量在代码块执行结束后会被释放掉。</p>
 <p>在JavaScript中，则是通过函数作用域的方式，函数中的参数和变量在函数外不可见，而函数内自由使用，即内部任意位置定义的变量在函数内部任何地方都可见，当然定义变量时，请用var。为了避免块级作用域可能产生的问题，可以在函数体的顶部声明函数可能用到的所有变量。这也是很多前端开发人员的一个很好的习惯。</p>
 <h2 id="闭包的产生">闭包的产生</h2>

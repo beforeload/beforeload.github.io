@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://beforeload.github.io/2014/04/13/what-is-inheritance-in-javascript/</loc>
-    <lastmod>2014-04-15T13:50:38.000Z</lastmod>
+    <lastmod>2014-04-15T16:49:39.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2014/01/03/closure-of-javascript/</loc>
-    <lastmod>2014-04-13T10:28:27.000Z</lastmod>
+    <lastmod>2014-04-15T16:39:50.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
@@ -29,10 +29,6 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/04/06/hdfs-java-api/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
@@ -49,11 +45,11 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
+    <loc>http://beforeload.github.io/2013/04/06/hdfs-java-api/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
+    <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -73,7 +69,7 @@
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
-    <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
+    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
@@ -86,6 +82,10 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/07/21/the-master-method/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>

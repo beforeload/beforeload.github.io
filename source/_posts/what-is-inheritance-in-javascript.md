@@ -428,3 +428,16 @@ alert(o.y);         // 3
 alert(o.add());     // 5
 alert(o.mul());     // 6
 ```
+
+## 小结
+
+对JavaScript的语言来说，要了解的东西还是很多，继承只是其中冰山一角。
+JavaScript的继承尽管多样化，相比较Java而言还是优雅而简洁的（不忘记黑一下Java）。
+希望这篇文章能够对你有所帮助，写了很多废话，如果有什么不当的地方，请务必告诉我，非常感谢！
+
+
+## 参考资料
+
+1. [编写高质量代码](http://book.douban.com/subject/20366358/)
+2. [Classical Inheritance in JavaScript](http://www.crockford.com/javascript/inheritance.html)
+3. [阮一峰的网络日志](http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html)
