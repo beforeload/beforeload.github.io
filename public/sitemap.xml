@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://beforeload.github.io/2014/04/16/test/</loc>
-    <lastmod>2014-04-16T07:52:18.000Z</lastmod>
-  </url>
-  <url>
     <loc>http://beforeload.github.io/2014/04/13/what-is-inheritance-in-javascript/</loc>
     <lastmod>2014-04-15T16:49:39.000Z</lastmod>
   </url>
@@ -19,6 +15,10 @@
   <url>
     <loc>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</loc>
     <lastmod>2014-01-02T07:38:40.000Z</lastmod>
+  </url>
+  <url>
+    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
+    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
@@ -90,10 +90,6 @@
   </url>
   <url>
     <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
     <lastmod>2014-01-01T08:26:38.000Z</lastmod>
   </url>
   <url>
