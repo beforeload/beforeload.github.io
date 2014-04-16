@@ -104,7 +104,7 @@ a:hover {
 }
 #header {
   text-shadow: 0 0 2px #fff;
-  margin: 30px auto;
+  margin: 20px auto;
 }
 #header a {
   color: #444;
@@ -125,6 +125,7 @@ a:hover {
   margin-top: 10px;
 }
 #header #main-nav {
+  margin-top: 20px;
   margin-left: 50px;
   font-family: "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 4.5em;
@@ -138,7 +139,7 @@ a:hover {
   font-size: 18px;
 }
 #header .search {
-  margin-bottom: 30px;
+  margin-top: 30px;
 }
 #header .search input {
   background: #fff;
@@ -279,11 +280,12 @@ article header .icon:before {
   text-align: center;
 }
 article header time {
+  display: block;
+  float: right;
   color: #999;
   font: 0.9em "Lato", Helvetica Neue, Helvetica, Arial, sans-serif;
   margin-bottom: 5px;
-  display: block;
-  line-height: 1;
+  line-height: 1.5em;
 }
 article header .title {
   font-weight: normal;
