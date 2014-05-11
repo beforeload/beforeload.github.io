@@ -111,28 +111,29 @@
 <ol>
 <li>一个类作为mapper，要继承MapReduceBase基类并实现Mapper接口；</li>
 <li>Mapper接口负责数据处理阶段。采用形式为<code>Mapper&lt;K1, V1, K2, V2&gt;</code> Java泛型；</li>
-<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
+<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。</li>
+</ol>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">void</span> map(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)
     <span class="keyword">throws</span> IOException
 </pre></td></tr></table></figure>
 
-</li>
-</ol>
 <h3 id="Reducer">Reducer</h3>
 <p>Reduce阶段，数据整合，排序。然后调用自定义函数<code>reduce()</code>，输入<code>(K2, list(V2))</code>，得到键值对<code>&lt;K3, V3&gt;</code>输出到HDFS上。</p>
 <p><em>Tips:</em></p>
 <ol>
 <li>Reducers数目在mapred-site.xml中决定，属性是<code>mapred.reduce.tasks</code>，默认值是 1，<code>job.setNumReduceTasks()</code>方法也可以用于设置，<strong>这是一个很重要的值</strong>；</li>
-<li><p>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: </p>
+<li>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: </li>
+</ol>
 <figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">void</span> reduce(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3, V3&gt; output, 
         Reporter reporter) <span class="keyword">throws</span> IOException
 </pre></td></tr></table></figure>
-</li>
-<li><p><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</p>
-</li>
+
+<ol>
+<li><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</li>
 <li>map阶段和reduce阶段中间还有partitioner的工作：负责将mapper的结果输出给不同的reducer。</li>
 </ol>
 <h3 id="Hadoop的MapReduce">Hadoop的MapReduce</h3>

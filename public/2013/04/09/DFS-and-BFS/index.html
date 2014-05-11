@@ -364,12 +364,12 @@ int main(void)
 <p><strong>DFS 优化：</strong></p>
 <p>代码没有什么难懂的地方，不过有很多可以优化的地方，例如在predecessor这个数据结构上，浪费了太多的存储空间，可以做以下优化：</p>
 <ol>
-<li>重新定义predecessor存储方式<figure class="highlight"><table><tr><td class="gutter"><pre>1
+<li>重新定义predecessor存储方式</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>struct point predecessor[<span class="link_label">MAX_ROW</span>][<span class="link_reference">MAX_COL</span>] = { 0 };
 </pre></td></tr></table></figure>
 
-</li>
-</ol>
 <p>所有的值定义为0,前趋点为上点，则将他赋值为1，前趋点为下点，则赋值为-1，前趋点为左点，则赋值为2,前趋点为右点，则赋值为-2；通过定义四个不同的值区分前趋点，减少了存储空间，相应的函数也要对应修改即可。</p>
 <ol>
 <li>用递归取代predecessor数据结构</li>

@@ -308,12 +308,12 @@
 <p>这个问题其实严格意义上并不属于API调用方面的问题，具体问题出现的原因不得而知，不过在查阅资料一番后还是得出了问题的解决方法。</p>
 <ul>
 <li>stackoverflow上给出<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180" target="_blank">问题</a>的解决方法，不过经过尝试后，也只能发出感叹：”It doesn’t work!” </li>
-<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug的博客</a>上给出了解答，通过添加一行代码即可<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
+<li>幸好在<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug的博客</a>上给出了解答，通过添加一行代码即可</li>
+</ul>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>conf.addResource(<span class="keyword">new</span> Path(<span class="string">"/root/hadoop-0.20.2/conf/core-site.xml"</span>));
 </pre></td></tr></table></figure>
 
-</li>
-</ul>
 <h3 id="讨论">讨论</h3>
 <p><strong><em>附源码如下：</em></strong></p>
 <figure class="highlight Java"><table><tr><td class="gutter"><pre>1

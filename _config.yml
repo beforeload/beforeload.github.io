@@ -81,6 +81,14 @@ plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+
+sitemap:
+  path: sitemap.xml
+
 # Deployment
 ## Docs: http://zespia.tw/hexo/docs/deploy.html
 deploy:

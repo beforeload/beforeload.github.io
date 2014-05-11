@@ -6,6 +6,7 @@ db.json
 .deploy/*
 .deploy
 public
+db.json
 
 themes/*
 *.log

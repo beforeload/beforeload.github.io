@@ -1,99 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://beforeload.github.io/2014/04/13/what-is-inheritance-in-javascript/</loc>
-    <lastmod>2014-04-15T16:49:39.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2014/01/03/closure-of-javascript/</loc>
-    <lastmod>2014-04-15T16:39:50.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
-    <lastmod>2014-01-12T08:37:52.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</loc>
-    <lastmod>2014-01-02T07:38:40.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
+  
   <url>
     <loc>http://beforeload.github.io/2013/04/06/hdfs-java-api/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+    <lastmod>2013-04-06T07:14:42.000Z</lastmod>
   </url>
+  
   <url>
-    <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+    <loc>http://beforeload.github.io/2014/04/13/what-is-inheritance-in-javascript/</loc>
+    <lastmod>2014-04-13T10:20:55.000Z</lastmod>
   </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/28/content-syndication-with-node.js/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/05/20/fix-some-problems/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/04/05/k-th-order-statistic/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
+  
   <url>
     <loc>http://beforeload.github.io/2013/04/03/blog-establish/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+    <lastmod>2013-04-03T15:11:12.000Z</lastmod>
   </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/05/30/priority-queue/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
-  <url>
-    <loc>http://beforeload.github.io/2013/07/21/the-master-method/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
-  </url>
+  
   <url>
     <loc>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</loc>
-    <lastmod>2014-01-01T08:26:38.000Z</lastmod>
+    <lastmod>2013-06-28T17:13:47.000Z</lastmod>
   </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/06/10/building-node-web-applications/</loc>
+    <lastmod>2013-06-10T10:10:49.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</loc>
+    <lastmod>2013-06-11T18:29:06.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/06/28/building-webapps-with-yeoman/</loc>
+    <lastmod>2013-06-28T14:11:40.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2014/01/03/closure-of-javascript/</loc>
+    <lastmod>2014-01-03T14:17:17.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/04/22/collaborative-markov-chain-model/</loc>
+    <lastmod>2013-04-22T13:23:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/05/27/common-problems-of-recommendation-systems/</loc>
+    <lastmod>2013-05-27T14:14:53.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/04/28/content-syndication-with-node.js/</loc>
+    <lastmod>2013-04-28T02:16:15.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/05/20/fix-some-problems/</loc>
+    <lastmod>2013-05-20T14:10:58.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</loc>
+    <lastmod>2013-04-12T18:56:30.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/09/03/install-jbpm54/</loc>
+    <lastmod>2013-09-03T14:49:38.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/10/19/introduction-to-machine-learning/</loc>
+    <lastmod>2013-10-19T12:25:13.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/05/17/inversion-monge-quicksort/</loc>
+    <lastmod>2013-05-17T14:44:25.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/</loc>
+    <lastmod>2013-04-18T04:26:32.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/04/05/k-th-order-statistic/</loc>
+    <lastmod>2013-04-05T12:12:32.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/</loc>
+    <lastmod>2013-06-22T13:23:50.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/05/30/priority-queue/</loc>
+    <lastmod>2013-05-29T16:40:13.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/</loc>
+    <lastmod>2013-07-11T13:01:59.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/07/21/the-master-method/</loc>
+    <lastmod>2013-07-21T02:53:44.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</loc>
+    <lastmod>2014-01-02T04:53:58.000Z</lastmod>
+  </url>
+  
   <url>
     <loc>http://beforeload.github.io/2013/04/09/DFS-and-BFS/</loc>
-    <lastmod>2013-04-12T18:49:30.000Z</lastmod>
+    <lastmod>2013-04-09T05:14:20.000Z</lastmod>
   </url>
+  
 </urlset>
