@@ -1,14 +1,14 @@
 # Hexo Configuration
-## Docs: http://zespia.tw/hexo/docs/configure.html
-## Source: https://github.com/tommy351/hexo/
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: beforeload
-subtitle: 对编程世界充满激情的少年
-description: 关注前端开发
-author: beforeload
+title: Daniel Liu
+subtitle: '@beforeload'
+description: 个人博客
+author: Daniel Liu
 email: fe.daniel91@gmail.com
-language: zh-CN
+language:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -18,17 +18,25 @@ permalink: :year/:month/:day/:title/
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
+code_dir: downloads/code 
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
 
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
 auto_spacing: false # Add spaces between asian characters and western characters
 titlecase: false # Transform title into titlecase
-max_open_file: 100
+external_link: true # Open external links in new tab
 filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
 highlight:
   enable: true
-  backtick_code_block: true
   line_number: true
   tab_replace:
 
@@ -41,7 +49,7 @@ tag_map:
 ## 2: Enable pagination
 ## 1: Disable pagination
 ## 0: Fully Disable
-archive: 1
+archive: 2
 category: 2
 tag: 2
 
@@ -50,6 +58,7 @@ tag: 2
 ## You can customize the logger format as defined in
 ## http://www.senchalabs.org/connect/logger.html
 port: 4000
+server_ip: 0.0.0.0
 logger: false
 logger_format:
 
@@ -68,29 +77,23 @@ pagination_dir: page
 # Disqus
 disqus_shortname: beforeload
 
-# LiveReload
-livereload:
-  port: 35729
-
 # Extensions
-## Plugins: https://github.com/tommy351/hexo/wiki/Plugins
-## Themes: https://github.com/tommy351/hexo/wiki/Themes
+## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
+## Themes: https://github.com/hexojs/hexo/wiki/Themes
 theme: collect
 exclude_generator:
-plugins:
 - hexo-generator-feed
 - hexo-generator-sitemap
-
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
 feed:
   type: atom
   path: atom.xml
-  limit: 20
+  limit: 50
 
 sitemap:
   path: sitemap.xml
 
-# Deployment
-## Docs: http://zespia.tw/hexo/docs/deploy.html
 deploy:
   type: github
   repository: git@github.com:beforeload/beforeload.github.io.git

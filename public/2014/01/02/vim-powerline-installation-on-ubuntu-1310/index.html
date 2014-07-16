@@ -1,27 +1,35 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <title>Vim Powerline installation on Ubuntu 13.10 | beforeload</title>
-  <meta name="author" content="beforeload">
-  
-  <meta name="description" content="关注前端开发">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Vim Powerline installation on Ubuntu 13.10 | Daniel Liu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="description" content="在Ubuntu 13.10上安装vim-powerline
+ 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找vim-powerline的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然let g:Powerline_symbols = &#39;fancy&#39;没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim Powerline installation on Ubuntu 13.10">
+<meta property="og:url" content="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/">
+<meta property="og:site_name" content="Daniel Liu">
+<meta property="og:description" content="在Ubuntu 13.10上安装vim-powerline
+ 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找vim-powerline的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然let g:Powerline_symbols = &#39;fancy&#39;没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和">
+<meta property="og:image" content="http://i.stack.imgur.com/T6APG.png">
+<meta property="og:image" content="http://i.stack.imgur.com/4R3XS.png">
+<meta property="og:image" content="http://i.stack.imgur.com/VTB31.png">
+<meta property="og:image" content="http://i.stack.imgur.com/HhgMo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim Powerline installation on Ubuntu 13.10">
+<meta name="twitter:description" content="在Ubuntu 13.10上安装vim-powerline
+ 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找vim-powerline的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然let g:Powerline_symbols = &#39;fancy&#39;没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和">
 
-  <meta property="og:title" content="Vim Powerline installation on Ubuntu 13.10"/>
-  <meta property="og:site_name" content="beforeload"/>
-
   
-    <meta property="og:image" content="undefined"/>
+    <link rel="alternative" href="/atom.xml" title="Daniel Liu" type="application/atom+xml">
   
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
 
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="http://beforeload.github.io/atom.xml" title="beforeload" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -36,76 +44,74 @@
 </script>
 
 </head>
-
-
 <body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">beforeload</a></h1>
-  <h2><a href="/">对编程世界充满激情的少年</a></h2>
-</div>
-<nav id="main-nav" class="alignleft">
-  <ul class="alignleft">
-    
-      <li><a href="/">主页</a></li>
-    
-      <li><a href="/archives">归档</a></li>
-    
-      <li><a href="/atom.xml">RSS订阅</a></li>
-    
-  </ul>
-</nav>
-<div class="search alignright">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="搜索">
-    <input type="hidden" name="q" value="site:beforeload.github.io">
-  </form>
-  <div class="clearfix"></div>
-</div>
-<div class="clearfix"></div>
+  <div id="sidebar">Zuo</div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Daniel Liu</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">@beforeload</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://beforeload.github.io"></form>
+      </div>
+    </div>
+  </div>
 </header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft">
-        <div id="wrapper"><article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
+      <div class="outer">
+        <section id="main"><article id="post-vim-powerline-installation-on-ubuntu-1310" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/01/02/vim-powerline-installation-on-ubuntu-1310/" class="article-date">
+  <time datetime="2014-01-02T12:53:58.000Z" itemprop="datePublished">2014 01 02</time>
+</a>
     
-      <img src="">
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
     
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
+    
+      <header class="article-header">
+        
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2014-01-02T04:53:58.000Z"><a href="/2014/01/02/vim-powerline-installation-on-ubuntu-1310/">2014-01-02</a></time>
-      
-      
-  
-    <h1 class="title">Vim Powerline installation on Ubuntu 13.10</h1>
+    <h1 class="article-title" itemprop="name">
+      Vim Powerline installation on Ubuntu 13.10
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="在Ubuntu_13-10上安装vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
 <p> 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找<code>vim-powerline</code>的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然<code>let g:Powerline_symbols = &#39;fancy&#39;</code>没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和解决方法。</p>
-<img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal">
-
-
-<img src="http://i.stack.imgur.com/4R3XS.png" title="Vim Powerline Insert">
-
-
-<img src="http://i.stack.imgur.com/VTB31.png" title="Vim Powerline Visual">
-
-
-<img src="http://i.stack.imgur.com/HhgMo.png" title="Vim Powerline Replace">
-
+<img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal"><br><img src="http://i.stack.imgur.com/4R3XS.png" title="Vim Powerline Insert"><br><img src="http://i.stack.imgur.com/VTB31.png" title="Vim Powerline Visual"><br><img src="http://i.stack.imgur.com/HhgMo.png" title="Vim Powerline Replace">
 
 <a id="more"></a>
 
@@ -113,77 +119,35 @@
 <ol>
 <li>首先安装python-pip和git:</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install python<span class="attribute">-pip</span> git
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt<span class="attribute">-get</span> install python<span class="attribute">-pip</span> git</div></pre></td></tr></table></figure>
 
 <ol>
 <li>安装Powerline</li>
 </ol>
 <p>分两种情况：<br>1) 对于个人用户</p>
 <p>在控制台中运行：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>pip install --user git+git:<span class="comment">//github.com/Lokaltog/powerline</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user git+git:<span class="comment">//github.com/Lokaltog/powerline</span></div></pre></td></tr></table></figure>
 
 <p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="string">"<span class="variable">$HOME</span>/.local/bin"</span> ]; <span class="keyword">then</span>
-    PATH=<span class="string">"<span class="variable">$HOME</span>/.local/bin:<span class="variable">$PATH</span>"</span>
-<span class="keyword">fi</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="string">"<span class="variable">$HOME</span>/.local/bin"</span> ]; <span class="keyword">then</span></div><div class="line">    PATH=<span class="string">"<span class="variable">$HOME</span>/.local/bin:<span class="variable">$PATH</span>"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
 
 <p>2) 对于系统用户</p>
 <p>在控制台中运行：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>su <span class="attribute">-c</span> <span class="string">'pip install git+git://github.com/Lokaltog/powerline'</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su <span class="attribute">-c</span> <span class="string">'pip install git+git://github.com/Lokaltog/powerline'</span></div></pre></td></tr></table></figure>
 
 <h2 id="二、字体的安装">二、字体的安装</h2>
 <p>对于Ubuntu的用户来说，安装字体再简单不过了，只需要双击文件，点击Install即可。这里不在赘述。</p>
-<p>不过，我发现从<a href="https://github.com/Lokaltog/powerline-fonts" target="_blank">powerline-fonts</a>上下载的字体不能直接用，还是需要配置，配置过程如下：</p>
+<p>不过，我发现从<a href="https://github.com/Lokaltog/powerline-fonts" target="_blank" rel="external">powerline-fonts</a>上下载的字体不能直接用，还是需要配置，配置过程如下：</p>
 <ol>
 <li>Fontconfig：(推荐)</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>sudo apt<span class="attribute">-get</span> install fontforge python<span class="attribute">-fontforge</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt<span class="attribute">-get</span> install fontforge python<span class="attribute">-fontforge</span></div></pre></td></tr></table></figure>
 
 <p>1) 对于个人用户</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>mkdir -p ~/<span class="preprocessor">.fonts</span>/ && cd ~/<span class="preprocessor">.fonts</span>/
-wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span> 
-wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span>
-~/<span class="preprocessor">.vim</span>/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span>
-mkdir -p ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ cd ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ 
-wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span>
-fc-cache -vf ~/<span class="preprocessor">.fonts</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/<span class="preprocessor">.fonts</span>/ && cd ~/<span class="preprocessor">.fonts</span>/</div><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span> </div><div class="line">wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span></div><div class="line">~/<span class="preprocessor">.vim</span>/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span></div><div class="line">mkdir -p ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ cd ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ </div><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span></div><div class="line">fc-cache -vf ~/<span class="preprocessor">.fonts</span></div></pre></td></tr></table></figure>
 
 <p>2) 对于系统用户</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span>
-wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span>
-wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span>
-/etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span>
-sudo mv *<span class="preprocessor">.otf</span> /usr/share/fonts/
-sudo fc-cache -vf
-sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span> /etc/fonts/conf<span class="preprocessor">.d</span>/
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span></div><div class="line">wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span></div><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span></div><div class="line">/etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span></div><div class="line">sudo mv *<span class="preprocessor">.otf</span> /usr/share/fonts/</div><div class="line">sudo fc-cache -vf</div><div class="line">sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span> /etc/fonts/conf<span class="preprocessor">.d</span>/</div></pre></td></tr></table></figure>
 
 <p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
 <h2 id="三、配置-vimrc">三、配置.vimrc</h2>
@@ -191,21 +155,7 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <li>Vim状态栏的配置</li>
 </ol>
 <p>在<code>~/.vimrc</code>或者<code>/etc/vim/vimrc</code>文件中进行配置：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre><span class="built_in">set</span> encoding<span class="subst">=</span>utf<span class="subst">-</span><span class="number">8</span>
-<span class="built_in">set</span> fillchars<span class="subst">+=</span>stl:<span class="subst">\</span> ,stlnc:<span class="subst">\</span>
-<span class="built_in">set</span> laststatus<span class="subst">=</span><span class="number">2</span>
-<span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span>/lib/python2<span class="number">.7</span>/site<span class="attribute">-packages</span>/powerline/bindings/vim<span class="subst">/</span>
-<span class="built_in">set</span> <span class="attribute">-g</span> default<span class="attribute">-terminal</span> <span class="string">"screen-256color"</span>
-<span class="built_in">set</span> t_Co<span class="subst">=</span><span class="number">256</span>
-<span class="keyword">let</span> g:Powerline_symbols <span class="subst">=</span> <span class="string">'fancy'</span>
-</pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> encoding<span class="subst">=</span>utf<span class="subst">-</span><span class="number">8</span></div><div class="line"><span class="built_in">set</span> fillchars<span class="subst">+=</span>stl:<span class="subst">\</span> ,stlnc:<span class="subst">\</span></div><div class="line"><span class="built_in">set</span> laststatus<span class="subst">=</span><span class="number">2</span></div><div class="line"><span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span>/lib/python2<span class="number">.7</span>/site<span class="attribute">-packages</span>/powerline/bindings/vim<span class="subst">/</span></div><div class="line"><span class="built_in">set</span> <span class="attribute">-g</span> default<span class="attribute">-terminal</span> <span class="string">"screen-256color"</span></div><div class="line"><span class="built_in">set</span> t_Co<span class="subst">=</span><span class="number">256</span></div><div class="line"><span class="keyword">let</span> g:Powerline_symbols <span class="subst">=</span> <span class="string">'fancy'</span></div></pre></td></tr></table></figure>
 
 <p>后面附上我的vimrc相关配置。</p>
 <h2 id="四、卸载">四、卸载</h2>
@@ -215,198 +165,170 @@ sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocesso
 <pre><code>su <span class="attribute">-c</span> <span class="string">'pip uninstall powerline'</span>
 </code></pre><h3 id="附上我的字体配置文件">附上我的字体配置文件</h3>
 <ol>
-<li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank">字体</a></li>
-<li><a href="https://raw.github.com/beforeload/dotfiles/master/.vimrc" target="_blank">.vimrc</a></li>
+<li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank" rel="external">字体</a></li>
+<li><a href="https://raw.github.com/beforeload/dotfiles/master/.vimrc" target="_blank" rel="external">.vimrc</a></li>
 </ol>
 
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/" data-id="6f4ygw5sihjfsw40" class="article-share-link">Share</a>
       
-        
-  
-  <div class="categories">
-    <a href="/categories/Linux/">Linux</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>, <a href="/tags/Vim/">Vim</a>
-  </div>
-
-        
-
-
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style_32x32">
-  
-    <a class="jiathis_button_qzone"></a>
-  
-  
-    <a class="jiathis_button_tsina"></a>
-  
-  
-    <a class="jiathis_button_tqq"></a>
-  
-  
-    <a class="jiathis_button_weixin"></a>
-  
-  
-    <a class="jiathis_button_renren"></a>
-  
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-    <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1393947965863872" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-
+        <a href="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/#disqus_thread" class="article-comment-link">Comments</a>
       
-      <div class="clearfix"></div>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
+
     </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/01/04/closure-of-javascript/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Closure of JavaScript
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/10/20/introduction-to-machine-learning/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Introduction to Machine Learning</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-<section id="comment">
-  <h1 class="title">留言</h1>
+<section id="comments">
   <div id="disqus_thread">
     <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
 </section>
-</div>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Distributed-Computing/">Distributed Computing</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Math/">Math</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Memory/">Memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nodejs/">Node.js</a><span class="category-list-count">3</span></li></ul>
     </div>
-    <aside id="sidebar" class="alignright">
-  
-<div class="widget tag">
-  <script
-    data-name="beforeload"
-    data-modules="base,details,stats,repos,orgs"
-    data-reposNum="4"
-    src="http://nodejs.in/octocard/bin/octocard.js">
-  </script>
-</div>
-
-
-
-  
-<div class="widget tag">
-  <h3 class="title">分类</h3>
-  <ul class="entry">
-  
-    <li><a href="/categories/Algorithm/">Algorithm</a><small>5</small></li>
-  
-    <li><a href="/categories/Distributed Computing/">Distributed Computing</a><small>5</small></li>
-  
-    <li><a href="/categories/JavaScript/">JavaScript</a><small>2</small></li>
-  
-    <li><a href="/categories/Linux/">Linux</a><small>6</small></li>
-  
-    <li><a href="/categories/Machine Learning/">Machine Learning</a><small>1</small></li>
-  
-    <li><a href="/categories/Math/">Math</a><small>1</small></li>
-  
-    <li><a href="/categories/Memory/">Memory</a><small>1</small></li>
-  
-    <li><a href="/categories/Node.js/">Node.js</a><small>3</small></li>
-  
-  </ul>
-</div>
-
-
-  
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/Algorithm/">Algorithm</a><small>6</small></li>
-  
-    <li><a href="/tags/Android/">Android</a><small>1</small></li>
-  
-    <li><a href="/tags/C/">C</a><small>2</small></li>
-  
-    <li><a href="/tags/Data Structure/">Data Structure</a><small>1</small></li>
-  
-    <li><a href="/tags/Distributed Computing/">Distributed Computing</a><small>4</small></li>
-  
-    <li><a href="/tags/Hadoop/">Hadoop</a><small>5</small></li>
-  
-    <li><a href="/tags/Java/">Java</a><small>3</small></li>
-  
-    <li><a href="/tags/JavaScript/">JavaScript</a><small>2</small></li>
-  
-    <li><a href="/tags/Linux/">Linux</a><small>7</small></li>
-  
-    <li><a href="/tags/Machine Learning/">Machine Learning</a><small>1</small></li>
-  
-    <li><a href="/tags/MapReduce/">MapReduce</a><small>1</small></li>
-  
-    <li><a href="/tags/Math/">Math</a><small>2</small></li>
-  
-    <li><a href="/tags/Memory/">Memory</a><small>1</small></li>
-  
-    <li><a href="/tags/Node.js/">Node.js</a><small>3</small></li>
-  
-    <li><a href="/tags/Translate/">Translate</a><small>2</small></li>
-  
-    <li><a href="/tags/Ubuntu/">Ubuntu</a><small>5</small></li>
-  
-    <li><a href="/tags/Vim/">Vim</a><small>1</small></li>
-  
-  </ul>
-</div>
-
-
-  
-<div class="widget tag">
-  <h3 class="title">友情链接</h3>
-  <ul class="entry">
-    
-      <li><a href="//www.likewhat.tk/blog" target="blank">LiKe</a></li>
-    
-      <li><a href="//mikiyonney.github.io/" target="blank">Yonney</a></li>
-    
-  </ul>
-</div>
-
-
-</aside>
-    <div class="clearfix"></div>
   </div>
-  <footer id="footer" class="inner"><div class="alignleft">
+
   
-  &copy; 2014 beforeload
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Structure/">Data Structure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Distributed-Computing/">Distributed Computing</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hadoop/">Hadoop</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MapReduce/">MapReduce</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Memory/">Memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nodejs/">Node.js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Translate/">Translate</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 18.33px;">Algorithm</a><a href="/tags/Android/" style="font-size: 10.00px;">Android</a><a href="/tags/C/" style="font-size: 11.67px;">C</a><a href="/tags/Data-Structure/" style="font-size: 10.00px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 15.00px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 16.67px;">Hadoop</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/JavaScript/" style="font-size: 11.67px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 10.00px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 10.00px;">MapReduce</a><a href="/tags/Math/" style="font-size: 11.67px;">Math</a><a href="/tags/Memory/" style="font-size: 10.00px;">Memory</a><a href="/tags/Nodejs/" style="font-size: 13.33px;">Node.js</a><a href="/tags/Translate/" style="font-size: 11.67px;">Translate</a><a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a>
+    </div>
+  </div>
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01">January 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10">October 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09">September 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/07">July 2013</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06">June 2013</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05">May 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04">April 2013</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
 
-<script type="text/javascript">
-var disqus_shortname = 'beforeload';
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/04/14/what-is-inheritance-in-javascript/">What is Inheritance in JavaScript</a>
+          </li>
+        
+          <li>
+            <a href="/2014/01/04/closure-of-javascript/">Closure of JavaScript</a>
+          </li>
+        
+          <li>
+            <a href="/2014/01/02/vim-powerline-installation-on-ubuntu-1310/">Vim Powerline installation on Ubuntu 13.10</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/20/introduction-to-machine-learning/">Introduction to Machine Learning</a>
+          </li>
+        
+          <li>
+            <a href="/2013/09/04/install-jbpm54/">Install JBPM 5.4</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2014 Daniel Liu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'beforeload';
+  
+  var disqus_url = 'http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
 
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 
 
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
 </body>
 </html>
