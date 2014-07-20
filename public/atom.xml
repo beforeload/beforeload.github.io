@@ -4,7 +4,7 @@
   <subtitle><![CDATA[@beforeload]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io/"/>
-  <updated>2014-07-16T07:44:50.895Z</updated>
+  <updated>2014-07-20T11:40:48.773Z</updated>
   <id>http://beforeload.github.io/</id>
   
   <author>
@@ -15,11 +15,22 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[Dive into CSS]]></title>
+    <link href="http://beforeload.github.io/2014/07/21/Dive-into-CSS/"/>
+    <id>http://beforeload.github.io/2014/07/21/Dive-into-CSS/</id>
+    <published>2014-07-21T03:29:04.000Z</published>
+    <updated>2014-07-20T11:29:04.000Z</updated>
+    <content type="html"><![CDATA[]]></content>
+    
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[What is Inheritance in JavaScript]]></title>
     <link href="http://beforeload.github.io/2014/04/14/what-is-inheritance-in-javascript/"/>
     <id>http://beforeload.github.io/2014/04/14/what-is-inheritance-in-javascript/</id>
     <published>2014-04-13T18:20:55.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h1 id="理解JavaScript中的继承">理解JavaScript中的继承</h1>
 <p>什么是继承？简而言之，父亲和儿子，儿子对父亲有继承关系。一句话能说明的关系在JavaScript中，使用起来并不容易。</p>
 <p>从以下几个方面理解JavaScript的继承：</p>
@@ -148,7 +159,7 @@
     <link href="http://beforeload.github.io/2014/01/04/closure-of-javascript/"/>
     <id>http://beforeload.github.io/2014/01/04/closure-of-javascript/</id>
     <published>2014-01-03T22:17:17.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h1 id="JavaScript_中的闭包">JavaScript 中的闭包</h1>
 <p>这篇文章写的较早，而且内容太水，建议不要浪费时间去阅读它。有时间我会重写一下。</p>
 <a id="more"></a>
@@ -195,7 +206,7 @@
     <link href="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/"/>
     <id>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</id>
     <published>2014-01-02T12:53:58.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h1 id="在Ubuntu_13-10上安装vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
 <p> 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找<code>vim-powerline</code>的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然<code>let g:Powerline_symbols = &#39;fancy&#39;</code>没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和解决方法。</p>
 <img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal"><br><img src="http://i.stack.imgur.com/4R3XS.png" title="Vim Powerline Insert"><br><img src="http://i.stack.imgur.com/VTB31.png" title="Vim Powerline Visual"><br><img src="http://i.stack.imgur.com/HhgMo.png" title="Vim Powerline Replace">
@@ -275,7 +286,7 @@
     <link href="http://beforeload.github.io/2013/10/20/introduction-to-machine-learning/"/>
     <id>http://beforeload.github.io/2013/10/20/introduction-to-machine-learning/</id>
     <published>2013-10-19T20:25:13.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="机器学习简介">机器学习简介</h2>
 <h3 id="一、定义">一、定义</h3>
 <blockquote>
@@ -340,7 +351,7 @@
     <link href="http://beforeload.github.io/2013/09/04/install-jbpm54/"/>
     <id>http://beforeload.github.io/2013/09/04/install-jbpm54/</id>
     <published>2013-09-03T22:49:38.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="JBPM5-4环境搭建">JBPM5.4环境搭建</h2>
 <h3 id="Step_1:_准备工作">Step 1: 准备工作</h3>
 <ol>
@@ -418,7 +429,7 @@
     <link href="http://beforeload.github.io/2013/07/21/the-master-method/"/>
     <id>http://beforeload.github.io/2013/07/21/the-master-method/</id>
     <published>2013-07-21T10:53:44.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<p>T(n) &lt;= aT(n/b) + O(n<sup>d</sup>)</p>
 <p>T(n) = O(n<sup>d</sup>logn) if a = b<sup>d</sup> (Case 1)</p>
 <p>T(n) = O(n<sup>d</sup>) if a &lt; b<sup>d</sup> (Case 2)</p>
@@ -439,7 +450,7 @@
     <link href="http://beforeload.github.io/2013/07/12/summary-of-distribute-computing-learning-resourses/"/>
     <id>http://beforeload.github.io/2013/07/12/summary-of-distribute-computing-learning-resourses/</id>
     <published>2013-07-11T21:01:59.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="分布式计算相关资源总结">分布式计算相关资源总结</h2>
 <h3 id="论文">论文</h3>
 <p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
@@ -557,7 +568,7 @@
     <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-29T01:13:47.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="基于Hadoop的分布式系统开发环境在Ubuntu_13-04中的搭建">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
@@ -683,7 +694,7 @@ jps   <span class="preprocessor">#查看运行的进程</span>
     <link href="http://beforeload.github.io/2013/06/29/building-webapps-with-yeoman/"/>
     <id>http://beforeload.github.io/2013/06/29/building-webapps-with-yeoman/</id>
     <published>2013-06-28T22:11:40.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="使用Yeoman_快速构建Web应用">使用Yeoman 快速构建Web应用</h2>
 <h4 id="简介">简介</h4>
 <p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
@@ -759,7 +770,7 @@ grunt
     <link href="http://beforeload.github.io/2013/06/23/my-software-installation-and-configuration-on-ubuntu-1304/"/>
     <id>http://beforeload.github.io/2013/06/23/my-software-installation-and-configuration-on-ubuntu-1304/</id>
     <published>2013-06-22T21:23:50.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h1 id="在Ubuntu_13-04上常用软件的安装配置">在Ubuntu 13.04上常用软件的安装配置</h1>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
@@ -896,7 +907,7 @@ cd rjsupplicant/
     <link href="http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</id>
     <published>2013-06-12T02:29:06.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h3 id="Ubuntu_13-04_Android开发基本环境配置">Ubuntu 13.04 Android开发基本环境配置</h3>
 <h4 id="基本环境">基本环境</h4>
 <pre><code>sudo apt<span class="attribute">-get</span> install ia32<span class="attribute">-libs</span> <span class="variable">#64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
@@ -941,7 +952,7 @@ sudo apt<span class="attribute">-get</span> install ant
     <link href="http://beforeload.github.io/2013/06/11/building-node-web-applications/"/>
     <id>http://beforeload.github.io/2013/06/11/building-node-web-applications/</id>
     <published>2013-06-10T18:10:49.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="Node-js网络应用开发">Node.js网络应用开发</h2>
 <ol>
 <li>Handling HTTP requests with Node’s API</li>
@@ -1045,7 +1056,7 @@ sudo apt<span class="attribute">-get</span> install ant
     <link href="http://beforeload.github.io/2013/05/30/priority-queue/"/>
     <id>http://beforeload.github.io/2013/05/30/priority-queue/</id>
     <published>2013-05-30T00:40:13.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
 <li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
@@ -1117,7 +1128,7 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
     <link href="http://beforeload.github.io/2013/05/28/common-problems-of-recommendation-systems/"/>
     <id>http://beforeload.github.io/2013/05/28/common-problems-of-recommendation-systems/</id>
     <published>2013-05-27T22:14:53.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h3 id="推荐系统的常见问题">推荐系统的常见问题</h3>
 <h4 id="缺少大数据问题">缺少大数据问题</h4>
 <p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
@@ -1154,7 +1165,7 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
     <link href="http://beforeload.github.io/2013/05/21/fix-some-problems/"/>
     <id>http://beforeload.github.io/2013/05/21/fix-some-problems/</id>
     <published>2013-05-20T22:10:58.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="解决_Ubuntu_13-04的视频音频相关问题">解决 Ubuntu 13.04的视频音频相关问题</h2>
 <ol>
 <li>Fix ASUS Webcam Problem:vertically flip my webcam’s image</li>
@@ -1211,7 +1222,7 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
     <link href="http://beforeload.github.io/2013/05/18/inversion-monge-quicksort/"/>
     <id>http://beforeload.github.io/2013/05/18/inversion-monge-quicksort/</id>
     <published>2013-05-17T22:44:25.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="逆序对，Monge矩阵，快排优化——三数取中划分分析">逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
 <h3 id="题目">题目</h3>
 <ol>
@@ -1293,7 +1304,7 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
     <link href="http://beforeload.github.io/2013/04/28/content-syndication-with-node.js/"/>
     <id>http://beforeload.github.io/2013/04/28/content-syndication-with-node.js/</id>
     <published>2013-04-28T10:16:15.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h3 id="[翻译]Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
 <hr>
 <p>原文链接 <a href="http://howtonode.org/content-syndication-with-node" target="_blank" rel="external">Content Syndication with Node.js</a></p>
@@ -1349,7 +1360,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/23/collaborative-markov-chain-model/"/>
     <id>http://beforeload.github.io/2013/04/23/collaborative-markov-chain-model/</id>
     <published>2013-04-22T21:23:27.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="理论">理论</h2>
 <h3 id="马尔可夫过程(Markov_Process)">马尔可夫过程(Markov Process)</h3>
 <p>Markov过程是一个满足Markov性(无后效性)的随机过程。<br>具有马尔可夫性质的随机过程称为<strong>马尔可夫</strong>过程。[1]</p>
@@ -1415,7 +1426,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/"/>
     <id>http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/</id>
     <published>2013-04-18T12:26:32.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h2 id="倒排索引">倒排索引</h2>
 <h3 id="简介:">简介:</h3>
 <p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
@@ -1482,7 +1493,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/"/>
     <id>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</id>
     <published>2013-04-13T02:56:30.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
 <h2 id="MapReduce_编程模型">MapReduce 编程模型</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">map</span>:<span class="function"><span class="params">(K1, V1)</span> -&gt;</span> list(K2, V2)</div><div class="line"><span class="attribute">reduce</span>: <span class="function"><span class="params">(k2, list(V2))</span> -&gt;</span> list(K2, V2)</div></pre></td></tr></table></figure>
@@ -1619,7 +1630,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/06/hdfs-java-api/"/>
     <id>http://beforeload.github.io/2013/04/06/hdfs-java-api/</id>
     <published>2013-04-06T15:14:42.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h3 id="案例">案例</h3>
 <h4 id="上传本地文件到_HDFS">上传本地文件到 HDFS</h4>
 <figure class="highlight Java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span>(String src, String dst, String config) <span class="keyword">throws</span> IOException{</div><div class="line">    Configuration conf = <span class="keyword">new</span> Configuration();</div><div class="line">    conf.addResource(<span class="keyword">new</span> Path(config));</div><div class="line">    FileSystem hdfs = FileSystem.get(conf);</div><div class="line">    Path srcPath = <span class="keyword">new</span> Path(src);</div><div class="line">    Path dstPath = <span class="keyword">new</span> Path(dst);</div><div class="line">    hdfs.copyFromLocalFile(srcPath, dstPath);</div><div class="line">    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));</div><div class="line">    </div><div class="line">    FileStatus files[] = hdfs.listStatus(dstPath);</div><div class="line">    <span class="keyword">for</span> (FileStatus file : files) {</div><div class="line">        System.out.println(file.getPath());</div><div class="line">    }</div><div class="line">    hdfs.close();</div><div class="line">}</div></pre></td></tr></table></figure>
@@ -1690,7 +1701,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/06/k-th-order-statistic/"/>
     <id>http://beforeload.github.io/2013/04/06/k-th-order-statistic/</id>
     <published>2013-04-05T20:12:32.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<h3 id="问题描述:">问题描述:</h3>
 <h6 id="问题来源:_线性查找">问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank" rel="external">线性查找</a></h6>
 <ol>
@@ -1836,7 +1847,7 @@ int main(int argc, const char *argv[])
     <link href="http://beforeload.github.io/2013/04/04/blog-establish/"/>
     <id>http://beforeload.github.io/2013/04/04/blog-establish/</id>
     <published>2013-04-03T23:11:12.000Z</published>
-    <updated>2014-07-15T08:42:31.000Z</updated>
+    <updated>2014-07-16T15:45:41.000Z</updated>
     <content type="html"><![CDATA[<p>新建第一篇博文，以纪念今天博客建立</p>
 <p>一直在犹豫使用Jekyll还是Octopress搭建自己的博客,虽然后者基于前者做了一些优化之类的东西,但最终犹豫再三还是使用了Jekyll。没有使用过Octopress，不知道两者之间的区别在什么地方，不过相对于初学者，使用Jekyll还是非常容易上手的，具体的步骤参看<a href="http://jekyllbootstrap.com" target="_blank" rel="external">Jekyll Bootstrap</a>。</p>
 ]]></content>
