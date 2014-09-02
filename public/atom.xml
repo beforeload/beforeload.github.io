@@ -4,7 +4,7 @@
   <subtitle><![CDATA[@beforeload]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io/"/>
-  <updated>2014-07-20T11:40:48.773Z</updated>
+  <updated>2014-07-26T03:05:46.967Z</updated>
   <id>http://beforeload.github.io/</id>
   
   <author>
@@ -15,22 +15,11 @@
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[Dive into CSS]]></title>
-    <link href="http://beforeload.github.io/2014/07/21/Dive-into-CSS/"/>
-    <id>http://beforeload.github.io/2014/07/21/Dive-into-CSS/</id>
-    <published>2014-07-21T03:29:04.000Z</published>
-    <updated>2014-07-20T11:29:04.000Z</updated>
-    <content type="html"><![CDATA[]]></content>
-    
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[What is Inheritance in JavaScript]]></title>
     <link href="http://beforeload.github.io/2014/04/14/what-is-inheritance-in-javascript/"/>
     <id>http://beforeload.github.io/2014/04/14/what-is-inheritance-in-javascript/</id>
     <published>2014-04-13T18:20:55.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="理解JavaScript中的继承">理解JavaScript中的继承</h1>
 <p>什么是继承？简而言之，父亲和儿子，儿子对父亲有继承关系。一句话能说明的关系在JavaScript中，使用起来并不容易。</p>
 <p>从以下几个方面理解JavaScript的继承：</p>
@@ -159,7 +148,7 @@
     <link href="http://beforeload.github.io/2014/01/04/closure-of-javascript/"/>
     <id>http://beforeload.github.io/2014/01/04/closure-of-javascript/</id>
     <published>2014-01-03T22:17:17.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="JavaScript_中的闭包">JavaScript 中的闭包</h1>
 <p>这篇文章写的较早，而且内容太水，建议不要浪费时间去阅读它。有时间我会重写一下。</p>
 <a id="more"></a>
@@ -206,7 +195,7 @@
     <link href="http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/"/>
     <id>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</id>
     <published>2014-01-02T12:53:58.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="在Ubuntu_13-10上安装vim-powerline">在Ubuntu 13.10上安装vim-powerline</h1>
 <p> 最近又重装了一次ubuntu，发现在ubuntu上每次都要去找<code>vim-powerline</code>的安装及配置太麻烦，而Ubuntu上的字体每次都需要使用fontpather打一次补丁，不然<code>let g:Powerline_symbols = &#39;fancy&#39;</code>没有效果，下面的箭头无法显示出来。所以整理这篇博客，记录配置过程的一些问题和解决方法。</p>
 <img src="http://i.stack.imgur.com/T6APG.png" title="Vim Powerline Normal"><br><img src="http://i.stack.imgur.com/4R3XS.png" title="Vim Powerline Insert"><br><img src="http://i.stack.imgur.com/VTB31.png" title="Vim Powerline Visual"><br><img src="http://i.stack.imgur.com/HhgMo.png" title="Vim Powerline Replace">
@@ -286,7 +275,7 @@
     <link href="http://beforeload.github.io/2013/10/20/introduction-to-machine-learning/"/>
     <id>http://beforeload.github.io/2013/10/20/introduction-to-machine-learning/</id>
     <published>2013-10-19T20:25:13.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="机器学习简介">机器学习简介</h2>
 <h3 id="一、定义">一、定义</h3>
 <blockquote>
@@ -347,110 +336,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[Install JBPM 5.4]]></title>
-    <link href="http://beforeload.github.io/2013/09/04/install-jbpm54/"/>
-    <id>http://beforeload.github.io/2013/09/04/install-jbpm54/</id>
-    <published>2013-09-03T22:49:38.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="JBPM5-4环境搭建">JBPM5.4环境搭建</h2>
-<h3 id="Step_1:_准备工作">Step 1: 准备工作</h3>
-<ol>
-<li>下载JDK，安装配置Java环境</li>
-<li>下载Ant，配置Java自动化脚本引擎</li>
-</ol>
-<a id="more"></a>
-
-<p><strong>备注:</strong></p>
-<ol>
-<li>Linux的JDK安装可以参考我的另外<a href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/" target="_blank" rel="external">一篇博文</a></li>
-<li>Windows的安装可以参考<a href="http://www.cnitblog.com/intrl/archive/2009/04/11/56254.aspx" target="_blank" rel="external">这里</a></li>
-</ol>
-<h3 id="Step_2:_下载JBPM_5-4安装相关开发工具">Step 2: 下载JBPM 5.4安装相关开发工具</h3>
-<ol>
-<li>下载<a href="http://softlayer-dal.dl.sourceforge.net/project/jbpm/jBPM%205/jbpm-5.4.0.Final/jbpm-5.4.0.Final-installer-full.zip" target="_blank" rel="external">jbpm-5.4.0.Final-installer-full.zip</a></li>
-<li><p>解压缩，从控制台(Windows用户是command)进入相应文件夹下，然后输入命令</p>
-<p> ant install.demo</p>
-</li>
-</ol>
-<p>这个过程是下载Eclipse, Jboss等工具，自动化构建开发环境。</p>
-<p>备注： 之所以选择这样的构建方式，是因为不想在环境搭建上浪费太多时间，以便拥有更多的时间投入JBPM5的学习开发过程中。</p>
-<h3 id="Step_3:_测试环境是否搭建成功">Step 3: 测试环境是否搭建成功</h3>
-<ol>
-<li><p>启动JBPM</p>
-<p> ant start.demo</p>
-</li>
-</ol>
-<p>在控制中可以看到相关的启动情况，会看到自动化的启动了若干组件。</p>
-<ol>
-<li>重点是测试JBoss启动</li>
-</ol>
-<p>在控制台输入<a href="http://localhost:8080/，会看到Jboss启动的情况，大致应该如下所示：" target="_blank" rel="external">http://localhost:8080/，会看到Jboss启动的情况，大致应该如下所示：</a></p>
-<img src="http://i.minus.com/iHKyfjT9AxDg8.png">
-
-<ol>
-<li>Web管理控制台</li>
-</ol>
-<p>打开浏览器，输入<a href="http://localhost:8080/jbpm-console，重点看一下" target="_blank" rel="external">http://localhost:8080/jbpm-console，重点看一下</a></p>
-<p>登录的用户名、密码均为krisv </p>
-<ol>
-<li>使用Guvnor仓库和设计 </li>
-</ol>
-<p>输入如下地址可以进入</p>
-<p><a href="http://localhost:8080/drools-guvnor" target="_blank" rel="external">http://localhost:8080/drools-guvnor</a></p>
-<p>最后，视频演示请戳<a href="http://people.redhat.com/kverlaen/install-gwt-console-jbpm.swf" target="_blank" rel="external">这里</a></p>
-<h3 id="参考博文：">参考博文：</h3>
-<ol>
-<li><a href="http://wanglu271991027.iteye.com/blog/1495799" target="_blank" rel="external">jbpm5.2学习———安装与配置</a></li>
-<li><a href="http://www.cnblogs.com/skyme/archive/2011/11/07/2238782.html" target="_blank" rel="external">JBPM5.1的介绍</a></li>
-<li><a href="http://w26.iteye.com/blog/998431" target="_blank" rel="external">jBPM5 入门</a></li>
-<li><a href="http://blog.chinaunix.net/uid-122937-id-3731868.html" target="_blank" rel="external">Jbpm5安装</a></li>
-</ol>
-]]></content>
-    <summary type="html"><![CDATA[<h2 id="JBPM5-4环境搭建">JBPM5.4环境搭建</h2>
-<h3 id="Step_1:_准备工作">Step 1: 准备工作</h3>
-<ol>
-<li>下载JDK，安装配置Java环境</li>
-<li>下载Ant，配置Java自动化脚本引擎</li>
-</ol>
-]]></summary>
-    
-      <category term="Linux" scheme="http://beforeload.github.io/tags/Linux/"/>
-    
-      <category term="Ubuntu" scheme="http://beforeload.github.io/tags/Ubuntu/"/>
-    
-      <category term="Java" scheme="http://beforeload.github.io/tags/Java/"/>
-    
-      <category term="Linux" scheme="http://beforeload.github.io/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[The Master Method]]></title>
-    <link href="http://beforeload.github.io/2013/07/21/the-master-method/"/>
-    <id>http://beforeload.github.io/2013/07/21/the-master-method/</id>
-    <published>2013-07-21T10:53:44.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<p>T(n) &lt;= aT(n/b) + O(n<sup>d</sup>)</p>
-<p>T(n) = O(n<sup>d</sup>logn) if a = b<sup>d</sup> (Case 1)</p>
-<p>T(n) = O(n<sup>d</sup>) if a &lt; b<sup>d</sup> (Case 2)</p>
-<p>T(n) = O(n<sup>log<sub>b</sub>a</sup>) if a &gt; b<sup>d</sup> (Case 3)</p>
-]]></content>
-    
-    
-      <category term="Algorithm" scheme="http://beforeload.github.io/tags/Algorithm/"/>
-    
-      <category term="Math" scheme="http://beforeload.github.io/tags/Math/"/>
-    
-      <category term="Algorithm" scheme="http://beforeload.github.io/categories/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Summary of Distributed Computing Learning Resourses]]></title>
     <link href="http://beforeload.github.io/2013/07/12/summary-of-distribute-computing-learning-resourses/"/>
     <id>http://beforeload.github.io/2013/07/12/summary-of-distribute-computing-learning-resourses/</id>
     <published>2013-07-11T21:01:59.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="分布式计算相关资源总结">分布式计算相关资源总结</h2>
 <h3 id="论文">论文</h3>
 <p>首先是论文，强烈建议看英文原版，那些翻译的还是敬而远之吧！</p>
@@ -568,7 +458,7 @@
     <link href="http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/"/>
     <id>http://beforeload.github.io/2013/06/29/building-distributed-systems-development-environment/</id>
     <published>2013-06-29T01:13:47.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="基于Hadoop的分布式系统开发环境在Ubuntu_13-04中的搭建">基于Hadoop的分布式系统开发环境在Ubuntu 13.04中的搭建</h2>
 <p>由于实验学习以及开发测试的需求，需要安装集群和伪分布式开发环境。</p>
 <p>分为以下安装过程：</p>
@@ -690,87 +580,11 @@ jps   <span class="preprocessor">#查看运行的进程</span>
   </entry>
   
   <entry>
-    <title><![CDATA[Building Webapps with Yeoman]]></title>
-    <link href="http://beforeload.github.io/2013/06/29/building-webapps-with-yeoman/"/>
-    <id>http://beforeload.github.io/2013/06/29/building-webapps-with-yeoman/</id>
-    <published>2013-06-28T22:11:40.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="使用Yeoman_快速构建Web应用">使用Yeoman 快速构建Web应用</h2>
-<h4 id="简介">简介</h4>
-<p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
-<p>相关介绍参见<a href="http://yeoman.io/" target="_blank" rel="external">官网文档</a>。</p>
-<a id="more"></a>
-
-<p>它由三个组件组成：</p>
-<ol>
-<li>Yo 脚手架工具：我理解成项目工程目录和文件生成工具。用来构建生产环境和生成编译环境。</li>
-<li>Grunt 构建工具：主要用来构建，预览和测试你的项目。</li>
-<li>Bower 包管理工具：处理包依赖关系，不需要手动下载管理脚本。可以理解成前端的NPM。</li>
-</ol>
-<p><strong>协作关系图：</strong></p>
-<img src="//images.cnitblog.com/blog/39469/201303/09214923-27fe6dea6eb34f468e601589ea83a675.png" class="[yo-grunt-bower]">
-
-<p>从上面流水线一样的协作图，可以看出一个项目产品的生成可以做到很规范化，从而提高生成效率。</p>
-<p>我觉得在说应用之前，先要思考一下使用Yeoman的场景，如果是我们负责一个项目，思考一下如下的问题：</p>
-<ol>
-<li>项目目录是怎样的？</li>
-<li>需要用到哪些类库？</li>
-<li>(基于PHP和基于Node.js)生产环境是怎样的？</li>
-<li>如果使用CoffeeScript/sass/less，又需要增加什么样的编译环境？</li>
-<li>单元测试要如何进行？</li>
-<li>调试环境是怎么样的？</li>
-<li>打包部署要遵循什么样的流程？</li>
-<li>…</li>
-</ol>
-<p>这些问题不能很好的解决，项目开发中都会存在或多或少的效率问题。</p>
-<p>其实，解决他们很简单，yeoman提供方便快捷的解决方法，下面简单介绍一下如何构建一个项目。</p>
-<h3 id="安装它">安装它</h3>
-<p>第一步：首先确认拥有Node.js, Ruby的环境。</p>
-<p>最好安装一下 Compass(Sass的工具库)</p>
-<pre><code><span class="built_in">sudo</span> gem install compass
-</code></pre><p>如果想了解一下Compass，推荐阮一峰的一篇<a href="http://www.ruanyifeng.com/blog/2012/11/compass.html" target="_blank" rel="external">博文</a>。</p>
-<p>第二步：然后安装三个组件</p>
-<pre><code>sudo npm install <span class="attribute">-g</span> yo grunt<span class="attribute">-cli</span> bower
-</code></pre><p>第三步：安装网络应用生成器</p>
-<p>选择web app生成器：</p>
-<pre><code>sudo npm install <span class="attribute">-g</span> generator<span class="attribute">-webapp</span>
-</code></pre><p>也可以选择安装AngularJS生成器：</p>
-<pre><code><span class="built_in">sudo</span> npm install -g generator-angular  <span class="comment"># install generator</span>
-</code></pre><h3 id="快速构建">快速构建</h3>
-<p>由于上面web应用生成器有两种，所以可以通过两种不同的方式构建我们的项目：</p>
-<p>第一种：使用<code>yo webapp</code>方式</p>
-<pre><code>yo webapp                     <span class="comment"># 搭建项目骨架</span>
-bower <span class="keyword">install</span> underscore      <span class="comment"># 依赖通过bower安装</span>
-grunt                         <span class="comment"># 构建测试发布环境</span>
-</code></pre><p>第二种：使用<code>yo angular</code>方式</p>
-<pre><code>yo angular                    <span class="preprocessor"># 搭建项目骨架</span>
-bower install angular-ui      <span class="preprocessor"># 依赖通过bower安装</span>
-grunt test                    <span class="preprocessor"># 测试</span>
-grunt <span class="keyword">server</span>                  <span class="preprocessor"># 预览</span>
-grunt  
-</code></pre><h3 id="总结">总结</h3>
-<p>通过以上的步骤，我们很容易的构建出了一个简易的web项目。yeoman有很多特性，例如可以自定义模板（如HTML5, Boilerplate, Twitter Bootstrap等），AMD（通过RequireJS）等其他工具。</p>
-<p>自动编译CoffeeScript和Compass也是一大亮点，值得一提的是，yeoman提供了live reload功能，在对项目文件修改保存后，前端页面回自动刷新。</p>
-<p>还有太多太多特性了，如jslint完善脚本，内置HTTP服务器，集成包管理，ES6的语法支持，PhantomJS单元测试等等。希望大家使用愉快。</p>
-]]></content>
-    <summary type="html"><![CDATA[<h2 id="使用Yeoman_快速构建Web应用">使用Yeoman 快速构建Web应用</h2>
-<h4 id="简介">简介</h4>
-<p>Yeoman不仅仅是一个应用。它也是一个工作流，一个工具集。</p>
-<p>相关介绍参见<a href="http://yeoman.io/" target="_blank" rel="external">官网文档</a>。</p>
-]]></summary>
-    
-      <category term="Node.js" scheme="http://beforeload.github.io/tags/Nodejs/"/>
-    
-      <category term="Node.js" scheme="http://beforeload.github.io/categories/Nodejs/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Common Software Installation and Configuration on Ubuntu 13.04]]></title>
     <link href="http://beforeload.github.io/2013/06/23/my-software-installation-and-configuration-on-ubuntu-1304/"/>
     <id>http://beforeload.github.io/2013/06/23/my-software-installation-and-configuration-on-ubuntu-1304/</id>
     <published>2013-06-22T21:23:50.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h1 id="在Ubuntu_13-04上常用软件的安装配置">在Ubuntu 13.04上常用软件的安装配置</h1>
 <p>安装完Ubuntu 13.04 后，我的一些软件安装和配置过程。</p>
 <ol>
@@ -903,160 +717,11 @@ cd rjsupplicant/
   </entry>
   
   <entry>
-    <title><![CDATA[building PhoneGap development environment]]></title>
-    <link href="http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/"/>
-    <id>http://beforeload.github.io/2013/06/12/building-phonegap-development-environment/</id>
-    <published>2013-06-12T02:29:06.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="Ubuntu_13-04_Android开发基本环境配置">Ubuntu 13.04 Android开发基本环境配置</h3>
-<h4 id="基本环境">基本环境</h4>
-<pre><code>sudo apt<span class="attribute">-get</span> install ia32<span class="attribute">-libs</span> <span class="variable">#64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
-sudo apt<span class="attribute">-get</span> install ant
-</code></pre><a id="more"></a>
-
-<h4 id="安装独立SDK">安装独立SDK</h4>
-<p>下载<a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">SDK</a></p>
-<pre><code>tar zxvf path/<span class="keyword">to</span>/android<span class="attribute">-sdk_r21</span><span class="number">.0</span><span class="number">.1</span><span class="attribute">-linux</span><span class="built_in">.</span>tgz <span class="attribute">-C</span> ~/DevTools
-cd ~/DevTools/android<span class="attribute">-sdk</span><span class="attribute">-linux</span>/tools<span class="subst">/</span>
-<span class="built_in">.</span>/android sdk
-</code></pre><h4 id="配置环境变量">配置环境变量</h4>
-<p>在~/.bashrc或者/etc/environemnt</p>
-<pre><code>export <span class="constant">PATH</span>=<span class="variable">$PATH</span><span class="symbol">:~/DevTools/android-sdk-linux/tools/</span><span class="symbol">:~/DevTools/android-sdk-linux/platform-tools/</span>
-</code></pre><h4 id="测试">测试</h4>
-<pre><code>android list targets    <span class="comment">#查看可用平台</span>
-android create <span class="keyword">project</span> –t <span class="number">1</span> –n MyFirstApp –p ~/Development/android-<span class="keyword">project</span>/MyFirstApp –a MainActivity –k com.example.myfirstapp
-android avd   <span class="comment">#点击New，选择一个设备创建模拟器，完了点击Start启动模拟器 </span>
-cd ~/DevTools/android-<span class="keyword">project</span>/MyFirstApp
-ant debug   <span class="comment">#debug模式打包</span>
-adb <span class="keyword">install</span> bin/MyFirstApp-debug.apk    <span class="comment">#用adb安装到模拟器</span>
-</code></pre><p>具体教程参见<a href="http://developer.android.com/training/basics/firstapp/index.html" target="_blank" rel="external">Building Your First App</a></p>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="Ubuntu_13-04_Android开发基本环境配置">Ubuntu 13.04 Android开发基本环境配置</h3>
-<h4 id="基本环境">基本环境</h4>
-<pre><code>sudo apt<span class="attribute">-get</span> install ia32<span class="attribute">-libs</span> <span class="variable">#64</span>位系统的<span class="number">32</span>位程序兼容库adb需要此库(<span class="number">32</span>位系统的当然略过此步骤)
-sudo apt<span class="attribute">-get</span> install ant
-</code></pre>]]></summary>
-    
-      <category term="Linux" scheme="http://beforeload.github.io/tags/Linux/"/>
-    
-      <category term="Ubuntu" scheme="http://beforeload.github.io/tags/Ubuntu/"/>
-    
-      <category term="Android" scheme="http://beforeload.github.io/tags/Android/"/>
-    
-      <category term="Linux" scheme="http://beforeload.github.io/categories/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Building Node web Applications]]></title>
-    <link href="http://beforeload.github.io/2013/06/11/building-node-web-applications/"/>
-    <id>http://beforeload.github.io/2013/06/11/building-node-web-applications/</id>
-    <published>2013-06-10T18:10:49.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="Node-js网络应用开发">Node.js网络应用开发</h2>
-<ol>
-<li>Handling HTTP requests with Node’s API</li>
-<li>Building a RESTful web service</li>
-<li>Serving static files</li>
-<li>Accepting user input from forms</li>
-<li>Securing your application with HTTPS</li>
-</ol>
-<a id="more"></a>
-
-<p>Node.js网络应用开发的简单图示如下：</p>
-<img src="http://i.minus.com/iLMAoN6C3pEtN.png">
-
-<h3 id="HTTP_server_的基本面">HTTP server 的基本面</h3>
-<h4 id="HTTP请求在Node_HTTP_server中的生命周期">HTTP请求在Node HTTP server中的生命周期</h4>
-<ol>
-<li>HTTP 客户端（例如：浏览器）发送HTTP请求</li>
-<li>Node进程接受到连接把请求的数据发送给HTTP server</li>
-<li>Node进程把HTTP请求头完整解析，在’request’的回调事件中处理相应的逻辑</li>
-<li>request的回调函数中体现应用的逻辑，例如产生一个response</li>
-<li>请求通过HTTP server返回，这个过程会格式化成一个标准的HTTP response返回给客户端</li>
-</ol>
-<h3 id="Building_a_RESTful_web_service">Building a RESTful web service</h3>
-<p>CURD: Creat, Update, Read, Delete<br>HTTP: Get, Post, Put, Delete</p>
-<ol>
-<li>使用POST创建资源</li>
-<li>使用GET获取资源</li>
-<li><p>使用DELETE删除资源</p>
-<p> function(req, res){<br>   switch(req.method){<br>   case: ‘GET’: </p>
-<pre><code> // to <span class="keyword">do</span>
- <span class="keyword">break</span>
-</code></pre><p>   case: ‘POST’:</p>
-<pre><code> // <span class="keyword">...</span>
- <span class="keyword">break</span>
-</code></pre><p>   case: ‘DELETE’:</p>
-<pre><code> // <span class="keyword">...</span>
- <span class="keyword">break</span>
-</code></pre><p>   }<br> }</p>
-</li>
-</ol>
-<h3 id="Serving_static_files">Serving static files</h3>
-<ol>
-<li>Get /index.html 用户向服务器请求一个静态文件</li>
-<li>Node 服务器接受请求，应用的逻辑部分去读取这个文件</li>
-<li>文件通过一个读取流的实例传递给服务器</li>
-<li><p>文件的ReadStream通过’piped’拼接方式，以HTTP的response形式返回给客户端</p>
-<p> …<br> var stream = fs.createReadStream(path)<br> // stream.on(‘data’, function(chunk){<br> //   res.write(chunk)<br> // })<br> // stream.on(‘end’, function(){<br> //   res.end()<br> // })<br> stream.pipe(res)<br> …</p>
-</li>
-</ol>
-<p>相关的图片如下：</p>
-<img src="http://i.minus.com/iOZW6WxLIsBNk.png">
-
-<p>…<br>stream.pipe(res)<br>stream.on(‘error’,function(err){<br>  res.statusCode = 500<br>  res.end(‘Internal Server Error!’)<br>})<br>…</p>
-<p>文件不存在错误处理”ENOENT, No such file or dictionary”</p>
-<p>根据<code>fs.stat(path, function(err, stat){})</code>的err判断</p>
-<h3 id="接受用户表单提交数据">接受用户表单提交数据</h3>
-<ol>
-<li>表单域</li>
-<li>上传文件node-formidable</li>
-<li>实时计算上传进度</li>
-</ol>
-<p>两种类型的表单提交</p>
-<ul>
-<li>“application/x-www-form-urlencoded”: the default for HTML forms</li>
-<li>“multipart/form-data”: used when form contains files, non-ascii, or binary data</li>
-</ul>
-<p>node-formidable这个包可以帮助我们解决表单提交的绝大多数问题。<br>也可以计算伪实时的文件上传进度，如下所示：</p>
-<pre><code>form.on(<span class="string">'process'</span>, <span class="function"><span class="keyword">function</span><span class="params">(bytesReceived, bytesExpected)</span>{</span>
-    <span class="keyword">var</span> percent = bytesReceived / bytesExpected * <span class="number">100</span>
-    console.log(percent)
-})
-</code></pre><p>剩下的就是将进度在前端页面上显示出来，利用如socket.io这样的实时模块可以轻松的搞定。我将在我的Repo: <a href="https://github.com/beforeload/node-upload" target="_blank" rel="external">node-upload</a>中完成它。</p>
-<h3 id="使用HTTPS_确保应用的安全性">使用HTTPS 确保应用的安全性</h3>
-<p>生成一个私钥(加密)<br>    openssl genrsa 1024 &gt; key.pem</p>
-<p>生成证书(解码)<br>    openssl req -x509 -new -key key.pem &gt; key-cert.pem</p>
-<p><strong><em>HTTPS server选项</em></strong><br>    var https = require(‘https’)<br>      , fs = require(‘fs’)<br>      , options = {<br>        key: fs.readFileSync(‘./key.pem’),<br>        cert: fs.readFileSync(‘./key-cert.pem’)<br>      }</p>
-<pre><code>https.createServer(options, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>{
-  res.writeHead(<span class="number">200</span>)
-  res.<span class="keyword">end</span>(<span class="string">'Hello world!'</span>)
-}).listen(<span class="number">4000</span>)
-</code></pre><p>证书可以共享，它包括public key和持有者的身份信息。当然如果要发布一个网站，就需要在Certificate Authority(CA)上去注册，获取一个真实的，受信任的SSL证书。</p>
-]]></content>
-    <summary type="html"><![CDATA[<h2 id="Node-js网络应用开发">Node.js网络应用开发</h2>
-<ol>
-<li>Handling HTTP requests with Node’s API</li>
-<li>Building a RESTful web service</li>
-<li>Serving static files</li>
-<li>Accepting user input from forms</li>
-<li>Securing your application with HTTPS</li>
-</ol>
-]]></summary>
-    
-      <category term="Node.js" scheme="http://beforeload.github.io/tags/Nodejs/"/>
-    
-      <category term="Node.js" scheme="http://beforeload.github.io/categories/Nodejs/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Priority Queue]]></title>
     <link href="http://beforeload.github.io/2013/05/30/priority-queue/"/>
     <id>http://beforeload.github.io/2013/05/30/priority-queue/</id>
     <published>2013-05-30T00:40:13.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<ol>
 <li>以6.5-1的数据作为输入 实现heapsort, 以及图解排序过程 </li>
 <li>实现6.5-3所描述的最小优先级队列接口, 分析各接口所需的时间复杂度 </li>
@@ -1124,48 +789,11 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
   </entry>
   
   <entry>
-    <title><![CDATA[Common Problems of Recommender Systems]]></title>
-    <link href="http://beforeload.github.io/2013/05/28/common-problems-of-recommendation-systems/"/>
-    <id>http://beforeload.github.io/2013/05/28/common-problems-of-recommendation-systems/</id>
-    <published>2013-05-27T22:14:53.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="推荐系统的常见问题">推荐系统的常见问题</h3>
-<h4 id="缺少大数据问题">缺少大数据问题</h4>
-<p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
-<a id="more"></a>
-
-<h4 id="冷启动问题">冷启动问题</h4>
-<p>在推荐系统的冷启动问题中，最主要包括两个方面：新用户问题，新资源问题。</p>
-<p>(1) 新用户问题</p>
-<p>这部分用户在系统中没有资源浏览访问记录，系统无法根据该用户行为数据对其浏览行为进行资源访问的预测和推推荐。</p>
-<p>(2) 新资源问题</p>
-<p>该部分资源没有用户的访问记录，使得系统在做数据分析时无法将其纳入待处理数据中，进而无法向用户推荐该资源。</p>
-<h4 id="变化数据问题">变化数据问题</h4>
-<p>推荐系统中的变化数据问题是指推荐系统中常常充斥着老的内容，新的数据资料等很难得到推荐。</p>
-<h4 id="变化喜好问题">变化喜好问题</h4>
-<p>在推荐系统中用户也许怀着不同的目的对于文件资源进行搜索浏览，及用户的喜好是变化跳跃的，系统很难对这种跳跃的喜好类别进行资源数据推荐。</p>
-<h4 id="参考">参考</h4>
-<p>(1) <a href="http://readwrite.com/2009/01/28/5_problems_of_recommender_systems" target="_blank" rel="external">5 Problems of Recommender Systems</a><br>(2) <a href="http://www.resyschina.com/2010/03/five_problems_of_resys.html" target="_blank" rel="external">推荐系统5大问题</a></p>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="推荐系统的常见问题">推荐系统的常见问题</h3>
-<h4 id="缺少大数据问题">缺少大数据问题</h4>
-<p>Big data是推荐系统最关键的因素之一，对于推荐系统而言，可能最大的问题就是需要大规模的数据才能有效的进行推荐过程。这也毋庸置疑的表示那些拥有典型著名的推荐系统的公司恰恰是那些拥有大量消费者数据的公司：Google, Amazon, Netflix, Last.fm 。</p>
-]]></summary>
-    
-      <category term="Translate" scheme="http://beforeload.github.io/tags/Translate/"/>
-    
-      <category term="Distributed Computing" scheme="http://beforeload.github.io/tags/Distributed-Computing/"/>
-    
-      <category term="Distributed Computing" scheme="http://beforeload.github.io/categories/Distributed-Computing/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Fix Some Ubuntu Problems]]></title>
     <link href="http://beforeload.github.io/2013/05/21/fix-some-problems/"/>
     <id>http://beforeload.github.io/2013/05/21/fix-some-problems/</id>
     <published>2013-05-20T22:10:58.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="解决_Ubuntu_13-04的视频音频相关问题">解决 Ubuntu 13.04的视频音频相关问题</h2>
 <ol>
 <li>Fix ASUS Webcam Problem:vertically flip my webcam’s image</li>
@@ -1222,7 +850,7 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
     <link href="http://beforeload.github.io/2013/05/18/inversion-monge-quicksort/"/>
     <id>http://beforeload.github.io/2013/05/18/inversion-monge-quicksort/</id>
     <published>2013-05-17T22:44:25.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="逆序对，Monge矩阵，快排优化——三数取中划分分析">逆序对，Monge矩阵，快排优化——三数取中划分分析</h2>
 <h3 id="题目">题目</h3>
 <ol>
@@ -1300,67 +928,11 @@ HEAP-INCREASE-KEY(<span class="literal">A</span>, heap-size[<span class="literal
   </entry>
   
   <entry>
-    <title><![CDATA[内容聚合Nodejs的实现]]></title>
-    <link href="http://beforeload.github.io/2013/04/28/content-syndication-with-node.js/"/>
-    <id>http://beforeload.github.io/2013/04/28/content-syndication-with-node.js/</id>
-    <published>2013-04-28T10:16:15.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="[翻译]Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
-<hr>
-<p>原文链接 <a href="http://howtonode.org/content-syndication-with-node" target="_blank" rel="external">Content Syndication with Node.js</a></p>
-<p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/" target="_blank" rel="external">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
-<a id="more"></a>
-
-<h4 id="安装feed包">安装feed包</h4>
-<p>  在开始之前，进入你的项目文件夹下，安装feed的最新版本</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$npm</span> install feed</div></pre></td></tr></table></figure>
-
-<h4 id="建立订阅">建立订阅</h4>
-<p>第一步：建立一个Feed(用来接收该信息来源更新的接口)的对象。当我们初始化这个对象的时候，提供我们网络聚合订阅的基本信息（这句话感觉怎么翻译怎么不通顺，我觉得就是根据我们了解的RSS或者Atom之类的格式，结合自己的网站提供相应信息）。如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 需求的包</span></div><div class="line">varFeed<span class="subst">=</span><span class="keyword">require</span>(<span class="string">'feed'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 初始化feed对象</span></div><div class="line"><span class="built_in">var</span> feed <span class="subst">=</span>newFeed({</div><div class="line">  title:          <span class="string">'My Feed Title'</span>,</div><div class="line">  description:    <span class="string">'This is my personnal feed!'</span>,</div><div class="line">  <span class="keyword">link</span>:           <span class="string">'http://example.com/'</span>,</div><div class="line">  image:          <span class="string">'http://example.com/logo.png'</span>,</div><div class="line">  copyright:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,</div><div class="line"></div><div class="line">  author:{</div><div class="line">    name:       <span class="string">'John Doe'</span>,</div><div class="line">    email:      <span class="string">'john.doe@example.com'</span>,</div><div class="line">    <span class="keyword">link</span>:       <span class="string">'https://example.com/john-doe'</span></div><div class="line">  }</div><div class="line">});</div></pre></td></tr></table></figure>
-
-
-<p>第二步：你可能希望区分自己的订阅专题。RSS和Atom标准格式都提供了一个或多个分类。当然，添加它们也超级简单：</p>
-<p><code>feed.category(&#39;Node.js&#39;);
-feed.category(&#39;JavaScript&#39;);</code></p>
-<p>第三步：每个订阅都需要至少一个项目。（最好是一个入口）要做到这一点，你必须使用这些功能项目并提供合适的对象。当然，当你正在运行一个内容网站（就像你的博客），很可能发生的情况是你有多个项目。为了填充你的订阅信息，使用一个for循环，如下：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for(var key <span class="keyword">in</span> posts){</div><div class="line">  feed<span class="preprocessor">.item</span>({</div><div class="line">    title:  posts[key]<span class="preprocessor">.title</span>,</div><div class="line">    link:  posts[key]<span class="preprocessor">.link</span>,</div><div class="line">    description: posts[key]<span class="preprocessor">.description</span>,</div><div class="line">    date: posts[key]<span class="preprocessor">.date</span></div><div class="line">  }</div><div class="line">}</div></pre></td></tr></table></figure>
-
-
-<p>到这一步，生成RSS或者Atom标准的订阅的一切准备都已经OK了，使用下面的render方法</p>
-<p><code>var output = feed.render()</code></p>
-<p>这是含蓄的方式调用render请求。默认的是，它会渲染成RSS标准的订阅。你也可以使用这种含蓄的方式，选择RSS或者Atom</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Rendering a RSS 2.0 valid feed</span></div><div class="line">feed.<span class="keyword">render</span>(<span class="string">'rss-2.0'</span>);</div><div class="line"></div><div class="line"><span class="comment">// Rendering an Atom 1.0 valid feed</span></div><div class="line">feed.<span class="keyword">render</span>(<span class="string">'atom-1.0'</span>);</div></pre></td></tr></table></figure>
-
-<p>是的，就是这么简单！</p>
-<p>feed结合 Express.js 一起会变得超级简单。告诉你一个使用app.get()方法去路由/rss路径。为了推送你的订阅，像我们之前提到的那样渲染我们的订阅。然后，把Content-type 设置成 text/xml：</p>
-<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/rss'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req, res)</span>{</span></div><div class="line">  <span class="comment">// Initializing feed object</span></div><div class="line">  <span class="keyword">var</span> feed =newFeed({</div><div class="line">    title:          <span class="string">'My Feed Title'</span>,</div><div class="line">    description:    <span class="string">'This is my personnal feed!'</span>,</div><div class="line">    link:           <span class="string">'http://example.com/'</span>,</div><div class="line">    image:          <span class="string">'http://example.com/logo.png'</span>,</div><div class="line">    copyright:      <span class="string">'Copyright © 2013 John Doe. All rights reserved'</span>,</div><div class="line"></div><div class="line">    author:{</div><div class="line">      name:       <span class="string">'John Doe'</span>,</div><div class="line">      email:      <span class="string">'john.doe@example.com'</span>,</div><div class="line">      link:       <span class="string">'https://example.com/john-doe'</span></div><div class="line">    }</div><div class="line">  });</div><div class="line"></div><div class="line">  <span class="comment">// Function requesting the last 5 posts to a database. This is just an</span></div><div class="line">  <span class="comment">// example, use the way you prefer to get your posts.</span></div><div class="line">  Post.findPosts(<span class="function"><span class="keyword">function</span><span class="params">(posts, err)</span>{</span></div><div class="line">    <span class="keyword">if</span>(err)</div><div class="line">      res.send(<span class="string">'404 Not found'</span>,<span class="number">404</span>);</div><div class="line">    <span class="keyword">else</span>{</div><div class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> posts){</div><div class="line">        feed.item({</div><div class="line">          title:          posts[key].title,</div><div class="line">          link:           posts[key].url,</div><div class="line">          description:    posts[key].description,</div><div class="line">          date:           posts[key].date</div><div class="line">        });</div><div class="line">      }</div><div class="line">      <span class="comment">// Setting the appropriate Content-Type</span></div><div class="line">      res.set(<span class="string">'Content-Type'</span>,<span class="string">'text/xml'</span>);</div><div class="line"></div><div class="line">      <span class="comment">// Sending the feed as a response</span></div><div class="line">      res.send(feed.render(<span class="string">'rss-2.0'</span>));</div><div class="line">    }</div><div class="line">  });</div><div class="line">});</div></pre></td></tr></table></figure>
-
-<h3 id="总结：">总结：</h3>
-<p>就这样了，现在人们终于可以从你的nodejs应用中读取订阅你的项目。</p>
-<p>译者：其实到这个地方还没有结束，本人在处理这个问题时感觉远远不想大神说的那么easy。有兴趣的最好自己尝试一下。</p>
-<p>wrapper —— 包<br>feed —— 订阅<br>Feed —— 用来接收该信息来源更新的接口</p>
-]]></content>
-    <summary type="html"><![CDATA[<h3 id="[翻译]Content_Syndication_with_Node-js">[翻译]Content Syndication with Node.js</h3>
-<hr>
-<p>原文链接 <a href="http://howtonode.org/content-syndication-with-node" target="_blank" rel="external">Content Syndication with Node.js</a></p>
-<p>对于任何一个想和其他系统信息共享的网站而言，网络聚合是必须的。建议最好去了解一下RSS或者Atom之类的消息来源标准的格式规范，如果不采用一个处理这种格式的模块，生成这样的文本信息会是一件非常麻烦且耗时的工作。非常感谢<a href="https://npmjs.org/" target="_blank" rel="external">NPM</a>，正由于nodejs的包管理工具的强大之处，自从有了它，再也不用担心生成自己的消息来源会耗费大量时间了。</p>
-]]></summary>
-    
-      <category term="Translate" scheme="http://beforeload.github.io/tags/Translate/"/>
-    
-      <category term="Node.js" scheme="http://beforeload.github.io/tags/Nodejs/"/>
-    
-      <category term="Node.js" scheme="http://beforeload.github.io/categories/Nodejs/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[Collaborative Markov Chain Model]]></title>
     <link href="http://beforeload.github.io/2013/04/23/collaborative-markov-chain-model/"/>
     <id>http://beforeload.github.io/2013/04/23/collaborative-markov-chain-model/</id>
     <published>2013-04-22T21:23:27.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="理论">理论</h2>
 <h3 id="马尔可夫过程(Markov_Process)">马尔可夫过程(Markov Process)</h3>
 <p>Markov过程是一个满足Markov性(无后效性)的随机过程。<br>具有马尔可夫性质的随机过程称为<strong>马尔可夫</strong>过程。[1]</p>
@@ -1426,7 +998,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/"/>
     <id>http://beforeload.github.io/2013/04/18/invertedindex-in-hadoop/</id>
     <published>2013-04-18T12:26:32.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h2 id="倒排索引">倒排索引</h2>
 <h3 id="简介:">简介:</h3>
 <p>倒排索引是文档检索系统中最常用的数据结构，被广泛地应用于全文搜索引擎。它主要是用来存储某个单词(或词组)在一个文档或一组文档中的存储位置的映射，即提供了一种根据内容来查找文档的方式。由于不是更具文档来确定文档包含的内容，而是进行想法的操作，因而成为倒排索引(Inverted Index)。[1]</p>
@@ -1493,7 +1065,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/13/analyze-mapreduce/"/>
     <id>http://beforeload.github.io/2013/04/13/analyze-mapreduce/</id>
     <published>2013-04-13T02:56:30.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<p>写在前面的话：看了N多MapReduce方面的理论知识，一直想写写自己对MapReduce的理解。</p>
 <h2 id="MapReduce_编程模型">MapReduce 编程模型</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">map</span>:<span class="function"><span class="params">(K1, V1)</span> -&gt;</span> list(K2, V2)</div><div class="line"><span class="attribute">reduce</span>: <span class="function"><span class="params">(k2, list(V2))</span> -&gt;</span> list(K2, V2)</div></pre></td></tr></table></figure>
@@ -1630,7 +1202,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/06/hdfs-java-api/"/>
     <id>http://beforeload.github.io/2013/04/06/hdfs-java-api/</id>
     <published>2013-04-06T15:14:42.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h3 id="案例">案例</h3>
 <h4 id="上传本地文件到_HDFS">上传本地文件到 HDFS</h4>
 <figure class="highlight Java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copyFile</span>(String src, String dst, String config) <span class="keyword">throws</span> IOException{</div><div class="line">    Configuration conf = <span class="keyword">new</span> Configuration();</div><div class="line">    conf.addResource(<span class="keyword">new</span> Path(config));</div><div class="line">    FileSystem hdfs = FileSystem.get(conf);</div><div class="line">    Path srcPath = <span class="keyword">new</span> Path(src);</div><div class="line">    Path dstPath = <span class="keyword">new</span> Path(dst);</div><div class="line">    hdfs.copyFromLocalFile(srcPath, dstPath);</div><div class="line">    System.out.println(<span class="string">"Upload to "</span> + conf.get(<span class="string">"fs.default.name"</span>));</div><div class="line">    </div><div class="line">    FileStatus files[] = hdfs.listStatus(dstPath);</div><div class="line">    <span class="keyword">for</span> (FileStatus file : files) {</div><div class="line">        System.out.println(file.getPath());</div><div class="line">    }</div><div class="line">    hdfs.close();</div><div class="line">}</div></pre></td></tr></table></figure>
@@ -1701,7 +1273,7 @@ feed.category(&#39;JavaScript&#39;);</code></p>
     <link href="http://beforeload.github.io/2013/04/06/k-th-order-statistic/"/>
     <id>http://beforeload.github.io/2013/04/06/k-th-order-statistic/</id>
     <published>2013-04-05T20:12:32.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
+    <updated>2014-07-20T12:08:09.000Z</updated>
     <content type="html"><![CDATA[<h3 id="问题描述:">问题描述:</h3>
 <h6 id="问题来源:_线性查找">问题来源: <a href="http://learn.akae.cn/media/ch11s05.html" target="_blank" rel="external">线性查找</a></h6>
 <ol>
@@ -1839,23 +1411,6 @@ int main(int argc, const char *argv[])
       <category term="Algorithm" scheme="http://beforeload.github.io/tags/Algorithm/"/>
     
       <category term="Algorithm" scheme="http://beforeload.github.io/categories/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[blog establish]]></title>
-    <link href="http://beforeload.github.io/2013/04/04/blog-establish/"/>
-    <id>http://beforeload.github.io/2013/04/04/blog-establish/</id>
-    <published>2013-04-03T23:11:12.000Z</published>
-    <updated>2014-07-16T15:45:41.000Z</updated>
-    <content type="html"><![CDATA[<p>新建第一篇博文，以纪念今天博客建立</p>
-<p>一直在犹豫使用Jekyll还是Octopress搭建自己的博客,虽然后者基于前者做了一些优化之类的东西,但最终犹豫再三还是使用了Jekyll。没有使用过Octopress，不知道两者之间的区别在什么地方，不过相对于初学者，使用Jekyll还是非常容易上手的，具体的步骤参看<a href="http://jekyllbootstrap.com" target="_blank" rel="external">Jekyll Bootstrap</a>。</p>
-]]></content>
-    
-    
-      <category term="Memory" scheme="http://beforeload.github.io/tags/Memory/"/>
-    
-      <category term="Memory" scheme="http://beforeload.github.io/categories/Memory/"/>
     
   </entry>
   
