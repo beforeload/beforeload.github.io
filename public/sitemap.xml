@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://beforeload.github.io/2013/05/18/inversion-monge-quicksort/</loc>
-    <lastmod>2014-07-20T12:08:09.000Z</lastmod>
+    <loc>http://beforeload.github.io/2014/09/03/The-Waterfall-Flows-Realization/</loc>
+    <lastmod>2014-11-08T15:37:34.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://beforeload.github.io/2014/04/14/what-is-inheritance-in-javascript/</loc>
+    <loc>http://beforeload.github.io/2013/05/18/inversion-monge-quicksort/</loc>
     <lastmod>2014-07-20T12:08:09.000Z</lastmod>
   </url>
   
@@ -73,6 +73,11 @@
   
   <url>
     <loc>http://beforeload.github.io/2014/01/02/vim-powerline-installation-on-ubuntu-1310/</loc>
+    <lastmod>2014-07-20T12:08:09.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2014/04/14/what-is-inheritance-in-javascript/</loc>
     <lastmod>2014-07-20T12:08:09.000Z</lastmod>
   </url>
   
