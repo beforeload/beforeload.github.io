@@ -41,6 +41,8 @@
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+  
+
   <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
@@ -133,7 +135,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 20.00px;">Algorithm</a><a href="/tags/Android/" style="font-size: 10.00px;">Android</a><a href="/tags/C/" style="font-size: 15.00px;">C</a><a href="/tags/CSS/" style="font-size: 10.00px;">CSS</a><a href="/tags/Data-Structure/" style="font-size: 12.50px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 17.50px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 20.00px;">Hadoop</a><a href="/tags/Java/" style="font-size: 15.00px;">Java</a><a href="/tags/JavaScript/" style="font-size: 15.00px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 12.50px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 12.50px;">MapReduce</a><a href="/tags/Math/" style="font-size: 12.50px;">Math</a><a href="/tags/Memory/" style="font-size: 10.00px;">Memory</a><a href="/tags/Nodejs/" style="font-size: 10.00px;">Node.js</a><a href="/tags/Translate/" style="font-size: 10.00px;">Translate</a><a href="/tags/Ubuntu/" style="font-size: 17.50px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 12.50px;">Vim</a>
+						<a href="/tags/Algorithm/" style="font-size: 20.00px;">Algorithm</a><a href="/tags/C/" style="font-size: 13.33px;">C</a><a href="/tags/Data-Structure/" style="font-size: 10.00px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 16.67px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 20.00px;">Hadoop</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 10.00px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 10.00px;">MapReduce</a><a href="/tags/Math/" style="font-size: 10.00px;">Math</a><a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a>
 					</div>
 				</section>
 				
@@ -141,17 +143,7 @@
 				
 				<section class="switch-part switch-part3">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://mikiyonney.github.io/">MiKiYonney</a>
 			        
 				</section>
 				
@@ -213,7 +205,7 @@
   
     <div class="article-meta">
       <a href="/2013/06/29/building-distributed-systems-development-environment/" class="article-date">
-  	<time datetime="2013-06-29T01:13:47.000Z" itemprop="datePublished">Jun 29</time>
+  	<time datetime="2013-06-28T17:13:47.000Z" itemprop="datePublished">Jun 29</time>
 </a>
       
   <div class="article-category">
@@ -257,11 +249,11 @@
 <p>Ubuntu上下载最好不要使用FTP下载，不然会出现例如下面的问题。</p>
 <pre><code>gzip: stdin: invalid compressed data--format violatedtar: Unexpected EOF <span class="keyword">in</span> archivetar: Unexpected EOF <span class="keyword">in</span> archivetar: <span class="keyword">Error</span> <span class="keyword">is</span> <span class="keyword">not</span> recoverable: exiting <span class="built_in">now</span>
 </code></pre><p>从<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank" rel="external">官网</a>上根据自己的系统下载相应的JDK。</p>
-<pre><code>sudo mkdir /usr/java
-tar zxvf jdk-<span class="number">7</span>u25-linux-x64<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
-sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="preprocessor">.tar</span><span class="preprocessor">.gz</span> /usr/java/
+<pre><code><span class="built_in">sudo</span> mkdir /usr/java
+tar zxvf jdk-<span class="number">7</span>u25-linux-x64.tar.gz
+<span class="built_in">sudo</span> mv jdk-<span class="number">7</span>u25-linux-x64.tar.gz /usr/java/
 </code></pre><p><strong>(2) 然后修改配置文件</strong></p>
-<pre><code><span class="built_in">sudo</span> vi /etc/profile
+<pre><code>sudo <span class="keyword">vi</span> /etc/<span class="keyword">profile</span>
 </code></pre><p>按G可以直接到文件尾端，填写下面内容:</p>
 <pre><code><span class="keyword">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7.0</span>_25
 <span class="keyword">export</span> JRE_HOME=<span class="variable">$JAVA_HOME</span>/jre
@@ -269,40 +261,40 @@ sudo mv jdk-<span class="number">7</span>u25-linux-x64<span class="preprocessor"
 <span class="keyword">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin
 </code></pre><p>保存退出。</p>
 <p><strong>(3) 检测是否成功</strong> </p>
-<pre><code><span class="built_in">source</span> /etc/profile
-java -version
+<pre><code><span class="keyword">source</span> /etc/<span class="keyword">profile</span>
+java -<span class="keyword">version</span>
 </code></pre><p>如果显示下面结果，表示安装成功。</p>
-<pre><code>java version <span class="string">"1.7.0_25"</span>
-Java(TM) SE Runtime Environment (build <span class="number">1.7</span><span class="number">.0</span>_25<span class="attribute">-b15</span>)
-Java HotSpot(TM) <span class="number">64</span><span class="attribute">-Bit</span> Server VM (build <span class="number">23.25</span><span class="attribute">-b01</span>, mixed mode)
+<pre><code>java <span class="keyword">version</span> <span class="string">"1.7.0_25"</span>
+Java(TM) SE Runtime Environment (build <span class="number">1.7</span>.<span class="number">0</span>_25-b15)
+Java HotSpot(TM) <span class="number">64</span>-Bit Server VM (build <span class="number">23.25</span>-b01, mixed <span class="built_in">mode</span>)
 </code></pre><h3 id="安装eclipse">安装eclipse</h3>
 <p><strong>(1) 下载eclipse<em>*</em>.tar.gz</strong></p>
 <pre><code>tar zxvf eclipse-standard-kepler-R-linux-gtk-x86_64.tar.gz
-mv eclipse /usr/<span class="built_in">local</span>
-/usr/<span class="built_in">local</span>/eclipse/eclipse    <span class="comment">#启动eclipse</span>
+mv eclipse <span class="regexp">/usr/</span>local
+<span class="regexp">/usr/</span>local<span class="regexp">/eclipse/</span>eclipse    #启动eclipse
 </code></pre><p><strong>(2) 通过修改快捷键，可以迅速启动eclipse</strong></p>
-<pre><code><span class="type">System</span> <span class="type">Settings</span> -&gt; <span class="type">Keyboard</span> -&gt; <span class="type">Shortcuts</span> -&gt; <span class="type">Custom</span> <span class="type">Shortcuts</span>
+<pre><code><span class="input"><span class="prompt">System Settings -&gt;</span> <span class="constant">Keyboard</span> -&gt; <span class="constant">Shortcuts</span> -&gt; <span class="constant">Custom</span> <span class="constant">Shortcuts</span></span>
 </code></pre><p><strong><em>在弹窗中输入：</em></strong></p>
 <pre><code><span class="attribute">Name</span>: <span class="string">eclipse</span>
 <span class="attribute">Command</span>: <span class="string">/usr/local/eclipse/eclipse</span>
 </code></pre><p>Apply退出后，<code>Ctrl+Alt+E</code>，添加快捷键。以后只需要通过<code>Ctrl+Alt+E</code>，即可启动Eclipse。</p>
 <h4 id="ssh_无密码登录">ssh 无密码登录</h4>
 <p><strong>(1) 安装SSH</strong></p>
-<pre><code>sudo apt-<span class="keyword">get</span> install openssh-<span class="built_in">server</span>
+<pre><code>sudo apt-get <span class="operator"><span class="keyword">install</span> openssh-<span class="keyword">server</span></span>
 </code></pre><p>如果你想让别的机器访问自己的电脑，只需要把公钥告诉别人，其他机器通过public key加密后，把数据传到自己的机器上，自己的机器用私钥进行解密。</p>
 <p><strong>(2) 生成密钥的步骤也很简单：</strong></p>
-<pre><code>ssh<span class="attribute">-keygen</span> <span class="attribute">-t</span> rsa <span class="attribute">-C</span> <span class="string">"your_email@example.com"</span>
+<pre><code>ssh-keygen -t rsa -<span class="keyword">C</span> <span class="string">"your_email@example.com"</span>
 </code></pre><p>详细步骤请参见<a href="//help.github.com/articles/generating-ssh-keys">Generating SSH Keys</a></p>
-<pre><code><span class="keyword">cp</span> id_rsa<span class="preprocessor">.pub</span> authorized_keys
+<pre><code><span class="keyword">cp</span> id_rsa.pub authorized_keys
 </code></pre><p><strong>(3) 测试一下，是否可以无密码连接</strong></p>
-<pre><code>ssh localhost
+<pre><code><span class="title">ssh</span> localhost
 </code></pre><p>集群配置的时候可以直接从namenode中，把新增的电脑上的public key发到namenode中，添加到它的authorized_keys中，<br>然后使用<code>scp</code>命令拷贝到新增机器上即可。</p>
 <h4 id="安装Hadoop">安装Hadoop</h4>
 <p><strong>(1) 下载解压hadoop</strong></p>
-<pre><code>tar zxvf hadoop-<span class="number">0.20</span><span class="number">.2</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>    <span class="preprocessor">#解压</span>
+<pre><code><span class="title">tar</span> zxvf hadoop-<span class="number">0</span>.<span class="number">20</span>.<span class="number">2</span>.tar.gz    <span class="comment">#解压</span>
 </code></pre><p><strong>(2) 配置四个文件</strong></p>
 <p>1) ~/hadoop-0.20.2/conf/hadoop-env.sh</p>
-<pre><code><span class="keyword">export</span> JAVA_HOME=/usr/java/jdk1.<span class="number">7.0</span>_25
+<pre><code><span class="keyword">export</span> JAVA_HOME=<span class="regexp">/usr/</span>java/jdk1<span class="number">.7</span><span class="number">.0</span>_25
 </code></pre><p>2) ~/hadoop-0.20.2/conf/core-site.xml</p>
 <pre><code><span class="tag">&lt;<span class="title">configuration</span>&gt;</span> 
   <span class="tag">&lt;<span class="title">property</span>&gt;</span>
@@ -331,8 +323,8 @@ mv eclipse /usr/<span class="built_in">local</span>
 </code></pre><p>现在在任何目录下，都可以输入hadoop命令了。</p>
 <p><strong>(4) 格式化HDFS并启动hadoop</strong></p>
 <pre><code>hadoop namenode -format
-start-<span class="built_in">all</span>.sh
-jps   <span class="preprocessor">#查看运行的进程</span>
+start-<span class="literal">all</span>.sh
+jps   <span class="comment">#查看运行的进程</span>
 </code></pre><p><strong>(5) 浏览NameNode 和 JobTracker</strong></p>
 <ol>
 <li>NameNode <a href="http://localhost:50070/dfshealth.jsp" target="_blank" rel="external">http://localhost:50070/dfshealth.jsp</a></li>
@@ -355,7 +347,7 @@ jps   <span class="preprocessor">#查看运行的进程</span>
     
 <nav id="article-nav">
   
-    <a href="/2013/07/12/summary-of-distribute-computing-learning-resourses/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2013/07/11/summary-of-distribute-computing-learning-resourses/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
@@ -365,7 +357,7 @@ jps   <span class="preprocessor">#查看运行的进程</span>
     </a>
   
   
-    <a href="/2013/06/23/my-software-installation-and-configuration-on-ubuntu-1304/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/06/22/my-software-installation-and-configuration-on-ubuntu-1304/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Common Software Installation and Configuration on Ubuntu 13.04</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>

@@ -30,6 +30,8 @@
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+  
+
   <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
@@ -122,7 +124,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 20.00px;">Algorithm</a><a href="/tags/Android/" style="font-size: 10.00px;">Android</a><a href="/tags/C/" style="font-size: 15.00px;">C</a><a href="/tags/CSS/" style="font-size: 10.00px;">CSS</a><a href="/tags/Data-Structure/" style="font-size: 12.50px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 17.50px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 20.00px;">Hadoop</a><a href="/tags/Java/" style="font-size: 15.00px;">Java</a><a href="/tags/JavaScript/" style="font-size: 15.00px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 12.50px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 12.50px;">MapReduce</a><a href="/tags/Math/" style="font-size: 12.50px;">Math</a><a href="/tags/Memory/" style="font-size: 10.00px;">Memory</a><a href="/tags/Nodejs/" style="font-size: 10.00px;">Node.js</a><a href="/tags/Translate/" style="font-size: 10.00px;">Translate</a><a href="/tags/Ubuntu/" style="font-size: 17.50px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 12.50px;">Vim</a>
+						<a href="/tags/Algorithm/" style="font-size: 20.00px;">Algorithm</a><a href="/tags/C/" style="font-size: 13.33px;">C</a><a href="/tags/Data-Structure/" style="font-size: 10.00px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 16.67px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 20.00px;">Hadoop</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 10.00px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 10.00px;">MapReduce</a><a href="/tags/Math/" style="font-size: 10.00px;">Math</a><a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a>
 					</div>
 				</section>
 				
@@ -130,17 +132,7 @@
 				
 				<section class="switch-part switch-part3">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://mikiyonney.github.io/">MiKiYonney</a>
 			        
 				</section>
 				
@@ -202,7 +194,7 @@
   
     <div class="article-meta">
       <a href="/2014/01/02/vim-powerline-installation-on-ubuntu-1310/" class="article-date">
-  	<time datetime="2014-01-02T12:53:58.000Z" itemprop="datePublished">Jan 2</time>
+  	<time datetime="2014-01-02T04:53:58.000Z" itemprop="datePublished">Jan 2</time>
 </a>
       
   <div class="article-category">
@@ -241,21 +233,21 @@
 <ol>
 <li>首先安装python-pip和git:</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt<span class="attribute">-get</span> install python<span class="attribute">-pip</span> git</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-pip git</div></pre></td></tr></table></figure>
 
 <ol>
 <li>安装Powerline</li>
 </ol>
 <p>分两种情况：<br>1) 对于个人用户</p>
 <p>在控制台中运行：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user git+git:<span class="comment">//github.com/Lokaltog/powerline</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install --user git+gi<span class="variable">t:</span>//github.<span class="keyword">com</span>/Lokaltog/powerline</div></pre></td></tr></table></figure>
 
 <p>修改<code>~/.profile</code>，将<code>~/.local/bin</code>加到<code>$PATH</code>中，在末尾加上：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="string">"<span class="variable">$HOME</span>/.local/bin"</span> ]; <span class="keyword">then</span></div><div class="line">    PATH=<span class="string">"<span class="variable">$HOME</span>/.local/bin:<span class="variable">$PATH</span>"</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
 
 <p>2) 对于系统用户</p>
 <p>在控制台中运行：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su <span class="attribute">-c</span> <span class="string">'pip install git+git://github.com/Lokaltog/powerline'</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">su -c 'pip install git+git:<span class="comment">//github.com/Lokaltog/powerline'</span></div></pre></td></tr></table></figure>
 
 <h2 id="二、字体的安装">二、字体的安装</h2>
 <p>对于Ubuntu的用户来说，安装字体再简单不过了，只需要双击文件，点击Install即可。这里不在赘述。</p>
@@ -263,13 +255,13 @@
 <ol>
 <li>Fontconfig：(推荐)</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt<span class="attribute">-get</span> install fontforge python<span class="attribute">-fontforge</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> install fontforge <span class="keyword">python</span>-fontforge</div></pre></td></tr></table></figure>
 
 <p>1) 对于个人用户</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mkdir -p ~/<span class="preprocessor">.fonts</span>/ && cd ~/<span class="preprocessor">.fonts</span>/</div><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span> </div><div class="line">wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span></div><div class="line">~/<span class="preprocessor">.vim</span>/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span></div><div class="line">mkdir -p ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ cd ~/<span class="preprocessor">.config</span>/fontconfig/conf<span class="preprocessor">.d</span>/ </div><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span></div><div class="line">fc-cache -vf ~/<span class="preprocessor">.fonts</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">mkdir</span> -<span class="keyword">p</span> ~/.fonts/ && <span class="keyword">cd</span> ~/.fonts/</div><div class="line">wget http<span class="variable">s:</span>//github.<span class="keyword">com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf </div><div class="line">wget http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black.otf</div><div class="line">~/.<span class="keyword">vim</span>/bundle/<span class="keyword">vim</span>-powerline/fontpatcher/fontpatcher *.otf</div><div class="line"><span class="built_in">mkdir</span> -<span class="keyword">p</span> ~/.config/fontconfig/<span class="keyword">conf</span>.<span class="keyword">d</span>/ <span class="keyword">cd</span> ~/.config/fontconfig/<span class="keyword">conf</span>.<span class="keyword">d</span>/ </div><div class="line">wget http<span class="variable">s:</span>//github.<span class="keyword">com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols.<span class="keyword">conf</span></div><div class="line">fc-cache -vf ~/.fonts</div></pre></td></tr></table></figure>
 
 <p>2) 对于系统用户</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols<span class="preprocessor">.otf</span></div><div class="line">wget https://raw<span class="preprocessor">.github</span><span class="preprocessor">.com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black<span class="preprocessor">.otf</span></div><div class="line">wget https://github<span class="preprocessor">.com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span></div><div class="line">/etc/vim/bundle/vim-powerline/fontpatcher/fontpatcher *<span class="preprocessor">.otf</span></div><div class="line">sudo mv *<span class="preprocessor">.otf</span> /usr/share/fonts/</div><div class="line">sudo fc-cache -vf</div><div class="line">sudo mv <span class="number">10</span>-powerline-symbols<span class="preprocessor">.conf</span> /etc/fonts/conf<span class="preprocessor">.d</span>/</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget http<span class="variable">s:</span>//github.<span class="keyword">com</span>/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf</div><div class="line">wget http<span class="variable">s:</span>//raw.github.<span class="keyword">com</span>/Lokaltog/powerline-fonts/master/SourceCodePro/Sauce%<span class="number">20</span>Code%<span class="number">20</span>Powerline%<span class="number">20</span>Black.otf</div><div class="line">wget http<span class="variable">s:</span>//github.<span class="keyword">com</span>/Lokaltog/powerline/raw/develop/font/<span class="number">10</span>-powerline-symbols.<span class="keyword">conf</span></div><div class="line">/etc/<span class="keyword">vim</span>/bundle/<span class="keyword">vim</span>-powerline/fontpatcher/fontpatcher *.otf</div><div class="line">sudo mv *.otf /usr/share/fonts/</div><div class="line">sudo fc-cache -vf</div><div class="line">sudo mv <span class="number">10</span>-powerline-symbols.<span class="keyword">conf</span> /etc/fonts/<span class="keyword">conf</span>.<span class="keyword">d</span>/</div></pre></td></tr></table></figure>
 
 <p>如果嫌麻烦，后面有我的打过补丁的字体可以直接下载使用。</p>
 <h2 id="三、配置-vimrc">三、配置.vimrc</h2>
@@ -277,14 +269,14 @@
 <li>Vim状态栏的配置</li>
 </ol>
 <p>在<code>~/.vimrc</code>或者<code>/etc/vim/vimrc</code>文件中进行配置：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> encoding<span class="subst">=</span>utf<span class="subst">-</span><span class="number">8</span></div><div class="line"><span class="built_in">set</span> fillchars<span class="subst">+=</span>stl:<span class="subst">\</span> ,stlnc:<span class="subst">\</span></div><div class="line"><span class="built_in">set</span> laststatus<span class="subst">=</span><span class="number">2</span></div><div class="line"><span class="built_in">set</span> rtp<span class="subst">+=</span><span class="variable">$HOME</span><span class="subst">/</span><span class="built_in">.</span><span class="built_in">local</span>/lib/python2<span class="number">.7</span>/site<span class="attribute">-packages</span>/powerline/bindings/vim<span class="subst">/</span></div><div class="line"><span class="built_in">set</span> <span class="attribute">-g</span> default<span class="attribute">-terminal</span> <span class="string">"screen-256color"</span></div><div class="line"><span class="built_in">set</span> t_Co<span class="subst">=</span><span class="number">256</span></div><div class="line"><span class="keyword">let</span> g:Powerline_symbols <span class="subst">=</span> <span class="string">'fancy'</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> encoding=utf-<span class="number">8</span></div><div class="line"><span class="keyword">set</span> fillchars+=stl:\ ,stlnc:\</div><div class="line"><span class="keyword">set</span> laststatus=<span class="number">2</span></div><div class="line"><span class="keyword">set</span> rtp+=$HOME/.local/<span class="keyword">lib</span>/python2<span class="number">.7</span>/site-packages/powerline/bindings/vim/</div><div class="line"><span class="keyword">set</span> -g <span class="keyword">default</span>-terminal <span class="string">"screen-256color"</span></div><div class="line"><span class="keyword">set</span> t_Co=<span class="number">256</span></div><div class="line"><span class="keyword">let</span> g:Powerline_symbols = <span class="comment">'fancy'</span></div></pre></td></tr></table></figure>
 
 <p>后面附上我的vimrc相关配置。</p>
 <h2 id="四、卸载">四、卸载</h2>
 <p>1) 对于个人用户：</p>
-<pre><code>pip uninstall powerline
+<pre><code>pip <span class="operator"><span class="keyword">uninstall</span> powerline</span>
 </code></pre><p>2) 对于系统用户：</p>
-<pre><code>su <span class="attribute">-c</span> <span class="string">'pip uninstall powerline'</span>
+<pre><code><span class="title">su</span> -c <span class="string">'pip uninstall powerline'</span>
 </code></pre><h3 id="附上我的字体配置文件">附上我的字体配置文件</h3>
 <ol>
 <li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank" rel="external">字体</a></li>
@@ -304,7 +296,7 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/01/04/closure-of-javascript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/01/03/closure-of-javascript/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
@@ -314,7 +306,7 @@
     </a>
   
   
-    <a href="/2013/10/20/introduction-to-machine-learning/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/10/19/introduction-to-machine-learning/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Introduction to Machine Learning</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>

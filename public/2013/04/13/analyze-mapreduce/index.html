@@ -35,6 +35,8 @@ MapReduce 编程模型
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
 
+  
+
   <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
 <body>
@@ -127,7 +129,7 @@ MapReduce 编程模型
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/Algorithm/" style="font-size: 20.00px;">Algorithm</a><a href="/tags/Android/" style="font-size: 10.00px;">Android</a><a href="/tags/C/" style="font-size: 15.00px;">C</a><a href="/tags/CSS/" style="font-size: 10.00px;">CSS</a><a href="/tags/Data-Structure/" style="font-size: 12.50px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 17.50px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 20.00px;">Hadoop</a><a href="/tags/Java/" style="font-size: 15.00px;">Java</a><a href="/tags/JavaScript/" style="font-size: 15.00px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 12.50px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 12.50px;">MapReduce</a><a href="/tags/Math/" style="font-size: 12.50px;">Math</a><a href="/tags/Memory/" style="font-size: 10.00px;">Memory</a><a href="/tags/Nodejs/" style="font-size: 10.00px;">Node.js</a><a href="/tags/Translate/" style="font-size: 10.00px;">Translate</a><a href="/tags/Ubuntu/" style="font-size: 17.50px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 12.50px;">Vim</a>
+						<a href="/tags/Algorithm/" style="font-size: 20.00px;">Algorithm</a><a href="/tags/C/" style="font-size: 13.33px;">C</a><a href="/tags/Data-Structure/" style="font-size: 10.00px;">Data Structure</a><a href="/tags/Distributed-Computing/" style="font-size: 16.67px;">Distributed Computing</a><a href="/tags/Hadoop/" style="font-size: 20.00px;">Hadoop</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a><a href="/tags/Linux/" style="font-size: 20.00px;">Linux</a><a href="/tags/Machine-Learning/" style="font-size: 10.00px;">Machine Learning</a><a href="/tags/MapReduce/" style="font-size: 10.00px;">MapReduce</a><a href="/tags/Math/" style="font-size: 10.00px;">Math</a><a href="/tags/Ubuntu/" style="font-size: 16.67px;">Ubuntu</a><a href="/tags/Vim/" style="font-size: 10.00px;">Vim</a>
 					</div>
 				</section>
 				
@@ -135,17 +137,7 @@ MapReduce 编程模型
 				
 				<section class="switch-part switch-part3">
 					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://mikiyonney.github.io/">MiKiYonney</a>
 			        
 				</section>
 				
@@ -207,7 +199,7 @@ MapReduce 编程模型
   
     <div class="article-meta">
       <a href="/2013/04/13/analyze-mapreduce/" class="article-date">
-  	<time datetime="2013-04-13T02:56:30.000Z" itemprop="datePublished">Apr 13</time>
+  	<time datetime="2013-04-12T18:56:30.000Z" itemprop="datePublished">Apr 13</time>
 </a>
       
   <div class="article-category">
@@ -250,20 +242,21 @@ MapReduce 编程模型
 <ol>
 <li>一个类作为mapper，要继承MapReduceBase基类并实现Mapper接口；</li>
 <li>Mapper接口负责数据处理阶段。采用形式为<code>Mapper&lt;K1, V1, K2, V2&gt;</code> Java泛型；</li>
-<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。<figure class="highlight Java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> map(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)</div><div class="line">    <span class="keyword">throws</span> IOException</div></pre></td></tr></table></figure>
-
-</li>
+<li>Mapper只有一个方法——map，用于处理一个单独的键/值对。</li>
 </ol>
+<figure class="highlight Java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> map(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)</div><div class="line">    <span class="keyword">throws</span> IOException</div></pre></td></tr></table></figure>
+
 <h3 id="Reducer">Reducer</h3>
 <p>Reduce阶段，数据整合，排序。然后调用自定义函数<code>reduce()</code>，输入<code>(K2, list(V2))</code>，得到键值对<code>&lt;K3, V3&gt;</code>输出到HDFS上。</p>
 <p><em>Tips:</em></p>
 <ol>
 <li>Reducers数目在mapred-site.xml中决定，属性是<code>mapred.reduce.tasks</code>，默认值是 1，<code>job.setNumReduceTasks()</code>方法也可以用于设置，<strong>这是一个很重要的值</strong>；</li>
-<li><p>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: </p>
+<li>reducer的实现首先必须在MapReduce基类上扩展，允许配置和清理。它必须实现Reducer接口实现<strong>reduce</strong>方法: </li>
+</ol>
 <figure class="highlight Java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> reduce(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3, V3&gt; output, </div><div class="line">        Reporter reporter) <span class="keyword">throws</span> IOException</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</p>
-</li>
+
+<ol>
+<li><code>reduce()</code>函数最后生成的列表<code>(K3, V3)</code>可能为空；</li>
 <li>map阶段和reduce阶段中间还有partitioner的工作：负责将mapper的结果输出给不同的reducer。</li>
 </ol>
 <h3 id="Hadoop的MapReduce">Hadoop的MapReduce</h3>
