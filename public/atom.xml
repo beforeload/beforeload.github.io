@@ -4,7 +4,7 @@
   <subtitle><![CDATA[@beforeload]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://beforeload.github.io/"/>
-  <updated>2014-12-23T09:26:05.590Z</updated>
+  <updated>2015-01-07T11:50:25.804Z</updated>
   <id>http://beforeload.github.io/</id>
   
   <author>
@@ -13,6 +13,38 @@
   </author>
   
   <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Singleton in JavaScript]]></title>
+    <link href="http://beforeload.github.io/2015/01/07/Singleton-in-JavaScript/"/>
+    <id>http://beforeload.github.io/2015/01/07/Singleton-in-JavaScript/</id>
+    <published>2015-01-07T11:22:27.000Z</published>
+    <updated>2015-01-07T11:48:31.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="JavaScript_中的单例">JavaScript 中的单例</h1>
+<p>在 JavaScript 中，单例的应用场景非常广泛，通过Review 了一下自己的代码（其实是不小心看到的自己之前的一段 ugly code），发现之前对单例的实现思路一直以来比较局限，写一篇博客顺便理一下实现思路。</p>
+<a id="more"></a>
+
+<p>我的传统实现如下：</p>
+<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Singleton = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> instance;</div><div class="line">    Singleton = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    }</div><div class="line">    Singleton.prototype = <span class="keyword">this</span>;</div><div class="line">    instance = <span class="keyword">new</span> Singleton();</div><div class="line">    instance.Constructor = Singleton;</div><div class="line">    <span class="keyword">return</span> instance;</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<p>实现思路也算是很简洁，通过缓存实例，重新构造函数，然后将this 赋值给原型，再重新定义构造函数指针。很中规中矩的实现方式。<br>后来想想可以优化这段代码，只需要重写构造函数即可。</p>
+<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Singleton = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> instance = <span class="keyword">this</span>;</div><div class="line">    Singleton = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<p>这样的实现已经很简洁了，我自己觉得也没什么不好，但是看到别人的实现，<br>感觉同样惊艳。</p>
+<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Singleton = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">if</span>(Singleton.__instance) {</div><div class="line">        <span class="keyword">return</span> Singleton.__instance;</div><div class="line">    }</div><div class="line">    Singleton.__instance = <span class="keyword">this</span>;</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<p>非常容易，还可以简化成一行：</p>
+<figure class="highlight JavaScript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Singleton = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">  <span class="keyword">return</span> Singleton.instance = Singleton.instance ? Singleton.instance : <span class="keyword">this</span>;</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<p>JavaScript 中的单例模式其实很简单，但由此引发的思路也很多，即使用对象字面量的方式也无可厚非，引用类的方式优点也很明显，例如隐藏私有方法，保护私有变量。</p>
+]]></content>
+    <summary type="html"><![CDATA[<h1 id="JavaScript_中的单例">JavaScript 中的单例</h1>
+<p>在 JavaScript 中，单例的应用场景非常广泛，通过Review 了一下自己的代码（其实是不小心看到的自己之前的一段 ugly code），发现之前对单例的实现思路一直以来比较局限，写一篇博客顺便理一下实现思路。</p>
+]]></summary>
+    
+      <category term="JavaScript" scheme="http://beforeload.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[The Waterfall Flows Realization]]></title>
