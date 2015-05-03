@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://beforeload.github.io/2015/05/02/Internship-in-Baidu/</loc>
+    <lastmod>2015-05-03T16:22:00.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://beforeload.github.io/2015/01/07/Singleton-in-JavaScript/</loc>
     <lastmod>2015-01-07T11:48:31.000Z</lastmod>
   </url>
@@ -14,11 +19,6 @@
   <url>
     <loc>http://beforeload.github.io/2014/09/03/The-Waterfall-Flows-Realization/</loc>
     <lastmod>2014-11-08T15:37:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://beforeload.github.io/2013/05/20/fix-some-problems/</loc>
-    <lastmod>2014-07-20T12:08:09.000Z</lastmod>
   </url>
   
   <url>
@@ -83,6 +83,11 @@
   
   <url>
     <loc>http://beforeload.github.io/2013/07/11/summary-of-distribute-computing-learning-resourses/</loc>
+    <lastmod>2014-07-20T12:08:09.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://beforeload.github.io/2013/05/20/fix-some-problems/</loc>
     <lastmod>2014-07-20T12:08:09.000Z</lastmod>
   </url>
   
