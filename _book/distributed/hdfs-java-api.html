@@ -1,0 +1,858 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Hadoop 的 Java API | 简介</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../ml/index.html" />
+    
+    
+    <link rel="prev" href="../distributed/mapreduce.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="6.4" data-basepath=".." data-revision="Thu Jun 18 2015 00:31:35 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="lang/index.html">
+            
+                
+                    <a href="../lang/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        程序语言
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="lang/inheritance-in-javascript.html">
+            
+                
+                    <a href="../lang/inheritance-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        JavaScript 中的继承
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="lang/closure-of-javascript.html">
+            
+                
+                    <a href="../lang/closure-of-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        JavaScript 中的闭包
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lang/singleton-in-javascript.html">
+            
+                
+                    <a href="../lang/singleton-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        JavaScript 中的单例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="algo/index.html">
+            
+                
+                    <a href="../algo/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        算法
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="algo/DFS-and-BFS.html">
+            
+                
+                    <a href="../algo/DFS-and-BFS.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        深度优先和广度优先
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="algo/k-th-order-statistic.html">
+            
+                
+                    <a href="../algo/k-th-order-statistic.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        第k小的数
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="math/index.html">
+            
+                
+                    <a href="../math/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        数学
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="math/collaborative-markov-chain-model.html">
+            
+                
+                    <a href="../math/collaborative-markov-chain-model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        协同马尔可夫链模型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="os/index.html">
+            
+                
+                    <a href="../os/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        系统
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="os/distributed-dev-environment.html">
+            
+                
+                    <a href="../os/distributed-dev-environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        分布式开发环境搭建
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="os/software-installation-and-configuration.html">
+            
+                
+                    <a href="../os/software-installation-and-configuration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        常用软件的安装配置
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="intern/index.html">
+            
+                
+                    <a href="../intern/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        工作相关
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="intern/internship-in-baidu.html">
+            
+                
+                    <a href="../intern/internship-in-baidu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        百度实习经历
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="intern/waterfall-flows.html">
+            
+                
+                    <a href="../intern/waterfall-flows.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        瀑布流实现
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="distributed/index.html">
+            
+                
+                    <a href="../distributed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        分布式计算
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="distributed/distributed-learning-resourses.html">
+            
+                
+                    <a href="../distributed/distributed-learning-resourses.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        相关资源总结
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="distributed/inverted-index.html">
+            
+                
+                    <a href="../distributed/inverted-index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        倒排索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="distributed/mapreduce.html">
+            
+                
+                    <a href="../distributed/mapreduce.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        MapReduce
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.4" data-path="distributed/hdfs-java-api.html">
+            
+                
+                    <a href="../distributed/hdfs-java-api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Hadoop 的 Java API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ml/index.html">
+            
+                
+                    <a href="../ml/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        机器学习
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ml/introduction-to-machine-learning.html">
+            
+                
+                    <a href="../ml/introduction-to-machine-learning.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        机器学习简介
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >简介</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="hadoop-%E7%9A%84-java-api">Hadoop &#x7684; Java API</h1>
+<p>&#x57FA;&#x4E8E;HDFS &#x6587;&#x4EF6;&#x4E0A;&#x4F20;&#x3001;&#x521B;&#x5EFA;&#x3001;&#x91CD;&#x547D;&#x540D;&#x3001;&#x5220;&#x9664;&#x7B49;&#x64CD;&#x4F5C;</p>
+<h3 id="%E6%A1%88%E4%BE%8B">&#x6848;&#x4F8B;</h3>
+<ol>
+<li>&#x4E0A;&#x4F20;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5230; HDFS</li>
+<li>&#x521B;&#x5EFA; HDFS &#x6587;&#x4EF6;</li>
+<li>&#x91CD;&#x547D;&#x540D; HDFS &#x6587;&#x4EF6;</li>
+<li>&#x5220;&#x9664; HDFS &#x4E0A;&#x7684;&#x6587;&#x4EF6;</li>
+<li>&#x67E5;&#x770B; HDFS &#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;</li>
+<li>&#x67E5;&#x770B;&#x67D0;&#x4E2A; HDFS &#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;</li>
+<li>&#x67E5;&#x627E;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5728; HDFS &#x96C6;&#x7FA4;&#x7684;&#x4F4D;&#x7F6E;</li>
+<li>&#x83B7;&#x53D6; HDFS &#x96C6;&#x7FA4;&#x4E0A;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x540D;&#x79F0;</li>
+</ol>
+<!-- more -->
+<h3 id="%E4%B8%8A%E4%BC%A0%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%88%B0-hdfs">&#x4E0A;&#x4F20;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5230; HDFS</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">copyFile</span><span class="hljs-params">(String src, String dst, String config)</span> <span class="hljs-keyword">throws</span> IOException</span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path srcPath = <span class="hljs-keyword">new</span> Path(src);
+    Path dstPath = <span class="hljs-keyword">new</span> Path(dst);
+    hdfs.copyFromLocalFile(srcPath, dstPath);
+    System.out.println(<span class="hljs-string">&quot;Upload to &quot;</span> + conf.get(<span class="hljs-string">&quot;fs.default.name&quot;</span>));
+
+    FileStatus files[] = hdfs.listStatus(dstPath);
+    <span class="hljs-keyword">for</span> (FileStatus file : files) {
+        System.out.println(file.getPath());
+    }
+    hdfs.close();
+}
+</code></pre>
+<h3 id="%E5%88%9B%E5%BB%BA-hdfs-%E6%96%87%E4%BB%B6">&#x521B;&#x5EFA; HDFS &#x6587;&#x4EF6;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createFile</span><span class="hljs-params">(String dst, String config)</span> <span class="hljs-keyword">throws</span> IOException</span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    String content = <span class="hljs-string">&quot;Hello World,beforeload&quot;</span>;
+    <span class="hljs-keyword">byte</span>[] buff = content.getBytes();
+    FileSystem hdfs = FileSystem.get(conf);
+    Path dfsPath = <span class="hljs-keyword">new</span> Path(dst);
+    FSDataOutputStream os = hdfs.create(dfsPath);
+    os.write(buff,<span class="hljs-number">0</span>,buff.length);
+    os.write(content.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+    os.close();
+    hdfs.close();
+}
+</code></pre>
+<h3 id="%E9%87%8D%E5%91%BD%E5%90%8D-hdfs-%E6%96%87%E4%BB%B6">&#x91CD;&#x547D;&#x540D; HDFS &#x6587;&#x4EF6;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rename</span><span class="hljs-params">(String oldName, String newName, String config)</span>
+        <span class="hljs-keyword">throws</span> IOException </span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path oldPath = <span class="hljs-keyword">new</span> Path(oldName);
+    Path newPath = <span class="hljs-keyword">new</span> Path(newName);
+    <span class="hljs-keyword">boolean</span> isRename = hdfs.rename(oldPath, newPath);
+}
+</code></pre>
+<h3 id="%E5%88%A0%E9%99%A4-hdfs-%E4%B8%8A%E7%9A%84%E6%96%87%E4%BB%B6">&#x5220;&#x9664; HDFS &#x4E0A;&#x7684;&#x6587;&#x4EF6;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteFile</span><span class="hljs-params">(String path, String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path deletePath = <span class="hljs-keyword">new</span> Path(path);
+    <span class="hljs-keyword">boolean</span> isDeleted = hdfs.delete(deletePath, <span class="hljs-keyword">false</span>);
+    <span class="hljs-comment">// &#x9012;&#x5F52;&#x5220;&#x9664;</span>
+    <span class="hljs-comment">// boolean isDelete = hdfs.delete(deletePath, true);</span>
+    System.out.println(<span class="hljs-string">&quot;delete? &quot;</span>+ isDeleted);
+}
+</code></pre>
+<h3 id="%E6%9F%A5%E7%9C%8B-hdfs-%E6%96%87%E4%BB%B6%E7%9A%84%E6%9C%80%E5%90%8E%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4">&#x67E5;&#x770B; HDFS &#x6587;&#x4EF6;&#x7684;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getTime</span><span class="hljs-params">(String path, String config)</span> <span class="hljs-keyword">throws</span> IOException</span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path filePath = <span class="hljs-keyword">new</span> Path(path);
+    FileStatus fileStatus = hdfs.getFileStatus(filePath);
+    <span class="hljs-keyword">long</span> modifyTime = fileStatus.getModificationTime();
+    System.out.println(<span class="hljs-string">&quot;Modification time is:&quot;</span> + modifyTime);
+}
+</code></pre>
+<h3 id="%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA-hdfs-%E6%96%87%E4%BB%B6%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8">&#x67E5;&#x770B;&#x67D0;&#x4E2A; HDFS &#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">isExist</span><span class="hljs-params">(String path, String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    <span class="hljs-keyword">boolean</span> isExist = hdfs.exists(<span class="hljs-keyword">new</span> Path(path));
+    System.out.println(<span class="hljs-string">&quot;Exist?&quot;</span>+ isExist);
+}
+</code></pre>
+<h3 id="%E6%9F%A5%E6%89%BE%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E5%9C%A8-hdfs-%E9%9B%86%E7%BE%A4%E7%9A%84%E4%BD%8D%E7%BD%AE">&#x67E5;&#x627E;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5728; HDFS &#x96C6;&#x7FA4;&#x7684;&#x4F4D;&#x7F6E;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getFileBlockLocation</span><span class="hljs-params">(String path, String config)</span>
+        <span class="hljs-keyword">throws</span> IOException </span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem hdfs = FileSystem.get(conf);
+    Path filePath = <span class="hljs-keyword">new</span> Path(path);
+    FileStatus fileStatus = hdfs.getFileStatus(filePath);
+    BlockLocation[] blockLocations = hdfs.getFileBlockLocations(fileStatus,
+            <span class="hljs-number">0</span>, fileStatus.getLen());
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; blockLocations.length; i++) {
+        String[] hosts = blockLocations[i].getHosts();
+        System.out.println(<span class="hljs-string">&quot;block&quot;</span> + i + <span class="hljs-string">&quot;location:&quot;</span> + hosts[i]);
+    }
+}
+</code></pre>
+<h3 id="%E8%8E%B7%E5%8F%96-hdfs-%E9%9B%86%E7%BE%A4%E4%B8%8A%E6%89%80%E6%9C%89%E8%8A%82%E7%82%B9%E7%9A%84%E5%90%8D%E7%A7%B0">&#x83B7;&#x53D6; HDFS &#x96C6;&#x7FA4;&#x4E0A;&#x6240;&#x6709;&#x8282;&#x70B9;&#x7684;&#x540D;&#x79F0;</h3>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getHostName</span><span class="hljs-params">(String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+    Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+    conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+    FileSystem fs = FileSystem.get(conf);
+    DistributedFileSystem hdfs = (DistributedFileSystem) fs;
+    DatanodeInfo[] dataNodeStats = hdfs.getDataNodeStats();
+    String[] names = <span class="hljs-keyword">new</span> String[dataNodeStats.length];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; dataNodeStats.length; i++) {
+        names[i] = dataNodeStats[i].getHostName();
+        System.out.println(<span class="hljs-string">&quot;node &quot;</span> + i + <span class="hljs-string">&quot; name &quot;</span> + names[i]);
+    }
+}
+</code></pre>
+<h3 id="%E9%97%AE%E9%A2%98">&#x95EE;&#x9898;</h3>
+<ol>
+<li>&quot;Wrong FS expected: file:///&quot;</li>
+</ol>
+<p>&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5176;&#x5B9E;&#x4E25;&#x683C;&#x610F;&#x4E49;&#x4E0A;&#x5E76;&#x4E0D;&#x5C5E;&#x4E8E;API&#x8C03;&#x7528;&#x65B9;&#x9762;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5177;&#x4F53;&#x95EE;&#x9898;&#x51FA;&#x73B0;&#x7684;&#x539F;&#x56E0;&#x4E0D;&#x5F97;&#x800C;&#x77E5;&#xFF0C;&#x4E0D;&#x8FC7;&#x5728;&#x67E5;&#x9605;&#x8D44;&#x6599;&#x4E00;&#x756A;&#x540E;&#x8FD8;&#x662F;&#x5F97;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x3002;</p>
+<ul>
+<li>stackoverflow&#x4E0A;&#x7ED9;&#x51FA;<a href="http://stackoverflow.com/questions/7969519/what-is-the-loading-order-of-the-configuration-files-in-hadoop/7995180#7995180" target="_blank">&#x95EE;&#x9898;</a>&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x8FC7;&#x7ECF;&#x8FC7;&#x5C1D;&#x8BD5;&#x540E;&#xFF0C;&#x4E5F;&#x53EA;&#x80FD;&#x53D1;&#x51FA;&#x611F;&#x53F9;&#xFF1A;&#x201D;It doesn&apos;t work!&quot; </li>
+<li>&#x5E78;&#x597D;&#x5728;<a href="http://www.opensourceconnections.com/2013/03/24/hdfs-debugging-wrong-fs-expected-file-exception" target="_blank">Doug&#x7684;&#x535A;&#x5BA2;</a>&#x4E0A;&#x7ED9;&#x51FA;&#x4E86;&#x89E3;&#x7B54;&#xFF0C;&#x901A;&#x8FC7;&#x6DFB;&#x52A0;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x5373;&#x53EF;<pre><code class="lang-Java">conf.addResource(<span class="hljs-keyword">new</span> Path(<span class="hljs-string">&quot;/root/hadoop-0.20.2/conf/core-site.xml&quot;</span>));
+</code></pre>
+</li>
+</ul>
+<h3 id="%E8%AE%A8%E8%AE%BA">&#x8BA8;&#x8BBA;</h3>
+<p><strong><em>&#x9644;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</em></strong></p>
+<pre><code class="lang-Java"><span class="hljs-keyword">import</span> java.io.IOException;
+
+<span class="hljs-keyword">import</span> org.apache.hadoop.conf.Configuration;
+<span class="hljs-keyword">import</span> org.apache.hadoop.fs.BlockLocation;
+<span class="hljs-keyword">import</span> org.apache.hadoop.fs.FSDataOutputStream;
+<span class="hljs-keyword">import</span> org.apache.hadoop.fs.FileStatus;
+<span class="hljs-keyword">import</span> org.apache.hadoop.fs.FileSystem;
+<span class="hljs-keyword">import</span> org.apache.hadoop.fs.Path;
+<span class="hljs-keyword">import</span> org.apache.hadoop.hdfs.DistributedFileSystem;
+<span class="hljs-keyword">import</span> org.apache.hadoop.hdfs.protocol.DatanodeInfo;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        String src, dst1, config, dst2, oldName, newName;
+        src = <span class="hljs-string">&quot;/root/word.txt&quot;</span>;
+        dst1 = <span class="hljs-string">&quot;/&quot;</span>;
+        config = <span class="hljs-string">&quot;/root/hadoop-0.20.2/conf/core-site.xml&quot;</span>;
+        <span class="hljs-comment">// copyFile(src, dst1, config);</span>
+
+        dst2 = <span class="hljs-string">&quot;/test.txt&quot;</span>;
+        <span class="hljs-comment">// createFile(dst2, config);</span>
+
+        oldName = dst2;
+        newName = <span class="hljs-string">&quot;/test1.txt&quot;</span>;
+        <span class="hljs-comment">// rename(oldName, newName, config);</span>
+
+        <span class="hljs-comment">// deleteFile(dst2, config);</span>
+        <span class="hljs-comment">// getTime(dst1, config);</span>
+
+        <span class="hljs-comment">// isExist(dst2, config);</span>
+        <span class="hljs-comment">// isExist(dst1, config);</span>
+
+        <span class="hljs-comment">// getFileBlockLocation(dst2, config);</span>
+
+        getHostName(config);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">copyFile</span><span class="hljs-params">(String src, String dst, String config)</span>
+            <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem hdfs = FileSystem.get(conf);
+        Path srcPath = <span class="hljs-keyword">new</span> Path(src);
+        Path dstPath = <span class="hljs-keyword">new</span> Path(dst);
+        hdfs.copyFromLocalFile(srcPath, dstPath);
+        System.out.println(<span class="hljs-string">&quot;Upload to &quot;</span> + conf.get(<span class="hljs-string">&quot;fs.default.name&quot;</span>));
+
+        FileStatus files[] = hdfs.listStatus(dstPath);
+        <span class="hljs-keyword">for</span> (FileStatus file : files) {
+            System.out.println(file.getPath());
+        }
+        hdfs.close();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createFile</span><span class="hljs-params">(String dst, String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        String content = <span class="hljs-string">&quot;Hello World,beforeload&quot;</span>;
+        <span class="hljs-keyword">byte</span>[] buff = content.getBytes();
+        FileSystem hdfs = FileSystem.get(conf);
+        Path dfsPath = <span class="hljs-keyword">new</span> Path(dst);
+        FSDataOutputStream os = hdfs.create(dfsPath);
+        os.write(buff, <span class="hljs-number">0</span>, buff.length);
+        os.write(content.getBytes(<span class="hljs-string">&quot;UTF-8&quot;</span>));
+        os.close();
+        hdfs.close();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">rename</span><span class="hljs-params">(String oldName, String newName, String config)</span>
+            <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem hdfs = FileSystem.get(conf);
+        Path oldPath = <span class="hljs-keyword">new</span> Path(oldName);
+        Path newPath = <span class="hljs-keyword">new</span> Path(newName);
+        <span class="hljs-keyword">boolean</span> isRename = hdfs.rename(oldPath, newPath);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteFile</span><span class="hljs-params">(String path, String config)</span>
+            <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem hdfs = FileSystem.get(conf);
+        Path deletePath = <span class="hljs-keyword">new</span> Path(path);
+        <span class="hljs-keyword">boolean</span> isDeleted = hdfs.delete(deletePath, <span class="hljs-keyword">false</span>);
+        <span class="hljs-comment">// &#x9012;&#x5F52;&#x5220;&#x9664;</span>
+        <span class="hljs-comment">// boolean isDelete = hdfs.delete(deletePath, true);</span>
+        System.out.println(<span class="hljs-string">&quot;delete? &quot;</span> + isDeleted);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getTime</span><span class="hljs-params">(String path, String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem hdfs = FileSystem.get(conf);
+        Path filePath = <span class="hljs-keyword">new</span> Path(path);
+        FileStatus fileStatus = hdfs.getFileStatus(filePath);
+        <span class="hljs-keyword">long</span> modifyTime = fileStatus.getModificationTime();
+        System.out.println(<span class="hljs-string">&quot;Modification time is:&quot;</span> + modifyTime);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">isExist</span><span class="hljs-params">(String path, String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem hdfs = FileSystem.get(conf);
+        <span class="hljs-keyword">boolean</span> isExist = hdfs.exists(<span class="hljs-keyword">new</span> Path(path));
+        System.out.println(<span class="hljs-string">&quot;Exist?&quot;</span> + isExist);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getFileBlockLocation</span><span class="hljs-params">(String path, String config)</span>
+            <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem hdfs = FileSystem.get(conf);
+        Path filePath = <span class="hljs-keyword">new</span> Path(path);
+        FileStatus fileStatus = hdfs.getFileStatus(filePath);
+        BlockLocation[] blockLocations = hdfs.getFileBlockLocations(fileStatus,
+                <span class="hljs-number">0</span>, fileStatus.getLen());
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; blockLocations.length; i++) {
+            String[] hosts = blockLocations[i].getHosts();
+            System.out.println(<span class="hljs-string">&quot;block&quot;</span> + i + <span class="hljs-string">&quot;location:&quot;</span> + hosts[i]);
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getHostName</span><span class="hljs-params">(String config)</span> <span class="hljs-keyword">throws</span> IOException </span>{
+        Configuration conf = <span class="hljs-keyword">new</span> Configuration();
+        conf.addResource(<span class="hljs-keyword">new</span> Path(config));
+        FileSystem fs = FileSystem.get(conf);
+        DistributedFileSystem hdfs = (DistributedFileSystem) fs;
+        DatanodeInfo[] dataNodeStats = hdfs.getDataNodeStats();
+        String[] names = <span class="hljs-keyword">new</span> String[dataNodeStats.length];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; dataNodeStats.length; i++) {
+            names[i] = dataNodeStats[i].getHostName();
+            System.out.println(<span class="hljs-string">&quot;node &quot;</span> + i + <span class="hljs-string">&quot; name &quot;</span> + names[i]);
+        }
+    }
+}
+</code></pre>
+<h3 id="%E5%8F%82%E8%80%83%E4%B9%A6%E7%B1%8D%EF%BC%9A">&#x53C2;&#x8003;&#x4E66;&#x7C4D;&#xFF1A;</h3>
+<ol>
+<li>&#x300A;Hadoop&#x5B9E;&#x6218;&#x300B;&#x2014;&#x2014; &quot;Hadoop in Action&quot;</li>
+<li>&#x300A;&#x5B9E;&#x6218;Hadoop&#x300B;&#x2014;&#x2014; &quot;&#x5F00;&#x542F;&#x901A;&#x5411;&#x4E91;&#x8BA1;&#x7B97;&#x7684;&#x6377;&#x5F84;&quot;</li>
+<li><a href="http://hadoop.apache.org/core/docs/current/api/org/apache/hadoop/fs/package-summary.html" target="_blank">Hadoop Java API &#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../distributed/mapreduce.html" class="navigation navigation-prev " aria-label="Previous page: MapReduce"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../ml/index.html" class="navigation navigation-next " aria-label="Next page: 机器学习"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

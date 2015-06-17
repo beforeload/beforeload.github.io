@@ -1,0 +1,847 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>深度优先和广度优先 | 简介</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../algo/k-th-order-statistic.html" />
+    
+    
+    <link rel="prev" href="../algo/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="2.1" data-basepath=".." data-revision="Thu Jun 18 2015 00:31:35 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="lang/index.html">
+            
+                
+                    <a href="../lang/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        程序语言
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="lang/inheritance-in-javascript.html">
+            
+                
+                    <a href="../lang/inheritance-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        JavaScript 中的继承
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="lang/closure-of-javascript.html">
+            
+                
+                    <a href="../lang/closure-of-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        JavaScript 中的闭包
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lang/singleton-in-javascript.html">
+            
+                
+                    <a href="../lang/singleton-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        JavaScript 中的单例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="algo/index.html">
+            
+                
+                    <a href="../algo/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        算法
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.1" data-path="algo/DFS-and-BFS.html">
+            
+                
+                    <a href="../algo/DFS-and-BFS.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        深度优先和广度优先
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="algo/k-th-order-statistic.html">
+            
+                
+                    <a href="../algo/k-th-order-statistic.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        第k小的数
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="math/index.html">
+            
+                
+                    <a href="../math/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        数学
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="math/collaborative-markov-chain-model.html">
+            
+                
+                    <a href="../math/collaborative-markov-chain-model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        协同马尔可夫链模型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="os/index.html">
+            
+                
+                    <a href="../os/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        系统
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="os/distributed-dev-environment.html">
+            
+                
+                    <a href="../os/distributed-dev-environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        分布式开发环境搭建
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="os/software-installation-and-configuration.html">
+            
+                
+                    <a href="../os/software-installation-and-configuration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        常用软件的安装配置
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="intern/index.html">
+            
+                
+                    <a href="../intern/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        工作相关
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="intern/internship-in-baidu.html">
+            
+                
+                    <a href="../intern/internship-in-baidu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        百度实习经历
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="intern/waterfall-flows.html">
+            
+                
+                    <a href="../intern/waterfall-flows.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        瀑布流实现
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="distributed/index.html">
+            
+                
+                    <a href="../distributed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        分布式计算
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="distributed/distributed-learning-resourses.html">
+            
+                
+                    <a href="../distributed/distributed-learning-resourses.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        相关资源总结
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="distributed/inverted-index.html">
+            
+                
+                    <a href="../distributed/inverted-index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        倒排索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="distributed/mapreduce.html">
+            
+                
+                    <a href="../distributed/mapreduce.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        MapReduce
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="distributed/hdfs-java-api.html">
+            
+                
+                    <a href="../distributed/hdfs-java-api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Hadoop 的 Java API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ml/index.html">
+            
+                
+                    <a href="../ml/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        机器学习
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ml/introduction-to-machine-learning.html">
+            
+                
+                    <a href="../ml/introduction-to-machine-learning.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        机器学习简介
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >简介</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88">&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x548C;&#x5E7F;&#x5EA6;&#x4F18;&#x5148;</h1>
+<p>&#x4ECE;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8FF7;&#x5BAB;&#x95EE;&#x9898;&#x5165;&#x624B;&#xFF0C;&#x6DF1;&#x5165;&#x7406;&#x89E3;DFS&#x548C;BFS</p>
+<h4 id="%E9%97%AE%E9%A2%98%EF%BC%9A">&#x95EE;&#x9898;&#xFF1A;</h4>
+<p>&#x8FF7;&#x5BAB;, 1&#x4E3A;&#x5899;&#x58C1;&#xFF0C; 0&#x4E3A;&#x53EF;&#x4EE5;&#x8D70;&#x7684;&#x8DEF;&#xFF0C; &#x53EA;&#x80FD;&#x6A2A;&#x7740;&#x8D70;&#x548C;&#x7AD6;&#x7740;&#x8D70;&#xFF0C;&#x6C42;&#x89E3;&#x5DE6;&#x4E0A;&#x89D2;&#x5230;&#x53F3;&#x4E0B;&#x89D2;&#x7684;&#x8DEF;&#x7EBF;&#x3002;</p>
+<pre><code>int maze[5][5] = {
+    0, 1, 0, 0, 0,
+    0, 1, 0, 1, 0,
+    0, 0, 0, 0, 0,
+    0, 0, 0, 1, 0,
+};
+</code></pre><!-- more -->
+<h4 id="%E6%80%9D%E8%B7%AF%EF%BC%9A">&#x601D;&#x8DEF;&#xFF1A;</h4>
+<p><strong>&#x89E3;&#x6CD5;&#x4E00;&#xFF1A;</strong></p>
+<p>&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;(DFS, Depth First Search):&#x6BCF;&#x6B21;&#x641C;&#x7D22;&#x5B8C;&#x5404;&#x4E2A;&#x65B9;&#x5411;&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x4E4B;&#x540E;&#xFF0C;&#x53D6;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x8D70;&#x4E0B;&#x53BB;&#xFF0C;&#x4E00;&#x76F4;&#x8D70;&#x5230;&#x65E0;&#x8DEF;&#x53EF;&#x8D70;&#x4E86;&#x518D;&#x9000;&#x56DE;&#x6765;(&#x56DE;&#x6EAF;)&#xFF0C;&#x53D6;&#x53E6;&#x4E00;&#x4E2A;&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x518D;&#x8D70;&#x4E0B;&#x53BB;&#x3002;</p>
+<pre><code>&#x5C06;&#x8D77;&#x70B9;&#x6807;&#x8BB0;&#x4E3A;&#x5DF2;&#x8D70;&#x8FC7;&#x5E76;&#x538B;&#x6808;&#xFF1B;
+while (&#x6808;&#x975E;&#x7A7A;) {
+    &#x4ECE;&#x6808;&#x9876;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x70B9;P&#xFF1B;
+    if (p&#x8FD9;&#x4E2A;&#x70B9;&#x662F;&#x7EC8;&#x70B9;) {
+        break;
+    }
+    &#x6CBF;&#x53F3;&#x3001;&#x4E0B;&#x3001;&#x5DE6;&#x3001;&#x4E0A;&#x56DB;&#x4E2A;&#x65B9;&#x5411;&#x63A2;&#x7D22;&#x76F8;&#x90BB;&#x7684;&#x70B9;;
+    if (&#x548C;p&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x6709;&#x8DEF;&#x53EF;&#x8D70;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x6CA1;&#x8D70;&#x8FC7;) {
+        &#x5C06;&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x6807;&#x8BB0;&#x4E3A;&#x5DF2;&#x8D70;&#x8FC7;&#x5E76;&#x538B;&#x6808;&#xFF0C;&#x5B83;&#x7684;&#x524D;&#x8D8B;&#x5C31;&#x662F;p&#x70B9;;
+    }
+}
+if (p&#x70B9;&#x662F;&#x7EC8;&#x70B9;) {
+    &#x6253;&#x5370;p&#x70B9;&#x7684;&#x5750;&#x6807;&#xFF1B;
+    while (p&#x70B9;&#x6709;&#x524D;&#x8D8B;) {
+        p&#x70B9; = p&#x70B9;&#x7684;&#x524D;&#x8D8B;;
+        &#x6253;&#x5370;p&#x70B9;&#x7684;&#x5750;&#x6807;;
+    }
+} else {
+    &#x6CA1;&#x6709;&#x8DEF;&#x7EBF;&#x53EF;&#x4EE5;&#x5230;&#x8FBE;&#x7EC8;&#x70B9;;
+}
+</code></pre><p><strong><em>&#x9644;&#x6E90;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</em></strong></p>
+<pre><code>#include &lt;stdio.h&gt;
+#define MAX_ROW 5
+#define MAX_COL 5
+
+struct point {
+    int row, col;
+} stack[512];
+
+int top = 0;
+
+void push(struct point p)
+{
+    stack[top++] = p;
+}
+
+struct point pop(void)
+{
+    return stack[--top];
+}
+
+int is_empty(void)
+{
+    return top == 0;
+}
+
+int maze[MAX_ROW][MAX_COL] = {
+    0, 1, 0, 0, 0,
+    0, 1, 0, 1, 0,
+    0, 0, 0, 0, 0,
+    0, 1, 1, 1, 0,
+    0, 0, 0, 1, 0,
+};
+
+void print_maze(void)
+{
+    int i, j;
+    for (i = 0; i &lt; MAX_ROW; i++) {
+        for (j = 0; j &lt; MAX_COL; j++) {
+            printf(&quot;%d &quot;, maze[i][j]);
+        }
+        putchar(&apos;\n&apos;);
+    }
+    printf(&quot;************\n&quot;);
+}
+
+struct point predecessor[MAX_ROW][MAX_COL] = {
+    { {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}},
+    { {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}},
+    { {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}},
+    { {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}},
+    { {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}, {-1, -1}},
+};
+
+void visit(int row, int col, struct point pre)
+{
+    struct point visit_point = {
+        row, col
+    };
+    maze[row][col] = 2;
+    predecessor[row][col] = pre;
+    push(visit_point);
+}
+
+int main(void)
+{
+    struct point p = {
+        0, 0
+    };
+    maze[p.row][p.col] = 2;
+    push(p);
+
+    while (!is_empty()) {
+        p = pop();
+        if (p.row == MAX_ROW - 1 &amp;&amp; p.col == MAX_COL - 1) {
+            break;
+        }
+        if (p.col + 1 &lt; MAX_COL &amp;&amp; maze[p.row][p.col + 1] == 0) {
+            visit(p.row, p.col + 1, p);
+        }
+        if (p.row + 1 &lt; MAX_ROW &amp;&amp; maze[p.row + 1][p.col] == 0) {
+            visit(p.row + 1, p.col, p);
+        }
+        if (p.col - 1 &gt;= 0 &amp;&amp; maze[p.row][p.col - 1] == 0) {
+            visit(p.row, p.col - 1, p);
+        }
+        if (p.row - 1 &gt;= 0 &amp;&amp; maze[p.row - 1][p.col] == 0) {
+            visit(p.row - 1, p.col, p);
+        }
+        print_maze();
+    }
+    if (p.col == MAX_COL - 1 &amp;&amp; p.row == MAX_ROW - 1) {
+        printf(&quot;(%d, %d)\n&quot;, p.row, p.col);
+        while (predecessor[p.row][p.col].row != -1) {
+            p = predecessor[p.row][p.col];
+            printf(&quot;(%d, %d)\n&quot;, p.row, p.col);
+        }
+    } else {
+        printf(&quot;No path!\n&quot;);
+    }
+    return 0;
+}
+</code></pre><p><strong>DFS &#x4F18;&#x5316;&#xFF1A;</strong></p>
+<p>&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x96BE;&#x61C2;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4E0D;&#x8FC7;&#x6709;&#x5F88;&#x591A;&#x53EF;&#x4EE5;&#x4F18;&#x5316;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x4F8B;&#x5982;&#x5728;predecessor&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0A;&#xFF0C;&#x6D6A;&#x8D39;&#x4E86;&#x592A;&#x591A;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x53EF;&#x4EE5;&#x505A;&#x4EE5;&#x4E0B;&#x4F18;&#x5316;&#xFF1A;</p>
+<ol>
+<li><p>&#x91CD;&#x65B0;&#x5B9A;&#x4E49;predecessor&#x5B58;&#x50A8;&#x65B9;&#x5F0F;</p>
+<pre><code>struct point predecessor[MAX_ROW][MAX_COL] = { 0 };
+</code></pre><p>&#x6240;&#x6709;&#x7684;&#x503C;&#x5B9A;&#x4E49;&#x4E3A;0,&#x524D;&#x8D8B;&#x70B9;&#x4E3A;&#x4E0A;&#x70B9;&#xFF0C;&#x5219;&#x5C06;&#x4ED6;&#x8D4B;&#x503C;&#x4E3A;1&#xFF0C;&#x524D;&#x8D8B;&#x70B9;&#x4E3A;&#x4E0B;&#x70B9;&#xFF0C;&#x5219;&#x8D4B;&#x503C;&#x4E3A;-1&#xFF0C;&#x524D;&#x8D8B;&#x70B9;&#x4E3A;&#x5DE6;&#x70B9;&#xFF0C;&#x5219;&#x8D4B;&#x503C;&#x4E3A;2,&#x524D;&#x8D8B;&#x70B9;&#x4E3A;&#x53F3;&#x70B9;&#xFF0C;&#x5219;&#x8D4B;&#x503C;&#x4E3A;-2&#xFF1B;&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x56DB;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x533A;&#x5206;&#x524D;&#x8D8B;&#x70B9;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x4E5F;&#x8981;&#x5BF9;&#x5E94;&#x4FEE;&#x6539;&#x5373;&#x53EF;&#x3002;</p>
+</li>
+<li><p>&#x7528;&#x9012;&#x5F52;&#x53D6;&#x4EE3;predecessor&#x6570;&#x636E;&#x7ED3;&#x6784;</p>
+</li>
+</ol>
+<p><strong>&#x89E3;&#x6CD5;&#x4E8C;&#xFF1A;</strong>
+&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#x641C;&#x7D22;(BFS, Breadth First Search):
+BFS&#x6CBF;&#x5404;&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#x540C;&#x65F6;&#x5C55;&#x5F00;&#x641C;&#x7D22;&#xFF0C;&#x6BCF;&#x4E2A;&#x53EF;&#x4EE5;&#x8D70;&#x901A;&#x7684;&#x65B9;&#x5411;&#x8F6E;&#x6D41;&#x5F80;&#x524D;&#x8D70;&#x4E00;&#x6B65;&#x3002;</p>
+<pre><code>&#x5C06;&#x8D77;&#x70B9;&#x6807;&#x8BB0;&#x4E3A;&#x5DF2;&#x7ECF;&#x8D70;&#x8FC7;&#x7684;&#x961F;&#x5217;
+while (&#x961F;&#x5217;&#x975E;&#x7A7A;) {
+    &#x51FA;&#x961F;&#x4E00;&#x4E2A;&#x70B9;p;
+    if (p&#x4E3A;&#x7EC8;&#x70B9;) {
+        break;
+    }
+    &#x5426;&#x5219;&#x6CBF;&#x53F3;&#x4E0B;&#x5DE6;&#x4E0A;&#x56DB;&#x4E2A;&#x65B9;&#x5411;&#x63A2;&#x7D22;&#x76F8;&#x90BB;&#x7684;&#x70B9;
+    if (&#x548C;p&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x6709;&#x8DEF;&#x8D70;&#xFF0C;&#x4E14;&#x6CA1;&#x6709;&#x8D70;&#x8FC7;) {
+        &#x5C06;&#x76F8;&#x90BB;&#x7684;&#x70B9;&#x6807;&#x8BB0;&#x4E3A;&#x5DF2;&#x7ECF;&#x8D70;&#x8FC7;&#x5E76;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x4ED6;&#x7684;&#x524D;&#x8D8B;&#x5C31;&#x662F;&#x521A;&#x51FA;&#x961F;&#x7684;p&#x70B9;;
+    }
+    if (p&#x70B9;&#x662F;&#x7EC8;&#x70B9;) {
+        &#x6253;&#x5370;p&#x70B9;&#x7684;&#x5750;&#x6807;;
+        while (p&#x70B9;&#x6709;&#x524D;&#x8D8B;) {
+            p&#x70B9; = p &#x70B9;&#x7684;&#x524D;&#x8D8B;;
+            &#x6253;&#x5370; p &#x70B9;&#x7684;&#x5750;&#x6807;;
+        }
+    } else {
+        &#x6CA1;&#x6709;&#x5230;&#x8FBE;&#x7EC8;&#x70B9;&#x7684;&#x8DEF;&#x7EBF;;
+    }
+}
+</code></pre><p>BFS&#x76F8;&#x6BD4;&#x8F83;&#x4E8E;DFS&#xFF0C;BFS&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4ECE;&#x8D77;&#x70B9;&#x5230;&#x7EC8;&#x70B9;&#x7684;&#x6700;&#x77ED;&#x8DEF;&#x5F84;&#x3002;</p>
+<p><strong><em>&#x9644;&#x6E90;&#x7801;&#x5982;&#x4E0B;:</em></strong></p>
+<pre><code>#include &lt;stdio.h&gt;
+#define MAX_ROW 5
+#define MAX_COL 5
+
+struct point {
+    int row, col, predecessor;
+} queue[512];
+
+int head = 0, tail = 0;
+
+void enqueue(struct point p)
+{
+    queue[tail++] = p;
+}
+
+struct point dequeue(void)
+{
+    return queue[head++];
+}
+
+int is_empty(void)
+{
+    return head == tail;
+}
+
+int maze[MAX_ROW][MAX_COL] = {
+    0, 1, 0, 0, 0,
+    0, 1, 0, 1, 0,
+    0, 0, 0, 0, 0,
+    0, 1, 1, 1, 0,
+    0, 0, 0, 1, 0,
+};
+
+void print_maze(void)
+{
+    int i, j;
+    for (i = 0; i &lt; MAX_ROW; i++) {
+        for (j = 0; j &lt; MAX_COL; j++) {
+            printf(&quot;%d &quot;, maze[i][j]);
+        }
+        putchar(&apos;\n&apos;);
+    }
+    printf(&quot;************\n&quot;);
+}
+
+void visit(int row, int col)
+{
+    struct point visit_point = {
+        row, col, head - 1
+    };
+    maze[row][col] = 2;
+    enqueue(visit_point);
+}
+
+int main(void)
+{
+    struct point p = {
+        0, 0, -1
+    };
+    maze[p.row][p.col] = 2;
+    enqueue(p);
+
+    while (!is_empty()) {
+        p = dequeue();
+        if (p.row == MAX_ROW - 1 &amp;&amp; p.col == MAX_COL - 1) {
+            break;
+        }
+        if (p.row + 1 &lt; MAX_ROW &amp;&amp; maze[p.row + 1][p.col] == 0) {
+            visit(p.row + 1, p.col);
+        }
+        if (p.col + 1 &lt; MAX_COL &amp;&amp; maze[p.row][p.col + 1] == 0) {
+            visit(p.row, p.col + 1);
+        }
+        if (p.col - 1 &gt;= 0 &amp;&amp; maze[p.row][p.col - 1] == 0) {
+            visit(p.row, p.col - 1);
+        }
+        if (p.row - 1 &gt;= 0 &amp;&amp; maze[p.row - 1][p.col] == 0) {
+            visit(p.row - 1, p.col);
+        }
+        print_maze();
+    }
+    if (p.row == MAX_ROW - 1 &amp;&amp; p.col == MAX_COL - 1) {
+        printf(&quot;(%d, %d)\n&quot;, p.row, p.col);
+        while (p.predecessor != -1) {
+            p = queue[p.predecessor];
+            printf(&quot;(%d, %d)\n&quot;, p.row, p.col);
+        }
+    } else {
+        printf(&quot;No path!\n&quot;);
+    }
+}
+</code></pre><h4 id="%E5%8F%82%E8%80%83%EF%BC%9A">&#x53C2;&#x8003;&#xFF1A;</h4>
+<ol>
+<li>&#x300A;Linux C&#x7F16;&#x7A0B;&#x4E00;&#x7AD9;&#x5F0F;&#x5B66;&#x4E60;&#x300B;<a href="http://learn.akae.cn/media/ch12.html" target="_blank">&#x6808;&#x4E0E;&#x961F;&#x5217;</a></li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../algo/index.html" class="navigation navigation-prev " aria-label="Previous page: 算法"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../algo/k-th-order-statistic.html" class="navigation navigation-next " aria-label="Next page: 第k小的数"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

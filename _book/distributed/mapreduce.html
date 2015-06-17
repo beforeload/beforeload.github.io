@@ -1,0 +1,641 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>MapReduce | 简介</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../distributed/hdfs-java-api.html" />
+    
+    
+    <link rel="prev" href="../distributed/inverted-index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="6.3" data-basepath=".." data-revision="Thu Jun 18 2015 00:31:35 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="lang/index.html">
+            
+                
+                    <a href="../lang/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        程序语言
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="lang/inheritance-in-javascript.html">
+            
+                
+                    <a href="../lang/inheritance-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        JavaScript 中的继承
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="lang/closure-of-javascript.html">
+            
+                
+                    <a href="../lang/closure-of-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        JavaScript 中的闭包
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lang/singleton-in-javascript.html">
+            
+                
+                    <a href="../lang/singleton-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        JavaScript 中的单例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="algo/index.html">
+            
+                
+                    <a href="../algo/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        算法
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="algo/DFS-and-BFS.html">
+            
+                
+                    <a href="../algo/DFS-and-BFS.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        深度优先和广度优先
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="algo/k-th-order-statistic.html">
+            
+                
+                    <a href="../algo/k-th-order-statistic.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        第k小的数
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="math/index.html">
+            
+                
+                    <a href="../math/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        数学
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="math/collaborative-markov-chain-model.html">
+            
+                
+                    <a href="../math/collaborative-markov-chain-model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        协同马尔可夫链模型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="os/index.html">
+            
+                
+                    <a href="../os/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        系统
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="os/distributed-dev-environment.html">
+            
+                
+                    <a href="../os/distributed-dev-environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        分布式开发环境搭建
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="os/software-installation-and-configuration.html">
+            
+                
+                    <a href="../os/software-installation-and-configuration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        常用软件的安装配置
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="intern/index.html">
+            
+                
+                    <a href="../intern/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        工作相关
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="intern/internship-in-baidu.html">
+            
+                
+                    <a href="../intern/internship-in-baidu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        百度实习经历
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="intern/waterfall-flows.html">
+            
+                
+                    <a href="../intern/waterfall-flows.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        瀑布流实现
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="distributed/index.html">
+            
+                
+                    <a href="../distributed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        分布式计算
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="distributed/distributed-learning-resourses.html">
+            
+                
+                    <a href="../distributed/distributed-learning-resourses.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        相关资源总结
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="distributed/inverted-index.html">
+            
+                
+                    <a href="../distributed/inverted-index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        倒排索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.3" data-path="distributed/mapreduce.html">
+            
+                
+                    <a href="../distributed/mapreduce.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        MapReduce
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="distributed/hdfs-java-api.html">
+            
+                
+                    <a href="../distributed/hdfs-java-api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Hadoop 的 Java API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="ml/index.html">
+            
+                
+                    <a href="../ml/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        机器学习
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="ml/introduction-to-machine-learning.html">
+            
+                
+                    <a href="../ml/introduction-to-machine-learning.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        机器学习简介
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >简介</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="mapreduce-%E7%BC%96%E7%A8%8B%E6%A8%A1%E5%9E%8B">MapReduce &#x7F16;&#x7A0B;&#x6A21;&#x578B;</h1>
+<p>&#x5199;&#x5728;&#x524D;&#x9762;&#x7684;&#x8BDD;&#xFF1A;&#x770B;&#x4E86;N&#x591A;MapReduce&#x65B9;&#x9762;&#x7684;&#x7406;&#x8BBA;&#x77E5;&#x8BC6;&#xFF0C;&#x4E00;&#x76F4;&#x60F3;&#x5199;&#x5199;&#x81EA;&#x5DF1;&#x5BF9;MapReduce&#x7684;&#x7406;&#x89E3;&#x3002;</p>
+<pre><code>map:(K1, V1) -&gt; list(K2, V2)
+reduce: (k2, list(V2)) -&gt; list(K2, V2)
+</code></pre><p>&#x7B80;&#x800C;&#x8A00;&#x4E4B;&#x5C31;&#x662F; <strong><em> &#x8F93;&#x5165;-&gt; Mappers -&gt; &#x4E2D;&#x95F4;&#x6570;&#x636E; -&gt; Reducer -&gt; &#x8F93;&#x51FA; </em></strong> &#x8FD9;&#x6837;&#x7684;&#x4E00;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF0C;&#x628A;&#x8F93;&#x5165;<code>(key, value)</code>&#x7ECF;&#x8FC7;map&#x548C;reduce&#x51FD;&#x6570;&#x8F6C;&#x6362;&#x6210;&#x53E6;&#x4E00;&#x4E2A;&#x6216;&#x4E00;&#x6279;<code>(key, value)</code>&#x5BF9;&#x8F93;&#x51FA;&#x5373;&#x53EF;&#x3002;</p>
+<h4 id="mapper">Mapper</h4>
+<p>Map&#x9636;&#x6BB5;&#xFF0C;MapReduce&#x5BF9;&#x4EFB;&#x52A1;&#x8F93;&#x5165;&#x6570;&#x636E;&#x5206;&#x5272;&#xFF0C;&#x5207;&#x5272;&#x6210;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x7247;&#x6BB5;(splits)&#xFF0C;&#x5BF9;&#x6BCF;&#x4E2A;split&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x89E3;&#x6210;&#x4E00;&#x6279;&#x952E;&#x503C;&#x5BF9;<code>(K1, V1)</code>&#x3002;&#x7136;&#x540E;Hadoop&#x4E3A;&#x6BCF;&#x4E2A;split&#x521B;&#x5EFA;Map&#x4EFB;&#x52A1;(Mapper)&#xFF0C;&#x6267;&#x884C;&#x81EA;&#x5B9A;&#x4E49;&#x7684;<code>map()</code>&#x3002;</p>
+<p>&#x5C06;split&#x4E2D;&#x7684;<code>(K1, V1)</code>&#x952E;&#x503C;&#x5BF9;&#x8F93;&#x5165;&#xFF0C;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x4E3A;<code>(K2, V2)</code>&#x7684;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x3002;<code>map()</code>&#x7684;&#x529F;&#x80FD;&#x5230;&#x8FD9;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x7ED3;&#x675F;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5728;reduce&#x9636;&#x6BB5;&#x9700;&#x8981;&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x662F;<code>(K2, list(V2))</code>&#xFF0C;&#x6240;&#x4EE5;&#x8FD8;&#x9700;&#x8981;&#x5BF9;Mapper&#x8F93;&#x51FA;&#x7ED3;&#x679C;<code>(K2, V2)</code>&#x8FDB;&#x884C;&#x5408;&#x5E76;(Combine&#x8FC7;&#x7A0B;)&#xFF0C;&#x5373;&#x5C06;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x4E2D;&#x6709;&#x76F8;&#x540C;key&#x503C;(&#x5982;&#xFF1A;K2)&#x7684;&#x591A;&#x7EC4;<code>(key, value)</code>&#x5BF9;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x5BF9;(&#x5F62;&#x6210;<code>(K2, list(V2))</code>)&#x3002;key&#x503C;&#x8303;&#x56F4;&#x51B3;&#x5B9A;&#x4E86;&#x8FD9;&#x4E9B;&#x5143;&#x7EC4;&#x5206;&#x7EC4;&#xFF0C;&#x5BF9;&#x5E94;&#x4E0D;&#x540C;&#x7684;Reduce&#x4EFB;&#x52A1;(Reducer)&#x3002;</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>&#x4E00;&#x4E2A;&#x7C7B;&#x4F5C;&#x4E3A;mapper&#xFF0C;&#x8981;&#x7EE7;&#x627F;MapReduceBase&#x57FA;&#x7C7B;&#x5E76;&#x5B9E;&#x73B0;Mapper&#x63A5;&#x53E3;&#xFF1B;</li>
+<li>Mapper&#x63A5;&#x53E3;&#x8D1F;&#x8D23;&#x6570;&#x636E;&#x5904;&#x7406;&#x9636;&#x6BB5;&#x3002;&#x91C7;&#x7528;&#x5F62;&#x5F0F;&#x4E3A;<code>Mapper&lt;K1, V1, K2, V2&gt;</code> Java&#x6CDB;&#x578B;&#xFF1B;</li>
+<li>Mapper&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x2014;&#x2014;map&#xFF0C;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x952E;/&#x503C;&#x5BF9;&#x3002;<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">map</span><span class="hljs-params">(K1 key, V1 value, OutputCollector&lt;K2, V2&gt; output, Reporter reporter)</span>
+ <span class="hljs-keyword">throws</span> IOException
+</span></code></pre>
+</li>
+</ol>
+<h3 id="reducer">Reducer</h3>
+<p>Reduce&#x9636;&#x6BB5;&#xFF0C;&#x6570;&#x636E;&#x6574;&#x5408;&#xFF0C;&#x6392;&#x5E8F;&#x3002;&#x7136;&#x540E;&#x8C03;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x51FD;&#x6570;<code>reduce()</code>&#xFF0C;&#x8F93;&#x5165;<code>(K2, list(V2))</code>&#xFF0C;&#x5F97;&#x5230;&#x952E;&#x503C;&#x5BF9;<code>&lt;K3, V3&gt;</code>&#x8F93;&#x51FA;&#x5230;HDFS&#x4E0A;&#x3002;</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>Reducers&#x6570;&#x76EE;&#x5728;mapred-site.xml&#x4E2D;&#x51B3;&#x5B9A;&#xFF0C;&#x5C5E;&#x6027;&#x662F;<code>mapred.reduce.tasks</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F; 1&#xFF0C;<code>job.setNumReduceTasks()</code>&#x65B9;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#xFF0C;<strong>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x503C;</strong>&#xFF1B;</li>
+<li><p>reducer&#x7684;&#x5B9E;&#x73B0;&#x9996;&#x5148;&#x5FC5;&#x987B;&#x5728;MapReduce&#x57FA;&#x7C7B;&#x4E0A;&#x6269;&#x5C55;&#xFF0C;&#x5141;&#x8BB8;&#x914D;&#x7F6E;&#x548C;&#x6E05;&#x7406;&#x3002;&#x5B83;&#x5FC5;&#x987B;&#x5B9E;&#x73B0;Reducer&#x63A5;&#x53E3;&#x5B9E;&#x73B0;<strong>reduce</strong>&#x65B9;&#x6CD5;: </p>
+<pre><code class="lang-Java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reduce</span><span class="hljs-params">(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3, V3&gt; output, 
+     Reporter reporter)</span> <span class="hljs-keyword">throws</span> IOException
+</span></code></pre>
+</li>
+<li><p><code>reduce()</code>&#x51FD;&#x6570;&#x6700;&#x540E;&#x751F;&#x6210;&#x7684;&#x5217;&#x8868;<code>(K3, V3)</code>&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;&#xFF1B;</p>
+</li>
+<li>map&#x9636;&#x6BB5;&#x548C;reduce&#x9636;&#x6BB5;&#x4E2D;&#x95F4;&#x8FD8;&#x6709;partitioner&#x7684;&#x5DE5;&#x4F5C;&#xFF1A;&#x8D1F;&#x8D23;&#x5C06;mapper&#x7684;&#x7ED3;&#x679C;&#x8F93;&#x51FA;&#x7ED9;&#x4E0D;&#x540C;&#x7684;reducer&#x3002;</li>
+</ol>
+<h4 id="hadoop%E7%9A%84mapreduce">Hadoop&#x7684;MapReduce</h4>
+<p>Hadoop&#x6846;&#x67B6;&#x7684;&#x6838;&#x5FC3;&#x662F;Map&#x548C;Reduce&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x4E0D;&#x4EC5;&#x4EC5;&#x5982;&#x6B64;&#xFF0C;&#x8FD8;&#x5305;&#x62EC;&#xFF1A;</p>
+<p><strong><em> data spliting(&#x6570;&#x636E;&#x5206;&#x5272;), shuffling(&#x6D17;&#x724C;), Partitioning(&#x5206;&#x7EC4;), Combining(&#x5408;&#x5E76;) </em></strong></p>
+<p>&#x4EE5;&#x53CA;&#x5404;&#x79CD;&#x683C;&#x5F0F;&#x7684;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x3002;</p>
+<h4 id="shuffler">Shuffler</h4>
+<p>Mapper&#x7684;&#x6309;key&#x503C;&#x5206;&#x4E3A;R&#x4EFD;(R&#x5373;&#x4E3A;&#x4E0A;&#x9762;&#x8BF4;&#x5230;&#x7684;Reducers&#x7684;&#x6570;&#x76EE;)&#xFF0C;&#x5212;&#x5206;&#x65F6;&#x901A;&#x5E38;&#x91C7;&#x7528;hash&#x51FD;&#x6570;&#xFF0C;&#x5982;<code>Hash(key) mod R</code>&#x3002;&#x76EE;&#x7684;&#x662F;&#x4FDD;&#x8BC1;&#x67D0;&#x4E00;&#x8303;&#x56F4;&#x5185;&#x7684;key&#x4E00;&#x5B9A;&#x7531;&#x67D0;&#x4E2A;Reducer&#x6765;&#x5904;&#x7406;&#x3002;</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>&#x6D17;&#x724C;&#x4E4B;&#x540E;&#x76F8;&#x540C;&#x7684;key&#x5BF9;&#x5E94;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x653E;&#x5165;&#x76F8;&#x540C;&#x7684;Reducer&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x952E;&#x4E5F;&#x53EF;&#x4EE5;&#x653E;&#x5165;&#x76F8;&#x540C;&#x7684;Reducer&#x3002;&#x5177;&#x4F53;&#x653E;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#x7531;Partitioner&#x51B3;&#x5B9A;&#x3002;</li>
+</ol>
+<h4 id="partitioner-%E9%87%8D%E5%AE%9A%E5%90%91mapper%E8%BE%93%E5%87%BA">Partitioner:&#x91CD;&#x5B9A;&#x5411;Mapper&#x8F93;&#x51FA;</h4>
+<p>&#x5E76;&#x4E0D;&#x662F;&#x6570;&#x636E;&#x6392;&#x5E8F;&#x597D;&#x5C31;&#x662F;&#x6700;&#x597D;&#x7684;&#x3002;&#x5229;&#x7528;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x4E0D;&#x80FD;&#x4EC5;&#x4EC5;&#x9760;&#x4E00;&#x4E2A;reducer&#xFF0C;&#x90A3;&#x6837;&#x5C31;&#x4E0D;&#x662F;&#x201C;&#x4E91;&#x201D;&#x800C;&#x662F;&#x201C;&#x96E8;&#x70B9;&#x201D;&#x3002;&#x5F53;&#x591A;&#x4E2A;reducer&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5BF9;&#x952E;&#x503C;&#x5BF9;&#x8FDB;&#x884C;hash&#x6765;&#x786E;&#x5B9A;reducer&#x3002;</p>
+<p><em>Tips:</em></p>
+<ol>
+<li>Hadoop&#x901A;&#x8FC7;HashPartitioner&#x7C7B;&#x5F3A;&#x5236;&#x6267;&#x884C;Partitioner&#x7B56;&#x7565;&#x3002;&#x4F46;HashPartitioner&#x6709;&#x65F6;&#x4F1A;&#x51FA;&#x9519;&#xFF1B;</li>
+<li>&#x91CF;&#x8EAB;&#x5B9A;&#x5236;partitioner&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x73B0;<code>configure()</code>&#x548C;<code>getPartition()</code>&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x524D;&#x8005;&#x5C06;Hadoop&#x5BF9;&#x4F5C;&#x4E1A;&#x7684;&#x914D;&#x7F6E;&#x5E94;&#x7528;&#x5728;patitioner&#x4E0A;&#xFF0C;&#x540E;&#x8005;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;0&#x5230;reduce&#x4EFB;&#x52A1;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;&#xFF0C;&#x6307;&#x5411;&#x952E;/&#x503C;&#x5BF9;&#x5C06;&#x8981;&#x53D1;&#x9001;&#x5230;&#x7684;reducer&#x3002;</li>
+</ol>
+<h4 id="combiner-%E6%9C%AC%E5%9C%B0reduce">Combiner: &#x672C;&#x5730;reduce</h4>
+<p>&#x5408;&#x5E76;Mapper&#x8F93;&#x51FA;&#xFF0C;&#x5373;&#x5C06;&#x591A;&#x4E2A;key&#x76F8;&#x540C;&#x7684;<code>&lt;key, value&gt;</code>&#x5408;&#x5E76;&#x6210;&#x4E00;&#x5BF9;&#x3002;Combine&#x8FC7;&#x7A0B;&#x548C;Reduce&#x8FC7;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF0C;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;reduce&#x51FD;&#x6570;&#xFF0C;&#x4F46;Combiner&#x8FC7;&#x7A0B;&#x662F;Mapper&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5728;map&#x51FD;&#x6570;&#x540E;&#x6267;&#x884C;&#x3002;</p>
+<p><em>Tips&#xFF1A;</em></p>
+<ol>
+<li>Hadoop&#x5E76;&#x4E0D;&#x4FDD;&#x8BC1;&#x5BF9;&#x4E00;&#x4E2A;Mapper&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;Combine&#x8FC7;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x505A;&#x5230;&#x65E0;&#x8BBA;Combine&#x8FC7;&#x7A0B;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#xFF0C;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#x90FD;&#x4E00;&#x6837;&#xFF1B;</li>
+<li>&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x7684;&#x8BFB;&#x53D6;&#xFF0C;JobTracker&#x4ECB;&#x5165;&#xFF0C;&#x8D1F;&#x8D23;&#x901A;&#x77E5;&#x4E2D;&#x95F4;&#x6587;&#x4EF6;&#x7684;&#x4F4D;&#x7F6E;&#xFF1B;</li>
+<li>Mapper&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E0D;&#x5728;HDFS&#x4E0A;&#x800C;&#x5728;&#x672C;&#x5730;&#x78C1;&#x76D8;&#x4E0A;&#xFF0C;&#x51FA;&#x4E8E;&#x65F6;&#x6548;&#x6027;&#x8003;&#x8651;&#xFF0C;&#x4EFB;&#x52A1;&#x7ED3;&#x675F;&#x540E;&#x5220;&#x9664;&#xFF0C;&#x800C;HDFS&#x7684;&#x5907;&#x4EFD;&#x673A;&#x5236;&#x4F1A;&#x9020;&#x6210;&#x6027;&#x80FD;&#x635F;&#x5931;&#xFF0C;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x3002;</li>
+</ol>
+<h4 id="%E8%AE%A8%E8%AE%BA">&#x8BA8;&#x8BBA;</h4>
+<p>&#x5F88;&#x591A;&#x65F6;&#x5019;Rudecer&#x4EA7;&#x751F;&#x7684;R&#x4E2A;&#x7ED3;&#x679C;&#x4E0D;&#x662F;&#x6211;&#x4EEC;&#x771F;&#x6B63;&#x9700;&#x8981;&#x7684;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#xFF0C;&#x6B64;&#x65F6;&#x4F1A;&#x628A;R&#x4E2A;&#x7ED3;&#x679C;&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5F00;&#x59CB;&#x53E6;&#x4E00;&#x4E2A;MapReduce&#x4EFB;&#x52A1;&#xFF0C;&#x5373;&#x4EFB;&#x52A1;&#x7BA1;&#x9053;&#x3002;</p>
+<h4 id="%E6%80%BB%E7%BB%93">&#x603B;&#x7ED3;</h4>
+<p>MapReduce&#x7684;&#x96C6;&#x7FA4;&#x884C;&#x4E3A;(&#x5373;MapReduce&#x8FD0;&#x884C;&#x5728;&#x5927;&#x89C4;&#x6A21;&#x96C6;&#x7FA4;&#x4E0A;&#x7684;&#x8FC7;&#x7A0B;)&#xFF0C;&#x8981;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x9700;&#x8981;<em>_</em>&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x4E0E;&#x6267;&#x884C;&#xFF0C;&#x672C;&#x5730;&#x8BA1;&#x7B97;&#xFF0C;Shuffle&#xFF0C;&#x5408;&#x5E76;Mapper&#x8F93;&#x51FA;&#xFF0C;&#x8BFB;&#x53D6;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#xFF0C;&#x4EFB;&#x52A1;&#x7BA1;&#x9053;&#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x73AF;&#x8282;&#x5171;&#x540C;&#x652F;&#x6491;&#x8BA1;&#x7B97;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../distributed/inverted-index.html" class="navigation navigation-prev " aria-label="Previous page: 倒排索引"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../distributed/hdfs-java-api.html" class="navigation navigation-next " aria-label="Next page: Hadoop 的 Java API"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
