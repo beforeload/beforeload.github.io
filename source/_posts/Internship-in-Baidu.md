@@ -1,6 +1,9 @@
 title: Internship in Baidu
 date: 2015-05-02 18:47:10
-tags: 实习 百度
+categories: Intern
+tags:
+- 实习
+- 百度
 ---
 
 # 在百度的实习经历

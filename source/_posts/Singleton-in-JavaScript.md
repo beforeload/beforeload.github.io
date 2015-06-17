@@ -1,6 +1,7 @@
 title: Singleton in JavaScript
 date: 2015-01-07 19:22:27
 tags: JavaScript
+categories: JavaScript
 ---
 
 JavaScript 中的单例

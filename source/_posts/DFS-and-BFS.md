@@ -1,11 +1,13 @@
----
 layout: post
 title: "理解深度优先和广度优先"
 description: "从一个简单的迷宫问题入手，深入理解DFS和BFS"
 date: 2013-04-09 13:14:20
 updated: 2013-04-13 02:49:30
 categories: Algorithm
-tags: [C, Data Structure, Algorithm]
+tags:
+- C
+- Data Structure
+- Algorithm
 ---
 
 #### 问题：
