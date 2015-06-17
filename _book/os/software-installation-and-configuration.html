@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="4.2" data-basepath=".." data-revision="Thu Jun 18 2015 00:36:53 GMT+0800 (CST)">
+    <div class="book" data-level="4.2" data-basepath=".." data-revision="Thu Jun 18 2015 01:48:57 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -711,6 +711,34 @@ let g:Powerline_symbols = &apos;fancy&apos;
 <li><a href="https://github.com/beforeload/dotfiles/tree/master/fonts" target="_blank">&#x5B57;&#x4F53;</a></li>
 <li><a href="https://raw.github.com/beforeload/dotfiles/master/.vimrc" target="_blank">.vimrc</a></li>
 </ol>
+<h3 id="%E8%A7%A3%E5%86%B3%E8%A7%86%E9%A2%91%E9%9F%B3%E9%A2%91%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98">&#x89E3;&#x51B3;&#x89C6;&#x9891;&#x97F3;&#x9891;&#x76F8;&#x5173;&#x95EE;&#x9898;</h3>
+<p><strong><em>&#x95EE;&#x9898;&#x63CF;&#x8FF0;</em></strong>&#xFF1A;&#x534E;&#x7855;&#x7535;&#x8111;&#x6444;&#x50CF;&#x5934;&#x89C6;&#x9891;&#x56FE;&#x50CF;&#x5012;&#x7ACB;</p>
+<p>Fix ASUS Webcam Problem:vertically flip my webcam&apos;s image</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A; &#x5728;google&#x4E0A;&#x641C;&#x7D22;&#x4E86;&#x4E00;&#x4E0B; ubuntu camera invert&#x627E;&#x5230;&#x51E0;&#x7BC7;&#x89E3;&#x51B3;&#x7684;&#x535A;&#x6587;&#xFF0C;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>1) Install</p>
+<pre><code>$echo -e &quot;\n# libv4l PPA\ndeb http://ppa.launchpad.net/libv4l/ppa/ubuntu `lsb_release -c | awk &apos;{print $2}&apos;` main&quot; | sudo tee -a /etc/apt/sources.list
+
+$sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com C3FFB4AA
+
+$sudo apt-get update
+
+$sudo apt-get install libv4l-0
+</code></pre><p>2) Start application</p>
+<pre><code>$export LIBV4LCONTROL_FLAGS=3 &amp;&amp; cheese
+$export LIBV4LCONTROL_FLAGS=3 &amp;&amp; LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so skype
+</code></pre><p>&#x4E3A;&#x4E86;&#x4EE5;&#x540E;&#x4E0D;&#x9700;&#x8981;&#x8F93;&#x5165;&#x8FD9;&#x4E48;&#x591A;&#xFF0C;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;bash
+Step 1:</p>
+<pre><code>$sudo gedit /usr/local/bin/skype
+</code></pre><p>&#x586B;&#x5199;&#x4E0B;&#x9762;&#x5185;&#x5BB9;</p>
+<pre><code>LD_PRELOAD=/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so /usr/bin/skype
+</code></pre><p>Step 2:</p>
+<pre><code>sudo chmod a+x /usr/local/bin/skype
+</code></pre><p><strong><em>&#x6CE8;&#x610F;</em></strong>&#xFF1A;
+v4l1compat.so&#x7684;&#x4F4D;&#x7F6E;&#x5728;Ubuntu 13.04&#x4E0A;&#x53EF;&#x80FD;&#x548C;&#x4E4B;&#x524D;&#x7684;&#x7248;&#x672C;&#x4E0D;&#x540C;&#xFF0C;&#x4F7F;&#x7528;locate&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x5148;&#x786E;&#x5B9A;&#x4E00;&#x4E0B;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre><code>$ locate v4l1compat.so
+/usr/lib/i386-linux-gnu/libv4l/v4l1compat.so
+</code></pre><p><strong><em>&#x53C2;&#x8003;</em></strong>&#xFF1A;</p>
+<p>(1) <a href="http://www.paullabis.com/2010/08/fix-upside-down-or-inverted-webcam-on.html" target="_blank">Fix upside-down or inverted webcam on Ubuntu linux</a><br>(2)<a href="http://community.linuxmint.com/tutorial/view/219" target="_blank">How to make Webcam compatible with Skype.</a></p>
 
                     
                     </section>
