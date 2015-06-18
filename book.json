@@ -10,6 +10,6 @@
         }
     },
     "variables": {
-        "host": ""
+        "host": "beforeload.github.io"
     }
 }
