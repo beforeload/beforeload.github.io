@@ -3,6 +3,12 @@
     "structure": {
         "readme": "README.md"
     },
+    "plugins": ["ga"],
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-40059659-1"
+        }
+    },
     "variables": {
         "host": ""
     }

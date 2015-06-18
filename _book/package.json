@@ -1,0 +1,26 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "元千的博客",
+  "main": "none",
+  "scripts": {
+    "test": "gitbook serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beforeload/beforeload.github.io.git"
+  },
+  "keywords": [
+    "blog",
+    "gitbook"
+  ],
+  "author": "元千",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beforeload/beforeload.github.io/issues"
+  },
+  "homepage": "https://github.com/beforeload/beforeload.github.io#readme",
+  "dependencies": {
+    "gitbook-plugin-ga": "^0.2.1"
+  }
+}
