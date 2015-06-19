@@ -2,12 +2,12 @@
 
 > 内容简介
 1. 针对高延迟的移动网络
-2. 传输低于一秒渲染体验
+2. 提供一分一秒渲染体验
 3. FAQ
 
 页面速度监控对一个移动网络的页面进行分析，可以看出是否按照我们推荐的，在低于一秒的时间里作出页面渲染。调查研究表明，任何延迟超过一秒都会导致用户中断连惯的思想，造成糟糕的用户体验。我们的目标是无论任何类型的网络或者设备，都能提供最优质的体验，让用户保持对页面的关注。
 
-我们的预算只有一秒钟的时间，这很难满足。幸运的是，整个页面渲染的时间并不一定要在预算以内，相反，我们在一秒以内提供和渲染首屏（ATF）内容，让用户尽可能早地开始交互。然后，当用户正在理解首屏内容时，在后台逐步接收页面的其他部分。
+我们的预算只有一秒钟的时间，这很难满足。幸运的是，整个页面渲染的时间并不一定要在预算以内，相反，__我们在一秒以内提供和渲染首屏（ATF）内容，让用户尽可能早地开始交互__。然后，当用户正在理解首屏内容时，在后台逐步接收页面的其他部分。
 
 ### 适配高延迟的移动网络
 
@@ -20,7 +20,7 @@
 
 牢记这一点，我们来逆向思考。如果我们观察一个浏览器和服务器之间典型的一系列的连接，预算的600毫秒已经被用在网络开销上：DNS查询解决域名对应的IP地址，一个线路来回执行TCP握手，最后一个网络来回发送HTTP请求。留给我们的只有400ms！
 
-### 传输低于一秒渲染体验
+### 提供一分一秒渲染体验
 
 减去网络延迟，在我们的预算中，仅仅只剩下400毫秒，而需要做的事情还有很多：服务端必须有返回，客户端的应用代码必须执行，浏览器必须布局和渲染内容。考虑到这一点，下面的标准应该会帮助我们不超过预算。
 
@@ -36,72 +36,81 @@
 
 (3) 首屏渲染的线路来回次数应该最小化
 
-由于 TCP 如何评估一个连接的容量（例如TCP 慢启动），一个新的TCP连接不能立即使用所有客户端和服务器之间可用的带宽。因此，在一个新的连接的第一次线路来回，服务器最多传输10个TCP包（最多14KB)，然后在它增长阻塞的窗口和传输更多数据之前必须等待客户端接收数据。
+由于 TCP 如何评估一个连接的容量（例如 [TCP 慢启动](http://en.wikipedia.org/wiki/Slow-start)），一个新的TCP连接不能立即使用所有客户端和服务器之间可用的带宽。因此，在一个新的连接的第一次线路来回，服务器最多传输10个 TCP 包（最多 14KB)，然后在它增长阻塞的窗口和传输更多数据之前必须等待客户端接收数据。
 
-由于TCP的这种行为，优化你的内容这很重要，可以最小化展现首屏页面的必要的数据传输造成的线路返回次数。理想情况下，首屏内容应该满足低于14KB，这允许浏览器在仅仅一次线路返回后绘制页面。
-值得注意的是这10个包（IW10）的限制是TCP标准最新更新的：为了应用这些改变，你应该确保你的服务器更新到最新的版本。否则这个限制可能是3到4个包。
+由于 TCP 的这种行为，优化你的内容这很重要，可以最小化展现首屏页面的必要的数据传输造成的线路返回次数。理想情况下，首屏内容应该满足低于 14KB，这允许浏览器在仅仅一次线路返回后绘制页面。
+值得注意的是这10个包（[IW10](http://tools.ietf.org/html/draft-hkchu-tcpm-initcwnd-01)）的限制是 TCP 标准最新更新的：为了应用这些改变，你应该确保你的服务器更新到最新的版本。否则这个限制可能是3到4个包。
 
-(4) 首屏内容避免外部阻塞的JavaScript和CSS
+(4) 首屏内容避免外部阻塞的 JavaScript 和 CSS
 
-Before a browser can render a page to the user, it has to parse the page. If it encounters a non-async or blocking external script during parsing, it has to stop and download that resource. Each time it does that, it is adding a network round trip, which will delay the time to first render of the page.
+浏览器在给用户渲染页面之前，必须先解析这个页面。如果在解析过程中，遇到一个非异步或阻塞的外部脚本，浏览器必须中断并下载这些资源。每重复一次这样的过程，增加网络往返，
+这会延迟页面首屏的渲染时间。
 
-As a result, the JavaScript and CSS needed to render the above the fold region should be inlined, and JavaScript or CSS needed to add additional functionality to the page should be loaded after the ATF content has been delivered.
+因此，首屏区域的 JavaScript 和 CSS 应该内联进去。页面中额外功能的 JavaScript 和 CSS 应该在首屏之后加载和展现。
 
 (5) 给浏览器布局和渲染预留时间（200毫秒）
 
-The process of parsing the HTML, CSS, and executing JavaScript takes time and client resources! Depending on the speed of the mobile device, and the complexity of the page, this process can take hundreds of milliseconds. Our recommendation is to reserve 200 milliseconds for browser overhead.
+解析 HTML，CSS，执行 JavaScript 需要消耗时间和客户端资源！这个过程可能消耗数百毫秒，这取决于移动设备的网络速度，以及页面的复杂程度。我们的建议是预留 200 毫秒给浏览器开销。
 
 (6) 优化 JavaScript 执行和渲染时间
 
-Complicated scripts and inefficient code can take tens and hundreds of milliseconds to execute - use built-in developer tools in the browser to profile and optimize your code. For a great introduction, take a look at our interactive course for Chrome Developer Tools.
+复杂的脚本和效率低下的代码需要耗费几十到几百毫秒来执行 —— 使用内置的浏览器开发者工具来测试和优化你的代码。打个广告，谷歌为 [Chrome 开发者工具开设的交互课程](http://discover-devtools.codeschool.com/)值得看一下。
 
-Note: The above is also not the complete list of all possible optimizations - it is a list of top mobile criteria to deliver a sub one second rendering time - and all other web performance best practices should be applied. Check out PageSpeed Insights for further advice and recommendations.
+> 注意：上面列举的内容对于所有可能的优化情况并不完整。这是提供一分一秒渲染体验的移动标准的最重要的部分 —— 并且所有其他网络最佳实践都应该遵循。
+> [网页速度监控](https://developers.google.com/speed/pagespeed/insights)提供进一步的意见和建议。
+> 深入挖掘上面的移动标准，检查一下几点：
+> * Web 基础：[关键渲染路径](https://developers.google.com/web/fundamentals/documentation/performance/critical-rendering-path/index)
+> * 对于实时移动网站的关键渲染路径优化（[幻灯片](http://bit.ly/mobilecrp)，[视频](http://www.youtube.com/watch?v=YV1nKLWoARQ)）。
+> * 实时移动网络：技术和最佳实践（[幻灯片](http://storage.googleapis.com/io-2013/presentations/239-%20Instant%20Mobile%20Websites-%20Techniques%20and%20Best%20Practices.pdf)，[视频](https://www.youtube.com/watch?v=Bzw8-ZLpwtw)）
 
-For a deep-dive on the above mobile criteria, also check out
-Web Fundamentals: Critical Rendering Path Optimizing the Critical Rendering Path for Instant Mobile Websites (slides, video).
-Instant Mobile Websites: Techniques and Best Practices (slides, video)
+### FAQ 常见问题解答
 
+__4G 网络会对上面的移动标准造成怎样的影响？__
 
-### FAQ
+在 4G 网络中，较低的往返延迟有一个重要改善。这在减少整体网络开销时间上帮助巨大，目前在 3G 网络环境下，我们需要一秒预算的开销超过 50%。然而现在全球 3G 还是主流的网络类型，4G还需要几年才能成为主流 —— 优化网页你不得不考虑 3G 用户。
 
-4G 网络会对上面的移动标准造成怎样的影响？
+__我正在使用一个 JavaScript 库，例如 jQuery，有没有什么建议？__
 
-Lower roundtrip latencies are one of the key improvements in 4G networks. This will help enormously, by reducing the total network overhead time, which is currently over 50% of our one second budget on 3G networks. However, 3G is the dominant network type around the world, and will be for years to come - you have to optimize pages with 3G users in mind.
+很多 JavaScript 库，例如 JQuery，被用来提升网页，增加交互、动画或者其他效果。
+然而，很多这些表现行为可以在首屏内容渲染完成之后安全的添加。直到页面加载完成后，探讨移动的执行和这些 JavaScript 的加载。
 
-我正在使用一个 JavaScript 库，例如 jQuery，有没有什么建议？
+__我正在使用一个 JavaScript 框架来构建页面，有没有什么建议？__
 
-Many JavaScript libraries, such as JQuery, are used to enhance the page to add additional interactivity, animations, and other effects. However, many of these behaviors can be safely added after the ATF content is rendered. Investigate moving the execution and loading of such JavaScript until after the page is loaded.
+如果网页内容通过客户端 JavaScript 构建的，那么你需要研究内联相关 JavaScript 模块避免多余的网络往返。同样，利用服务端渲染可以明显的提升首屏加载性能：在服务端渲染 JS 模版，内联结果到 HTML 中，然后一旦应用加载完成使用客户端模版。
 
-我正在使用一个 JavaScript 框架来构建页面，有没有什么建议？
+__SPDY和HTTP 2.0会带来怎样的帮助？__
 
-If the content of the page is constructed by client-side JavaScript, then you should investigate inlining the relevant JavaScript modules to avoid extra network roundtrips. Similarly, leveraging server-side rendering can significantly improve first page load performance: render JS templates on the server, inline the results into HTML, and then use client-side templating once the application is loaded.
+SPDY and HTTP 2.0 都指出通过更高效的使用底层的 TCP 连接（复用，报头压缩，优先级）来减少页面加载时间。进一步，服务端推送可以通过消除额外的网络延迟提升性能。我们提倡你去研究在你的服务端增加 SPDY 支持，并且一旦标准准备好，切换到 HTTP 2.0。
 
-SPDY和HTTP 2.0会带来怎样的帮助？
+__我该怎么在页面上定义标准的CSS?__
 
-SPDY and HTTP 2.0 both aim to reduce latency of page loads by making more efficient use of the underlying TCP connection (multiplexing, header compression, prioritization). Further, server push can further help improve performance by eliminating extra network latency. We encourage you to investigate adding SPDY support on your servers, and switching to HTTP 2.0 once the standard is ready.
+在 Chrome 开发者工具中，打开 Audits 面板，运行一个``Web Page Performance`` 报告，在生成的报告中，查找 ``Remove unused CSS rules``。或者使用其他第三方工具或脚步，来识别哪些 CSS 选择器在页面上被使用。
 
-我该怎么在页面上定义标准的CSS?
+__这些最佳体验可以自动化吗？__
 
-In Chrome Developer Tools, open the Audits panel, and run a Web Page Performance report, in the generated report, look for Remove unused CSS rules. Or use any other third party tool, or script, to identify which CSS selectors are applied on each page.
+毫无疑问的.有很多商业的和开源的 Web 性能优化（WPO）产品可以帮助我们满足上面的部分甚至全部的标准。对于开源的解决方案，
+浏览一下[网页速度优化工具](https://developers.google.com/speed/pagespeed/optimization)。
 
-这些最佳体验可以自动化吗？
+__我该怎样调整服务器来满足这些标准？__
 
-Absolutely. There are many commercial and open-source web performance optimization (WPO) products which can help you meet some or all of the criteria above. For open-source solutions, take a look at the PageSpeed optimization tools.
+首先，确保你的服务端运行在罪行版本的操作系统中。为了从增加初始化TCP阻塞窗口大小中获利，你需要 Linux 内核 2.6.39+，对于其他操作系统，查阅文档。
 
-我该怎样调整服务器来满足这些标准？
+为了优化服务器响应时间，检测你的代码，使用应用程序的监控方案来确定你的瓶颈 —— 例如，脚本运行时间，数据库调用，RPC 请求，渲染等等。目标是渲染HTML响应在200毫秒以内。
 
-First, ensure that your server is running an up-to-date version of the operating system. In order to benefit from the increased initial TCP congestion window size (IW10), you will need Linux kernel 2.6.39+. For other operating systems, consult the documentation. 
+__内容安全政策如何？__
 
-To optimize server response time, instrument your code, or use an application monitoring solution to identify your bottleneck - e.g., scripting runtime, database calls, RPC requests, rendering, etc. The goal is to render the HTML response within 200 milliseconds.
+如果你正在使用CSP，那你可能需要更新你的默认政策。
 
-内容安全政策如何？
+首先，在 HTML 元素上内联的 CSS 属性（例如：```<p style=...>```)应该尽可能的避免。因为这经常会导致不必要的代码重复，并且在 CSP 默认情况下被封禁（通过 "unsafe-inline" 在 "style-src" 上禁用）。
+如果 CSP 开启，它会默认阻止所有的内联 script 标签。
+如果你有内联的 JavaScript，那你需要更新 CSP 策略，或者使用[脚本哈希值或随机数](http://www.w3.org/TR/CSP11/#script-src)，或使用 "unsafe-inline" 来使所有的内联脚本执行。如果你有内联样式，那你需要更新CSP 策略，或者使用
+[样式哈希值或随机数](http://www.w3.org/TR/CSP11/#style-src)，或者使用"unsafe-inline"来使所有的内联样式块被处理。
 
-If you are using CSP, then you may need to update your default policy. 
-First, inline CSS attributes on HTML elements(e.g., < p style=...>) should be avoided where possible, as they often lead to unnecessary code duplication, and are blocked by default with CSP (disabled via “unsafe inline” on “style-src”). If CSP is enabled, it will block all inline script tags by default. If you have inline JavaScript, then you will need to update the CSP policy to either use script hashes or nonces or use “unsafe-inline” to enable all inline scripts to execute. If you have inline styles, then you will need to update the CSP policy to either use style hashes or nonces or use "unsafe-inline" to enable all inline style blocks to be processed.
-
-Have more questions? Please feel free to ask and provide feedback in our discussion group at pagespeed-insights-discuss.
+有更多的问题？请在[页面速度监控](http://groups.google.com/group/pagespeed-insights-discuss)论坛组里随意的提问和回馈。
 
 
 ### 名词解释
 
 1. Round-trip time(RTT) 是客户端发送请求的时间到服务器通过网络发送响应的时间间隔，不包括必要的数据传输时间。
+2. SPDY（读作“SPeeDY”）是Google开发的基于TCP的应用层协议，用以最小化网络延迟，提升网络速度，优化用户的网络使用体验。SPDY并不是一种用于替代HTTP的协议，而是对HTTP协议的增强。新协议的功能包括数据流的多路复用、请求优先级以及HTTP报头压缩。谷歌表示，引入SPDY协议后，在实验室测试中页面加载速度比原先快64%。
+
