@@ -1,0 +1,909 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>从点击穿透看移动端事件 | 元千的博客</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.1.0">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../algo/index.html" />
+    
+    
+    <link rel="prev" href="../web/mobile-analysis.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="2.2" data-basepath=".." data-revision="Wed Jul 15 2015 00:47:44 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="lang/index.html">
+            
+                
+                    <a href="../lang/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        程序语言
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="lang/inheritance-in-javascript.html">
+            
+                
+                    <a href="../lang/inheritance-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        JavaScript 中的继承
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="lang/closure-of-javascript.html">
+            
+                
+                    <a href="../lang/closure-of-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        JavaScript 中的闭包
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="lang/singleton-in-javascript.html">
+            
+                
+                    <a href="../lang/singleton-in-javascript.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        JavaScript 中的单例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="web/index.html">
+            
+                
+                    <a href="../web/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Web 开发
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="web/mobile-analysis.html">
+            
+                
+                    <a href="../web/mobile-analysis.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        移动性能分析
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="web/touch-defect.html">
+            
+                
+                    <a href="../web/touch-defect.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        从点击穿透看移动端事件
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="algo/index.html">
+            
+                
+                    <a href="../algo/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        算法
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="algo/DFS-and-BFS.html">
+            
+                
+                    <a href="../algo/DFS-and-BFS.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        深度优先和广度优先
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="algo/k-th-order-statistic.html">
+            
+                
+                    <a href="../algo/k-th-order-statistic.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        第 k 小的数
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="math/index.html">
+            
+                
+                    <a href="../math/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        数学
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="math/collaborative-markov-chain-model.html">
+            
+                
+                    <a href="../math/collaborative-markov-chain-model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        协同马尔可夫链模型
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="os/index.html">
+            
+                
+                    <a href="../os/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        系统
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="os/distributed-dev-environment.html">
+            
+                
+                    <a href="../os/distributed-dev-environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        分布式开发环境搭建
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="os/software-installation-and-configuration.html">
+            
+                
+                    <a href="../os/software-installation-and-configuration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        常用软件的安装配置
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="intern/index.html">
+            
+                
+                    <a href="../intern/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        工作相关
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="intern/internship-in-baidu.html">
+            
+                
+                    <a href="../intern/internship-in-baidu.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        百度实习经历
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="intern/waterfall-flows.html">
+            
+                
+                    <a href="../intern/waterfall-flows.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        瀑布流实现
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="distributed/index.html">
+            
+                
+                    <a href="../distributed/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        分布式计算
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="distributed/distributed-learning-resourses.html">
+            
+                
+                    <a href="../distributed/distributed-learning-resourses.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        相关资源总结
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="distributed/inverted-index.html">
+            
+                
+                    <a href="../distributed/inverted-index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        倒排索引
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="distributed/mapreduce.html">
+            
+                
+                    <a href="../distributed/mapreduce.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        MapReduce
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="distributed/hdfs-java-api.html">
+            
+                
+                    <a href="../distributed/hdfs-java-api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        Hadoop 的 Java API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="ml/index.html">
+            
+                
+                    <a href="../ml/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        机器学习
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="ml/introduction-to-machine-learning.html">
+            
+                
+                    <a href="../ml/introduction-to-machine-learning.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        机器学习简介
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >元千的博客</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="%E4%BB%8E%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F%E7%9C%8B%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%BA%8B%E4%BB%B6">&#x4ECE;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x770B;&#x79FB;&#x52A8;&#x7AEF;&#x4E8B;&#x4EF6;</h1>
+<blockquote>
+<ol>
+<li>What? -&gt; Events!</li>
+<li>Why?</li>
+<li>How to fix?</li>
+</ol>
+</blockquote>
+<p>&#x8BF4;&#x5728;&#x524D;&#x9762;&#x7684;&#x8BDD;&#xFF1A;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x8FD9;&#x79CD;&#x73B0;&#x8C61;&#x7B97;&#x662F;&#x79FB;&#x52A8;H5&#x5F00;&#x53D1;&#x6BD4;&#x8F83;&#x7ECF;&#x5178;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x5E38;&#x7528;&#x6765;&#x505A;&#x9762;&#x8BD5;&#x9898;&#x3002;&#x501F;&#x6B64;&#x73B0;&#x8C61;&#x8C08;&#x8C08;&#x79FB;&#x52A8;&#x4E8B;&#x4EF6;&#x3002;</p>
+<h3 id="what">What?</h3>
+<p><strong>&#x73B0;&#x8C61;&#x63CF;&#x8FF0;&#xFF1A;</strong>
+&#x9875;&#x9762;&#x4E2D;&#x5B58;&#x5728;&#x4E0A;&#x4E0B;&#x4E24;&#x4E2A;&#x5C42;&#xFF0C;&#x4E0A;&#x5C42;&#x5143;&#x7D20;&#x5177;&#x6709;&#x8868;&#x5355;&#xFF0C;&#x94FE;&#x63A5;&#x6216;&#x8005;&#x7ED1;&#x5B9A;&#x76F8;&#x5E94;&#x4E8B;&#x4EF6;&#xFF0C;&#x4E0A;&#x5C42;&#x5143;&#x7D20;&#x70B9;&#x51FB;&#x6216;&#x89E6;&#x6478;&#xFF0C;&#x5BFC;&#x81F4;&#x4E0A;&#x5C42;DOM&#x6539;&#x53D8;&#xFF0C;&#x4E0B;&#x5C42;&#x4E2D;&#x540C;&#x6837;&#x4F4D;&#x7F6E;&#x7684; &#x5143;&#x7D20;&#x89E6;&#x53D1;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x3002;&#x8FD9;&#x79CD;&#x73B0;&#x8C61;&#x5C31;&#x662F;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#xFF08;Ghost Clicks&#xFF09;&#x3002;&#x5176;&#x5B9E;&#x6211;&#x89C9;&#x5F97;&#x7528;&#x201C;&#x5E7D;&#x51A5;&#x70B9;&#x51FB;&#x201D;&#x79F0;&#x547C;&#x5B83;&#x66F4;&#x52A0;&#x5E26;&#x611F;&#x3002;</p>
+<p>&#x8981;&#x7406;&#x89E3;&#x8FD9;&#x79CD;&#x73B0;&#x8C61;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x4E86;&#x89E3;&#x79FB;&#x52A8;&#x7AEF;&#x7684;&#x76F8;&#x5173;&#x4E8B;&#x4EF6; &#x2014;&#x2014; &#x89E6;&#x6478;(Touch)&#x4E8B;&#x4EF6;&#xFF0C;&#x70B9;&#x51FB;(Click)&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>Touch &#x4E8B;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x4E3A; touchstart, touchmove, touchend &#x4E09;&#x79CD;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x8FD8;&#x6709;touchcancel&#x3002;
+<strong>&#x6CE8;&#x610F;&#xFF0C;&#x539F;&#x751F;&#x4E8B;&#x4EF6;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;tap&#x4E8B;&#x4EF6;&#x3002;</strong>&#x4E0B;&#x9762;&#x4F1A;&#x89E3;&#x91CA;tap&#x4E8B;&#x4EF6;&#x600E;&#x4E48;&#x4EA7;&#x751F;&#x7684;&#x3002;</p>
+<p>&#x4E8B;&#x4EF6;&#x63CF;&#x8FF0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x4E8B;&#x4EF6;</th>
+<th>&#x63CF;&#x8FF0;</th>
+<th>&#x89E6;&#x53D1;&#x65F6;&#x673A;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>touchstart</td>
+<td>&#x5F00;&#x59CB;&#x89E6;&#x6478;</td>
+<td>&#x624B;&#x6307;&#x63A5;&#x89E6;&#x5C4F;&#x5E55;&#x65F6;&#x7ACB;&#x5373;&#x89E6;&#x53D1;</td>
+</tr>
+<tr>
+<td>touchmove</td>
+<td>&#x79FB;&#x52A8;&#x6216;&#x62D6;&#x62FD;</td>
+<td>&#x53D6;&#x51B3;&#x4E8E;&#x7CFB;&#x7EDF;&#x548C;&#x6D4F;&#x89C8;&#x5668;</td>
+</tr>
+<tr>
+<td>touchend</td>
+<td>&#x89E6;&#x6478;&#x7ED3;&#x675F;</td>
+<td>&#x624B;&#x6307;&#x79BB;&#x5F00;&#x5C4F;&#x5E55;&#x65F6;&#x7ACB;&#x5373;&#x51FA;&#x53D1;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x800C;Touch&#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x4E00;&#x822C;&#x901A;&#x8FC7;&#x624B;&#x6307;&#xFF0C;&#x8FD8;&#x4F1A;&#x5B58;&#x5728;&#x591A;&#x70B9;&#x89E6;&#x63A7;&#xFF0C;&#x62D6;&#x62FD;&#x65B9;&#x5411;&#x7B49;&#x60C5;&#x51B5;&#x3002;&#x5217;&#x51FA;&#x51E0;&#x4E2A;&#x91CD;&#x8981;&#x53C2;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x53C2;&#x6570;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>touches</td>
+<td>&#x5C4F;&#x5E55;&#x4E2D;&#x6BCF;&#x6839;&#x624B;&#x6307;&#x4FE1;&#x606F;&#x5217;&#x8868;</td>
+</tr>
+<tr>
+<td>targetTouches</td>
+<td>&#x548C;touches&#x7C7B;&#x4F3C;&#xFF0C;&#x628A;&#x540C;&#x4E00;&#x8282;&#x70B9;&#x7684;&#x624B;&#x6307;&#x4FE1;&#x606F;&#x8FC7;&#x6EE4;&#x6389;</td>
+</tr>
+<tr>
+<td>changedTouches</td>
+<td>&#x54CD;&#x5E94;&#x5F53;&#x524D;&#x4E8B;&#x4EF6;&#x7684;&#x6BCF;&#x6839;&#x624B;&#x6307;&#x7684;&#x4FE1;&#x606F;&#x5217;&#x8868;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x4EE3;&#x7801;&#x83B7;&#x53D6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-javascript">xxDOM.addEventListener(<span class="hljs-string">&apos;touchstart&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+   <span class="hljs-built_in">console</span>.log(e.touches, e.targetTouches, e.changedTouches);
+});
+</code></pre>
+<p>&#x624B;&#x6307;&#x89E6;&#x53D1;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x7684;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>touchstart -&gt; touchmove -&gt; ... touchmove -&gt; touchend
+</code></pre><p>&#x7531;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728; ontouchstart &#x4E8B;&#x4EF6;&#x4E0A;&#x8BB0;&#x5F55;&#x5F00;&#x59CB;&#x89E6;&#x6478;&#x5F00;&#x59CB;&#xFF0C;ontouchend &#x8BB0;&#x5F55;&#x89E6;&#x6478;&#x7ED3;&#x675F;&#x4FE1;&#x606F;&#x3002;
+&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x7684;&#x53BB;&#x8BA1;&#x7B97;&#x5E7D;&#x51A5;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x53CA;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x62EC;&#x54CD;&#x5E94;&#x7684;&#x5750;&#x6807;&#x60C5;&#x51B5;&#x3002;</p>
+<h3 id="why">Why?</h3>
+<p>&#x95EE;&#x9898;&#x6765;&#x4E86;&#xFF0C;<strong>click &#x4E8B;&#x4EF6;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#xFF1F;</strong></p>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x5728; touchend &#x4E4B;&#x540E;&#x4F1A;&#x7B49;&#x5F85;&#x7EA6; 300ms &#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709; tap &#x884C;&#x4E3A;&#xFF0C;&#x5219;&#x89E6;&#x53D1; click &#x4E8B;&#x4EF6;&#x3002;
+&#x800C;&#x6D4F;&#x89C8;&#x5668;&#x7B49;&#x5F85;&#x7EA6; 300ms &#x7684;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x5224;&#x65AD;&#x7528;&#x6237;&#x662F;&#x5426;&#x662F;&#x53CC;&#x51FB;&#xFF08;double tap&#xFF09;&#x884C;&#x4E3A;&#xFF0C;&#x53CC;&#x51FB;&#x8FC7;&#x7A0B;&#x4E2D;&#x5C31;&#x4E0D;&#x9002;&#x5408;&#x89E6;&#x53D1; click &#x4E8B;&#x4EF6;&#x4E86;&#x3002;
+&#x7531;&#x6B64;&#x53EF;&#x4EE5;&#x770B;&#x51FA; click &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4EE3;&#x8868;&#x4E00;&#x8F6E;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x7684;&#x7ED3;&#x675F;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x5230;&#x539F;&#x751F;&#x4E8B;&#x4EF6;&#x4E2D;&#x5E76;&#x6CA1;&#x6709; tap &#x4E8B;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x7ECF;&#x5178;&#x7684; zepto.js &#x5BF9; singleTap &#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x3002;<a href="https://github.com/madrobby/zepto/blob/master/src/touch.js#L136-L143" target="_blank">&#x89C1;&#x6E90;&#x7801; 136-143 &#x884C;</a></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;singleTap &#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x65F6;&#x673A; &#x2014;&#x2014; &#x5728; touchend &#x4E8B;&#x4EF6;&#x54CD;&#x5E94; 250ms &#x65E0;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x89E6;&#x53D1;singleTap&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x7684;&#x73B0;&#x8C61;&#x5C31;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x4E86;&#xFF0C;&#x5728;&#x8FD9; 300ms &#x4EE5;&#x5185;&#xFF0C;&#x56E0;&#x4E3A;&#x4E0A;&#x5C42;&#x5143;&#x7D20;&#x9690;&#x85CF;&#x6216;&#x6D88;&#x5931;&#x4E86;&#xFF0C;&#x7531;&#x4E8E; click &#x4E8B;&#x4EF6;&#x7684;&#x6EDE;&#x540E;&#x6027;&#xFF0C;&#x540C;&#x6837;&#x4F4D;&#x7F6E;&#x7684; DOM &#x5143;&#x7D20;&#x89E6;&#x53D1;&#x4E86; click &#x4E8B;&#x4EF6;&#xFF08;&#x5982;&#x679C;&#x662F; input &#x5219;&#x89E6;&#x53D1;&#x4E86; focus &#x4E8B;&#x4EF6;&#xFF09;&#x3002;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x611F;&#x89C9;&#x5C31;&#x662F; target &#x53D1;&#x751F;&#x4E86;&#x98D8;&#x79FB;&#x3002;</p>
+<h3 id="how">How?</h3>
+<p>&#x7406;&#x89E3;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x6211;&#x4EEC;&#x4ECE;&#x5404;&#x79CD;&#x9014;&#x5F84;&#x53BB;&#x963B;&#x6B62;&#x73B0;&#x8C61;&#x7684;&#x4EA7;&#x751F;&#x3002;</p>
+<p>&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#xFF0C;&#x80FD;&#x60F3;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#x5F88;&#x591A;&#xFF0C;&#x6BD4;&#x5982;&#x4E2D;&#x95F4;&#x7684;&#x5C42;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; 300ms &#x6E10;&#x9690;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x89E6;&#x6478;&#x7ED3;&#x675F;&#x540E;&#x963B;&#x6B62; click &#x4E8B;&#x4EF6;&#x7B49;&#x3002;</p>
+<p><strong>1. &#x89E6;&#x6478;&#x5F00;&#x59CB;&#x65F6;</strong>
+touchstart &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;preventDefault()&#x3002;&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x4ECE;&#x6839;&#x672C;&#x4E0A;&#x89E3;&#x51B3;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x6709;&#x4E00;&#x4E2A;&#x907F;&#x514D;&#x4E0D;&#x4E86;&#x6216;&#x8005;&#x8BF4;&#x5F15;&#x5165;&#x4E86;&#x5F88;&#x5927;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x9875;&#x9762;&#x4E2D;DOM &#x5143;&#x7D20;&#x65E0;&#x6CD5;&#x518D;&#x8FDB;&#x884C;&#x6EDA;&#x52A8;&#x4E86;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x663E;&#x7136;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x6211;&#x4EEC;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x601D;&#x8DEF;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x7ED9;&#x6211;&#x4EEC;&#x66F4;&#x591A;&#x7684;&#x542F;&#x53D1;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4; iscroll &#x53EA;&#x5141;&#x8BB8;&#x6A2A;&#x5411;&#x6EDA;&#x52A8;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x76F8;&#x5173;&#x5B9E;&#x73B0;&#x8FD9;&#x91CC;&#x6682;&#x4E14;&#x4E0D;&#x8868;&#x3002;</p>
+<p><strong>2. &#x89E6;&#x6478;&#x7ED3;&#x675F;&#x65F6;</strong>
+touchend &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;preventDefault()&#x3002;&#x770B;&#x4E0A;&#x53BB;&#x597D;&#x50CF;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x5F88;&#x9057;&#x61BE;&#x7684;&#x662F;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x90FD;&#x652F;&#x6301;&#x3002;</p>
+<p><strong>3. &#x7981;&#x6B62;&#x9875;&#x9762;&#x7F29;&#x653E;</strong>
+&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;meta&#x6807;&#x7B7E;&#xFF0C;&#x53EF;&#x4EE5;&#x7981;&#x6B62;&#x9875;&#x9762;&#x7F29;&#x653E;&#xFF0C;<strong>&#x90E8;&#x5206;&#x6D4F;&#x89C8;&#x5668;</strong>&#x4E0D;&#x518D;&#x9700;&#x8981;&#x7B49;&#x5F85; 300ms&#xFF0C;&#x5BFC;&#x81F4;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x3002;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x4ECD;&#x7136;&#x4F1A;&#x89E6;&#x53D1;&#xFF0C;&#x4F46;&#x76F8;&#x5BF9;&#x8F83;&#x5FEB;&#xFF0C;&#x6240;&#x4EE5; click &#x4E8B;&#x4EF6;&#x4ECE;&#x67D0;&#x79CD;&#x610F;&#x4E49;&#x4E0A;&#x6765;&#x8BF4;&#x53EF;&#x4EE5;&#x53D6;&#x4EE3;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#xFF0C;
+&#x800C;&#x4EE3;&#x4EF7;&#x662F;&#x727A;&#x7272;&#x5C11;&#x6570;&#x7528;&#x6237;&#xFF08;click &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4ECD;&#x7136;&#x8F83;&#x6162;&#xFF09;&#x7684;&#x4F53;&#x9A8C;&#x3002;</p>
+<pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no&quot;&gt;
+</code></pre><p>IE 10&#x53EF;&#x4EE5;&#x7528; CSS &#x53D6;&#x6D88;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x7684;&#x5EF6;&#x8FDF;&#xFF1A;</p>
+<pre><code class="lang-css"><span class="hljs-tag">html</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">-ms-touch-action</span>:<span class="hljs-value"> manipulation</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">touch-action</span>:<span class="hljs-value"> manipulation</span></span>;
+<span class="hljs-rule">}</span></span>
+</code></pre>
+<p>IE 11+ &#x53EF;&#x4EE5;&#x7528; <code>touch-action: manipulation;</code> &#x5C5E;&#x6027;&#x6765;&#x963B;&#x6B62;&#x5143;&#x7D20;&#x7684;&#x53CC;&#x51FB;&#x7F29;&#x653E;&#x3002;</p>
+<p><strong>4. CSS3 &#x7684;&#x65B9;&#x6CD5;</strong>
+&#x867D;&#x7136;&#x4E3B;&#x8981;&#x8BB2;&#x7684;&#x662F;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x5FC5;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A; CSS3 &#x7684;&#x5C5E;&#x6027; &#x2014;&#x2014;  pointer-events&#x3002;</p>
+<pre><code class="lang-css">pointer-events:  auto | none | visiblePainted | visibleFill | visibleStroke | visible | painted | fill | stroke | all | inherit;
+</code></pre>
+<p>pointer-events &#x5C5E;&#x6027;&#x6709;&#x5F88;&#x591A;&#x503C;&#xFF0C;&#x6709;&#x7528;&#x7684;&#x4E3B;&#x8981;&#x662F; auto &#x548C; none&#xFF0C;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#x4E3A; SVG &#x670D;&#x52A1;&#x3002;</p>
+<p><a href="http://caniuse.com/#search=pointer-events" target="_blank">&#x67E5;&#x770B;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;&#x60C5;&#x51B5;</a> &#x53EF;&#x89C1;&#x79FB;&#x52A8;&#x7AEF;&#x5F00;&#x53D1;&#x8FD8;&#x662F;&#x53EF;&#x4EE5;&#x7528;&#x7684;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>&#x5C5E;&#x6027;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x9F20;&#x6807;&#x6216;&#x89E6;&#x5C4F;&#x4E8B;&#x4EF6;&#x4E0D;&#x4F1A;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42;</td>
+</tr>
+<tr>
+<td>none</td>
+<td>&#x5143;&#x7D20;&#x4E0D;&#x518D;&#x662F;target&#xFF0C;&#x76D1;&#x542C;&#x7684;&#x5143;&#x7D20;&#x53D8;&#x6210;&#x4E86;&#x4E0B;&#x5C42;&#x7684;&#x5143;&#x7D20;&#xFF08;&#x5982;&#x679C;&#x5B50;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x6210; auto&#xFF0C;&#x70B9;&#x51FB;&#x5B50;&#x5143;&#x7D20;&#x4F1A;&#x7EE7;&#x7EED;&#x76D1;&#x542C;&#x4E8B;&#x4EF6;&#xFF09;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. &#x5904;&#x7406;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6; &#x2014;&#x2014; Touch to Click</strong>
+&#x6700;&#x9760;&#x8C31;&#x7684;&#x65B9;&#x6848;&#x8FD8;&#x662F;&#x4ECE;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684;&#x6839;&#x6E90;&#x4E0A;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x3002;&#x7528; js &#x53BB;&#x5224;&#x65AD;&#x5E7D;&#x51A5;&#x70B9;&#x51FB;&#xFF0C;&#x7136;&#x540E;&#x963B;&#x6B62;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x663E;&#x7136;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#xFF0C;&#x7F3A;&#x70B9;&#x662F;&#x963B;&#x6B62;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x65F6;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#xFF0C;&#x4E0D;&#x8981;&#x5BFC;&#x81F4;&#x539F;&#x751F;&#x7684; HTML &#x5143;&#x7D20;&#xFF08;&#x5982;&#xFF1A;&#x94FE;&#x63A5;&#xFF0C;&#x591A;&#x9009;&#x6846;&#xFF0C;&#x5355;&#x9009;&#x6846;&#xFF09;&#x65E0;&#x6CD5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x6587;&#x4E2D;&#x4ECB;&#x7ECD;&#x7684; touches&#xFF0C;targetTouches&#xFF0C;changedTouches &#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6784;&#x5EFA;&#x51FA;&#x8FD9;&#x6837;&#x7684;<a href="http://mlaval.github.io/ghostclick/" target="_blank">&#x6D4B;&#x8BD5;&#x9875;&#x9762;</a>&#xFF0C;&#x53EF;&#x4EE5;&#x7EDF;&#x8BA1;&#x51FA;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x53CA;&#x5DF2;&#x7ECF;&#x54CD;&#x5E94;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<table>
+  <tbody>
+    <tr>
+      <th></th>
+      <th colspan="2">preventDefault()</th>
+      <th colspan="2">&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x65F6;&#x95F4;</th>
+      <th colspan="2">&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x533A;&#x57DF;</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>touchstart</th>
+      <th>touchend</th>
+      <th>&#x7F29;&#x653E;&#x9875;&#x9762;</th>
+      <th>&#x7981;&#x6B62;&#x7F29;&#x653E;&#x9875;&#x9762;</th>
+      <th>&#x7F29;&#x653E;&#x9875;&#x9762;</th>
+      <th>&#x7981;&#x6B62;&#x7F29;&#x653E;&#x9875;&#x9762;</th>
+    </tr>
+    <tr>
+      <td>Safari Mobile iOS 5.1.1</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>370ms after end</td>
+      <td><strong>370ms</strong> after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Safari Mobile iOS 6.1.3</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>370ms after end</td>
+      <td><strong>370ms</strong> after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Safari Mobile iOS 7.1.1</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>370ms after end</td>
+      <td><strong>370ms</strong> after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Android 2.3.7</td>
+      <td>Yes</td>
+      <td><strong>No</strong></td>
+      <td>410ms after end</td>
+      <td><strong>410ms</strong> after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Android 4.0.4</td>
+      <td>Yes</td>
+      <td><strong>No</strong></td>
+      <td>300ms after end</td>
+      <td>10ms after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Android 4.1.2</td>
+      <td>Yes</td>
+      <td><strong>No</strong></td>
+      <td>300ms after end</td>
+      <td><strong>300ms</strong> after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Android 4.2.2</td>
+      <td>Yes</td>
+      <td><strong>No</strong></td>
+      <td>300ms after <strong>start</strong></td>
+      <td>10ms after end</td>
+      <td>touchstart</td>
+      <td><strong>touchend</strong></td>
+    </tr>
+    <tr>
+      <td>IE10 Windows Phone 8</td>
+      <td><strong>No</strong></td>
+      <td><strong>No</strong></td>
+      <td>310ms after end</td>
+      <td>10ms after end</td>
+      <td><strong>touchend</strong></td>
+      <td><strong>touchend</strong></td>
+    </tr>
+    <tr>
+      <td>Blackberry 10</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>260ms after end</td>
+      <td>10ms after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Chrome for iOS</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>360ms after end</td>
+      <td><strong>360ms</strong> after end</td>
+      <td>touchstart</td>
+      <td>touchstart</td>
+    </tr>
+    <tr>
+      <td>Chrome for Android</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>300ms after <strong>start</strong></td>
+      <td>10ms after end</td>
+      <td>touchstart</td>
+      <td><strong>touchend</strong></td>
+    </tr>
+    <tr>
+      <td>Firefox for Android</td>
+      <td>Yes</td>
+      <td><strong>No</strong></td>
+      <td>300ms after end</td>
+      <td>10ms after end</td>
+      <td>touchstart</td>
+      <td><strong>touchend</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>&#x7531;&#x6B64;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF1A;</p>
+<ol>
+<li>&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x53D7;&#x6D4F;&#x89C8;&#x5668;&#x548C;&#x9875;&#x9762;&#x662F;&#x5426;&#x7F29;&#x653E;&#x5F71;&#x54CD;</li>
+<li>&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x6709;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;&#x5FEB;&#x901F;&#x60C5;&#x51B5;&#x6709; 10ms &#x6162;&#x901F;&#x60C5;&#x51B5;&#x6709; 300ms</li>
+<li>&#x5728; touchend &#x65F6;&#x95F4;&#x4E0A;&#x8C03;&#x7528; preventDefault() &#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x7684;&#x70B9;&#x51FB;&#x7A7F;&#x900F;</li>
+</ol>
+<p>&#x4EE3;&#x7801;&#x4E0A;&#x5904;&#x7406;&#x5EFA;&#x8BAE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x5728;touchend&#x4E8B;&#x4EF6;&#x4E0A;&#x8C03;&#x7528; preventDefault()</li>
+<li>&#x5728;&#x4E00;&#x6B21;&#x6210;&#x529F;&#x7684;&#x70B9;&#x51FB;&#x540E;&#xFF0C;&#x5EFA;&#x8BAE;&#x63A5;&#x4E0B;&#x6765;&#x7684; 500ms &#x4EE5;&#x5185;&#x53D6;&#x6D88;&#x6240;&#x6709;&#x7684; click &#x4E8B;&#x4EF6;&#x3002;</li>
+<li>&#x5206;&#x6790;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#xFF0C;&#x5224;&#x65AD;&#x5982;&#x679C;&#x662F;&#x6162;&#x901F;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#xFF0C;&#x5219;&#x53D6;&#x6D88;&#x6240;&#x6709; click &#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5FEB;&#x901F;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#xFF0C;&#x53D6;&#x6D88;&#x89E6;&#x6478;&#x4E8B;&#x4EF6; 50ms&#x4EE5;&#x5185;&#x7684; click &#x4E8B;&#x4EF6;&#x5373;&#x53EF;&#x3002;</li>
+</ol>
+<p>&#x6709;&#x4E2A;&#x597D;&#x6D88;&#x606F;&#x662F;&#xFF0C;&#x79FB;&#x52A8;&#x7AEF;&#x5F00;&#x53D1;&#x5DF2;&#x7ECF;&#x6709;&#x4EBA;&#x5199;&#x597D;&#x76F8;&#x5E94;&#x7684;&#x5E93;&#xFF0C;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x5904;&#x7406;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x3002;
+<a href="https://github.com/ftlabs/fastclick" target="_blank">fastclick</a>&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x548C;&#x4F7F;&#x7528;&#x3002;
+&#x5176;&#x5B9E;&#x73B0;&#x601D;&#x8DEF;&#x662F;&#xFF0C;&#x53D6;&#x6D88; click &#x4E8B;&#x4EF6;&#xFF08;<a href="https://github.com/ftlabs/fastclick/blob/master/lib/fastclick.js#L164-L173" target="_blank">&#x53C2;&#x770B;&#x6E90;&#x7801;164-173&#x884C;</a>&#xFF09;&#xFF0C;&#x7528;touchend &#x6A21;&#x62DF; &#x5FEB;&#x901F;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#xFF08;<a href="https://github.com/ftlabs/fastclick/blob/master/lib/fastclick.js#L521-L610" target="_blank">&#x53C2;&#x770B;&#x6E90;&#x7801; 521-610 &#x884C;</a>&#xFF09;&#x3002;</p>
+<h3 id="%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0">&#x53C2;&#x8003;&#x6587;&#x7AE0;</h3>
+<ol>
+<li><a href="http://ariatemplates.com/blog/2014/05/ghost-clicks-in-mobile-browsers/" target="_blank">Ghost clicks in mobile browsers</a></li>
+<li><a href="http://updates.html5rocks.com/2013/12/300ms-tap-delay-gone-away" target="_blank">300ms tap delay gone away</a></li>
+<li><a href="http://www.appwards.nl/blog/2013/01/26/javascript-powered-webapps-and-click-versus-tap" target="_blank">Javascript Powered Webapps and Click Versus Tap</a></li>
+<li><a href="https://developers.google.com/mobile/articles/fast_buttons" target="_blank">Fast Buttons</a></li>
+</ol>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../web/mobile-analysis.html" class="navigation navigation-prev " aria-label="Previous page: 移动性能分析"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../algo/index.html" class="navigation navigation-next " aria-label="Next page: 算法"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"ga":{"token":"UA-40059659-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-40059659-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

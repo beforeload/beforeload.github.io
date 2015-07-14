@@ -6,15 +6,8 @@
     - [JavaScript 中的单例](lang/singleton-in-javascript.md)
 * [Web 开发](web/README.md)
     - [移动性能分析](web/mobile-analysis.md)
-<!--
-* [HTML5 游戏开发](/game/README.md)
-    - [基本游戏元素](/game/basic-game-elements.md)
-    - [地图生成](/game/generate-map.md)
-    - [游戏逻辑](/game/game-logic.md)
-    - [Mobile操控](/game/mobile-control.md)
-    - [多人游戏](game/multiplayer.md)
- -->
- * [算法](algo/README.md)
+    - [从点击穿透看移动端事件](web/touch-defect.md)
+* [算法](algo/README.md)
     - [深度优先和广度优先](algo/DFS-and-BFS.md)
     - [第 k 小的数](algo/k-th-order-statistic.md)
 * [数学](math/README.md)
