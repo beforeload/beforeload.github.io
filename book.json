@@ -1,5 +1,6 @@
 {
     "gitbook": "2.x.x",
+    "host": "liudong.me",
     "structure": {
         "readme": "README.md"
     },
