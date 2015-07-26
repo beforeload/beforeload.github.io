@@ -15,7 +15,7 @@
 * [系统](os/README.md)
     - [分布式开发环境搭建](os/distributed-dev-environment.md)
     - [常用软件的安装配置](os/software-installation-and-configuration.md)
-* [工作相关](intern/README.md)
+* [工作实习](intern/README.md)
     - [百度实习经历](intern/internship-in-baidu.md)
     - [瀑布流实现](intern/waterfall-flows.md)
 * [分布式计算](distributed/README.md)
