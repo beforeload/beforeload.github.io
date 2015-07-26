@@ -4,9 +4,8 @@
 
 > 适配方案简介
 > Media Query
-> rem 原理
-> 兼容性 rem 解决方案
-> flex 布局实现
+> rem
+> flex
 > 问题与探究
 
 ### 适配方案简介
@@ -14,8 +13,8 @@
 从实现方式上划分，一版H5页面开发有以下几种实现方式：
 
 1. meta 缩放
-2. 百分比定位
-3. rem
+2. Media Query
+3. Rem
 4. flex
 
 
@@ -35,7 +34,18 @@ __1. meta 缩放：__
 
 比例 ＝ 414 / 320 = 1.29375
 
-__2. 百分比定位__
+__2. Media Query__
+
+CSS3 的 __Media Query ＝ Media Type（判断条件）＋ CSS（样式规则）__。
+常见的写法举例如下：
+
+放在link标签上：
+
+```
+/*375px的宽度*/
+<link rel="stylesheet" media="only screen and (min-device-width:320px) and (max-device-width:375px)" href="m375.css" type="text/css" />
+```
+
 
 __3. rem__
 
