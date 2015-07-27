@@ -3,7 +3,7 @@
 * [Web 开发](web/README.md)
     - [移动性能分析](web/mobile-analysis.md)
     - [点击穿透](web/touch-defect.md)
-    - [移动 web 适配方案](web/browser-adaption.md)
+<!--  - [移动 web 适配方案](web/browser-adaption.md) -->
 * [程序语言](lang/README.md)
     - [JavaScript 中的继承](lang/inheritance-in-javascript.md)
     - [JavaScript 中的闭包](lang/closure-of-javascript.md)
