@@ -1,19 +1,12 @@
 # 移动 web 适配方案
 
 > 内容简介  
-1. 适配方案简介
+1. meta 缩放和 Media Query
 2. rem 解决方案
 3. flex 实现
 4. 问题与讨论
 
-### 适配方案简介
-
-从实现方式上划分，一般H5页面开发有以下几种实现方式：
-
-1. meta 缩放
-2. Media Query
-3. Rem
-4. flex
+### meta 缩放和 Media Query
 
 __1. meta 缩放：__
 
@@ -62,28 +55,53 @@ CSS3 的 __Media Query ＝ Media Type（判断条件）＋ CSS（样式规则）
 
 ```css
 @media (-webkit-min-device-pixel-ratio: 2) {
-    .global-border {
+    .thick-border {
         border-width: 0.5px;
     }
 }
 
 @media (-webkit-min-device-pixel-ratio: 3) {
-    .global-border {
+    .thick-border {
         border-width: 0.7px;
     }
 }
 ```
 
-而页面中设置border的元素添加 global-border 类名即可实现 0.5px 边框。
+而页面中设置border的元素添加 thick-border 类名即可实现 0.5px 边框。
 
-__3. rem__
-
-rem 是
-__4. flex__
-
+Media Query 详细的文档见[这里](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries)
 
 ### rem 解决方案
 
+rem(root em) 是 CSS3 的一种相对单位，IE8及以下浏览器不支持，幸运的是移动web开发不需要考虑兼容 IE8。
+
+如何在开发中更好使用REM，可能大家都会有自己的意见。
+但是其原理都是一致的，根据根节点的 font-size 作为基本单位。例如 ```html { font-size: 100px; }```
+，那么```1rem = 100px```，浏览器默认值是```1rem = 16px```。
+
+而适配各种机型，那就变的简单了，只需要根据不同屏幕设置不同的根节点的font-size，而我们 css 的代码里写的 1rem 即可对应不同的尺寸了。
+
+假如我们拿到 375px 尺寸的设计稿，通过以下代码去设置不同屏幕的根节点的 font-size：
+
+```
+!(function (doc, win) {
+    var el = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    
+    function setSize() {
+        var clientWidth = el.clientWidth;
+        if (!clientWidth) return;
+        el.style.fontSize = 100 * (clientWidth / 375) + 'px';
+    }
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, setSize, false);
+    doc.addEventListener('DOMContentLoaded', setSize, false);
+})(document, window);
+```
+
+如此，我们在 375px 的设计稿上量取某元素高度为 100px, 只需要 除以100，在 CSS 种写 ```height: 1rem;```即可。
+
 ### flex 实现
+
 
 ### 问题与讨论

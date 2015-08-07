@@ -1,9 +1,10 @@
 # Summary
 
-* [Web 开发](web/README.md)
-    - [移动性能分析](web/mobile-analysis.md)
+* [移动 Web 开发](web/README.md)
+    - [性能分析](web/mobile-analysis.md)
+    - [适配方案](web/browser-adaption.md)
     - [点击穿透](web/touch-defect.md)
-<!--  - [移动 web 适配方案](web/browser-adaption.md) -->
+    - [经典案例](web/classical-cases.md)
 * [程序语言](lang/README.md)
     - [JavaScript 中的继承](lang/inheritance-in-javascript.md)
     - [JavaScript 中的闭包](lang/closure-of-javascript.md)
