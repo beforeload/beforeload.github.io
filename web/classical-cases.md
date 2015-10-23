@@ -1,21 +1,20 @@
-# 经典案例
+经典案例
+=======
 
 > 内容简介  
-1. 样式布局
-2. 事件
-3. 动画
-4. 问题与讨论
+1. [样式布局](#layout)
+2. [事件](#events)
+3. [动画](#animation)
 
+### Layout
 
-### 样式布局
+__(1) REM__
 
-* REM
+参考[移动 web 适配方案](http://liudong.me/web/browser-adaption.html)
 
-参考[移动 web 适配方案](http://liudong.me/web/touch-defect.html)
+__(2) 文本上下垂直居中__
 
-* 文本上下垂直居中
-
-__table 方式：__
+* table 方式：
 
 ```CSS
 display: table-cell;
@@ -23,7 +22,7 @@ text-align: center;
 vertical-align: middle;
 ```
 
-__flex 方式：__
+* flex 方式：
 
 ```
 display:-webkit-box;
@@ -32,7 +31,7 @@ display:-webkit-box;
 text-align:center;
 ```
 
-* 多行文本
+__(3) 多行文本__
 
 ```CSS
 div {
@@ -44,7 +43,7 @@ div {
 }
 ```
 
-* Retina 高清图片
+__(4) Retina 高清图片__
 
 ```CSS
 div {
@@ -55,7 +54,7 @@ div {
 
 不支持 image-set 时解析的是 background-image。
 
-* 背景透明
+__(5) 背景透明__
 
 ```
 background: rgba(0, 0, 0, 0.8);
@@ -63,26 +62,26 @@ background: rgba(0, 0, 0, 0.8);
 
 用opacity 会连同文字一起变的透明。
 
-* 阻止字体自动调整
+__(6) 阻止字体自动调整__
 
 ```
 html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
     -webkit-text-size-adjust:none;
 }
 ```
-* 点击抖动
+__(7) 点击抖动__
 
 ```
 -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 ```
 
-* 取消 a 标签点击时虚线
+__(8) 取消 a 标签点击时虚线__
 
 ```
 outline：none;
 ```
 
-* 禁止选中
+__(9) 禁止选中__
 
 ```
 user-select: none;
@@ -94,19 +93,19 @@ user-select: none;
 android机型上，点击会触发选中。
 这一点在一些小的icon上使用，用户体验较好。
 
-* 禁止缩放
+__(10) 禁止缩放__
 
 ```
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
 ```
 
-* 禁止 标签弹出浏览器选项
+__(11) 禁止 标签弹出浏览器选项__
 
 ```CSS
 -webkit-touch-callout: none;
 ```
 
-* 处理吸顶元素（fix 定位）键盘弹起
+__(12) 处理吸顶元素（fix 定位）键盘弹起__
 
 参考 m.taobao.com，input元素弹起时，下方用一个遮罩，禁止上下滚动，这样页面高度和浏览器高度相同，
 键盘弹起时，不会出现吸顶的元素错位的情况。
@@ -124,13 +123,13 @@ $body.on('touchmove', function(e) {
 });
 ```
 
-### 事件
+### Events
 
-* 点击穿透
+__(1) 点击穿透__
 
 参考 [点击穿透](http://liudong.me/web/touch-defect.html)
 
-* iOS 键盘
+__(2) iOS 键盘__
 
 ```
 <input type="text">  <!-- 数字键盘 -->
@@ -151,7 +150,7 @@ iOS 支持的键盘类型还有很多，例如 添加属性 ```autocapitalize="o
 ```
 
 
-* IScroll
+__(3) IScroll__
 
 滚动元素 设置 ```display: none``` 再改为 ```display: block``` 的时候会导致IScroll无法滚动的问题
 
@@ -159,7 +158,7 @@ iOS 支持的键盘类型还有很多，例如 添加属性 ```autocapitalize="o
 
 需要修改IScroll的源码，检测 DOM 的改变。
 
-* 局部滚动broken
+__(4) 局部滚动broken__
 
 fix定位可能导致滑动不流畅，在iOS上设置以下属性，需要同时绑定touchstart事件
 
@@ -169,9 +168,9 @@ fix定位可能导致滑动不流畅，在iOS上设置以下属性，需要同�
 
 bug 场景描述见 [stackoverflow](http://stackoverflow.com/questions/18736297/webkit-overflow-scrolling-touch-broken-for-initially-offscreen-elements-in-i)
 
-### 动画
+### Animation
 
-* 硬件加速
+__(1) 硬件加速__
 
 ```
 -webkit-transform:translate3d(0, 0, 0);
@@ -180,7 +179,7 @@ bug 场景描述见 [stackoverflow](http://stackoverflow.com/questions/18736297/
 android 对 translate3d 动画效果明显比 iOS 要弱。
 尽可能让动画元素用 absolute 定位。
 
-* 动画函数
+__(2) 动画函数__
 
 一个 fadeIn 效果，摘自 [animate.css](https://github.com/daneden/animate.css/blob/master/animate.css#L1150-L1173)
 
@@ -217,13 +216,13 @@ android 对 translate3d 动画效果明显比 iOS 要弱。
   animation-name: fadeIn;
 }
 ```
-* iOS 多边形裁切
+__(3) iOS 多边形裁切__
 
 ```
 -webkit-clip-path: polygon(0px 0px, 100px 0, 0 100px);
 ```
 
-* 动画闪烁问题
+__(4) 动画闪烁问题__
 
 ```
 -webkit-backface-visibility: hidden; 

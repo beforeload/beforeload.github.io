@@ -13,8 +13,9 @@
 ### 联系方式
 
 - name: 刘东
-- weibo: @beforeload
-- zhihu: @beforeload
+- weibo: [@beforeload](http://weibo.com/beforeload)
+- zhihu: [@beforeload](http://www.zhihu.com/people/beforeload)
 - QQ: 939152381
 - weixin: fe-daniel
-- Mail: fe.daniel91@gmail.com
+- Mail: [fe.daniel91@gmail.com](mailto:fe.daniel91@gmail.com)
+- Resume: [中文版](http://liudong.me/resume/index.html) [英文版](http://liudong.me/resume/index-en.html)

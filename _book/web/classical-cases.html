@@ -25,10 +25,10 @@
         
     
     
-    <link rel="next" href="../lang/index.html" />
+    <link rel="next" href="../web/browser-adaption.html" />
     
     
-    <link rel="prev" href="../web/touch-defect.html" />
+    <link rel="prev" href="../web/knowledge-list.html" />
     
 
         
@@ -36,7 +36,7 @@
     <body>
         
         
-    <div class="book" data-level="1.4" data-basepath=".." data-revision="Fri Aug 07 2015 13:48:08 GMT+0800 (CST)">
+    <div class="book" data-level="1.2" data-basepath=".." data-revision="Fri Oct 23 2015 14:09:17 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -82,28 +82,43 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.1" data-path="web/mobile-analysis.html">
+        <li class="chapter " data-level="1.1" data-path="web/knowledge-list.html">
             
                 
-                    <a href="../web/mobile-analysis.html">
+                    <a href="../web/knowledge-list.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.1.</b>
                         
-                        性能分析
+                        知识体系
                     </a>
                 
             
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="web/browser-adaption.html">
+        <li class="chapter active" data-level="1.2" data-path="web/classical-cases.html">
+            
+                
+                    <a href="../web/classical-cases.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        经典案例
+                    </a>
+                
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="web/browser-adaption.html">
             
                 
                     <a href="../web/browser-adaption.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.2.</b>
+                            <b>1.3.</b>
                         
                         适配方案
                     </a>
@@ -112,13 +127,13 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="web/touch-defect.html">
+        <li class="chapter " data-level="1.4" data-path="web/touch-defect.html">
             
                 
                     <a href="../web/touch-defect.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.3.</b>
+                            <b>1.4.</b>
                         
                         点击穿透
                     </a>
@@ -127,15 +142,15 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="web/classical-cases.html">
+        <li class="chapter " data-level="1.5" data-path="web/mobile-analysis.html">
             
                 
-                    <a href="../web/classical-cases.html">
+                    <a href="../web/mobile-analysis.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.4.</b>
+                            <b>1.5.</b>
                         
-                        经典案例
+                        性能分析
                     </a>
                 
             
@@ -628,33 +643,30 @@
 <blockquote>
 <p>&#x5185;&#x5BB9;&#x7B80;&#x4ECB;  </p>
 <ol>
-<li>&#x6837;&#x5F0F;&#x5E03;&#x5C40;</li>
-<li>&#x4E8B;&#x4EF6;</li>
-<li>&#x52A8;&#x753B;</li>
-<li>&#x95EE;&#x9898;&#x4E0E;&#x8BA8;&#x8BBA;</li>
+<li><a href="#layout">&#x6837;&#x5F0F;&#x5E03;&#x5C40;</a></li>
+<li><a href="#events">&#x4E8B;&#x4EF6;</a></li>
+<li><a href="#animation">&#x52A8;&#x753B;</a></li>
 </ol>
 </blockquote>
-<h3 id="%E6%A0%B7%E5%BC%8F%E5%B8%83%E5%B1%80">&#x6837;&#x5F0F;&#x5E03;&#x5C40;</h3>
+<h3 id="layout">Layout</h3>
+<p><strong>(1) REM</strong></p>
+<p>&#x53C2;&#x8003;<a href="http://liudong.me/web/browser-adaption.html" target="_blank">&#x79FB;&#x52A8; web &#x9002;&#x914D;&#x65B9;&#x6848;</a></p>
+<p><strong>(2) &#x6587;&#x672C;&#x4E0A;&#x4E0B;&#x5782;&#x76F4;&#x5C45;&#x4E2D;</strong></p>
 <ul>
-<li>REM</li>
+<li>table &#x65B9;&#x5F0F;&#xFF1A;</li>
 </ul>
-<p>&#x53C2;&#x8003;<a href="http://liudong.me/web/touch-defect.html" target="_blank">&#x79FB;&#x52A8; web &#x9002;&#x914D;&#x65B9;&#x6848;</a></p>
-<ul>
-<li>&#x6587;&#x672C;&#x4E0A;&#x4E0B;&#x5782;&#x76F4;&#x5C45;&#x4E2D;</li>
-</ul>
-<p><strong>table &#x65B9;&#x5F0F;&#xFF1A;</strong></p>
 <pre><code class="lang-CSS"><span class="hljs-tag">display</span>: <span class="hljs-tag">table-cell</span>;
 <span class="hljs-tag">text-align</span>: <span class="hljs-tag">center</span>;
 <span class="hljs-tag">vertical-align</span>: <span class="hljs-tag">middle</span>;
 </code></pre>
-<p><strong>flex &#x65B9;&#x5F0F;&#xFF1A;</strong></p>
+<ul>
+<li>flex &#x65B9;&#x5F0F;&#xFF1A;</li>
+</ul>
 <pre><code>display:-webkit-box;
 -webkit-box-pack: center;
 -webkit-box-align: center;
 text-align:center;
-</code></pre><ul>
-<li>&#x591A;&#x884C;&#x6587;&#x672C;</li>
-</ul>
+</code></pre><p><strong>(3) &#x591A;&#x884C;&#x6587;&#x672C;</strong></p>
 <pre><code class="lang-CSS"><span class="hljs-tag">div</span> <span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> -webkit-box</span></span>;
     <span class="hljs-rule"><span class="hljs-attribute">text-overflow</span>:<span class="hljs-value"> ellipsis</span></span>;
@@ -663,55 +675,37 @@ text-align:center;
     <span class="hljs-rule"><span class="hljs-attribute">overflow </span>:<span class="hljs-value"> hidden</span></span>;
 <span class="hljs-rule">}</span></span>
 </code></pre>
-<ul>
-<li>Retina &#x9AD8;&#x6E05;&#x56FE;&#x7247;</li>
-</ul>
+<p><strong>(4) Retina &#x9AD8;&#x6E05;&#x56FE;&#x7247;</strong></p>
 <pre><code class="lang-CSS"><span class="hljs-tag">div</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">background-image</span>:<span class="hljs-value"> <span class="hljs-function">url</span>(no-image-set.png)</span></span>;
   <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> <span class="hljs-function">image-set</span>(<span class="hljs-function">url</span>(foo-lowres.png) <span class="hljs-number">1</span>x,<span class="hljs-function">url</span>(foo-highres.png) <span class="hljs-number">2</span>x) center</span></span>;
 <span class="hljs-rule">}</span></span>
 </code></pre>
 <p>&#x4E0D;&#x652F;&#x6301; image-set &#x65F6;&#x89E3;&#x6790;&#x7684;&#x662F; background-image&#x3002;</p>
-<ul>
-<li>&#x80CC;&#x666F;&#x900F;&#x660E;</li>
-</ul>
+<p><strong>(5) &#x80CC;&#x666F;&#x900F;&#x660E;</strong></p>
 <pre><code>background: rgba(0, 0, 0, 0.8);
 </code></pre><p>&#x7528;opacity &#x4F1A;&#x8FDE;&#x540C;&#x6587;&#x5B57;&#x4E00;&#x8D77;&#x53D8;&#x7684;&#x900F;&#x660E;&#x3002;</p>
-<ul>
-<li>&#x963B;&#x6B62;&#x5B57;&#x4F53;&#x81EA;&#x52A8;&#x8C03;&#x6574;</li>
-</ul>
+<p><strong>(6) &#x963B;&#x6B62;&#x5B57;&#x4F53;&#x81EA;&#x52A8;&#x8C03;&#x6574;</strong></p>
 <pre><code>html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
     -webkit-text-size-adjust:none;
 }
-</code></pre><ul>
-<li>&#x70B9;&#x51FB;&#x6296;&#x52A8;</li>
-</ul>
+</code></pre><p><strong>(7) &#x70B9;&#x51FB;&#x6296;&#x52A8;</strong></p>
 <pre><code>-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-</code></pre><ul>
-<li>&#x53D6;&#x6D88; a &#x6807;&#x7B7E;&#x70B9;&#x51FB;&#x65F6;&#x865A;&#x7EBF;</li>
-</ul>
+</code></pre><p><strong>(8) &#x53D6;&#x6D88; a &#x6807;&#x7B7E;&#x70B9;&#x51FB;&#x65F6;&#x865A;&#x7EBF;</strong></p>
 <pre><code>outline&#xFF1A;none;
-</code></pre><ul>
-<li>&#x7981;&#x6B62;&#x9009;&#x4E2D;</li>
-</ul>
+</code></pre><p><strong>(9) &#x7981;&#x6B62;&#x9009;&#x4E2D;</strong></p>
 <pre><code>user-select: none;
 -moz-user-select: none;
 -webkit-user-select: none;
 -ms-user-select: none;
 </code></pre><p>android&#x673A;&#x578B;&#x4E0A;&#xFF0C;&#x70B9;&#x51FB;&#x4F1A;&#x89E6;&#x53D1;&#x9009;&#x4E2D;&#x3002;
 &#x8FD9;&#x4E00;&#x70B9;&#x5728;&#x4E00;&#x4E9B;&#x5C0F;&#x7684;icon&#x4E0A;&#x4F7F;&#x7528;&#xFF0C;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x8F83;&#x597D;&#x3002;</p>
-<ul>
-<li>&#x7981;&#x6B62;&#x7F29;&#x653E;</li>
-</ul>
+<p><strong>(10) &#x7981;&#x6B62;&#x7F29;&#x653E;</strong></p>
 <pre><code>&lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;&quot; name=&quot;viewport&quot; /&gt;
-</code></pre><ul>
-<li>&#x7981;&#x6B62; &#x6807;&#x7B7E;&#x5F39;&#x51FA;&#x6D4F;&#x89C8;&#x5668;&#x9009;&#x9879;</li>
-</ul>
+</code></pre><p><strong>(11) &#x7981;&#x6B62; &#x6807;&#x7B7E;&#x5F39;&#x51FA;&#x6D4F;&#x89C8;&#x5668;&#x9009;&#x9879;</strong></p>
 <pre><code class="lang-CSS"><span class="hljs-tag">-webkit-touch-callout</span>: <span class="hljs-tag">none</span>;
 </code></pre>
-<ul>
-<li>&#x5904;&#x7406;&#x5438;&#x9876;&#x5143;&#x7D20;&#xFF08;fix &#x5B9A;&#x4F4D;&#xFF09;&#x952E;&#x76D8;&#x5F39;&#x8D77;</li>
-</ul>
+<p><strong>(12) &#x5904;&#x7406;&#x5438;&#x9876;&#x5143;&#x7D20;&#xFF08;fix &#x5B9A;&#x4F4D;&#xFF09;&#x952E;&#x76D8;&#x5F39;&#x8D77;</strong></p>
 <p>&#x53C2;&#x8003; m.taobao.com&#xFF0C;input&#x5143;&#x7D20;&#x5F39;&#x8D77;&#x65F6;&#xFF0C;&#x4E0B;&#x65B9;&#x7528;&#x4E00;&#x4E2A;&#x906E;&#x7F69;&#xFF0C;&#x7981;&#x6B62;&#x4E0A;&#x4E0B;&#x6EDA;&#x52A8;&#xFF0C;&#x8FD9;&#x6837;&#x9875;&#x9762;&#x9AD8;&#x5EA6;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x9AD8;&#x5EA6;&#x76F8;&#x540C;&#xFF0C;
 &#x952E;&#x76D8;&#x5F39;&#x8D77;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5438;&#x9876;&#x7684;&#x5143;&#x7D20;&#x9519;&#x4F4D;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
 <pre><code class="lang-JavaScript">$body.css({
@@ -725,14 +719,10 @@ $body.on(<span class="hljs-string">&apos;touchmove&apos;</span>, <span class="hl
     <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
 });
 </code></pre>
-<h3 id="%E4%BA%8B%E4%BB%B6">&#x4E8B;&#x4EF6;</h3>
-<ul>
-<li>&#x70B9;&#x51FB;&#x7A7F;&#x900F;</li>
-</ul>
+<h3 id="events">Events</h3>
+<p><strong>(1) &#x70B9;&#x51FB;&#x7A7F;&#x900F;</strong></p>
 <p>&#x53C2;&#x8003; <a href="http://liudong.me/web/touch-defect.html" target="_blank">&#x70B9;&#x51FB;&#x7A7F;&#x900F;</a></p>
-<ul>
-<li>iOS &#x952E;&#x76D8;</li>
-</ul>
+<p><strong>(2) iOS &#x952E;&#x76D8;</strong></p>
 <pre><code>&lt;input type=&quot;text&quot;&gt;  &lt;!-- &#x6570;&#x5B57;&#x952E;&#x76D8; --&gt;
 &lt;input type=&quot;text&quot; pattern=&quot;[0-9]*&quot;&gt; &lt;!-- &#x6570;&#x5B57;&#x952E;&#x76D8;&#xFF0C;&#x53EA;&#x6709; 0-9 &#x6CA1;&#x6709; +/- --&gt;
 &lt;input type=&quot;url&quot;&gt;  &lt;!-- &#x5730;&#x5740; &#x952E;&#x76D8;&#x4E0A;&#x542B;&#x6709; .com &#x6309;&#x952E; --&gt;
@@ -741,28 +731,20 @@ $body.on(<span class="hljs-string">&apos;touchmove&apos;</span>, <span class="hl
 <p><a href="http://sja.co.uk/controlling-which-ios-keyboard-is-shown" target="_blank">&#x63A7;&#x5236;&#x5404;&#x79CD;&#x952E;&#x76D8;&#x5C55;&#x793A;</a></p>
 <p>&#x8FD8;&#x53EF;&#x4EE5;&#x6D88;&#x9664;&#x539F;&#x751F;&#x5916;&#x89C2;&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x952E;&#x76D8;&#x6837;&#x5F0F;</p>
 <pre><code>-webkit-appearance: none;
-</code></pre><ul>
-<li>IScroll</li>
-</ul>
+</code></pre><p><strong>(3) IScroll</strong></p>
 <p>&#x6EDA;&#x52A8;&#x5143;&#x7D20; &#x8BBE;&#x7F6E; <code>display: none</code> &#x518D;&#x6539;&#x4E3A; <code>display: block</code> &#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5BFC;&#x81F4;IScroll&#x65E0;&#x6CD5;&#x6EDA;&#x52A8;&#x7684;&#x95EE;&#x9898;</p>
 <p>&#x539F;&#x56E0;&#xFF1A;&#x4E0D;&#x5728;&#x6587;&#x6863;&#x6D41;&#x4E2D;&#x663E;&#x793A;&#x7684;&#x5143;&#x7D20;offset() &#x5F97;&#x5230;&#x503C;&#x4E3A;0&#xFF0C;&#x6EDA;&#x52A8;&#x52A8;&#x753B;&#x4E0D;&#x751F;&#x6548;</p>
 <p>&#x9700;&#x8981;&#x4FEE;&#x6539;IScroll&#x7684;&#x6E90;&#x7801;&#xFF0C;&#x68C0;&#x6D4B; DOM &#x7684;&#x6539;&#x53D8;&#x3002;</p>
-<ul>
-<li>&#x5C40;&#x90E8;&#x6EDA;&#x52A8;broken</li>
-</ul>
+<p><strong>(4) &#x5C40;&#x90E8;&#x6EDA;&#x52A8;broken</strong></p>
 <p>fix&#x5B9A;&#x4F4D;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6ED1;&#x52A8;&#x4E0D;&#x6D41;&#x7545;&#xFF0C;&#x5728;iOS&#x4E0A;&#x8BBE;&#x7F6E;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x540C;&#x65F6;&#x7ED1;&#x5B9A;touchstart&#x4E8B;&#x4EF6;</p>
 <pre><code>-webkit-overflow-scrolling: touch
 </code></pre><p>bug &#x573A;&#x666F;&#x63CF;&#x8FF0;&#x89C1; <a href="http://stackoverflow.com/questions/18736297/webkit-overflow-scrolling-touch-broken-for-initially-offscreen-elements-in-i" target="_blank">stackoverflow</a></p>
-<h3 id="%E5%8A%A8%E7%94%BB">&#x52A8;&#x753B;</h3>
-<ul>
-<li>&#x786C;&#x4EF6;&#x52A0;&#x901F;</li>
-</ul>
+<h3 id="animation">Animation</h3>
+<p><strong>(1) &#x786C;&#x4EF6;&#x52A0;&#x901F;</strong></p>
 <pre><code>-webkit-transform:translate3d(0, 0, 0);
 </code></pre><p>android &#x5BF9; translate3d &#x52A8;&#x753B;&#x6548;&#x679C;&#x660E;&#x663E;&#x6BD4; iOS &#x8981;&#x5F31;&#x3002;
 &#x5C3D;&#x53EF;&#x80FD;&#x8BA9;&#x52A8;&#x753B;&#x5143;&#x7D20;&#x7528; absolute &#x5B9A;&#x4F4D;&#x3002;</p>
-<ul>
-<li>&#x52A8;&#x753B;&#x51FD;&#x6570;</li>
-</ul>
+<p><strong>(2) &#x52A8;&#x753B;&#x51FD;&#x6570;</strong></p>
 <p>&#x4E00;&#x4E2A; fadeIn &#x6548;&#x679C;&#xFF0C;&#x6458;&#x81EA; <a href="https://github.com/daneden/animate.css/blob/master/animate.css#L1150-L1173" target="_blank">animate.css</a></p>
 <pre><code class="lang-CSS"><span class="hljs-class">.animated</span> <span class="hljs-rules">{
   <span class="hljs-rule"><span class="hljs-attribute">-webkit-animation-duration</span>:<span class="hljs-value"> <span class="hljs-number">1s</span></span></span>;
@@ -796,13 +778,9 @@ $body.on(<span class="hljs-string">&apos;touchmove&apos;</span>, <span class="hl
   <span class="hljs-rule"><span class="hljs-attribute">animation-name</span>:<span class="hljs-value"> fadeIn</span></span>;
 <span class="hljs-rule">}</span></span>
 </code></pre>
-<ul>
-<li>iOS &#x591A;&#x8FB9;&#x5F62;&#x88C1;&#x5207;</li>
-</ul>
+<p><strong>(3) iOS &#x591A;&#x8FB9;&#x5F62;&#x88C1;&#x5207;</strong></p>
 <pre><code>-webkit-clip-path: polygon(0px 0px, 100px 0, 0 100px);
-</code></pre><ul>
-<li>&#x52A8;&#x753B;&#x95EA;&#x70C1;&#x95EE;&#x9898;</li>
-</ul>
+</code></pre><p><strong>(4) &#x52A8;&#x753B;&#x95EA;&#x70C1;&#x95EE;&#x9898;</strong></p>
 <pre><code>-webkit-backface-visibility: hidden; 
 -moz-backface-visibility: hidden;
  -ms-backface-visibility: hidden; 
@@ -823,10 +801,10 @@ perspective: 1000;
         </div>
 
         
-        <a href="../web/touch-defect.html" class="navigation navigation-prev " aria-label="Previous page: 点击穿透"><i class="fa fa-angle-left"></i></a>
+        <a href="../web/knowledge-list.html" class="navigation navigation-prev " aria-label="Previous page: 知识体系"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../lang/index.html" class="navigation navigation-next " aria-label="Next page: 程序语言"><i class="fa fa-angle-right"></i></a>
+        <a href="../web/browser-adaption.html" class="navigation navigation-next " aria-label="Next page: 适配方案"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
