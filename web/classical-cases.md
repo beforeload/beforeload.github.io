@@ -78,7 +78,7 @@ __(7) 点击抖动__
 __(8) 取消 a 标签点击时虚线__
 
 ```
-outline：none;
+outline: none;
 ```
 
 __(9) 禁止选中__
@@ -225,16 +225,15 @@ __(3) iOS 多边形裁切__
 __(4) 动画闪烁问题__
 
 ```
--webkit-backface-visibility: hidden; 
+-webkit-backface-visibility: hidden;
 -moz-backface-visibility: hidden;
- -ms-backface-visibility: hidden; 
-backface-visibility: hidden; 
--webkit-perspective: 1000; 
--moz-perspective: 1000; 
--ms-perspective: 1000; 
+ -ms-backface-visibility: hidden;
+backface-visibility: hidden;
+-webkit-perspective: 1000;
+-moz-perspective: 1000;
+-ms-perspective: 1000;
 perspective: 1000;
 ```
 
 3D 动画由于默认情况下，是可以看到后面的元素的，因为视差，会造成闪烁情况。
 上述样式可以隐藏后面的元素。
-
