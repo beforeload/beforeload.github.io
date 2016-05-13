@@ -105,7 +105,7 @@ __(11) 禁止 标签弹出浏览器选项__
 -webkit-touch-callout: none;
 ```
 
-__(12) 处理吸顶元素（fix 定位）键盘弹起__
+__(12) 处理吸顶元素 fix 定位同时键盘弹起__
 
 参考 m.taobao.com，input元素弹起时，下方用一个遮罩，禁止上下滚动，这样页面高度和浏览器高度相同，
 键盘弹起时，不会出现吸顶的元素错位的情况。
@@ -121,6 +121,28 @@ $body.on('touchmove', function(e) {
     e.preventDefault();
     return false;
 });
+```
+
+__（13）IOS 8以上1px border过粗问题__
+
+根据 userAgent 判断 IOS 设备，在 html 或 body 上加上 ``id="ios"``。需要对边框进行处理的时候，加上 global-border 的 class 即可。
+
+```less
+@media (-webkit-min-device-pixel-ratio: 2){
+ #ios {
+   .global-border {
+      border-width:0.5px;
+   }
+ }
+}
+@media (-webkit-min-device-pixel-ratio: 3){
+  #ios {
+    .global-border {
+      border-width:0.7px;
+    }
+  }
+}
+
 ```
 
 ### Events
