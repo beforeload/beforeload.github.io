@@ -145,6 +145,13 @@ __（13）IOS 8以上1px border过粗问题__
 
 ```
 
+__（14）禁止自动转码__
+
+```html
+<meta name="format-detection" content="telephone=no"/>
+
+```
+
 ### Events
 
 __(1) 点击穿透__
