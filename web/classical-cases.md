@@ -152,6 +152,46 @@ __（14）禁止自动转码__
 
 ```
 
+__（15）CSS 三角形__
+
+```
+/*箭头向上*/
+.arrow-up {
+    width:0;
+    height:0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+
+ /*箭头向下*/
+.arrow-down {
+    width:0;
+    height:0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #0066cc;
+}
+
+ /*箭头向左*/
+.arrow-left {
+    width:0;
+    height:0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid yellow;
+}
+
+/*箭头向右*/
+.arrow-right {
+    width:0;
+    height:0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid green;
+}
+```
+
 ### Events
 
 __(1) 点击穿透__
