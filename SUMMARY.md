@@ -11,6 +11,7 @@
     - [JavaScript 中的闭包](lang/closure-of-javascript.md)
     - [JavaScript 中的单例](lang/singleton-in-javascript.md)
     - [JavaScript ES6概要](lang/js-es6.md)
+    - [Arguments & Parameters in ES6](lang/js-args-params.md)
 * [算法](algo/README.md)
     - [深度优先和广度优先](algo/DFS-and-BFS.md)
     - [第 k 小的数](algo/k-th-order-statistic.md)
