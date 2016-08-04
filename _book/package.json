@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/beforeload/beforeload.github.io/issues"
   },
-  "homepage": "https://github.com/beforeload/beforeload.github.io#readme",
+  "homepage": "http://liudong.me/",
   "dependencies": {
     "gitbook-plugin-ga": "^0.2.1"
   }
