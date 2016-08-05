@@ -1,4 +1,4 @@
-# Arguments & Parameters in ES6
+# ES6 中的实参和形参
 
 ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。
 
@@ -294,10 +294,6 @@ add(6); // [6], not [5, 6]
 
 __桌面浏览器__
 
- Chrome  Firefox Internet Explorer Microsoft Edge  Opera Safari
- 49  15  – 14  – –
-
-
 | FEATURE | CHROME | FIREFOX | INTERNET EXPLORER | MICROSOFT EDGE | OPERA | SAFARI |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Basic support | 49 | 15 | – | 14 | - | – |
@@ -379,22 +375,281 @@ initiateTransfer();
 // Uncaught TypeError: Cannot match against 'undefined' or 'null'.
 ```
 
-这种行为是当我们需要的参数已经明确。如果我们想让参数可选呢？为了避免参数缺少
+这种行为是当我们需要的参数已经明确。如果想让参数可选呢？为了避免缺少参数引入错误，这就需要给解构参数提供一个默认值：
+
+```javascript
+function foo({a, b, c} = {}) {
+  // TODO
+}
+
+a(); // no error
+```
+
+一个空对象作为默认值提供给解构参数，这样函数调用时如果没有任何形参，也不会有任何错误。
+
+我们也可以给解构参数的每一项提供一个默认值：
+
+```javascript
+function destructuredParams({
+  a = 'abc',
+  b = 1234,
+  c = true
+}) {
+  // TODO
+}
+
+```
+
+这个例子中，每个属性有一个默认参数，消除了我们人工检查`undefined`参数的需求，并在函数体内部拥有了默认值。
+
+##### 解构浏览器支持情况
+
+__桌面浏览器__
+
+| FEATURE | CHROME | FIREFOX | INTERNET EXPLORER | MICROSOFT EDGE | OPERA | SAFARI |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Basic support | 49 | 2.0 | – | 14 | - | 7.1 |
+| Parameters without defaults after default parameter | 49 | 47 | – | 14 | – | – |
+
+
+__移动端浏览器__
+
+| FEATURE | CHROME FOR ANDROID | FIREFOX MOBILE | SAFARI MOBILE | OPERA MOBILE | IE MOBILE |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Basic support | 49 | 1 | 8 | – | – |
+| Parameters without defaults after default parameter | 49 | 47 | – | – | – |
+
+参考链接 
+
 ### Passing Arguments
 
-### Mandatory Arguments
+JavaScript 中只有两种函数传参方式：引用传递和值传递。引用传参的参数修改会影响全局，而值传递的参数修改只影响函数体内部。
 
+有一些语言，如VB，PowerShell，是可以选择参数使用值传递还是引用传递，JavaScript没有这样的选项。
+
+##### 值传递
+
+JavaScript 可以只传递值。当传入实参的值给函数，在函数作用域内，参数的值会创建一份拷贝，任何对这些值的改变只会在函数作用域内生效。如下所示：
+
+```javascript
+var a = 5;
+function increment(a) {
+  a = ++a;
+  console.log(a);
+}
+
+increment(a); // 6
+console.log(a); // 5;
+```
+
+这里在函数内部修改参数的值，不会影响函数外部原来的值。因此，如果变量在函数外部打印，它的值仍然是`5`。
+
+##### 引用传递
+
+其实可以这么理解，在 JavaScript 中，所有的传递都是通过值的方式。当我们传递的是一个指向对象或数组的变量，这个“值”其实就是引用对象的指针。通过变量修改其引用对象的属性，原先的对象也会随之改变。如下方法：
+
+```javascript
+function foo(param) {
+  param.bar = 'new value';
+}
+
+obj = { bar: 'value' };
+
+console.log(obj.bar); // value
+foo(obj);
+console.log(obj.bar); // new value
+```
+
+如上所示，`param`对象属性在函数内部发生改变，在函数体外部，也能看到修改的值。
+
+当传递的参数不是原始的值，例如对象会数组，在这种场景下，会创建一个变量指向原来的对象在内存中的地址。这个变量会被传递给函数，修改它会影响原来的对象。
+
+### 类型检测和缺失或扩展参数
+
+在一个强类型的语言中，在函数声明中必须设定参数的类型。但是在 JavaScript 中，缺少这样的特性。在 JavaScript 中，数据的类型和传参的个数都比较随意。
+
+假设有个方法只接受一个参数。当调用这个方法时，没有限制只传递一个参数给这个方法。可以传递一个，两个甚至多个参数。更加令人发指的是我们可以选择不传递任何参数，并且不会报错。
+
+实参和形参的个数不同主要有以下两种情况：
+
+* __实参少于形参__：缺少的参数会被当作 `undefined`
+* __实参多余形参__：多余的形参会被忽略掉，但是可以通过类数组的变量`arguments`检索到。
+
+### 强制性参数
+
+如果在函数调用中，一个实参遗漏了，它会被设置成 `undefined`。我们可以利用这个行为，当一个实参遗漏时抛出一个错误。
+
+```javascript
+function foo(mandatory, optional) {
+  if(mandatory === undefined) {
+    throw new Error('Missing parameter: mandatory');
+  }
+}
+```
+
+在 ES6 中，可以使用默认参数的方法设置强制性的参数。
+
+```javascript
+function throwError() {
+  throw new Error('Missing parameter');
+}
+
+function foo(param1 = throwError(), param2 = throwError()) {
+  // TODO
+}
+
+foo(10, 20); // okay
+foo(10);     // Uncaught Error: Missing parameter
+```
+
+### 实参对象
+
+对于剩余参数的支持，早在 ES4 中，就有意向替换 `arguments` 对象，但是 ES4 标准并没有实现它。随着 ES6 的发布，JavaScript官方支持剩余参数。同时拒绝了放弃支持 `arguments` 对象的提案。
+
+`arguments` 是一个类数组的对象，存在于所有的函数方法中。通过类似于数组下标的方法可以获取 `arguments` 里的值。这个对象允许我们传递任意个数的实参给函数。
+
+```javascript
+funciton checkParams(param1) {
+  console.log(param1);  // 2
+  console.log(arguments[0], arguments[1]);  // 2 3
+  console.log(param1 + arguments[0]); // 2 + 2
+}
+
+checkParams(2, 3);
+```
+
+这个方法期望只接受一个实参。当我们调用这个方法时传入两个参数。第一个参数可以用形参 `param1` 或 `arguments[0]` 获取，但第二个参数只能用 `arugments[1]` 获取。注意 `arguments` 对象只能结合 `arguments`名字一起使用。
+
+对于所有传递给函数的实参，`arguments` 都有一个入口，第一个入口的索引值从 `0` 开始。我们可以通过 `arguments[2]`，`arguments[3]` 等等获取更多实参。
+
+我们甚至可以跳过设置形参，直接使用 `arguments` 对象：
+
+```javascript
+function checkParams() {
+  console.log(arguments[1], arguments[0], arguments[2]);
+}
+
+checkParams(2, 4, 6); // 4 2 6
+```
+
+实际上，命名形参是因为使用方便，不是必要的。与之类似的，剩余参数也可以用来代表传入的参数：
+
+```javascript
+function checkParams(...params) {
+  console.log(params[1], params[0], params[2]); // 4 2 6
+  console.log(arguments[1], arguments[0], arguments[2]); // 4 2 6
+}
+
+checkParams(2, 4, 6);
+```
+
+`arguments` 对象是一个类数组（并不是数组）的对象。它缺少数组的方法，例如`slice()`和`foreach()`。
+为了在 `arguments` 对象上使用数组方法。首先我们需要做的是转成真实的数组：
+
+```javascript
+function sort() {
+  var a = Array.prototype.slice.call(arguments);
+  return a.sort();
+}
+
+sort(40, 20, 50, 30); // [20, 30, 40, 50]
+```
+
+在这个方法中，`Array.prototype.slice.call()` 用来快速转化 `arguments` 对象成一个数组。
+`sort()` 方法对数组中的元素进行排序后返回。
+
+ES6 中有更直接的方法：`Array.from()` 是 ES6 中新加的方法，用来从任何类数组的对象中创建一个新的数组。使用如下：
+
+```javascript
+function sort() {
+  var a = Array.from(arguments);
+  return a.sort();
+}
+
+sort(40, 20, 50, 30); // [20, 30, 40, 50]
+```
 
 ### The Length Property
 
+尽管 `arguments` 对象不是一个典型的数组，但是它有`length`属性，可以用来检测传入参数的多少。
+
+```javascript
+function countArguments() {
+  console.log(arguments.length);
+}
+
+countArguments(); // 0
+countArguments(10, null, "string"); // 3
+```
+
+使用 `length` 属性，我们可以更好的控制传入实参的数量。如果一个方法需要两个实参才能生效，就可以使用 `length` 属性来检测传入实参的个数。如果少于期望的参数个数，可以抛出错误：
+
+```javascript
+function foo(param1, param2) {
+  if(arguments.length < 2) {
+    throw new Error('This function expects at least two arguments');
+  } else if(arguments.length === 2) {
+    // TODO
+  }
+}
+```
+
+剩余参数其实是数组，因此也有 `length` 属性。在 ES6 中，前面的代码可以用剩余参数的方法改写：
+
+```javascript
+function foo(...params) {
+  if(params.length < 2) {
+    throw new Error('This function expects at least two arguments');
+  } else if(params.length === 2) {
+    // TODO
+  }
+}
+
+```
 
 ### The Callee And Caller Properties
 
+`callee` 属性指向当前正在运行的函数，而 `caller` 指向调用当前正在运行函数的函数方法。
+在 ES5 的严格模式下，这些属性被废弃了，试图获取这些属性会报类型错误。
+
+`arguments.callee` 属性在递归调用函数很有用，特别当函数名不存在（匿名函数）时。因为匿名函数没有名称，只能通过 `arguments.callee` 指向它。
+
+```javascript
+var result = (function(n) {
+  if( n <= 1) {
+    return 1;
+  } else {
+    return n * arguments.callee(n - 1);
+  }
+})(4); // 24
+```
+
+### 严格模式和非严格模式下的 Arguments 对象
+
+在 ES5 非严格模式下，`arguments` 对象有个不常见的特性：它保持它的值和对应参数名的值同步。
+
+```javascript
+function foo(param) {
+  console.log(param === arguments[0]); // true
+  arguments[0] = 500;
+  console.log(param === arguments[0]); // true
+  return param
+}
+
+foo(200); // 500
+```
+
+在函数内部，一个新的值赋值给了 `arguments[0]`。因为`arguments` 的值永远和对应参数名的值同步，修改 `arguments[0]` 的值也会修改 `param` 的值。
 
 ### Conclusion
 
+ES6提供了超级多的新的特性，给 JavaScript 带来显著的提升。越来越多的开发者使用ES6的特性，并且难以避免的使用到它们。这篇博文只介绍 ES6 中参数处理的相关特性，还比较肤浅，更多功能特性等待挖掘。
 
-[1]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments "Optimization-killers"
-
+##### 参考链接
 
 1. [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
+2. [ECMAScript 6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
+3. [ECMAScript 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
+
+
+[1]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments "Optimization-killers"
