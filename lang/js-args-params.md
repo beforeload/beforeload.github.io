@@ -1,4 +1,4 @@
-# ES6 中的实参和形参
+# ES6 中的实参与形参
 
 ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。
 
@@ -419,7 +419,7 @@ __移动端浏览器__
 | Basic support | 49 | 1 | 8 | – | – |
 | Parameters without defaults after default parameter | 49 | 47 | – | – | – |
 
-参考链接 
+参考链接
 
 ### Passing Arguments
 
@@ -639,7 +639,33 @@ function foo(param) {
 foo(200); // 500
 ```
 
-在函数内部，一个新的值赋值给了 `arguments[0]`。因为`arguments` 的值永远和对应参数名的值同步，修改 `arguments[0]` 的值也会修改 `param` 的值。
+在函数内部，一个新的值赋值给了 `arguments[0]`。因为`arguments` 的值永远和对应参数名的值同步，修改 `arguments[0]` 的值也会修改 `param` 的值。实际上，他们像同一个变量的两个不同的名字。在 ES5 严格模式下，`arguments` 对象这些混淆的行为已经被移除了。
+
+```javascript
+"use strict";
+function foo(param) {
+  console.log(param === arguments[0]);  // ture
+  arguments[0] = 500;
+  console.log(param === arguments[0]);  // false
+  return param;
+}
+
+foo(200); // 200
+```
+
+这下，修改 `arguments[0]` 不会影响 `param`，输出结果也符合期望。在 ES6 中这个函数的输出和 ES5 的严格模式一样。记住，在函数声明中使用默认值，`arguments` 对象不会被影响。
+
+```javascript
+function foo(param1, param2 = 10, param3 = 20) {
+  console.log(param1 === arguments[0]); // ture
+  console.log(param2 === arguments[1]); // true
+  console.log(param3 === arguments[2]); // false
+  console.log(arguments[2]);            // undefined
+  console.log(param3);                  // 20
+}
+```
+
+在这个函数中，由于只有两个实参传入，即使 `param3` 有一个默认值，它也不等于 `arguments[2]`。换句话说，设置默认值不会影响 `arguments` 对象。
 
 ### Conclusion
 
@@ -650,6 +676,6 @@ ES6提供了超级多的新的特性，给 JavaScript 带来显著的提升。�
 1. [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy)
 2. [ECMAScript 6 Compatibility Table](https://kangax.github.io/compat-table/es6/)
 3. [ECMAScript 2015 Language Specification](http://www.ecma-international.org/ecma-262/6.0/)
-
+4. [How To Use Arguments And Parameters In ECMAScript 6](https://www.smashingmagazine.com/2016/07/how-to-use-arguments-and-parameters-in-ecmascript-6/)
 
 [1]: https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments "Optimization-killers"
