@@ -1,13 +1,21 @@
 {
-    "gitbook": "2.x.x",
+    "gitbook": "3.x.x",
     "host": "liudong.me",
     "structure": {
         "readme": "README.md"
     },
-    "plugins": ["ga"],
+    "plugins": ["ga", "donate"],
     "pluginsConfig": {
         "ga": {
             "token": "UA-40059659-1"
+        },
+        "donate": {
+          "wechat": "/assets/wechat.png",
+          "alipay": "/assets/alipay.png",
+          "title": "",
+          "button": "赏",
+          "alipayText": "支付宝打赏",
+          "wechatText": "微信打赏"
         }
     },
     "variables": {

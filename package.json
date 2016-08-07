@@ -21,6 +21,7 @@
   },
   "homepage": "http://liudong.me/",
   "dependencies": {
-    "gitbook-plugin-ga": "^0.2.1"
+    "gitbook-plugin-ga": "*",
+    "gitbook-plugin-donate": "*"
   }
 }
