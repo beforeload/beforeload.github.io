@@ -86,4 +86,11 @@ _两种类型的插件接口_
 
 __Compiler实例__
 
+`webpack` 插件需要在原型链上定义 `apply` 方法，才有权限调用所有的 `compiler` 的实例方法：
+
+* run(compiler: Compiler) 异步方法，启动编译过程
+* watch-run(watching: Watching) 异步方法，启动监听的编译过程
+* compilation(c: Compilation, params: Object)
+
+
 ### 开发一个插件
