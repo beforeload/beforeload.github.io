@@ -6,7 +6,7 @@
     * [loaders](webpack/loader.md)
     * [代码拆分](webpack/code-splitting.md)
     * [优化](webpack/optimizations.md)
-    * [调试工具](webpack/development-tools.md)
+    * [开发工具](webpack/development-tools.md)
 * [移动 Web 开发](web/README.md)
     * [知识体系](web/knowledge-list.md)
     * [经典案例](web/classical-cases.md)
