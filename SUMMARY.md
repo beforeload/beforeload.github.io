@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [webpack](webpack/README.md)
     * [plugin](webpack/plugin.md)
-    * [performance](webpack/performance.md)
     * [loaders](webpack/loader.md)
     * [代码拆分](webpack/code-splitting.md)
     * [优化](webpack/optimizations.md)
