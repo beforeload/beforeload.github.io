@@ -1,11 +1,11 @@
 ---
-title: Classical Cases in Mobile Web Development
+title: 移动开发中的典型示例
 date: 2017-06-02 15:46:52
 tags: web
 categories: web
 ---
 
-### Introduction
+### 简介
 
 本文目标是介绍在移动 web 开发中，遇到的一些常见的布局、样式、事件、动画等方面的问题。
 <!-- more -->
