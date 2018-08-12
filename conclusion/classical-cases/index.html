@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="简介本文目标是介绍在移动 web 开发中，遇到的一些常见的布局、样式、事件、动画等方面的问题。">
+<meta name="keywords" content="web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动开发中的典型示例">
+<meta property="og:url" content="http://liudong.me/conclusion/classical-cases/index.html">
+<meta property="og:site_name" content="元千的日志">
+<meta property="og:description" content="简介本文目标是介绍在移动 web 开发中，遇到的一些常见的布局、样式、事件、动画等方面的问题。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-12T08:13:32.680Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动开发中的典型示例">
+<meta name="twitter:description" content="简介本文目标是介绍在移动 web 开发中，遇到的一些常见的布局、样式、事件、动画等方面的问题。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://liudong.me/conclusion/classical-cases/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>移动开发中的典型示例 | 元千的日志</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">元千的日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">专注前端开发</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />Sitemap</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudong.me/conclusion/classical-cases/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Liu">
+      <meta itemprop="description" content="个人日志">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="元千的日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动开发中的典型示例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-06-02 15:46:52" itemprop="dateCreated datePublished" datetime="2017-06-02T15:46:52+08:00">2017-06-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 16:13:32" itemprop="dateModified" datetime="2018-08-12T16:13:32+08:00">2018-08-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/conclusion/" itemprop="url" rel="index"><span itemprop="name">conclusion</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>本文目标是介绍在移动 web 开发中，遇到的一些常见的布局、样式、事件、动画等方面的问题。<br><a id="more"></a></p>
+<blockquote>
+<ol>
+<li><a href="#Layout">Layout &amp; Style</a></li>
+<li><a href="#Events">Events</a></li>
+<li><a href="#Animation">Animation</a></li>
+</ol>
+</blockquote>
+<h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><p><strong>(1) REM</strong></p>
+<p>这个单位根据的是 html 根节点的 <code>font-size</code> 的大小。</p>
+<p><strong>(2) 文本上下垂直居中</strong></p>
+<ul>
+<li>table 方式：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">display</span>: <span class="selector-tag">table-cell</span>;</span><br><span class="line"><span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>;</span><br><span class="line"><span class="selector-tag">vertical-align</span>: <span class="selector-tag">middle</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>flex 方式：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">display:-webkit-box;</span><br><span class="line">-webkit-box-pack: center;</span><br><span class="line">-webkit-box-align: center;</span><br><span class="line">text-align:center;</span><br></pre></td></tr></table></figure>
+<p><strong>(3) 多行文本</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">-webkit-line-clamp</span>: <span class="number">3</span>;</span><br><span class="line">    <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="attribute">overflow </span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>(4) Retina 高清图片</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(no-image-set.png);</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">image-set</span>(url(foo-lowres.png) <span class="number">1</span>x,<span class="built_in">url</span>(foo-highres.png) <span class="number">2</span>x) center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>不支持 image-set 时解析的是 background-image。</p>
+<p><strong>(5) 背景透明</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: rgba(0, 0, 0, 0.8);</span><br></pre></td></tr></table></figure>
+<p>用opacity 会连同文字一起变的透明。</p>
+<p><strong>(6) 阻止字体自动调整</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 &#123;</span><br><span class="line">    -webkit-text-size-adjust:none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>(7) 点击抖动</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-tap-highlight-color:rgba(0, 0, 0, 0);</span><br></pre></td></tr></table></figure>
+<p><strong>(8) 取消 a 标签点击时虚线</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outline: none;</span><br></pre></td></tr></table></figure>
+<p><strong>(9) 禁止选中</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">user-select: none;</span><br><span class="line">-moz-user-select: none;</span><br><span class="line">-webkit-user-select: none;</span><br><span class="line">-ms-user-select: none;</span><br></pre></td></tr></table></figure>
+<p>android机型上，点击会触发选中。<br>这一点在一些小的icon上使用，用户体验较好。</p>
+<p><strong>(10) 禁止缩放</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;&quot; name=&quot;viewport&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>(11) 禁止 标签弹出浏览器选项</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-webkit-touch-callout</span>: <span class="selector-tag">none</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>(12) 处理吸顶元素 fix 定位同时键盘弹起</strong></p>
+<p>参考 m.taobao.com，input元素弹起时，下方用一个遮罩，禁止上下滚动，这样页面高度和浏览器高度相同，<br>键盘弹起时，不会出现吸顶的元素错位的情况。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$body.css(&#123;</span><br><span class="line">    <span class="string">'height'</span>: <span class="built_in">window</span>.innerHeight + <span class="string">'px'</span>,</span><br><span class="line">    <span class="string">'overflow'</span>: <span class="string">'hidden'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 禁止滚动</span></span><br><span class="line">$body.on(<span class="string">'touchmove'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    e.preventDefault();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>（13）IOS 8以上1px border过粗问题</strong></p>
+<p>根据 userAgent 判断 IOS 设备，在 html 或 body 上加上 <code>id=&quot;ios&quot;</code>。需要对边框进行处理的时候，加上 global-border 的 class 即可。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2</span>)&#123;</span><br><span class="line"> <span class="selector-id">#ios</span> &#123;</span><br><span class="line">   <span class="selector-class">.global-border</span> &#123;</span><br><span class="line">      <span class="attribute">border-width</span>:<span class="number">0.5px</span>;</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">3</span>)&#123;</span><br><span class="line">  <span class="selector-id">#ios</span> &#123;</span><br><span class="line">    <span class="selector-class">.global-border</span> &#123;</span><br><span class="line">      <span class="attribute">border-width</span>:<span class="number">0.7px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>（14）禁止自动转码</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>（15）CSS 三角形</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/*箭头向上*/</span><br><span class="line">.arrow-up &#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">    border-left: 10px solid transparent;</span><br><span class="line">    border-right: 10px solid transparent;</span><br><span class="line">    border-bottom: 10px solid #fff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> /*箭头向下*/</span><br><span class="line">.arrow-down &#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">    border-left: 10px solid transparent;</span><br><span class="line">    border-right: 10px solid transparent;</span><br><span class="line">    border-top: 10px solid #0066cc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> /*箭头向左*/</span><br><span class="line">.arrow-left &#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">    border-top: 10px solid transparent;</span><br><span class="line">    border-bottom: 10px solid transparent;</span><br><span class="line">    border-right: 10px solid yellow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*箭头向右*/</span><br><span class="line">.arrow-right &#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">    border-top: 10px solid transparent;</span><br><span class="line">    border-bottom: 10px solid transparent;</span><br><span class="line">    border-left: 10px solid green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Events"><a href="#Events" class="headerlink" title="Events"></a>Events</h3><p><strong>(1) 点击穿透</strong></p>
+<p>参考 <a href="/web/touch-defect/">点击穿透</a></p>
+<p><strong>(2) iOS 键盘</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot;&gt;  &lt;!-- 数字键盘 --&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; pattern=&quot;[0-9]*&quot;&gt; &lt;!-- 数字键盘，只有 0-9 没有 +/- --&gt;</span><br><span class="line">&lt;input type=&quot;url&quot;&gt;  &lt;!-- 地址 键盘上含有 .com 按键 --&gt;</span><br></pre></td></tr></table></figure>
+<p>iOS 支持的键盘类型还有很多，例如 添加属性 <code>autocapitalize=&quot;off&quot;</code>，则取消首字母大写。</p>
+<p><a href="https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/InputTypes.html" target="_blank" rel="noopener">支持的键盘类型</a></p>
+<p><a href="http://sja.co.uk/controlling-which-ios-keyboard-is-shown" target="_blank" rel="noopener">控制各种键盘展示</a></p>
+<p>还可以消除原生外观，自定义键盘样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-appearance: none;</span><br></pre></td></tr></table></figure>
+<p><strong>(3) IScroll</strong></p>
+<p>滚动元素 设置 <code>display: none</code> 再改为 <code>display: block</code> 的时候会导致IScroll无法滚动的问题</p>
+<p>原因：不在文档流中显示的元素offset() 得到值为0，滚动动画不生效</p>
+<p>需要修改IScroll的源码，检测 DOM 的改变。</p>
+<p><strong>(4) 局部滚动broken</strong></p>
+<p>fix定位可能导致滑动不流畅，在iOS上设置以下属性，需要同时绑定touchstart事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-overflow-scrolling: touch</span><br></pre></td></tr></table></figure>
+<p>bug 场景描述见 <a href="http://stackoverflow.com/questions/18736297/webkit-overflow-scrolling-touch-broken-for-initially-offscreen-elements-in-i" target="_blank" rel="noopener">stackoverflow</a></p>
+<h3 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h3><p><strong>(1) 硬件加速</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-transform:translate3d(0, 0, 0);</span><br></pre></td></tr></table></figure>
+<p>android 对 translate3d 动画效果明显比 iOS 要弱。<br>尽可能让动画元素用 absolute 定位。</p>
+<p><strong>(2) 动画函数</strong></p>
+<p>一个 fadeIn 效果，摘自 <a href="https://github.com/daneden/animate.css/blob/master/animate.css#L1150-L1173" target="_blank" rel="noopener">animate.css</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.animated</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-animation-duration</span>: <span class="number">1s</span>;</span><br><span class="line">  <span class="attribute">animation-duration</span>: <span class="number">1s</span>;           <span class="comment">/* 事件间隔 1秒 */</span></span><br><span class="line">  <span class="attribute">-webkit-animation-fill-mode</span>: both;</span><br><span class="line">  <span class="attribute">animation-fill-mode</span>: both;        <span class="comment">/* 动画开始和结束之外的状态 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> fadeIn &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@<span class="keyword">keyframes</span> fadeIn &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.fadeIn</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-animation-name</span>: fadeIn;</span><br><span class="line">  <span class="attribute">animation-name</span>: fadeIn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>(3) iOS 多边形裁切</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-webkit-clip-path: polygon(0px 0px, 100px 0, 0 100px);</span><br></pre></td></tr></table></figure>
+<p><strong>(4) 动画闪烁问题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-webkit-backface-visibility: hidden;</span><br><span class="line">-moz-backface-visibility: hidden;</span><br><span class="line"> -ms-backface-visibility: hidden;</span><br><span class="line">backface-visibility: hidden;</span><br><span class="line">-webkit-perspective: 1000;</span><br><span class="line">-moz-perspective: 1000;</span><br><span class="line">-ms-perspective: 1000;</span><br><span class="line">perspective: 1000;</span><br></pre></td></tr></table></figure>
+<p>3D 动画由于默认情况下，是可以看到后面的元素的，因为视差，会造成闪烁情况。<br>上述样式可以隐藏后面的元素。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/conclusion/touch-defect/" rel="prev" title="点击穿透">
+                点击穿透 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Daniel Liu</p>
+              <p class="site-description motion-element" itemprop="description">个人日志</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout"><span class="nav-number">2.</span> <span class="nav-text">Layout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Events"><span class="nav-number">3.</span> <span class="nav-text">Events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Animation"><span class="nav-number">4.</span> <span class="nav-text">Animation</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Liu</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

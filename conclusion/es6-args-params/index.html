@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6中实参和形参">
+<meta property="og:url" content="http://liudong.me/conclusion/es6-args-params/index.html">
+<meta property="og:site_name" content="元千的日志">
+<meta property="og:description" content="ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-12T08:13:36.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6中实参和形参">
+<meta name="twitter:description" content="ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://liudong.me/conclusion/es6-args-params/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>ES6中实参和形参 | 元千的日志</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">元千的日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">专注前端开发</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />Sitemap</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liudong.me/conclusion/es6-args-params/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daniel Liu">
+      <meta itemprop="description" content="个人日志">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="元千的日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6中实参和形参
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-05-23 10:59:22" itemprop="dateCreated datePublished" datetime="2018-05-23T10:59:22+08:00">2018-05-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-12 16:13:36" itemprop="dateModified" datetime="2018-08-12T16:13:36+08:00">2018-08-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/conclusion/" itemprop="url" rel="index"><span itemprop="name">conclusion</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。</p>
+<a id="more"></a>
+<h3 id="Arguments-Parameters-对比"><a href="#Arguments-Parameters-对比" class="headerlink" title="Arguments Parameters 对比"></a>Arguments Parameters 对比</h3><p>Arguments 和 Parameters 很容易混淆，但还是有区别的。在很多标准中，parameters（形参）是指函数声明中的，而 arguments（实参）是传递给函数使用的。举个栗子🌰：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">params1, param2</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// do sth</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">1</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>如上函数，params1、params2 是形参，1、2 是实参。</p>
+<h3 id="Spread-Operator-…"><a href="#Spread-Operator-…" class="headerlink" title="Spread Operator (…)"></a>Spread Operator (…)</h3><p>ES5中，给函数传一个参数数组常用方法是<code>apply()</code>。很多方法并不支持数组的传参，例如<code>Math.max()</code>方法。<br>在ES5中，我们想要得到数组元素中的最大值，可以这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>];</span><br><span class="line"><span class="built_in">Math</span>.max(arr) <span class="comment">// Error: NaN</span></span><br><span class="line"><span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, arr); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+<p>像<code>Math.max()</code>这样不支持数组，只接受数字参数的方法还有很多。当传入数组参数时，它会抛出一个Error，但是可以用<br><code>apply()</code> 方法，传入的数组会被解析成一个一个独立的数字，<code>Math.max()</code>可以正确的运行。</p>
+<p>在ES6中，引入了一个展开运算符(…)。于是，不再需要<code>apply()</code>方法，就可以很容易的将表达式展开成多个实参。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>];</span><br><span class="line"><span class="built_in">Math</span>.max(...arr); <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+<p>这个地方，展开运算符把数组 <code>arr</code> 扩展成一个个独立的值，提供给函数调用。虽然可以使用<code>apply()</code> 模拟展开运算符，但是语法容易混淆，不如展开运算符灵活。展开运算符不仅使用方便，在函数调用时，<br>还可以多次使用，并混入其他实参，举例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> <span class="built_in">arguments</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> params = [<span class="number">10</span>, <span class="number">15</span>];</span><br><span class="line">myFunc(<span class="number">5</span>, ...params, <span class="number">20</span>, ...[<span class="number">25</span>]);  <span class="comment">// 5 10 15 20 25</span></span><br></pre></td></tr></table></figure>
+<p>展开运算符的另一大优势是，很容易用于构造函数，🌰如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(...[<span class="number">2016</span>, <span class="number">8</span>, <span class="number">3</span>]); <span class="comment">// Sat Sep 03 2016 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<p>当然，在ES5中，可以使用前面的代码重现实现，但是可能需要使用一个比较复杂的模式来避免类型错误。代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>.apply(<span class="literal">null</span>, [<span class="number">2016</span>, <span class="number">4</span>, <span class="number">24</span>])</span><br><span class="line"><span class="comment">// Uncaught TypeError: Date.apply is not a constructor(…)(anonymous function)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> (<span class="built_in">Function</span>.prototype.bind.apply(<span class="built_in">Date</span>, [<span class="literal">null</span>].concat([<span class="number">2016</span>, <span class="number">8</span>, <span class="number">3</span>])));</span><br><span class="line"><span class="comment">// Sat Sep 03 2016 00:00:00 GMT+0800 (CST)</span></span><br></pre></td></tr></table></figure>
+<h4 id="展开运算符在函数调用中浏览器支持情况"><a href="#展开运算符在函数调用中浏览器支持情况" class="headerlink" title="展开运算符在函数调用中浏览器支持情况"></a>展开运算符在函数调用中浏览器支持情况</h4><p><strong>桌面浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHROME</th>
+<th style="text-align:center">FIREFOX</th>
+<th style="text-align:center">INTERNET EXPLORER</th>
+<th style="text-align:center">MICROSOFT EDGE</th>
+<th style="text-align:center">OPERA</th>
+<th style="text-align:center">SAFARI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">46</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">Supported</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">7.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mobile 浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHROME FOR ANDROID</th>
+<th style="text-align:center">FIREFOX MOBILE</th>
+<th style="text-align:center">SAFARI MOBILE</th>
+<th style="text-align:center">OPERA MOBILE</th>
+<th style="text-align:center">IE MOBILE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">46</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Rest-Parameters"><a href="#Rest-Parameters" class="headerlink" title="Rest Parameters"></a>Rest Parameters</h3><p>剩余参数的语法和展开运算符语法相同，但是不再把展开数组传给形参。它将所有的形参转化成一个数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testRestParams</span>(<span class="params">...options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> options;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">testRestParams(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>);</span><br><span class="line"><span class="comment">// ["a", "b", "c"]</span></span><br></pre></td></tr></table></figure>
+<p>如果没有实参，剩余参数会被设置成一个空数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testRestParams</span>(<span class="params">...options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> options;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">testRestParams(); <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<p>在创建一个可变参数函数（接受变长实参的函数）时，剩余参数相当有用。它有数组的优势，可以替代<code>arguments</code>对象。<br>在ES5中，操作参数需要这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSubstrings</span>(<span class="params">string</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; <span class="built_in">arguments</span>.length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(string.indexOf(<span class="built_in">arguments</span>[i]) === <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">checkSubstrings(<span class="string">'this is a string'</span>, <span class="string">'is'</span>, <span class="string">'this'</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>上述方法检验一个字符串是否包含一个子串。首先，我们必须查看函数体里是否接受多个实参，其次迭代必须从 1 开始，而不是从 0 开始。<br>因为<code>arguments[0]</code>指向的是第一个实参。如果我们后面在字符串之前或之后添加一个参数，有可能会忘记更新内部的循环。<br>使用剩余参数可以很容易的避免这些问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkSubstrings</span>(<span class="params">string, ...keys</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">of</span> keys) &#123;</span><br><span class="line">    <span class="keyword">if</span>(string.indexOf(key) === <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">checkSubstrings(<span class="string">'this is a string'</span>, <span class="string">'is'</span>, <span class="string">'this'</span>);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>这两种方法的实现结果相同，不同的是剩余参数是将剩余的实参放到一个数组中，赋值给变量<code>keys</code>。</p>
+<p>使用剩余参数取代<code>arguments</code>对象，提升了代码的可读性，同时避免了<code>arguments</code>导致JavaScript中的函数无法优化的<a href="https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments" title="Optimization-killers" target="_blank" rel="noopener">问题</a>。<br>然而剩余参数不是万能的，它必须放在最后一个参数，否则会报一个语法错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logArguments</span>(<span class="params">a, ...params, b</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(a, params, b);</span><br><span class="line">&#125;</span><br><span class="line">logArguments(<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Rest parameter must be last formal parameter</span></span><br></pre></td></tr></table></figure>
+<p>另外一个限制就是剩余参数在函数声明中只允许出现一次。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logArguments</span>(<span class="params">...params1, ...params2</span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">logArguments(<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>);</span><br><span class="line"><span class="comment">// Uncaught SyntaxError: Rest parameter must be last formal parameter</span></span><br></pre></td></tr></table></figure>
+<h4 id="剩余参数浏览器支持情况"><a href="#剩余参数浏览器支持情况" class="headerlink" title="剩余参数浏览器支持情况"></a>剩余参数浏览器支持情况</h4><p><strong>桌面浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHROME</th>
+<th style="text-align:center">FIREFOX</th>
+<th style="text-align:center">INTERNET EXPLORER</th>
+<th style="text-align:center">MICROSOFT EDGE</th>
+<th style="text-align:center">OPERA</th>
+<th style="text-align:center">SAFARI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">47</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">Supported</td>
+<td style="text-align:center">34</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<p><strong>移动端浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">CHROME FOR ANDROID</th>
+<th style="text-align:center">FIREFOX MOBILE</th>
+<th style="text-align:center">SAFARI MOBILE</th>
+<th style="text-align:center">OPERA MOBILE</th>
+<th style="text-align:center">IE MOBILE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">47</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Default-Parameters"><a href="#Default-Parameters" class="headerlink" title="Default Parameters"></a>Default Parameters</h3><h4 id="ES5-中的默认参数"><a href="#ES5-中的默认参数" class="headerlink" title="ES5 中的默认参数"></a>ES5 中的默认参数</h4><p>ES5中，其实是不支持默认参数的，只是有一种很容易的解决方法。在函数内使用或操作(||)，可以很方便的模拟默认参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">  param1 = param1 || <span class="number">10</span>;</span><br><span class="line">  param2 = param2 || <span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">5</span>, <span class="number">5</span>); <span class="comment">// 5 5</span></span><br><span class="line">foo(<span class="number">5</span>);    <span class="comment">// 5 10</span></span><br><span class="line">foo(<span class="number">10</span>);    <span class="comment">// 10 10</span></span><br></pre></td></tr></table></figure>
+<p>这个函数接受两个两个参数。如果调用时没有传参，它会使用默认值。在函数内部，没有实参会自动设置成<code>undefined</code>,<br>因此，我们可以使用逻辑或操作符(<code>||</code>)，检测缺少实参并设置默认值。或操作符监测第一个参数，如果为真，直接返回，如果为false,<br>返回第二个参数。</p>
+<p>这种方法在函数中非常常用，但是他有一个缺陷。传入 <code>0</code> 或者 <code>null</code> 等参数会返回默认值。因为<code>0, &quot;&quot;, null, undefined, and NaN</code> 都会被判为false。如果我们实际上需要传入<code>0</code> 或 <code>null</code> 给函数，可能需要另一个方式检测是否缺少实参。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function foo(param1, param2) &#123;</span><br><span class="line">  if(param1 === undefined) &#123;</span><br><span class="line">    param1 = 10;</span><br><span class="line">  &#125;</span><br><span class="line">  if(param2 === undefined) &#123;</span><br><span class="line">    param2 = 10;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(0, null); // 0, null</span><br><span class="line">foo();  // 10, 10</span><br></pre></td></tr></table></figure>
+<p>在函数内部，检测传入实参的类型，确保它们是 <code>undefined</code>，再赋值默认值。这样的判断需要一点代码量，不过对于传入 <code>0</code> 和 <code>null</code> 很安全。</p>
+<h4 id="ES6-中的默认参数"><a href="#ES6-中的默认参数" class="headerlink" title="ES6 中的默认参数"></a>ES6 中的默认参数</h4><p>在 ES6 中，不再需要检测 <code>undefined</code> 值来模拟默认形参。可以直接把默认值放到函数声明中：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a = <span class="number">10</span>, b = <span class="number">10</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">5</span>); <span class="comment">// 5 10</span></span><br><span class="line">foo(<span class="number">0</span>, <span class="literal">null</span>); <span class="comment">// 0 null</span></span><br></pre></td></tr></table></figure>
+<p>如上所示，遗漏实参会触发默认值，但是传入 <code>0</code> 或 <code>null</code> 不会。甚至可以使用函数查找默认值来供给默认参数。如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getParam</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'getParam was called'</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">param1, param2 = getParam(</span>)) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> param1 * param2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">multiply(<span class="number">2</span>, <span class="number">5</span>); <span class="comment">// 10</span></span><br><span class="line">multiply(<span class="number">2</span>);    <span class="comment">// getParam was called 6</span></span><br></pre></td></tr></table></figure>
+<p>注意到 <code>getParam</code> 函数只有在第二个实参缺失时，才会调用，当我们使用两个参数调用<code>multiply()</code>函数时，不会在控制台输出｀getParam was called｀。</p>
+<p>默认参数还有一个非常有趣的特性，我们可以在函数调用中，引用其他参数和值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defaultParams</span>(<span class="params">a = <span class="number">10</span>, b = a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'a = '</span> + a + <span class="string">'; b = '</span> + b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">defaultParams();    <span class="comment">// a = 10; b = 10</span></span><br><span class="line">defaultParams(<span class="number">22</span>);  <span class="comment">// a = 22; b = 22</span></span><br><span class="line">defaultParams(<span class="number">2</span>, <span class="number">4</span>);  <span class="comment">// a = 2; b = 4</span></span><br></pre></td></tr></table></figure>
+<p>甚至还可以在函数调用中进行运算操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, b = ++a, c = a * b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">5</span>); <span class="comment">// 6 6 36</span></span><br></pre></td></tr></table></figure>
+<p>注意，和其他语言不同的是，JavaScript 判断默认值是在函数调用时。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">value, array = []</span>) </span>&#123;</span><br><span class="line">  array.push(value);</span><br><span class="line">  <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(<span class="number">5</span>); <span class="comment">// [5]</span></span><br><span class="line">add(<span class="number">6</span>); <span class="comment">// [6], not [5, 6]</span></span><br></pre></td></tr></table></figure>
+<h4 id="默认参数浏览器支持情况"><a href="#默认参数浏览器支持情况" class="headerlink" title="默认参数浏览器支持情况"></a>默认参数浏览器支持情况</h4><p><strong>桌面浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">FEATURE</th>
+<th style="text-align:center">CHROME</th>
+<th style="text-align:center">FIREFOX</th>
+<th style="text-align:center">INTERNET EXPLORER</th>
+<th style="text-align:center">MICROSOFT EDGE</th>
+<th style="text-align:center">OPERA</th>
+<th style="text-align:center">SAFARI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Basic support</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">Parameters without defaults after default parameter</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<p><strong>移动端浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">FEATURE</th>
+<th style="text-align:center">CHROME FOR ANDROID</th>
+<th style="text-align:center">FIREFOX MOBILE</th>
+<th style="text-align:center">SAFARI MOBILE</th>
+<th style="text-align:center">OPERA MOBILE</th>
+<th style="text-align:center">IE MOBILE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Basic support</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">Parameters without defaults after default parameter</td>
+<td style="text-align:center">46</td>
+<td style="text-align:center">26</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Destructuring"><a href="#Destructuring" class="headerlink" title="Destructuring"></a>Destructuring</h3><p>解构是 ES6 中的新特性，主要用来将数组或者对象中的值提取出来，赋值给语法类似于对象或者数组常量的变量。解构的语法简单易于理解，在给函数传参过程中相当有用。</p>
+<p>在ES5中，处理大量可选参数，特别是对象属性无序时，通常使用配置管理对象的方式。<br>如下函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initiateTransfer</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> protocol = options.protocol,</span><br><span class="line">        port = options.port,</span><br><span class="line">        delay = options.delay,</span><br><span class="line">        retries = options.retries,</span><br><span class="line">        timeout = options.timeout,</span><br><span class="line">        log = options.log;</span><br><span class="line">    <span class="comment">// code to initiate transfer</span></span><br><span class="line">&#125;</span><br><span class="line">options = &#123;</span><br><span class="line">  protocol: <span class="string">'http'</span>,</span><br><span class="line">  port: <span class="number">800</span>,</span><br><span class="line">  delay: <span class="number">150</span>,</span><br><span class="line">  retries: <span class="number">10</span>,</span><br><span class="line">  timeout: <span class="number">500</span>,</span><br><span class="line">  log: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line">initiateTransfer(options);</span><br></pre></td></tr></table></figure>
+<p>对于 JavaScript 开发者而言，这种方式很常见，且非常有用。但是还是必须检查函数体内部，检验形参是否符合我们预期。<br>使用解构形参的方式，我们在函数声明中，可以很清晰的指明形参。使用方式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initiateTransfer</span>(<span class="params">&#123;protocol, port, delay, retries, timeout, log&#125;</span>) </span>&#123;</span><br><span class="line">     <span class="comment">// code to initiate transfer</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">  protocol: <span class="string">'http'</span>,</span><br><span class="line">  port: <span class="number">800</span>,</span><br><span class="line">  delay: <span class="number">150</span>,</span><br><span class="line">  retries: <span class="number">10</span>,</span><br><span class="line">  timeout: <span class="number">500</span>,</span><br><span class="line">  log: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line">initiateTransfer(options);</span><br></pre></td></tr></table></figure>
+<p>如上方法，我们使用了对象解构的方式，取代配置管理对象的方式，使得代码简洁，便于阅读。</p>
+<p>我们还可以把代码解构和常见传参相结合：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initiateTransfer</span>(<span class="params">param1, &#123;protocol, port, delay, retries, timeout, log&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// code to initiate transfer</span></span><br><span class="line">&#125;</span><br><span class="line">initiateTransfer(<span class="string">'some value'</span>, options);</span><br></pre></td></tr></table></figure>
+<p>注意，如果在函数调用中省略了参数，会报类型错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initiateTransfer</span>(<span class="params">&#123;protocol, port, delay, retries, timeout, log&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// code to initiate transfer</span></span><br><span class="line">&#125;</span><br><span class="line">initiateTransfer();</span><br><span class="line"><span class="comment">// Uncaught TypeError: Cannot match against 'undefined' or 'null'.</span></span><br></pre></td></tr></table></figure>
+<p>这种行为是当我们需要的参数已经明确。如果想让参数可选呢？为了避免缺少参数引入错误，这就需要给解构参数提供一个默认值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">&#123;a, b, c&#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a(); <span class="comment">// no error</span></span><br></pre></td></tr></table></figure>
+<p>一个空对象作为默认值提供给解构参数，这样函数调用时如果没有任何形参，也不会有任何错误。</p>
+<p>我们也可以给解构参数的每一项提供一个默认值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">destructuredParams</span>(<span class="params">&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">  a = <span class="string">'abc'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">  b = <span class="number">1234</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">  c = true</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个例子中，每个属性有一个默认参数，消除了我们人工检查<code>undefined</code>参数的需求，并在函数体内部拥有了默认值。</p>
+<h4 id="解构浏览器支持情况"><a href="#解构浏览器支持情况" class="headerlink" title="解构浏览器支持情况"></a>解构浏览器支持情况</h4><p><strong>桌面浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">FEATURE</th>
+<th style="text-align:center">CHROME</th>
+<th style="text-align:center">FIREFOX</th>
+<th style="text-align:center">INTERNET EXPLORER</th>
+<th style="text-align:center">MICROSOFT EDGE</th>
+<th style="text-align:center">OPERA</th>
+<th style="text-align:center">SAFARI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Basic support</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">7.1</td>
+</tr>
+<tr>
+<td style="text-align:center">Parameters without defaults after default parameter</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<p><strong>移动端浏览器</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">FEATURE</th>
+<th style="text-align:center">CHROME FOR ANDROID</th>
+<th style="text-align:center">FIREFOX MOBILE</th>
+<th style="text-align:center">SAFARI MOBILE</th>
+<th style="text-align:center">OPERA MOBILE</th>
+<th style="text-align:center">IE MOBILE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Basic support</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">Parameters without defaults after default parameter</td>
+<td style="text-align:center">49</td>
+<td style="text-align:center">47</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">–</td>
+</tr>
+</tbody>
+</table>
+<p>参考链接</p>
+<h3 id="Passing-Arguments"><a href="#Passing-Arguments" class="headerlink" title="Passing Arguments"></a>Passing Arguments</h3><p>JavaScript 中只有两种函数传参方式：引用传递和值传递。引用传参的参数修改会影响全局，而值传递的参数修改只影响函数体内部。</p>
+<p>有一些语言，如VB，PowerShell，是可以选择参数使用值传递还是引用传递，JavaScript没有这样的选项。</p>
+<h4 id="值传递"><a href="#值传递" class="headerlink" title="值传递"></a>值传递</h4><p>JavaScript 可以只传递值。当传入实参的值给函数，在函数作用域内，参数的值会创建一份拷贝，任何对这些值的改变只会在函数作用域内生效。如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increment</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  a = ++a;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">increment(a); <span class="comment">// 6</span></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 5;</span></span><br></pre></td></tr></table></figure>
+<p>这里在函数内部修改参数的值，不会影响函数外部原来的值。因此，如果变量在函数外部打印，它的值仍然是<code>5</code>。</p>
+<h4 id="引用传递"><a href="#引用传递" class="headerlink" title="引用传递"></a>引用传递</h4><p>其实可以这么理解，在 JavaScript 中，所有的传递都是通过值的方式。当我们传递的是一个指向对象或数组的变量，这个“值”其实就是引用对象的指针。通过变量修改其引用对象的属性，原先的对象也会随之改变。如下方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">  param.bar = <span class="string">'new value'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj = &#123; <span class="attr">bar</span>: <span class="string">'value'</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj.bar); <span class="comment">// value</span></span><br><span class="line">foo(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj.bar); <span class="comment">// new value</span></span><br></pre></td></tr></table></figure>
+<p>如上所示，<code>param</code>对象属性在函数内部发生改变，在函数体外部，也能看到修改的值。</p>
+<p>当传递的参数不是原始的值，例如对象会数组，在这种场景下，会创建一个变量指向原来的对象在内存中的地址。这个变量会被传递给函数，修改它会影响原来的对象。</p>
+<h3 id="类型检测和缺失或扩展参数"><a href="#类型检测和缺失或扩展参数" class="headerlink" title="类型检测和缺失或扩展参数"></a>类型检测和缺失或扩展参数</h3><p>在一个强类型的语言中，在函数声明中必须设定参数的类型。但是在 JavaScript 中，缺少这样的特性。在 JavaScript 中，数据的类型和传参的个数都比较随意。</p>
+<p>假设有个方法只接受一个参数。当调用这个方法时，没有限制只传递一个参数给这个方法。可以传递一个，两个甚至多个参数。更加令人发指的是我们可以选择不传递任何参数，并且不会报错。</p>
+<p>实参和形参的个数不同主要有以下两种情况：</p>
+<ul>
+<li><strong>实参少于形参</strong>：缺少的参数会被当作 <code>undefined</code></li>
+<li><strong>实参多余形参</strong>：多余的形参会被忽略掉，但是可以通过类数组的变量<code>arguments</code>检索到。</li>
+</ul>
+<h3 id="强制性参数"><a href="#强制性参数" class="headerlink" title="强制性参数"></a>强制性参数</h3><p>如果在函数调用中，一个实参遗漏了，它会被设置成 <code>undefined</code>。我们可以利用这个行为，当一个实参遗漏时抛出一个错误。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">mandatory, optional</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(mandatory === <span class="literal">undefined</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Missing parameter: mandatory'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 ES6 中，可以使用默认参数的方法设置强制性的参数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throwError</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Missing parameter'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param1 = throwError(</span>), <span class="title">param2</span> = <span class="title">throwError</span>(<span class="params"></span>)) </span>&#123;</span><br><span class="line">  <span class="comment">// TODO</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">10</span>, <span class="number">20</span>); <span class="comment">// okay</span></span><br><span class="line">foo(<span class="number">10</span>);     <span class="comment">// Uncaught Error: Missing parameter</span></span><br></pre></td></tr></table></figure>
+<h3 id="实参对象"><a href="#实参对象" class="headerlink" title="实参对象"></a>实参对象</h3><p>对于剩余参数的支持，早在 ES4 中，就有意向替换 <code>arguments</code> 对象，但是 ES4 标准并没有实现它。随着 ES6 的发布，JavaScript官方支持剩余参数。同时拒绝了放弃支持 <code>arguments</code> 对象的提案。</p>
+<p><code>arguments</code> 是一个类数组的对象，存在于所有的函数方法中。通过类似于数组下标的方法可以获取 <code>arguments</code> 里的值。这个对象允许我们传递任意个数的实参给函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">funciton checkParams(param1) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param1);  <span class="comment">// 2</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>], <span class="built_in">arguments</span>[<span class="number">1</span>]);  <span class="comment">// 2 3</span></span><br><span class="line">  <span class="built_in">console</span>.log(param1 + <span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">// 2 + 2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">checkParams(<span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<p>这个方法期望只接受一个实参。当我们调用这个方法时传入两个参数。第一个参数可以用形参 <code>param1</code> 或 <code>arguments[0]</code> 获取，但第二个参数只能用 <code>arugments[1]</code> 获取。注意 <code>arguments</code> 对象只能结合 <code>arguments</code>名字一起使用。</p>
+<p>对于所有传递给函数的实参，<code>arguments</code> 都有一个入口，第一个入口的索引值从 <code>0</code> 开始。我们可以通过 <code>arguments[2]</code>，<code>arguments[3]</code> 等等获取更多实参。</p>
+<p>我们甚至可以跳过设置形参，直接使用 <code>arguments</code> 对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkParams</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>], <span class="built_in">arguments</span>[<span class="number">0</span>], <span class="built_in">arguments</span>[<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">checkParams(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>); <span class="comment">// 4 2 6</span></span><br></pre></td></tr></table></figure>
+<p>实际上，命名形参是因为使用方便，不是必要的。与之类似的，剩余参数也可以用来代表传入的参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkParams</span>(<span class="params">...params</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(params[<span class="number">1</span>], params[<span class="number">0</span>], params[<span class="number">2</span>]); <span class="comment">// 4 2 6</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">1</span>], <span class="built_in">arguments</span>[<span class="number">0</span>], <span class="built_in">arguments</span>[<span class="number">2</span>]); <span class="comment">// 4 2 6</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">checkParams(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>);</span><br></pre></td></tr></table></figure>
+<p><code>arguments</code> 对象是一个类数组（并不是数组）的对象。它缺少数组的方法，例如<code>slice()</code>和<code>foreach()</code>。<br>为了在 <code>arguments</code> 对象上使用数组方法。首先我们需要做的是转成真实的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> a.sort();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sort(<span class="number">40</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">30</span>); <span class="comment">// [20, 30, 40, 50]</span></span><br></pre></td></tr></table></figure>
+<p>在这个方法中，<code>Array.prototype.slice.call()</code> 用来快速转化 <code>arguments</code> 对象成一个数组。<br><code>sort()</code> 方法对数组中的元素进行排序后返回。</p>
+<p>ES6 中有更直接的方法：<code>Array.from()</code> 是 ES6 中新加的方法，用来从任何类数组的对象中创建一个新的数组。使用如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">Array</span>.from(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">return</span> a.sort();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sort(<span class="number">40</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">30</span>); <span class="comment">// [20, 30, 40, 50]</span></span><br></pre></td></tr></table></figure>
+<h3 id="length-属性"><a href="#length-属性" class="headerlink" title="length 属性"></a><code>length</code> 属性</h3><p>尽管 <code>arguments</code> 对象不是一个典型的数组，但是它有<code>length</code>属性，可以用来检测传入参数的多少。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">countArguments</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">countArguments(); <span class="comment">// 0</span></span><br><span class="line">countArguments(<span class="number">10</span>, <span class="literal">null</span>, <span class="string">"string"</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>length</code> 属性，我们可以更好的控制传入实参的数量。如果一个方法需要两个实参才能生效，就可以使用 <code>length</code> 属性来检测传入实参的个数。如果少于期望的参数个数，可以抛出错误：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param1, param2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">arguments</span>.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'This function expects at least two arguments'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>剩余参数其实是数组，因此也有 <code>length</code> 属性。在 ES6 中，前面的代码可以用剩余参数的方法改写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">...params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(params.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'This function expects at least two arguments'</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span>(params.length === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="callee-和-Caller-属性"><a href="#callee-和-Caller-属性" class="headerlink" title="callee 和 Caller 属性"></a><code>callee</code> 和 <code>Caller</code> 属性</h3><p><code>callee</code> 属性指向当前正在运行的函数，而 <code>caller</code> 指向调用当前正在运行函数的函数方法。<br>在 ES5 的严格模式下，这些属性被废弃了，试图获取这些属性会报类型错误。</p>
+<p><code>arguments.callee</code> 属性在递归调用函数很有用，特别当函数名不存在（匿名函数）时。因为匿名函数没有名称，只能通过 <code>arguments.callee</code> 指向它。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>( n &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> n * <span class="built_in">arguments</span>.callee(n - <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="number">4</span>); <span class="comment">// 24</span></span><br></pre></td></tr></table></figure>
+<h3 id="严格模式和非严格模式下的-Arguments-对象"><a href="#严格模式和非严格模式下的-Arguments-对象" class="headerlink" title="严格模式和非严格模式下的 Arguments 对象"></a>严格模式和非严格模式下的 Arguments 对象</h3><p>在 ES5 非严格模式下，<code>arguments</code> 对象有个不常见的特性：它保持它的值和对应参数名的值同步。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param === <span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">// true</span></span><br><span class="line">  <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">500</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(param === <span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">// true</span></span><br><span class="line">  <span class="keyword">return</span> param</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">200</span>); <span class="comment">// 500</span></span><br></pre></td></tr></table></figure>
+<p>在函数内部，一个新的值赋值给了 <code>arguments[0]</code>。因为<code>arguments</code> 的值永远和对应参数名的值同步，修改 <code>arguments[0]</code> 的值也会修改 <code>param</code> 的值。实际上，他们像同一个变量的两个不同的名字。在 ES5 严格模式下，<code>arguments</code> 对象这些混淆的行为已经被移除了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param === <span class="built_in">arguments</span>[<span class="number">0</span>]);  <span class="comment">// ture</span></span><br><span class="line">  <span class="built_in">arguments</span>[<span class="number">0</span>] = <span class="number">500</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(param === <span class="built_in">arguments</span>[<span class="number">0</span>]);  <span class="comment">// false</span></span><br><span class="line">  <span class="keyword">return</span> param;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo(<span class="number">200</span>); <span class="comment">// 200</span></span><br></pre></td></tr></table></figure>
+<p>这下，修改 <code>arguments[0]</code> 不会影响 <code>param</code>，输出结果也符合期望。在 ES6 中这个函数的输出和 ES5 的严格模式一样。记住，在函数声明中使用默认值，<code>arguments</code> 对象不会被影响。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">param1, param2 = <span class="number">10</span>, param3 = <span class="number">20</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param1 === <span class="built_in">arguments</span>[<span class="number">0</span>]); <span class="comment">// ture</span></span><br><span class="line">  <span class="built_in">console</span>.log(param2 === <span class="built_in">arguments</span>[<span class="number">1</span>]); <span class="comment">// true</span></span><br><span class="line">  <span class="built_in">console</span>.log(param3 === <span class="built_in">arguments</span>[<span class="number">2</span>]); <span class="comment">// false</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">2</span>]);            <span class="comment">// undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(param3);                  <span class="comment">// 20</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个函数中，由于只有两个实参传入，即使 <code>param3</code> 有一个默认值，它也不等于 <code>arguments[2]</code>。换句话说，设置默认值不会影响 <code>arguments</code> 对象。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>ES6提供了超级多的新的特性，给 JavaScript 带来显著的提升。越来越多的开发者使用ES6的特性，并且难以避免的使用到它们。这篇博文只介绍 ES6 中参数处理的相关特性，还比较肤浅，更多功能特性等待挖掘。</p>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy" target="_blank" rel="noopener">Truthy</a></li>
+<li><a href="https://kangax.github.io/compat-table/es6/" target="_blank" rel="noopener">ECMAScript 6 Compatibility Table</a></li>
+<li><a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank" rel="noopener">ECMAScript 2015 Language Specification</a></li>
+<li><a href="https://www.smashingmagazine.com/2016/07/how-to-use-arguments-and-parameters-in-ecmascript-6/" target="_blank" rel="noopener">How To Use Arguments And Parameters In ECMAScript 6</a></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/conclusion/touch-defect/" rel="next" title="点击穿透">
+                <i class="fa fa-chevron-left"></i> 点击穿透
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/learning/add-two-numbers/" rel="prev" title="Add Two Numbers">
+                Add Two Numbers <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Daniel Liu</p>
+              <p class="site-description motion-element" itemprop="description">个人日志</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arguments-Parameters-对比"><span class="nav-number">1.</span> <span class="nav-text">Arguments Parameters 对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spread-Operator-…"><span class="nav-number">2.</span> <span class="nav-text">Spread Operator (…)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#展开运算符在函数调用中浏览器支持情况"><span class="nav-number">2.1.</span> <span class="nav-text">展开运算符在函数调用中浏览器支持情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rest-Parameters"><span class="nav-number">3.</span> <span class="nav-text">Rest Parameters</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#剩余参数浏览器支持情况"><span class="nav-number">3.1.</span> <span class="nav-text">剩余参数浏览器支持情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Default-Parameters"><span class="nav-number">4.</span> <span class="nav-text">Default Parameters</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES5-中的默认参数"><span class="nav-number">4.1.</span> <span class="nav-text">ES5 中的默认参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6-中的默认参数"><span class="nav-number">4.2.</span> <span class="nav-text">ES6 中的默认参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认参数浏览器支持情况"><span class="nav-number">4.3.</span> <span class="nav-text">默认参数浏览器支持情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Destructuring"><span class="nav-number">5.</span> <span class="nav-text">Destructuring</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解构浏览器支持情况"><span class="nav-number">5.1.</span> <span class="nav-text">解构浏览器支持情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passing-Arguments"><span class="nav-number">6.</span> <span class="nav-text">Passing Arguments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#值传递"><span class="nav-number">6.1.</span> <span class="nav-text">值传递</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引用传递"><span class="nav-number">6.2.</span> <span class="nav-text">引用传递</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型检测和缺失或扩展参数"><span class="nav-number">7.</span> <span class="nav-text">类型检测和缺失或扩展参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制性参数"><span class="nav-number">8.</span> <span class="nav-text">强制性参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实参对象"><span class="nav-number">9.</span> <span class="nav-text">实参对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#length-属性"><span class="nav-number">10.</span> <span class="nav-text">length 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#callee-和-Caller-属性"><span class="nav-number">11.</span> <span class="nav-text">callee 和 Caller 属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#严格模式和非严格模式下的-Arguments-对象"><span class="nav-number">12.</span> <span class="nav-text">严格模式和非严格模式下的 Arguments 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">13.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">13.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Daniel Liu</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
