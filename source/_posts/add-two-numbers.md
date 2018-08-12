@@ -5,14 +5,12 @@ tags: Algorithm
 categories: learning
 ---
 
-## Add Tow Numbers
-
-来源：[LeetCode](https://leetcode.com/problems/add-two-numbers/description/)
-
 ### 题目：
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+来源：[LeetCode](https://leetcode.com/problems/add-two-numbers/description/)
 
 <!-- more -->
 
@@ -39,6 +37,10 @@ Explanation: 342 + 465 = 807.
     7. 如果`q`存在，将`q.next`赋值给`q`
 5. 如果进位为1，则增加一个新的节点，节点值为 1
 6. 返回头结点的next
+
+### 算法复杂度
+* 时间复杂度：*O(max(m, n))* `l1` 和 `l2`的最大长度即遍历的迭代次数。
+* 空间复杂度：*O(max(m, n))* 返回的新的list 最大长度是 `max(m, n) + 1`
 
 ### code：
 
