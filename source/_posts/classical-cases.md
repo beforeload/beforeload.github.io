@@ -2,7 +2,7 @@
 title: 移动开发中的典型示例
 date: 2017-06-02 15:46:52
 tags: web
-categories: web
+categories: conclusion
 ---
 
 ### 简介

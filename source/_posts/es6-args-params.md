@@ -1,7 +1,8 @@
 ---
 title: ES6中实参和形参
 date: 2018-05-23 10:59:22
-tags:
+tags: javascript
+categories: conclusion
 ---
 
 ECMAScript 6 (or ECMAScript 2015) 标准中对参数引入了一些新的特性：剩余参数(rest parameters)，函数参数默认值，解构等。
