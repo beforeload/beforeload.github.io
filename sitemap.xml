@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://liudong.me/learning/palindrome-number/</loc>
+    
+    <lastmod>2018-08-12T09:59:22.150Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://liudong.me/learning/add-two-numbers/</loc>
+    
+    <lastmod>2018-08-12T09:59:04.268Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://liudong.me/conclusion/touch-defect/</loc>
     
     <lastmod>2018-08-12T08:13:48.212Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://liudong.me/conclusion/classical-cases/</loc>
     
     <lastmod>2018-08-12T08:13:32.680Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://liudong.me/learning/add-two-numbers/</loc>
-    
-    <lastmod>2018-08-12T08:12:38.423Z</lastmod>
     
   </url>
   

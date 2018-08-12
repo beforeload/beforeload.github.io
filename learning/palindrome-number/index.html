@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="题目：You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and retur">
+  <meta name="description" content="题目：Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. 来源">
 <meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Add Two Numbers">
-<meta property="og:url" content="http://liudong.me/learning/add-two-numbers/index.html">
+<meta property="og:title" content="Palindrome Number">
+<meta property="og:url" content="http://liudong.me/learning/palindrome-number/index.html">
 <meta property="og:site_name" content="元千的日志">
-<meta property="og:description" content="题目：You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and retur">
+<meta property="og:description" content="题目：Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. 来源">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-12T09:59:04.268Z">
+<meta property="og:updated_time" content="2018-08-12T09:59:22.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Add Two Numbers">
-<meta name="twitter:description" content="题目：You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and retur">
+<meta name="twitter:title" content="Palindrome Number">
+<meta name="twitter:description" content="题目：Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. 来源">
 
 
 
 
 
 
-  <link rel="canonical" href="http://liudong.me/learning/add-two-numbers/"/>
+  <link rel="canonical" href="http://liudong.me/learning/palindrome-number/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Add Two Numbers | 元千的日志</title>
+  <title>Palindrome Number | 元千的日志</title>
   
 
 
@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liudong.me/learning/add-two-numbers/">
+    <link itemprop="mainEntityOfPage" href="http://liudong.me/learning/palindrome-number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daniel Liu">
@@ -318,7 +318,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Add Two Numbers
+          <h1 class="post-title" itemprop="name headline">Palindrome Number
               
             
           </h1>
@@ -343,7 +343,7 @@
                 
               
 
-              <time title="Created: 2018-08-12 16:09:09 / Modified: 17:59:04" itemprop="dateCreated datePublished" datetime="2018-08-12T16:09:09+08:00">2018-08-12</time>
+              <time title="Created: 2018-08-12 17:57:44 / Modified: 17:59:22" itemprop="dateCreated datePublished" datetime="2018-08-12T17:57:44+08:00">2018-08-12</time>
             
 
             
@@ -399,33 +399,29 @@
       
 
       
-        <h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-<p>来源：<a href="https://leetcode.com/problems/add-two-numbers/description/" target="_blank" rel="noopener">LeetCode</a></p>
+        <h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p><a href="https://leetcode.com/problems/palindrome-number/description/" target="_blank" rel="noopener">来源</a></p>
 <a id="more"></a>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">Output: 7 -&gt; 0 -&gt; 8</span><br><span class="line">Explanation: 342 + 465 = 807.</span><br></pre></td></tr></table></figure>
-<h3 id="算法"><a href="#算法" class="headerlink" title="算法:"></a>算法:</h3><ol>
-<li>初始化返回的 NodeList 的头结点</li>
-<li>初始化进位<code>carry</code>为 0</li>
-<li>将列表 <code>l1</code> 和 <code>l2</code> 头结点赋值给 <code>p</code> 和 <code>q</code></li>
-<li><code>p</code> 或者 <code>q</code> 存在遍历列表 <code>l1</code> 和 <code>l2</code><ol>
-<li><code>p</code> 的值赋值给 <code>x</code>，<code>q</code> 的值赋值给 <code>y</code>，<code>p</code>或<code>q</code>不存在，则赋值为0</li>
-<li>计算<code>sum = x + y + carry</code></li>
-<li><code>carry = sum / 10</code></li>
-<li>创建一个新的节点<code>newNode</code>: <code>newNode.val = sum % 10</code>,并将当前节点的<code>next</code>指向这个节点<code>newNode</code></li>
-<li>当前节点进一位，即： <code>cur = cur.next</code></li>
-<li>如果<code>p</code>存在，将<code>p.next</code>赋值给<code>p</code></li>
-<li>如果<code>q</code>存在，将<code>q.next</code>赋值给<code>q</code></li>
+<h3 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h3><p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: 121</span><br><span class="line">Output: true</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: -121</span><br><span class="line">Output: false</span><br><span class="line">Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 3:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: 10</span><br><span class="line">Output: false</span><br><span class="line">Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</span><br></pre></td></tr></table></figure></p>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ol>
+<li>所有的负数，返回 false</li>
+<li>所有大于 0 的 10 的倍数，返回 false</li>
+<li>初始化回转数<code>revertNumber</code>为 0</li>
+<li>翻转一半的数字：<ol>
+<li>除以 10，余数是最后一位，商作为下次遍历的数字</li>
+<li><code>revertNumber = revertNumber * 10 + 余数</code></li>
+<li>回转数 &lt; 商则回到第一步，继续遍历</li>
 </ol>
 </li>
-<li>如果进位为1，则增加一个新的节点，节点值为 1</li>
-<li>返回头结点的next</li>
+<li>判断商 == 回转数 || 商 == 回转数除以10后的商（121这样的case)</li>
 </ol>
 <h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><ul>
-<li>时间复杂度：<em>O(max(m, n))</em> <code>l1</code> 和 <code>l2</code>的最大长度即遍历的迭代次数。</li>
-<li>空间复杂度：<em>O(max(m, n))</em> 返回的新的list 最大长度是 <code>max(m, n) + 1</code></li>
+<li>时间复杂度: <em>O(log(n))</em> 每次迭代过程中，我们是除以 10，所有时间复杂度是log以10为底的n</li>
+<li>空间复杂度：<em>O(1)</em></li>
 </ul>
-<h3 id="code："><a href="#code：" class="headerlink" title="code："></a>code：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * function ListNode(val) &#123;</span></span><br><span class="line"><span class="comment"> *     this.val = val;</span></span><br><span class="line"><span class="comment"> *     this.next = null;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l1</span></span><br><span class="line"><span class="comment"> * @param &#123;ListNode&#125; l2</span></span><br><span class="line"><span class="comment"> * @return &#123;ListNode&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> addTwoNumbers = <span class="function"><span class="keyword">function</span>(<span class="params">l1, l2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> dummyHead = <span class="keyword">new</span> ListNode();</span><br><span class="line">    <span class="keyword">let</span> carry = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> p = l1;</span><br><span class="line">    <span class="keyword">let</span> q = l2;</span><br><span class="line">    <span class="keyword">let</span> cur = dummyHead;</span><br><span class="line">    <span class="keyword">while</span>(p || q) &#123;</span><br><span class="line">        <span class="keyword">const</span> x = p ? p.val : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">const</span> y = q ? q.val : <span class="number">0</span>;</span><br><span class="line">        sum = x + y + carry;</span><br><span class="line">        carry = <span class="built_in">Math</span>.floor(sum / <span class="number">10</span>);</span><br><span class="line">        <span class="keyword">const</span> newNode = <span class="keyword">new</span> ListNode(sum % <span class="number">10</span>);</span><br><span class="line">        cur.next = newNode;</span><br><span class="line">        cur = cur.next;</span><br><span class="line">        <span class="keyword">if</span>(p) &#123;</span><br><span class="line">            p = p.next; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(q) &#123;</span><br><span class="line">            q = q.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(carry === <span class="number">1</span>) &#123;</span><br><span class="line">        cur.next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> dummyHead.next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @return &#123;boolean&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(x &lt; <span class="number">0</span> || (x % <span class="number">10</span> === <span class="number">0</span> &amp;&amp; x !== <span class="number">0</span>)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">let</span> revertNumber = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(revertNumber &lt; x) &#123;</span><br><span class="line">    <span class="keyword">const</span> y = x % <span class="number">10</span>;</span><br><span class="line">    x = (x - y) / <span class="number">10</span>;</span><br><span class="line">    revertNumber = revertNumber * <span class="number">10</span> + y;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> revertNumber === x || <span class="built_in">Math</span>.floor(revertNumber / <span class="number">10</span>) === x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -458,8 +454,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/conclusion/es6-args-params/" rel="next" title="ES6中实参和形参">
-                <i class="fa fa-chevron-left"></i> ES6中实参和形参
+              <a href="/learning/add-two-numbers/" rel="next" title="Add Two Numbers">
+                <i class="fa fa-chevron-left"></i> Add Two Numbers
               </a>
             
           </div>
@@ -467,10 +463,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/learning/palindrome-number/" rel="prev" title="Palindrome Number">
-                Palindrome Number <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,7 +608,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">2.</span> <span class="nav-text">例子:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法"><span class="nav-number">3.</span> <span class="nav-text">算法:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法复杂度"><span class="nav-number">4.</span> <span class="nav-text">算法复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code："><span class="nav-number">5.</span> <span class="nav-text">code：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子："><span class="nav-number">2.</span> <span class="nav-text">例子：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法"><span class="nav-number">3.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法复杂度"><span class="nav-number">4.</span> <span class="nav-text">算法复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">5.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
